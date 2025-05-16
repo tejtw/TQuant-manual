@@ -1,5 +1,5 @@
 # Project information
-site_name: "MkDocs Demo"
+site_name: "TQuant-manual"
 site_url: http://127.0.0.1:8000/
 site_author: TEJ
 site_description: >-
@@ -7,8 +7,8 @@ site_description: >-
   Quisque sed ipsum sed lorem.
 
 # Repository
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: TQuant-manual
+repo_url: https://github.com/tejtw/TQuant-manual
 
 # Basic configuration
 docs_dir: "../../docs/zh-TW/"
