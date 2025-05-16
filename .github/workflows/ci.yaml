@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Create cache id
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{env.cache_id}}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install dependency package
+        run: |
+          pip install mkdocs-material
+          pip install mike --force-reinstall --verbose
+
+      - name: Build zh-TW docs
+        run: mkdocs build --config-file=config/zh-TW/mkdocs.yml
+
+      - name: Build EN docs
+        run: mkdocs build --config-file=config/en/mkdocs.yml
+
+      - name: Deploy docs to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./public
+        

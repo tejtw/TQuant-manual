@@ -1,0 +1,320 @@
+# Project information
+site_name: "TQuant-manual"
+site_url: http://127.0.0.1:8000/
+site_author: TEJ
+site_description: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas et ipsum sit amet pretium.
+  Quisque sed ipsum sed lorem.
+
+# Repository
+repo_name: TQuant-manual
+repo_url: https://github.com/tejtw/TQuant-manual
+
+# Basic configuration
+docs_dir: "../../docs/zh-TW/"
+site_dir: "../../public/"
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/images/demo-logo.svg
+  favicon: assets/images/favicon.ico
+  language: zh-TW
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    - announce.dismiss
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.indexes
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to light mode
+
+# Extra configuration
+extra:
+  alternate:
+    - name: 中文
+      link: https://kadin4134.github.io/mkdocs/
+      lang: zh-TW
+
+    - name: English
+      link: https://kadin4134.github.io/mkdocs/en/
+      lang: en
+
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/squidfunk/mkdocs-material
+
+# Markdown extension
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  # - pymdownx.magsiclink:
+  #     normalize_issue_symbols: true
+  #     repo_url_shorthand: true
+  #     user: squidfunk
+  #     repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Override css style
+extra_css:
+  - assets/stylesheets/extra.css
+
+# plugin
+plugins:
+  - search:
+      lang: zh
+
+# Page tree
+nav:
+  - 首頁: index.md
+  - 技術手冊: 
+      - TQuant Lab 安裝 (Installation): example/documents1.md
+      - TQuant Lab 分析流程 (Workflow): example/documents2.md
+      - 擬真量化回測引擎 (Zipline):
+          - 新手教學(Simple Example): example/documents3.md
+          - 資料(Data): 
+              - Ingest 價量資料(Ingest Pricing Data): example/docume.md
+              - Ingest 非價量資料(Ingest Fundamental Data): example/documents9.md
+              - 取得 benchmark 報酬率 (Get Risk-Free Rate): example/documents10.md
+              - 取得無風險利率 (Get Benchmark Roi): example/documents11.md
+          - 交易日曆(Calendars): example/documents12.md
+          - API:
+              - 回測(Backtest): 
+                - initialize: example/documents13.md
+                - handle_data: example/documents51.md
+                - before_trading_start: example/documents52.md
+                - analyze: example/documents53.md
+                - context: example/documents54.md
+                - 執行回測演算法(run_algorithm): 
+                  - 回測範例(Example): example/documents55.md                                                                                                                    
+              - 股票池(Universe API): example/documents14.md
+              - 交易演算法API(Trading Algorithm API): 
+                - 資料物件(Data Object): example/documents15.md
+                - 排程函數(Scheduling Functions): example/documents56.md
+                - 下單函數(Orders):
+                  - order: example/documents57.md
+                  - order_target: example/documents58.md
+                  - order_percent: example/documents59.md
+                  - order_target_percent: example/documents60.md  
+                  - order_value: example/documents61.md
+                  - order_target_value: example/documents62.md
+                  - get_open_orders: example/documents63.md
+                  - cancel_order: example/documents64.md
+                - 資產物件(Assets): example/documents65.md
+                - 交易限制(Trading Controls):
+                  - set_do_not_order_list: example/documents66.md
+                  - set_long_only: example/documents67.md     
+                  - set_max_leverage: example/documents68.md
+                  - set_max_order_count: example/documents69.md
+                  - set_max_order_size: example/documents70.md
+                  - set_max_position_size: example/documents71.md
+                - 回測參數(Simulation Parameters): example/documents72.md
+                - 手續費模型(Commission Models):
+                  - PerDollar: example/documents73.md   
+                  - PerTrade: example/documents74.md
+                  - PerShare: example/documents75.md
+                  - Custom_TW_Commission: example/documents76.md
+                  - NoCommission: example/documents77.md
+                - 滑價模型(Slippage Models):
+                  - FixedSlippage: example/documents78.md
+                  - VolumeShareSlippage: example/documents79.md
+                  - FixedBasisPointsSlippag: example/documents80.md
+                  - NoSlippage: example/documents81.md
+                - 其他功能(Other API): example/documents83.md                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+              - Pipeline API: 
+                - 投資訊號生成工具(Pipeline): example/documents16.md
+                - Pipeline因子(Factor): example/documents84.md
+                - Pipeline濾網(Filter): example/documents85.md
+                - Pipeline分類器(Classifier): example/documents86.md
+                - Pipeline自訂因子(CustomFactor): example/documents87.md 
+                - Pipeline計算元素(Term): example/documents88.md
+                - Pipeline遮網(Masking): example/documents89.md
+                - Pipeline資料集(DataSet):
+                  - 價量資料集(EquityPricing): example/documents90.md
+                  - TEJ財務資料集(TQDataSet): example/documents91.md  
+                  - TEJ非財務資料集(TQAltDataSet): example/documents92.md
+                  - 自訂資料集(Custom Dataset): example/documents93.md
+                - Pipeline欄位(Column): example/documents94.md
+                - Pipeline內建因子(Built-in Factors):
+                  - AverageDollarVolume: example/documents95.md
+                  - BollingerBands: example/documents96.md    
+                  - DailyReturns: example/documents97.md
+                  - SimpleMovingAverage: example/documents98.md   
+                  - LinearWeightedMovingAverage: example/documents99.md
+                  - ExponentialWeightedMovingAverage: example/documents100.md
+                  - ExponentialWeightedMovingStdDev: example/documents101.md
+                  - Latest: example/documents102.md     
+                  - MaxDrawdown: example/documents103.md   
+                  - Returns: example/documents104.md
+                  - RollingPearson: example/documents105.md   
+                  - RollingLinearRegressionOfReturns: example/documents106.md
+                  - RollingSpearmanOfReturns: example/documents107.md 
+                  - SimpleBeta: example/documents108.md
+                  - RSI: example/documents109.md
+                  - VWAP: example/documents110.md  
+                  - WeightedAverageValue: example/documents111.md  
+                  - PercentChange: example/documents112.md
+                  - PeerCount: example/documents113.md
+                  - RateOfChangePercentage: example/documents114.md 
+                  - Aroon: example/documents115.md
+                  - FastStochasticOscillator: example/documents116.md   
+                  - TrueRange: example/documents117.md           
+                  - IchimokuKinkoHyo: example/documents118.md   
+                - Pipeline內建濾網(Built-in Filters):
+                  - All: example/documents119.md
+                  - Any: example/documents120.md
+                  - AtLeastN: example/documents121.md    
+                  - AllPresent: example/documents122.md           
+                  - StaticAssets: example/documents123.md      
+                  - StaticSids: example/documents124.md       
+                  - SingleAsset: example/documents125.md
+                  - top/bottom: example/documents126.md           
+                  - percentile_between: example/documents127.md  
+                  - if_else: example/documents128.md   
+                - Pipeline內建分類器(Built-in Classifiers):   
+                  - quartiles: example/documents129.md 
+                  - quintiles: example/documents130.md                         
+                  - deciles: example/documents131.md
+                  - quantiles: example/documents132.md    
+                - Pipeline引擎(Pipeline Engine): example/documents133.md  
+                - Pipeline資料讀取(PipelineLoader):
+                  - EquityPricingLoader: example/documents134.md  
+                  - DataFrameLoader: example/documents135.md                                                                              
+              - 交易所與資產屬性(Exchange and Asset Metadata): example/documents17.md
+              - Bundle資料API(Data API): example/documents18.md   
+          - 進階範例(Advanced Examples): example/documents35.md    
+          - 版本發布(Releases): example/documents36.md
+          - 常見問題(FAQ): example/documents37.md
+          - 參考資源(Related References): example/documents38.md                                                                                                 
+      - 可視化報表呈現 (Pyfolo): 
+          - Pyfolo安裝(Installation): example/documents4.md
+          - API:
+              - 公用函數(Utilites): example/documents39.md
+              - 因子績效報告(Tears): example/documents40.md
+              - 績效函數(Performance): example/documents41.md
+              - 繪圖函數(Ploting): example/documents42.md                                                           
+          - 進階範例(Advanced Examples): example/documents19.md
+          - 版本發布(Releases): example/documents20.md      
+          - 常見問題(FAQ): example/documents21.md
+          - 參考資源(Related References): example/documents22.md           
+      - 專業的因子分析工具 (Alphalens) : 
+          - Installation: example/documents5.md
+          - API:
+              - 公用函數(Utilites): example/documents43.md
+              - 因子績效報告(Tears): example/documents44.md
+              - 績效函數(Performance): example/documents45.md
+              - 繪圖函數(Ploting): example/documents46.md                                                              
+          - 進階範例(Advanced Examples): example/documents23.md    
+          - 版本發布(Releases): example/documents24.md
+          - 常見問題(FAQ): example/documents25.md
+          - 參考資源(Related References): example/documents26.md                             
+      - TejToolAPI:       
+          - TQuant Lab 安裝與API(Installation and API): example/documents6.md
+          - API:
+              - 取得資料(get_history_data): example/documents47.md                    
+          - 進階範例(Advanced Examples): example/documents27.md
+          - 常見問題(FAQ): example/documents28.md
+          - 版本發布(Releases): example/documents29.md                    
+      - Calendars: 
+          - Installation: example/documents7.md
+          - API: example/documents30.md
+          - 版本發布(Releases): example/documents31.md                
+      - Empyrical: 
+          - Installation: example/documents8.md
+          - API:
+              - 公用函數(Utilites): example/documents48.md
+              - (Stats): example/documents49.md 
+              - (Perf_attrib): example/documents50.md                                               
+          - Advanced Examples: example/documents32.md
+          - Releases: example/documents33.md
+          - Related References: example/documents34.md
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+# Copyright string on footer
+copyright: Copyright &copy; 2025 - MkDocs
