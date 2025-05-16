@@ -1,0 +1,5602 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas et ipsum sit amet pretium. Quisque sed ipsum sed lorem.">
+      
+      
+        <meta name="author" content="TEJ">
+      
+      
+        <link rel="canonical" href="http://127.0.0.1:8000/example/documents5/">
+      
+      
+        <link rel="prev" href="../documents22/">
+      
+      
+        <link rel="next" href="../documents43/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Installation - TQuant-manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XXXXXXXXXX",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#alphalens" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="不再顯示此訊息">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+ <!-- Add announcement here, including arbitrary HTML -->
+ 如需最新更新，請關注 <strong>@squidfunk</strong> 在
+  <a rel="me" href="https://github.com/tejtw/TQuant-Lab">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </span>
+    <strong>GitHub</strong>
+  </a>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+      
+  <img src="../../assets/images/demo-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TQuant-manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="選擇語言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="https://kadin4134.github.io/mkdocs/" hreflang="zh-TW" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="https://kadin4134.github.io/mkdocs/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tejtw/TQuant-manual" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TQuant-manual
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+      
+  <img src="../../assets/images/demo-logo.svg" alt="logo">
+
+    </a>
+    TQuant-manual
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tejtw/TQuant-manual" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TQuant-manual
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    首頁
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    技術手冊
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            技術手冊
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TQuant Lab 安裝 (Installation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TQuant Lab 分析流程 (Workflow)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    擬真量化回測引擎 (Zipline)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            擬真量化回測引擎 (Zipline)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    新手教學(Simple Example)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    資料(Data)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            資料(Data)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingest 價量資料(Ingest Pricing Data)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingest 非價量資料(Ingest Fundamental Data)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    取得 benchmark 報酬率 (Get Risk-Free Rate)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    取得無風險利率 (Get Benchmark Roi)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    交易日曆(Calendars)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_1" id="__nav_2_3_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    回測(Backtest)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            回測(Backtest)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    initialize
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents51/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    handle_data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents52/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    before_trading_start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    analyze
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents54/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_1_6" id="__nav_2_3_4_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    執行回測演算法(run_algorithm)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            執行回測演算法(run_algorithm)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents55/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回測範例(Example)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    股票池(Universe API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_3" id="__nav_2_3_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    交易演算法API(Trading Algorithm API)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            交易演算法API(Trading Algorithm API)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料物件(Data Object)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents56/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排程函數(Scheduling Functions)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_3_3" id="__nav_2_3_4_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    下單函數(Orders)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            下單函數(Orders)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents57/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    order
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents58/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    order_target
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents59/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    order_percent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents60/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    order_target_percent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents61/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    order_value
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents62/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    order_target_value
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents63/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    get_open_orders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents64/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cancel_order
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents65/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資產物件(Assets)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_3_5" id="__nav_2_3_4_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    交易限制(Trading Controls)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            交易限制(Trading Controls)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents66/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_do_not_order_list
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents67/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_long_only
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents68/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_max_leverage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents69/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_max_order_count
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents70/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_max_order_size
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents71/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_max_position_size
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents72/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回測參數(Simulation Parameters)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_3_7" id="__nav_2_3_4_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    手續費模型(Commission Models)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            手續費模型(Commission Models)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents73/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerDollar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents74/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerTrade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents75/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerShare
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents76/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom_TW_Commission
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents77/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NoCommission
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_3_8" id="__nav_2_3_4_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    滑價模型(Slippage Models)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            滑價模型(Slippage Models)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents78/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FixedSlippage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents79/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VolumeShareSlippage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FixedBasisPointsSlippag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NoSlippage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    其他功能(Other API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_4" id="__nav_2_3_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipeline API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pipeline API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    投資訊號生成工具(Pipeline)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline因子(Factor)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline濾網(Filter)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline分類器(Classifier)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline自訂因子(CustomFactor)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline計算元素(Term)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline遮網(Masking)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_4_8" id="__nav_2_3_4_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipeline資料集(DataSet)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Pipeline資料集(DataSet)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    價量資料集(EquityPricing)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TEJ財務資料集(TQDataSet)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TEJ非財務資料集(TQAltDataSet)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    自訂資料集(Custom Dataset)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline欄位(Column)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_4_10" id="__nav_2_3_4_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipeline內建因子(Built-in Factors)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Pipeline內建因子(Built-in Factors)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AverageDollarVolume
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BollingerBands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DailyReturns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SimpleMovingAverage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LinearWeightedMovingAverage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents100/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExponentialWeightedMovingAverage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents101/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExponentialWeightedMovingStdDev
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents102/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Latest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents103/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MaxDrawdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents104/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Returns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents105/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RollingPearson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents106/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RollingLinearRegressionOfReturns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents107/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RollingSpearmanOfReturns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents108/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SimpleBeta
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents109/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents110/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VWAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents111/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WeightedAverageValue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents112/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PercentChange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents113/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PeerCount
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents114/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RateOfChangePercentage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents115/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aroon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents116/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastStochasticOscillator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents117/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TrueRange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents118/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IchimokuKinkoHyo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_4_11" id="__nav_2_3_4_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipeline內建濾網(Built-in Filters)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            Pipeline內建濾網(Built-in Filters)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents119/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    All
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents120/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Any
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents121/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AtLeastN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents122/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AllPresent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents123/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StaticAssets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents124/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StaticSids
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents125/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SingleAsset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents126/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    top/bottom
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents127/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    percentile_between
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents128/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    if_else
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_4_12" id="__nav_2_3_4_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipeline內建分類器(Built-in Classifiers)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            Pipeline內建分類器(Built-in Classifiers)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents129/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    quartiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents130/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    quintiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents131/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    deciles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents132/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    quantiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents133/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline引擎(Pipeline Engine)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4_4_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_4_14" id="__nav_2_3_4_4_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipeline資料讀取(PipelineLoader)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_4_4_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_4_14">
+            <span class="md-nav__icon md-icon"></span>
+            Pipeline資料讀取(PipelineLoader)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents134/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EquityPricingLoader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents135/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataFrameLoader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    交易所與資產屬性(Exchange and Asset Metadata)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bundle資料API(Data API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents35/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    進階範例(Advanced Examples)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    版本發布(Releases)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents37/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    常見問題(FAQ)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents38/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    參考資源(Related References)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    可視化報表呈現 (Pyfolo)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            可視化報表呈現 (Pyfolo)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pyfolo安裝(Installation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents39/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    公用函數(Utilites)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents40/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    因子績效報告(Tears)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents41/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    績效函數(Performance)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents42/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    繪圖函數(Ploting)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    進階範例(Advanced Examples)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    版本發布(Releases)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    常見問題(FAQ)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    參考資源(Related References)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    專業的因子分析工具 (Alphalens)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            專業的因子分析工具 (Alphalens)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alphalens_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alphalens提供以下三種類型的因子分析工具，讓我們對因子有初步的了解：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      透過以上的功能，可以從中了解以下內容，並輔助後續的回測：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      後續研究：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents43/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    公用函數(Utilites)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents44/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    因子績效報告(Tears)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents45/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    績效函數(Performance)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents46/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    繪圖函數(Ploting)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    進階範例(Advanced Examples)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    版本發布(Releases)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    常見問題(FAQ)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    參考資源(Related References)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    TejToolAPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            TejToolAPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TQuant Lab 安裝與API(Installation and API)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents47/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    取得資料(get_history_data)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    進階範例(Advanced Examples)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    常見問題(FAQ)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    版本發布(Releases)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Calendars
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Calendars
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    版本發布(Releases)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Empyrical
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Empyrical
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8_2" id="__nav_2_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents48/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    公用函數(Utilites)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents49/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    (Stats)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents50/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    (Perf_attrib)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents33/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Releases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents34/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Related References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alphalens_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alphalens提供以下三種類型的因子分析工具，讓我們對因子有初步的了解：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      透過以上的功能，可以從中了解以下內容，並輔助後續的回測：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      後續研究：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="alphalens">Alphalens<a class="headerlink" href="#alphalens" title="Permanent link">&para;</a></h1>
+<p>事前準備
+- <a href="#Installation">Installation&amp;Prepare</a></p>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<h3 id="alphalens_1">Alphalens提供以下三種類型的因子分析工具，讓我們對因子有初步的了解：<a class="headerlink" href="#alphalens_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#Return_analysis">Returns（報酬率分析）</a></li>
+<li><a href="#Information_analysis">Information（資訊分析）</a></li>
+<li><a href="#Turnover_analysis">Turnover（周轉率分析）</a></li>
+</ul>
+<h3 id="_1">透過以上的功能，可以從中了解以下內容，並輔助後續的回測：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>因子預測力的好壞。</li>
+<li>因子的周轉率是否過高（可能導致較高的交易成本）。</li>
+<li>持有期應該如何設置最恰當。</li>
+<li>因子在所有部門中的表現是否一致。</li>
+<li>在多空對沖策略中，哪些股票應該做多，哪些股票應該放空。</li>
+<li>應該用哪一種權重形成投資組合？等權重（equally weighted）或因子加權（factor weighted）。</li>
+</ul>
+<p>若提供群集資料(比如: 產業類別)，可以透過加入 <code>by_group=True</code> 根據不同群集繪製出不同因子分析圖表。
+- <a href="#Groupwise">Groupwise Performance</a></p>
+<h3 id="_2">後續研究：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>當使用Alphalens分析因子後，我們可以了解因子的**預測能力**及**因子最佳的交易方式**。但因為Alphalens不考慮股票交易時所產生的**手續費、滑價、暫停交易、漲跌停**等因素，故後續可以再透過Zipline、Pyfolio或其他分析工具進行更深入的分析，了解因子在實際交易上的可能性。</p>
+<h1 id="alpjalens">Alpjalens 介紹<a class="headerlink" href="#alpjalens" title="Permanent link">&para;</a></h1>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span> 
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">StockList</span> <span class="o">=</span> 
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">[</span><span class="s1">&#39;1227&#39;</span><span class="p">,</span> <span class="s1">&#39;1234&#39;</span><span class="p">,</span> <span class="s1">&#39;1304&#39;</span><span class="p">,</span> <span class="s1">&#39;1314&#39;</span><span class="p">,</span> <span class="s1">&#39;1434&#39;</span><span class="p">,</span> <span class="s1">&#39;1440&#39;</span><span class="p">,</span> <span class="s1">&#39;1476&#39;</span><span class="p">,</span> <span class="s1">&#39;1504&#39;</span><span class="p">,</span> <span class="s1">&#39;1507&#39;</span><span class="p">,</span> <span class="s1">&#39;1590&#39;</span><span class="p">,</span> <span class="s1">&#39;1605&#39;</span><span class="p">,</span> <span class="s1">&#39;1710&#39;</span><span class="p">,</span> <span class="s1">&#39;1717&#39;</span><span class="p">,</span> <span class="s1">&#39;1723&#39;</span><span class="p">,</span> <span class="s1">&#39;1789&#39;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> <span class="s1">&#39;1802&#39;</span><span class="p">,</span> <span class="s1">&#39;1907&#39;</span><span class="p">,</span> <span class="s1">&#39;2006&#39;</span><span class="p">,</span> <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2049&#39;</span><span class="p">,</span> <span class="s1">&#39;2101&#39;</span><span class="p">,</span> <span class="s1">&#39;2103&#39;</span><span class="p">,</span> <span class="s1">&#39;2106&#39;</span><span class="p">,</span> <span class="s1">&#39;2204&#39;</span><span class="p">,</span> <span class="s1">&#39;2227&#39;</span><span class="p">,</span> <span class="s1">&#39;2327&#39;</span><span class="p">,</span> <span class="s1">&#39;2337&#39;</span><span class="p">,</span> <span class="s1">&#39;2344&#39;</span><span class="p">,</span> <span class="s1">&#39;2356&#39;</span><span class="p">,</span> <span class="s1">&#39;2360&#39;</span><span class="p">,</span> <span class="s1">&#39;2362&#39;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> <span class="s1">&#39;2379&#39;</span><span class="p">,</span> <span class="s1">&#39;2384&#39;</span><span class="p">,</span> <span class="s1">&#39;2385&#39;</span><span class="p">,</span> <span class="s1">&#39;2392&#39;</span><span class="p">,</span> <span class="s1">&#39;2395&#39;</span><span class="p">,</span> <span class="s1">&#39;2449&#39;</span><span class="p">,</span> <span class="s1">&#39;2450&#39;</span><span class="p">,</span> <span class="s1">&#39;2451&#39;</span><span class="p">,</span> <span class="s1">&#39;2489&#39;</span><span class="p">,</span> <span class="s1">&#39;2501&#39;</span><span class="p">,</span> <span class="s1">&#39;2504&#39;</span><span class="p">,</span> <span class="s1">&#39;2511&#39;</span><span class="p">,</span> <span class="s1">&#39;2542&#39;</span><span class="p">,</span> <span class="s1">&#39;2545&#39;</span><span class="p">,</span> <span class="s1">&#39;2548&#39;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> <span class="s1">&#39;2603&#39;</span><span class="p">,</span> <span class="s1">&#39;2606&#39;</span><span class="p">,</span> <span class="s1">&#39;2607&#39;</span><span class="p">,</span> <span class="s1">&#39;2608&#39;</span><span class="p">,</span> <span class="s1">&#39;2609&#39;</span><span class="p">,</span> <span class="s1">&#39;2610&#39;</span><span class="p">,</span> <span class="s1">&#39;2615&#39;</span><span class="p">,</span> <span class="s1">&#39;2618&#39;</span><span class="p">,</span> <span class="s1">&#39;2707&#39;</span><span class="p">,</span> <span class="s1">&#39;2723&#39;</span><span class="p">,</span> <span class="s1">&#39;2727&#39;</span><span class="p">,</span> <span class="s1">&#39;2809&#39;</span><span class="p">,</span> <span class="s1">&#39;2812&#39;</span><span class="p">,</span> <span class="s1">&#39;2834&#39;</span><span class="p">,</span> <span class="s1">&#39;2845&#39;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> <span class="s1">&#39;2847&#39;</span><span class="p">,</span> <span class="s1">&#39;2855&#39;</span><span class="p">,</span> <span class="s1">&#39;2884&#39;</span><span class="p">,</span> <span class="s1">&#39;2887&#39;</span><span class="p">,</span> <span class="s1">&#39;2888&#39;</span><span class="p">,</span> <span class="s1">&#39;2889&#39;</span><span class="p">,</span> <span class="s1">&#39;2903&#39;</span><span class="p">,</span> <span class="s1">&#39;2915&#39;</span><span class="p">,</span> <span class="s1">&#39;3034&#39;</span><span class="p">,</span> <span class="s1">&#39;3037&#39;</span><span class="p">,</span> <span class="s1">&#39;3044&#39;</span><span class="p">,</span> <span class="s1">&#39;3149&#39;</span><span class="p">,</span> <span class="s1">&#39;3189&#39;</span><span class="p">,</span> <span class="s1">&#39;3406&#39;</span><span class="p">,</span> <span class="s1">&#39;3702&#39;</span><span class="p">,</span> <span class="s1">&#39;4938&#39;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> <span class="s1">&#39;4958&#39;</span><span class="p">,</span> <span class="s1">&#39;5522&#39;</span><span class="p">,</span> <span class="s1">&#39;5871&#39;</span><span class="p">,</span> <span class="s1">&#39;6005&#39;</span><span class="p">,</span> <span class="s1">&#39;6176&#39;</span><span class="p">,</span> <span class="s1">&#39;6239&#39;</span><span class="p">,</span> <span class="s1">&#39;6269&#39;</span><span class="p">,</span> <span class="s1">&#39;6286&#39;</span><span class="p">,</span> <span class="s1">&#39;8008&#39;</span><span class="p">,</span> <span class="s1">&#39;8046&#39;</span><span class="p">,</span> <span class="s1">&#39;8078&#39;</span><span class="p">,</span> <span class="s1">&#39;8422&#39;</span><span class="p">,</span> <span class="s1">&#39;9904&#39;</span><span class="p">,</span> <span class="s1">&#39;9907&#39;</span><span class="p">,</span> <span class="s1">&#39;9914&#39;</span><span class="p">,</span> <span class="s1">&#39;9917&#39;</span><span class="p">,</span> <span class="s1">&#39;9921&#39;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> <span class="s1">&#39;9933&#39;</span><span class="p">,</span> <span class="s1">&#39;9940&#39;</span><span class="p">,</span> <span class="s1">&#39;9945&#39;</span><span class="p">,</span> <span class="s1">&#39;2458&#39;</span><span class="p">,</span> <span class="s1">&#39;2206&#39;</span><span class="p">,</span> <span class="s1">&#39;1201&#39;</span><span class="p">,</span> <span class="s1">&#39;2347&#39;</span><span class="p">,</span> <span class="s1">&#39;3231&#39;</span><span class="p">,</span> <span class="s1">&#39;5534&#39;</span><span class="p">,</span> <span class="s1">&#39;6116&#39;</span><span class="p">,</span> <span class="s1">&#39;9910&#39;</span><span class="p">,</span> <span class="s1">&#39;1477&#39;</span><span class="p">,</span> <span class="s1">&#39;2353&#39;</span><span class="p">,</span> <span class="s1">&#39;6271&#39;</span><span class="p">,</span> <span class="s1">&#39;1319&#39;</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> <span class="s1">&#39;1722&#39;</span><span class="p">,</span> <span class="s1">&#39;2059&#39;</span><span class="p">,</span> <span class="s1">&#39;3060&#39;</span><span class="p">,</span> <span class="s1">&#39;3474&#39;</span><span class="p">,</span> <span class="s1">&#39;3673&#39;</span><span class="p">,</span> <span class="s1">&#39;2393&#39;</span><span class="p">,</span> <span class="s1">&#39;2376&#39;</span><span class="p">,</span> <span class="s1">&#39;2439&#39;</span><span class="p">,</span> <span class="s1">&#39;3682&#39;</span><span class="p">,</span> <span class="s1">&#39;2201&#39;</span><span class="p">,</span> <span class="s1">&#39;2377&#39;</span><span class="p">,</span> <span class="s1">&#39;3576&#39;</span><span class="p">,</span> <span class="s1">&#39;2352&#39;</span><span class="p">,</span> <span class="s1">&#39;2838&#39;</span><span class="p">,</span> <span class="s1">&#39;8150&#39;</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a> <span class="s1">&#39;2324&#39;</span><span class="p">,</span> <span class="s1">&#39;2231&#39;</span><span class="p">,</span> <span class="s1">&#39;8454&#39;</span><span class="p">,</span> <span class="s1">&#39;2833&#39;</span><span class="p">,</span> <span class="s1">&#39;6285&#39;</span><span class="p">,</span> <span class="s1">&#39;6409&#39;</span><span class="p">,</span> <span class="s1">&#39;1536&#39;</span><span class="p">,</span> <span class="s1">&#39;1702&#39;</span><span class="p">,</span> <span class="s1">&#39;2313&#39;</span><span class="p">,</span> <span class="s1">&#39;2498&#39;</span><span class="p">,</span> <span class="s1">&#39;2867&#39;</span><span class="p">,</span> <span class="s1">&#39;6415&#39;</span><span class="p">,</span> <span class="s1">&#39;6456&#39;</span><span class="p">,</span> <span class="s1">&#39;9938&#39;</span><span class="p">,</span> <span class="s1">&#39;2383&#39;</span><span class="p">,</span> <span class="s1">&#39;4137&#39;</span><span class="p">,</span> 
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a> <span class="s1">&#39;1707&#39;</span><span class="p">,</span> <span class="s1">&#39;1589&#39;</span><span class="p">,</span> <span class="s1">&#39;2849&#39;</span><span class="p">,</span> <span class="s1">&#39;6414&#39;</span><span class="p">,</span> <span class="s1">&#39;8464&#39;</span><span class="p">,</span> <span class="s1">&#39;2355&#39;</span><span class="p">,</span> <span class="s1">&#39;2345&#39;</span><span class="p">,</span> <span class="s1">&#39;3706&#39;</span><span class="p">,</span> <span class="s1">&#39;2023&#39;</span><span class="p">,</span> <span class="s1">&#39;2371&#39;</span><span class="p">,</span> <span class="s1">&#39;1909&#39;</span><span class="p">,</span> <span class="s1">&#39;2633&#39;</span><span class="p">,</span> <span class="s1">&#39;3532&#39;</span><span class="p">,</span> <span class="s1">&#39;9941&#39;</span><span class="p">,</span> <span class="s1">&#39;2492&#39;</span><span class="p">,</span> <span class="s1">&#39;3019&#39;</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a> <span class="s1">&#39;3443&#39;</span><span class="p">,</span> <span class="s1">&#39;4915&#39;</span><span class="p">,</span> <span class="s1">&#39;4943&#39;</span><span class="p">,</span> <span class="s1">&#39;1229&#39;</span><span class="p">,</span> <span class="s1">&#39;2441&#39;</span><span class="p">,</span> <span class="s1">&#39;2027&#39;</span><span class="p">,</span> <span class="s1">&#39;3026&#39;</span><span class="p">,</span> <span class="s1">&#39;1210&#39;</span><span class="p">,</span> <span class="s1">&#39;2104&#39;</span><span class="p">,</span> <span class="s1">&#39;2456&#39;</span><span class="p">,</span> <span class="s1">&#39;5269&#39;</span><span class="p">,</span> <span class="s1">&#39;8341&#39;</span><span class="p">,</span> <span class="s1">&#39;2354&#39;</span><span class="p">,</span> <span class="s1">&#39;3005&#39;</span><span class="p">,</span> <span class="s1">&#39;3481&#39;</span><span class="p">,</span> <span class="s1">&#39;6669&#39;</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> <span class="s1">&#39;2409&#39;</span><span class="p">,</span> <span class="s1">&#39;3023&#39;</span><span class="p">,</span> <span class="s1">&#39;6213&#39;</span><span class="p">,</span> <span class="s1">&#39;2404&#39;</span><span class="p">,</span> <span class="s1">&#39;3533&#39;</span><span class="p">,</span> <span class="s1">&#39;6278&#39;</span><span class="p">,</span> <span class="s1">&#39;6592&#39;</span><span class="p">,</span> <span class="s1">&#39;3653&#39;</span><span class="p">,</span> <span class="s1">&#39;3661&#39;</span><span class="p">,</span> <span class="s1">&#39;3665&#39;</span><span class="p">,</span> <span class="s1">&#39;2301&#39;</span><span class="p">,</span> <span class="s1">&#39;3714&#39;</span><span class="p">,</span> <span class="s1">&#39;2883&#39;</span><span class="p">,</span> <span class="s1">&#39;2890&#39;</span><span class="p">,</span> <span class="s1">&#39;6531&#39;</span><span class="p">,</span> <span class="s1">&#39;1904&#39;</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2105&#39;</span><span class="p">,</span> <span class="s1">&#39;2108&#39;</span><span class="p">,</span> <span class="s1">&#39;2474&#39;</span><span class="p">,</span> <span class="s1">&#39;2637&#39;</span><span class="p">,</span> <span class="s1">&#39;6781&#39;</span><span class="p">,</span> <span class="s1">&#39;1102&#39;</span><span class="p">,</span> <span class="s1">&#39;4919&#39;</span><span class="p">,</span> <span class="s1">&#39;1402&#39;</span><span class="p">,</span> <span class="s1">&#39;3035&#39;</span><span class="p">,</span> <span class="s1">&#39;3036&#39;</span><span class="p">,</span> <span class="s1">&#39;4961&#39;</span><span class="p">,</span> <span class="s1">&#39;6719&#39;</span><span class="p">,</span> <span class="s1">&#39;6770&#39;</span><span class="p">,</span> <span class="s1">&#39;2368&#39;</span><span class="p">,</span> <span class="s1">&#39;1795&#39;</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a> <span class="s1">&#39;6550&#39;</span><span class="p">,</span> <span class="s1">&#39;6789&#39;</span><span class="p">,</span> <span class="s1">&#39;3017&#39;</span><span class="p">,</span> <span class="s1">&#39;1101&#39;</span><span class="p">,</span> <span class="s1">&#39;1216&#39;</span><span class="p">,</span> <span class="s1">&#39;1301&#39;</span><span class="p">,</span> <span class="s1">&#39;1303&#39;</span><span class="p">,</span> <span class="s1">&#39;1326&#39;</span><span class="p">,</span> <span class="s1">&#39;2002&#39;</span><span class="p">,</span> <span class="s1">&#39;2207&#39;</span><span class="p">,</span> <span class="s1">&#39;2303&#39;</span><span class="p">,</span> <span class="s1">&#39;2308&#39;</span><span class="p">,</span> <span class="s1">&#39;2311&#39;</span><span class="p">,</span> <span class="s1">&#39;2317&#39;</span><span class="p">,</span> <span class="s1">&#39;2325&#39;</span><span class="p">,</span> <span class="s1">&#39;2330&#39;</span><span class="p">,</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a> <span class="s1">&#39;2357&#39;</span><span class="p">,</span> <span class="s1">&#39;2382&#39;</span><span class="p">,</span> <span class="s1">&#39;2412&#39;</span><span class="p">,</span> <span class="s1">&#39;2454&#39;</span><span class="p">,</span> <span class="s1">&#39;2801&#39;</span><span class="p">,</span> <span class="s1">&#39;2880&#39;</span><span class="p">,</span> <span class="s1">&#39;2881&#39;</span><span class="p">,</span> <span class="s1">&#39;2882&#39;</span><span class="p">,</span> <span class="s1">&#39;2885&#39;</span><span class="p">,</span> <span class="s1">&#39;2886&#39;</span><span class="p">,</span> <span class="s1">&#39;2891&#39;</span><span class="p">,</span> <span class="s1">&#39;2892&#39;</span><span class="p">,</span> <span class="s1">&#39;2912&#39;</span><span class="p">,</span> <span class="s1">&#39;3008&#39;</span><span class="p">,</span> <span class="s1">&#39;3045&#39;</span><span class="p">,</span> <span class="s1">&#39;3697&#39;</span><span class="p">,</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a> <span class="s1">&#39;4904&#39;</span><span class="p">,</span> <span class="s1">&#39;5880&#39;</span><span class="p">,</span> <span class="s1">&#39;6505&#39;</span><span class="p">,</span> <span class="s1">&#39;2408&#39;</span><span class="p">,</span> <span class="s1">&#39;3711&#39;</span><span class="p">,</span> <span class="s1">&#39;5876&#39;</span><span class="p">,</span> <span class="s1">&#39;6452&#39;</span><span class="p">,</span><span class="s1">&#39;5264&#39;</span><span class="p">,</span> <span class="s1">&#39;2823&#39;</span><span class="p">,</span><span class="s1">&#39;1262&#39;</span><span class="p">,</span> <span class="s1">&#39;2448&#39;</span><span class="p">,</span> <span class="s1">&#39;1704&#39;</span><span class="p">]</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">StockList</span><span class="p">)</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_BASE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;https://api.tej.com.tw&quot;</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;YOUR KEY&#39;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;mdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;20180726 20230726&quot;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="err">!</span><span class="n">zipline</span> <span class="n">ingest</span> <span class="o">-</span><span class="n">b</span> <span class="n">tquant</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">alphalens</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">TejToolAPI</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tejapi</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="_3">觀察載入資料<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.data.data_portal</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_bundle</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">df_bundle</span> <span class="o">=</span> <span class="n">get_bundle</span><span class="p">(</span><span class="n">bundle_name</span> <span class="o">=</span> <span class="s1">&#39;tquant&#39;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                        <span class="n">calendar_name</span> <span class="o">=</span> <span class="s1">&#39;TEJ&#39;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                        <span class="n">start_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2018-07-26&quot;</span><span class="p">,</span> <span class="n">tz</span> <span class="o">=</span> <span class="s2">&quot;UTC&quot;</span><span class="p">),</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                        <span class="n">end_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-07-26&quot;</span><span class="p">,</span> <span class="n">tz</span> <span class="o">=</span> <span class="s2">&quot;UTC&quot;</span><span class="p">))</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">df_bundle</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="_4">建立因子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>本次發想至 Fama-French 三因子模型中的 SMB 因子，以每日各公司標準化後的市值作為因子進行後續因子分析。</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">bundles</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">bundle</span> <span class="o">=</span> <span class="n">bundles</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;tquant&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">sids</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">asset_finder</span><span class="o">.</span><span class="n">equities_sids</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">assets</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">asset_finder</span><span class="o">.</span><span class="n">retrieve_all</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">symbols</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">symbol</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">assets</span><span class="p">]</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Market_Cap_Dollars&quot;</span><span class="p">]</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">mkt_value</span> <span class="o">=</span> <span class="n">TejToolAPI</span><span class="o">.</span><span class="n">get_history_data</span><span class="p">(</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">ticker</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">tranfer_to_chinese</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2018-07-02&quot;</span><span class="p">,</span> <span class="n">tz</span> <span class="o">=</span> <span class="s2">&quot;UTC&quot;</span><span class="p">),</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">end</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-07-02&quot;</span><span class="p">,</span> <span class="n">tz</span> <span class="o">=</span> <span class="s2">&quot;UTC&quot;</span><span class="p">),</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">fin_type</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">include_self_acc</span> <span class="o">=</span> <span class="s2">&quot;Y&quot;</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytz</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">mkt_value</span><span class="p">[</span><span class="s1">&#39;mdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">mkt_value</span><span class="p">[</span><span class="s1">&#39;mdate&#39;</span><span class="p">])</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">means</span> <span class="o">=</span> <span class="n">mkt_value</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;mdate&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">stds</span> <span class="o">=</span> <span class="n">mkt_value</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;mdate&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">means</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;Market_Cap_Dollars&quot;</span><span class="p">:</span><span class="s2">&quot;mean&quot;</span><span class="p">},</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">stds</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;Market_Cap_Dollars&quot;</span><span class="p">:</span><span class="s2">&quot;std&quot;</span><span class="p">},</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">ovo</span> <span class="o">=</span> <span class="n">means</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">stds</span><span class="p">,</span> <span class="n">left_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">mkt_value_med</span> <span class="o">=</span> <span class="n">mkt_value</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ovo</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s2">&quot;mdate&quot;</span><span class="p">,</span> <span class="n">right_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">mkt_value_med</span><span class="p">[</span><span class="s2">&quot;MKTValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">mkt_value_med</span><span class="o">.</span><span class="n">Market_Cap_Dollars</span> <span class="o">-</span> <span class="n">mkt_value_med</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="n">mkt_value_med</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">mkt_value_med</span><span class="p">[</span><span class="s1">&#39;mdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mkt_value_med</span><span class="p">[</span><span class="s1">&#39;mdate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">mkt_value_med</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;mdate&#39;</span><span class="p">,</span> <span class="s1">&#39;coid&#39;</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">mkt_value</span> <span class="o">=</span> <span class="n">mkt_value_med</span><span class="o">.</span><span class="n">MKTValue</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">mkt_value</span>
+</span></code></pre></div></p>
+<h2 id="_5">取得價格資料<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>也可以使用<code>get_bundle_price</code>來取得價格資料。
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.data.data_portal</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_bundle_price</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># fields可指定撈取的欄位，預設為&quot; * &quot;，代表取得所有欄位。</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># 支援的field：</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># [&quot;*&quot;,&quot;open&quot;, &quot;high&quot;, &quot;low&quot;, &quot;close&quot;, &quot;volume&quot;,&quot;open_adj&quot;, &quot;high_adj&quot;, &quot;low_adj&quot;, &quot;close_adj&quot;, &quot;volume_adj&quot;]</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">pricing</span> <span class="o">=</span> <span class="n">get_bundle_price</span><span class="p">(</span><span class="n">start_dt</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2018-07-26&quot;</span><span class="p">),</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>                           <span class="n">end_dt</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-07-26&quot;</span><span class="p">),</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>                           <span class="n">fields</span><span class="o">=</span><span class="s1">&#39;open_adj&#39;</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>                           <span class="n">transform</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;open_adj&#39;</span><span class="p">]</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">pricing</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">symbol</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pricing</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">pricing</span> <span class="o">=</span> <span class="n">df_bundle</span><span class="p">[[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;symbol&#39;</span><span class="p">,</span><span class="s1">&#39;open_adj&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;symbol&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;symbol&#39;</span><span class="p">)[</span><span class="s1">&#39;open_adj&#39;</span><span class="p">]</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">pricing</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h2 id="sector-mapping">Sector mapping<a class="headerlink" href="#sector-mapping" title="Permanent link">&para;</a></h2>
+<p>取得資產的產業類別
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">sector</span> <span class="o">=</span> <span class="n">tejapi</span><span class="o">.</span><span class="n">fastget</span><span class="p">(</span><span class="s1">&#39;TWN/APISTKATTR&#39;</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                    <span class="n">coid</span><span class="o">=</span><span class="n">df_bundle</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                    <span class="n">opts</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;columns&#39;</span><span class="p">:[</span><span class="s1">&#39;coid&#39;</span><span class="p">,</span><span class="s1">&#39;main_ind_e&#39;</span><span class="p">,</span><span class="s1">&#39;main_ind_c&#39;</span><span class="p">]},</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                    <span class="n">paginate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coid&#39;</span><span class="p">:</span><span class="s1">&#39;symbol&#39;</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                                                   <span class="s1">&#39;main_ind_e&#39;</span><span class="p">:</span><span class="s1">&#39;sector&#39;</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>                                                   <span class="s1">&#39;main_ind_c&#39;</span><span class="p">:</span><span class="s1">&#39;sector_code&#39;</span><span class="p">})</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">sector_map</span> <span class="o">=</span> <span class="n">sector</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">)[</span><span class="s1">&#39;sector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">sector_map</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># 建立因子與報酬表</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1">## Further information</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="err">```</span><span class="n">python</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">alphalens</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_clean_factor_and_forward_returns</span><span class="p">(</span><span class="n">factor</span><span class="p">,</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>                                                     <span class="n">prices</span><span class="p">,</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>                                                     <span class="n">groupby</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>                                                     <span class="n">binning_by_group</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>                                                     <span class="n">quantiles</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>                                                     <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>                                                     <span class="n">periods</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>                                                     <span class="n">filter_zscore</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>                                                     <span class="n">groupby_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>                                                     <span class="n">max_loss</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>                                                     <span class="n">zero_aware</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>                                                     <span class="n">cumulative_returns</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div></p>
+<ul>
+<li>利用<code>alphalens.utils.get_clean_factor_and_forward_returns()</code>將因子資料（<code>factor</code>參數）、價格資料（<code>prices</code>參數）以及部門資料（<code>groupby</code>參數）整理成一個資料表，以利後續計算，這個資料表的索引（index）是日期（DatetimeIndex）及公司碼（asset）。</li>
+<li>此外這邊也會針對因子資料或價格資料缺值的資料做清理，確保可以正確計算。</li>
+<li>最重要的是這邊會利用因子資料將樣本分組（<code>quantiles</code>、<code>bins</code>、<code>binning_by_group</code>、<code>zero_aware</code>參數）及利用預計的持有期（<code>periods</code>參數）計算持有期報酬率。</li>
+<li><code>quantiles</code>、<code>bins</code>、<code>binning_by_group</code>：<ul>
+<li>quantiles：<em>int or sequence[float]</em></li>
+<li>利用樣本公司數量來分組，<strong>預設值為5</strong>。參考<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html#pandas.qcut">pandas.qcut</a>。</li>
+<li><code>quantile</code>與<code>bins</code>只能擇一使用。</li>
+<li>當quantiles為*int*：將樣本按照數量盡可能平均分配至各組，若樣本公司有100家，欲將樣本公司分為5組（<code>quantile=5</code>），且每一組皆須有20家公司，則quantiles方法會將因子値（<code>factor</code>）最小的20家公司分到第1組，因子値最大的20家公司分到第5組，以此類推。</li>
+<li>當quantiles為*sequence[float]<em>：允許數量不均等的分組，若有以下5個factor：[1,2,3,4,5]且**quantiles=[0, .5, 1.]*</em>（代表會分為兩組：(0,0.5]及(0.5,1.]），則[1,2,3]會被分到第1組；[4,5]會被分到第2組。</li>
+<li>bins：<em>int or sequence[float]</em></li>
+<li>利用因子取値範圍分組，類似直方圖的概念。參考<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.cut.html#pandas.cut">pandas.cut</a>。</li>
+<li><code>quantile</code>與<code>bins</code>只能擇一使用。若要使用bins必須設定**<code>quantile</code>=None**，因<code>quantile</code>預設值為5。</li>
+<li>當bins為*int*：若因子取値於0至100，欲按因子値（<code>factor</code>）數值大小均分為5組（<code>bins=5</code>），則bins方法會將因子値介於0到20的公司分到第1組，因子値介於21~40的公司分到第2組，以此類推。每一組的公司數目不一定相同。</li>
+<li>當bins為*sequence[float]<em>：允許間距不均等的分組，若有以下4個factor：[1, 2, 3, 4]且**bins=[0, 3, 4]*</em>（代表會分為兩組：(0., 3.]及(3., 4.]），則[1,2,3]會被分到第1組；[4]會被分到第2組。</li>
+<li>binning_by_group：<em>bool</em></li>
+<li>可結合上述兩者做部門內分組，達成**部門中立（group neutral）**的效果。</li>
+<li>以結合quantiles及binning_by_group的分組方式為例，若欲分為5組（<code>quantile=5</code>且<code>binning_by_group=True</code>），則該方法會將每一個部門內因子値最小的一群公司分到第1組，因子値最大的一群公司分到第5組。</li>
+</ul>
+</li>
+<li><code>zero_aware</code>：<em>bool, optional</em><ul>
+<li>預設為False，當設定為True時，<strong>quantiles或bins必須是整數</strong>。</li>
+<li>若設定為True時，會先將因子（<code>factor</code>）資料依數值大小分為 **&gt;=0**及 **&lt;0**兩組，再個別將兩組內的資料平均切分（quantiles//2）。</li>
+<li>以結合<code>quantiles</code>及<code>zero_aware</code>的分組方式為例，若有以下10個factor：[-4,-3,-2,-1,1,2,3,4,5,6]欲分為5組（<code>quantile=5</code>且<code>zero_aware=True</code>），則：</li>
+<li>先將5//2得到2，因此因子值&gt;=0的樣本平均分2組；因子值&lt;0的樣本平均分2組，總共4組。</li>
+<li>-4及-3分至第1組；-2及-1分至第2組；1、2及3分至第3組；4、5及6分至第4組。</li>
+</ul>
+</li>
+<li>另外，利用<code>filter_zscore</code>參數可以將大於平均值X倍標準差的持有期報酬率修改為nan。（不推薦使用，因為這會產生lookahead bias）</li>
+</ul>
+<h2 id="_6">因子資料及價格資料的一些規範：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>factor</code>及<code>prices</code>資料的timezone要一致。</li>
+<li><code>factor</code>及<code>prices</code>資料的DatetimeIndex不可其中一個是timezone-aware另一個是timezone-naive。</li>
+<li><code>factor</code>及<code>prices</code>資料的日期起訖可以不一樣，但不能一邊有非交易日，一邊都是交易日。<br />
+  （否則會報錯<code>ValueError: Inferred frequency None from passed values does not conform to passed frequency C</code>）</li>
+</ul>
+<h2 id="_7">持有期報酬率<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>因為這邊是模擬利用因子做逐日交易的策略，所以持有期報酬率是每日計算。<br />
+（若提供的因子、價格及部門分類資料為月頻率，則持有期報酬率就是逐月計算） </p>
+<p>根據《Fundamental law of active management》（Grinold, 1989）一書，投資組合獲取超額報酬的能力可以用資訊比率衡量（IR），IR又可以拆分成資訊係數（IC）及投資策略廣度（BR）。公式如下：  </p>
+<div class="arithmatex">\[ IR=IC * \sqrt {BR} \]</div>
+<p>其中，IC是利用因子値與持有期報酬率間的相關係數來衡量因子有效性，隱含經理人的預測能力，這部份會於資訊分析（information）中說明。  </p>
+<p>而BR則可以透過提高交易的頻率來改善，並近一步提升IR。舉例來說，若是每日換股，則每年交易次數約為252次；若是每22天換一次股，則會降低每一年的交易次數（約為252／22次），進而降低報酬。  </p>
+<p>為了避免這個情況，Alphalens模擬一種策略：以持有期為22天為例，利用持有期訂定一個交易週期（22天），並且將本金分為22等份。每一天利用其中1等份的本金交易，22天後調整持股，所以總共會有22個投資組合。此外，由於將本金分成22份，滑價（slippage） 的影響也會降低。
+<br></p>
+<blockquote>
+<p>持有期報酬率計算：<span class="arithmatex">\(<span class="arithmatex">\({個股i、日期為t且持有期間為n的持有期報酬率=}\frac{(股價_{i,t+n})}{股價_{i,t}}{-1}\)</span>\)</span>   </p>
+<p>範例：</p>
+<p>date=2013-01-02，asset=1102，持有1D報酬率 =（2013-01-03收盤價／2013-01-02收盤價）－1。</p>
+</blockquote>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">factor_data</span> <span class="o">=</span> <span class="n">alphalens</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_clean_factor_and_forward_returns</span><span class="p">(</span><span class="n">mkt_value</span><span class="p">,</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>                                                                   <span class="n">pricing</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>                                                                   <span class="n">quantiles</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                                                                   <span class="n">bins</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                                                                   <span class="n">groupby</span> <span class="o">=</span> <span class="n">sector_map</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                                                                  <span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">factor_data</span>                                                                  
+</span></code></pre></div>
+<h1 id="analysis_1">Analysis<a class="headerlink" href="#analysis_1" title="Permanent link">&para;</a></h1>
+<h2 id="alphalens_2">Alphalens提供以下三種類型的因子分析工具，讓我們對因子有初步的了解：<a class="headerlink" href="#alphalens_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Returns（報酬率分析）</li>
+<li>Information（資訊分析）</li>
+<li>Turnover（周轉率分析）</li>
+</ul>
+<h2 id="_8">透過以上的功能，可以從中了解以下內容，並輔助後續的回測：<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>因子預測力的好壞。</li>
+<li>因子的周轉率是否過高（可能導致較高的交易成本）。</li>
+<li>持有期應該如何設置最恰當。</li>
+<li>因子在所有部門中的表現是否一致。</li>
+<li>在多空對沖策略中，哪些股票應該做多，哪些股票應該放空。</li>
+<li>應該用哪一種權重形成投資組合？等權重（equally weighted）或因子加權（factor weighted）。</li>
+</ul>
+<h2 id="_9">後續研究：<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>當使用Alphalens分析因子後，我們可以了解因子的**預測能力**及**因子最佳的交易方式**。但因為Alphalens不考慮股票交易時所產生的**手續費、滑價、暫停交易、漲跌停**等因素，故後續可以再透過Zipline、Pyfolio或其他分析工具進行更深入的分析，了解因子在實際交易上的可能性。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="頁腳" >
+        
+          
+          <a href="../documents22/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 參考資源(Related References)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                參考資源(Related References)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../documents43/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 公用函數(Utilites)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一頁
+              </span>
+              <div class="md-ellipsis">
+                公用函數(Utilites)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - MkDocs
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/squidfunk/mkdocs-material" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
