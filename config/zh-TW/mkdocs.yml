@@ -61,14 +61,14 @@ theme:
 
 # Extra configuration
 extra:
-  alternate:
-    - name: 中文
-      link: https://kadin4134.github.io/mkdocs/
-      lang: zh-TW
+#   alternate:
+#     - name: 中文
+#       link: https://kadin4134.github.io/mkdocs/
+#       lang: zh-TW
 
-    - name: English
-      link: https://kadin4134.github.io/mkdocs/en/
-      lang: en
+    # - name: English
+    #   link: https://kadin4134.github.io/mkdocs/en/
+    #   lang: en
 
   analytics:
     provider: google
@@ -76,7 +76,7 @@ extra:
 
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/squidfunk/mkdocs-material
+      link: https://github.com/tejtw/TQuant-manual
 
 # Markdown extension
 markdown_extensions:
