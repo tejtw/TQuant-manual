@@ -77,6 +77,11 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/tejtw/TQuant-manual
+    - icon: simple/youtube
+      link: https://www.youtube.com/@TEJ
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/C9KQRc7pnj
+  
 
 # Markdown extension
 markdown_extensions:
