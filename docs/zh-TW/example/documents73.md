@@ -145,7 +145,7 @@ perdollar = run_algorithm(start=start_dt,
 # 收盤價
 closing_price[0:2]
 ```
-![alt text](image-1.png)
+
 
 * 在 12/1 下單一張統一（1216）股票，用 `PerDollar` 算法，費用就是下一個交易日 12/2 的收盤價 65 * 1000 股 * 0.001 = 65。
 ```python
