@@ -10,3 +10,163 @@
     <strong>GitHub</strong>
   </a>
 {% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Create container for toggle buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'md-sidebar-toggle-container';
+  document.body.appendChild(buttonContainer);
+  
+  // Right sidebar (Table of Contents) collapse functionality
+  const secondarySidebar = document.querySelector('.md-sidebar--secondary');
+  
+  if (secondarySidebar) {
+    // Create toggle button for right sidebar
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'md-sidebar-toggle md-sidebar-toggle--secondary';
+    toggleBtn.setAttribute('aria-label', 'Toggle table of contents');
+    toggleBtn.setAttribute('title', 'Toggle table of contents');
+    toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>';
+    
+    buttonContainer.appendChild(toggleBtn);
+    
+    // Toggle functionality
+    let isCollapsed = false;
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      isCollapsed = !isCollapsed;
+      
+      if (isCollapsed) {
+        secondarySidebar.style.display = 'none';
+        toggleBtn.classList.add('collapsed');
+      } else {
+        secondarySidebar.style.display = '';
+        toggleBtn.classList.remove('collapsed');
+      }
+      
+      // Save preference to localStorage
+      localStorage.setItem('md-sidebar-secondary-collapsed', isCollapsed);
+    });
+    
+    // Restore preference from localStorage
+    const savedState = localStorage.getItem('md-sidebar-secondary-collapsed');
+    if (savedState === 'true') {
+      isCollapsed = true;
+      secondarySidebar.style.display = 'none';
+      toggleBtn.classList.add('collapsed');
+    }
+  }
+  
+  // Left sidebar collapse functionality
+  const primarySidebar = document.querySelector('.md-sidebar--primary');
+  if (primarySidebar) {
+    // Create toggle button for left sidebar
+    const toggleBtnLeft = document.createElement('button');
+    toggleBtnLeft.className = 'md-sidebar-toggle md-sidebar-toggle--primary';
+    toggleBtnLeft.setAttribute('aria-label', 'Toggle navigation');
+    toggleBtnLeft.setAttribute('title', 'Toggle navigation');
+    toggleBtnLeft.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.41L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>';
+    
+    buttonContainer.appendChild(toggleBtnLeft);
+    
+    // Toggle functionality
+    let isPrimaryCollapsed = false;
+    toggleBtnLeft.addEventListener('click', function(e) {
+      e.preventDefault();
+      isPrimaryCollapsed = !isPrimaryCollapsed;
+      
+      if (isPrimaryCollapsed) {
+        primarySidebar.style.display = 'none';
+        toggleBtnLeft.classList.add('collapsed');
+      } else {
+        primarySidebar.style.display = '';
+        toggleBtnLeft.classList.remove('collapsed');
+      }
+      
+      // Save preference to localStorage
+      localStorage.setItem('md-sidebar-primary-collapsed', isPrimaryCollapsed);
+    });
+    
+    // Restore preference from localStorage
+    const savedStatePrimary = localStorage.getItem('md-sidebar-primary-collapsed');
+    if (savedStatePrimary === 'true') {
+      isPrimaryCollapsed = true;
+      primarySidebar.style.display = 'none';
+      toggleBtnLeft.classList.add('collapsed');
+    }
+  }
+});
+</script>
+
+<style>
+.md-sidebar-toggle-container {
+  position: fixed;
+  top: 4.5rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3rem;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.md-sidebar-toggle {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background-color: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
+  top: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.md-sidebar-toggle:hover {
+  background-color: var(--md-accent-fg-color);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.md-sidebar-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.md-sidebar-toggle--secondary {
+  right: 0.5rem;
+}
+
+.md-sidebar-toggle--primary {
+  left: 0.5rem;
+}
+
+.md-sidebar-toggle.collapsed svg {
+  transform: scaleX(-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .md-sidebar-toggle {
+    background-color: #3a3a3a;
+    border-color: #555555;
+    color: #ffffff;
+  }
+  
+  .md-sidebar-toggle:hover {
+    background-color: var(--md-accent-fg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+</style>
+{% endblock %}

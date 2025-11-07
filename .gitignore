@@ -161,3 +161,8 @@ cython_debug/
 .idea/
 
 public/
+GEMINI.md
+GPT.md
+_CURRENT_TASK.md
+_PROJECT_PLAN.md
+TQuant-Lab
