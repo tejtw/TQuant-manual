@@ -1,133 +1,94 @@
-# FixedSlippage : 設定固定 spread 的滑價，不能設定成交量限制
-## `zipline.finance.slippage.FixedSlippage(spread=0.0)`
-* 設定固定 spread 的滑價，不能設定成交量限制。
-* 在每筆交易的成交價格額外加入 $\pm \frac{\text{spread}}{2}$，其中 `spread` 為設定的固定滑價值。
-* 如果是買入，則成交價格 $=price+\frac{\text{spread}}{2} $ ；若是賣出，則成交價格 $=price-\frac{\text{spread}}{2} $。 $price=$ _當日收盤價_。
+# 操作指南：如何設定滑價 (How-to: Set Slippage)
 
-## Parameters：
-* spread (float, optional) - 用來估計成交價與當日收盤價的價差。
+## 目標
 
-## Note:
-* 滑價計算時，價格以成交日收盤價為準，數量也以成交時為準。也就是說，如果因為股數變動造成 amount 有任何變化，計算上都是用成交時新的 amount。
-* 如果 `initialize(context):` 裡面沒有設定`set_slippage()`，系統預設使用 `FixedBasisPointsSlippage(basis_points = 5.0, volume_limit = 0.1)`。
-* 如果希望完全不考慮交易量及滑價限制，則使用 `set_slippage(slippage.NoSlippage())`。
+滑價（Slippage）是指在金融市場中，最終成交價格與下單時預期價格之間的差異。這種差異可能由市場波動、流動性不足或訂單大小造成。在回測中模擬滑價，是讓策略績效更貼近真實市場狀況的關鍵步驟。
 
-## Examples: 
-## Import settings
-```python
-import pandas as pd 
-import numpy as np
-import tejapi
-import os
+本指南將說明如何在 TQuant Lab 中使用 `set_slippage` 函數來為您的策略設定不同的滑價模型。
 
-# tej_key
-os.environ['TEJAPI_BASE'] = 'https://api.tej.com.tw'
-os.environ['TEJAPI_KEY'] = 'your key'
+---
 
-# set date
-os.environ['mdate'] = "20221201 20221231"
+## 核心函數：`set_slippage()`
 
-# ticker
-os.environ['ticker'] = "IR0001 1216 5844"
-
-# ingest
-!zipline ingest -b tquant
-```
+與 `set_commission` 類似，`set_slippage()` 函數也應該在 `initialize` 函數中被呼叫。它同樣可以針對 `futures` 和 `equities` 設定不同的滑價模型。
 
 ```python
-from zipline.finance import commission, slippage
-from zipline.api import *
-
-from zipline import run_algorithm  
-from zipline.utils.run_algo import  get_transaction_detail
-```
-## 設置交易策略
-```python
-start_dt = pd.Timestamp('2022-12-01', tz='UTC')
-end_dt = pd.Timestamp('2022-12-31', tz='UTC')
+from zipline.api import set_slippage
+from zipline.finance import slippage
 
 def initialize(context):
-    context.i = 0
-    context.tickers = ['1216']
-    context.asset = [symbol(ticker) for ticker in context.tickers] 
-    
-    # 設定滑價模型來進行模擬                
-    # set_slippage()只接收一個spread參數
-    set_slippage(slippage.FixedSlippage(spread = 0.2))
-    
-    # 這裡在接收commission.PerDollar()回傳結果後輸入參數
-    set_commission(commission.PerDollar(cost = commission_cost))
-    
-    # 設定benchmark
-    set_benchmark(symbol('IR0001'))
-    
-def handle_data(context, data):
-    
-    if context.i == 0:  # 2022-12-01(回測的第一個交易時間點)下單買 5 張統一（1216）股票
-        for asset in context.asset:
-            order(asset, 5000)
-
-    if context.i == 7:  # 2022-12-12(回測的第八個交易時間點)賣出 2 張統一（1216）股票
-        for asset in context.asset:
-            order(asset, -2000)
-
-    context.i += 1
-
-commission_cost = 0.001425 + 0.003 / 2
-capital_base = 1e6
+    # 在此處呼叫 set_slippage 函數
+    # ...
 ```
-```python
-# 評估結果
-closing_price = tejapi.fastget('TWN/APIPRCD',
-                               coid=['1216'],
-                               opts={'columns':['mdate','coid','close_d','vol']},
-                               mdate={'gte':start_dt,'lte':end_dt },
-                               paginate=True)
 
-closing_price['vol'] = closing_price['vol'] * 1000
+---
 
-performance = run_algorithm(start=start_dt,
-                            end=end_dt,
-                            initialize=initialize,
-                            handle_data=handle_data,
-                            capital_base=capital_base,
-                            bundle='tquant')
+## 情境一：設定期貨的固定滑價 (Fixed Slippage)
 
-positions, transactions, orders = get_transaction_detail(performance)
-```
-## 情況 1: 買入時計算滑價
-* 12/1時下單買 5 張統一（1216）股票，12/2成交。
-* 收盤價是 65.0，但因為我們設定 spread = 0.2，所以成交價（transactions.price）是 65 + 0.2 / 2 = 65.1，手續費（'commission'）是 65.1 * 5000 * 0.002925 = 952.0875（手續費是預先設定好的，這次用 PerDollar）。
-```python
-# 收盤價
-closing_price.query('(mdate == "2022-12-02")')
-```
+對於流動性較好的期貨市場，一個常見的簡化模型是假設每次交易都有一個固定的滑價成本。`FixedSlippage` 模型就是為此設計的。
+
+- **模型**: `slippage.FixedSlippage()`
+- **主要參數**:
+    - `spread`: 設定一個固定的價差。Zipline 會將這個價差的一半應用於買單（成交價更高），另一半應用於賣單（成交價更低）。
+
+#### 範例：
+
+假設我們預期每次交易的總滑價成本為 6 點（tick）。這意味著買進時會比市價多付 3 點，賣出時會比市價少收 3 點。
 
 ```python
-# 手續費（'commission'）是 952.0875
-orders.query('(created.dt.strftime("%Y-%m-%d") == "2022-12-01")')
+# 在 initialize 函數中
+
+from zipline.finance import slippage
+
+# 設定總價差為 6 點
+set_slippage(futures=slippage.FixedSlippage(spread=6.0))
 ```
+
+---
+
+## 情境二：設定股票的成交量滑價 (Volume Share Slippage)
+
+對於股票，特別是當交易量可能影響市場價格時，使用與成交量相關的滑價模型會更貼近真實。`VolumeShareSlippage` 會根據您的訂單佔當前 K 棒成交量的比例來模擬價格衝擊。
+
+- **模型**: `slippage.VolumeShareSlippage()`
+- **主要參數**:
+    - `volume_limit`: 您的訂單成交量佔 K 棒總成交量的最大比例，預設為 0.1 (10%)。
+    - `price_impact`: 價格衝擊係數，預設為 0.1。您的訂單量越大，對價格的影響就越大。
+
+#### 範例：
 
 ```python
-# 成交價（transactions.price）為 65.1
-transactions.loc['2022-12-02']
+# 在 initialize 函數中
+
+from zipline.finance import slippage
+
+# 使用預設參數設定成交量滑價模型
+set_slippage(equities=slippage.VolumeShareSlippage())
 ```
 
+---
 
-## 情況 2: 賣出時計算滑價
-* 在12/12賣出 2 張統一（1216）股票，12/13成交。
-* 12/13收盤價 65.4，由於是賣單，所以成交價是 65.4 - 0.2 / 2 = 65.3，手續費計算方法一樣。
+## 情境三：無滑價
+
+在策略開發的初期階段，您可能希望在一個理想化的環境中測試核心邏輯，此時可以設定無滑價。
+
+- **模型**: `slippage.NoSlippage()`
+
+#### 範例：
+
 ```python
-# 收盤價
-closing_price.query('(mdate == "2022-12-13")')
+# 在 initialize 函數中
+
+from zipline.finance import slippage
+
+set_slippage(futures=slippage.NoSlippage())
 ```
 
-```python
-# 在12/12賣出兩張統一 (1216) 股票，12/13成交。
-orders.query('(created.dt.strftime("%Y-%m-%d") == "2022-12-12")')
-```
+---
 
-```python
-# 成交價是65.4 - 0.2 / 2 = 65.3
-transactions.loc['2022-12-13']
-```
+## 總結
+
+- 在 `initialize` 函數中使用 `set_slippage` 來定義滑價模型。
+- **期貨**常用 `slippage.FixedSlippage` 來模擬固定的交易成本。
+- **股票**可使用 `slippage.VolumeShareSlippage` 來模擬更真實的市場衝擊。
+- 為了進行最嚴謹的回測，請務必為您的策略設定一個合理的滑價模型。
