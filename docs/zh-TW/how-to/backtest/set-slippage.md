@@ -1,102 +1,94 @@
-# 如何設定滑價模型
+# 操作指南：如何設定滑價 (How-to: Set Slippage)
 
-!!! info
-    本頁提供如何在 Zipline 回測中設定滑價模型的詳細指南，包括 `set_slippage()` 函數概覽、內建滑價模型類型和自定義滑價模型範例。
+## 目標
 
-在量化回測中，滑價 (Slippage) 是指預期成交價格與實際成交價格之間的差異。由於市場波動、流動性不足或大額訂單的影響，訂單往往無法在預期的價格成交，由此產生的成本便是滑價。精確地模擬滑價對於回測結果的真實性至關重要。
+滑價（Slippage）是指在金融市場中，最終成交價格與下單時預期價格之間的差異。這種差異可能由市場波動、流動性不足或訂單大小造成。在回測中模擬滑價，是讓策略績效更貼近真實市場狀況的關鍵步驟。
 
-Zipline 提供了多種內建滑價模型，並允許您定義自定義模型以反映不同市場條件下的滑價行為。
-
----
-
-## 1. set_slippage() 函數概覽
-
-`zipline.api.set_slippage()` 函數用於在回測中設定交易的滑價模型。此函數通常在 `initialize` 函數中呼叫，並且可以針對股票 (equities) 和期貨 (futures) 分別設定不同的滑價規則。
-
-```python
-from zipline.api import set_slippage
-from zipline.finance import slippage # 必須導入 slippage 模組
-```
-
-*   `equities`: (SlippageModel) 股票交易的滑價模型。
-*   `futures`: (SlippageModel) 期貨交易的滑價模型。
+本指南將說明如何在 TQuant Lab 中使用 `set_slippage` 函數來為您的策略設定不同的滑價模型。
 
 ---
 
-## 2. Zipline 內建滑價模型
+## 核心函數：`set_slippage()`
 
-Zipline 提供了以下幾種常用的內建滑價模型：
-
-### 2.1. FixedSlippage：**固定滑價**
-
-`FixedSlippage` 模型為每股/每單位交易設定一個固定的滑價金額 (`spread`)，與交易量無關。
-
-*   `spread`: 每股/每單位交易的固定滑價金額。
+與 `set_commission` 類似，`set_slippage()` 函數也應該在 `initialize` 函數中被呼叫。它同樣可以針對 `futures` 和 `equities` 設定不同的滑價模型。
 
 ```python
 from zipline.api import set_slippage
 from zipline.finance import slippage
 
 def initialize(context):
-    # 每股滑價 0.2 元
-    set_slippage(equities=slippage.FixedSlippage(spread=0.2))
-
-    # 如果希望沒有滑價，可以設定 spread=0.0
-    # set_slippage(equities=slippage.FixedSlippage(spread=0.0))
-```
-
-### 2.2. VolumeShareSlippage：**基於交易量份額的滑價**
-
-`VolumeShareSlippage` 模型根據您的交易量佔市場總成交量的比例來計算滑價，並可設定交易量限制及價格衝擊係數。
-
-*   `volume_limit`: 您訂單佔當日總成交量的最大比例（例如 `0.025` 代表 2.5%）。超過此限制的交易會被拆分為多筆，並可能產生更大的滑價。
-*   `price_impact`: 價格衝擊係數，表示交易量對價格的影響程度。
-
-```python
-from zipline.api import set_slippage
-from zipline.finance import slippage
-
-def initialize(context):
-    # 限制每筆交易不超過當日總成交量的 2.5%，並設定價格衝擊
-    set_slippage(equities=slippage.VolumeShareSlippage(volume_limit=0.025, price_impact=0.1))
-```
-
-### 2.3. NoSlippage：**無滑價**
-
-如果您希望完全不考慮滑價對交易的影響，可以使用 `NoSlippage` 模型。這通常用於初步策略驗證，或在非常流動的市場中。
-
-```python
-from zipline.api import set_slippage
-from zipline.finance import slippage
-
-def initialize(context):
-    # 完全禁用滑價
-    set_slippage(equities=slippage.NoSlippage())
+    # 在此處呼叫 set_slippage 函數
+    # ...
 ```
 
 ---
 
-## 3. 自定義滑價模型：TW_Slippage
+## 情境一：設定期貨的固定滑價 (Fixed Slippage)
 
-TQuant Lab 為了更好地模擬台灣市場的交易特性，內置了一個 `TW_Slippage` 模型。這個模型可能結合了固定價差和交易量限制的特性，以更貼近真實情境。
+對於流動性較好的期貨市場，一個常見的簡化模型是假設每次交易都有一個固定的滑價成本。`FixedSlippage` 模型就是為此設計的。
 
-#### 參數
-*   `spread`: 固定價差金額。
-*   `volume_limit`: 交易量限制比例。
+- **模型**: `slippage.FixedSlippage()`
+- **主要參數**:
+    - `spread`: 設定一個固定的價差。Zipline 會將這個價差的一半應用於買單（成交價更高），另一半應用於賣單（成交價更低）。
 
-#### 範例
+#### 範例：
+
+假設我們預期每次交易的總滑價成本為 6 點（tick）。這意味著買進時會比市價多付 3 點，賣出時會比市價少收 3 點。
+
 ```python
-from zipline.api import set_slippage
+# 在 initialize 函數中
+
 from zipline.finance import slippage
 
-# 假設 TW_Slippage 已在 zipline.finance.slippage 中定義
-# 或者您需要從其他路徑導入
-# from tquant.custom_slippage import TW_Slippage # 實際路徑可能不同
-
-def initialize(context):
-    # 設定台灣股票專用滑價模型：固定價差 0.3 元，交易量限制 1%
-    set_slippage(equities=slippage.TW_Slippage(
-        spread=0.3,
-        volume_limit=0.01
-    ))
+# 設定總價差為 6 點
+set_slippage(futures=slippage.FixedSlippage(spread=6.0))
 ```
+
+---
+
+## 情境二：設定股票的成交量滑價 (Volume Share Slippage)
+
+對於股票，特別是當交易量可能影響市場價格時，使用與成交量相關的滑價模型會更貼近真實。`VolumeShareSlippage` 會根據您的訂單佔當前 K 棒成交量的比例來模擬價格衝擊。
+
+- **模型**: `slippage.VolumeShareSlippage()`
+- **主要參數**:
+    - `volume_limit`: 您的訂單成交量佔 K 棒總成交量的最大比例，預設為 0.1 (10%)。
+    - `price_impact`: 價格衝擊係數，預設為 0.1。您的訂單量越大，對價格的影響就越大。
+
+#### 範例：
+
+```python
+# 在 initialize 函數中
+
+from zipline.finance import slippage
+
+# 使用預設參數設定成交量滑價模型
+set_slippage(equities=slippage.VolumeShareSlippage())
+```
+
+---
+
+## 情境三：無滑價
+
+在策略開發的初期階段，您可能希望在一個理想化的環境中測試核心邏輯，此時可以設定無滑價。
+
+- **模型**: `slippage.NoSlippage()`
+
+#### 範例：
+
+```python
+# 在 initialize 函數中
+
+from zipline.finance import slippage
+
+set_slippage(futures=slippage.NoSlippage())
+```
+
+---
+
+## 總結
+
+- 在 `initialize` 函數中使用 `set_slippage` 來定義滑價模型。
+- **期貨**常用 `slippage.FixedSlippage` 來模擬固定的交易成本。
+- **股票**可使用 `slippage.VolumeShareSlippage` 來模擬更真實的市場衝擊。
+- 為了進行最嚴謹的回測，請務必為您的策略設定一個合理的滑價模型。
