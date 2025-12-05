@@ -135,6 +135,12 @@ markdown_extensions:
 extra_css:
   - assets/stylesheets/extra.css
 
+# JavaScript files
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/theme.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 # plugin
 plugins:
   - search:
@@ -189,7 +195,6 @@ nav:
       - 資產物件: reference/zipline/assets.md
       - 其他 API: reference/zipline/other-api.md
       - 現貨速查表: reference/zipline/stocks_cheat_sheet.md
-      - 期貨速查表: reference/zipline/futures_cheat_sheet.md
     - Pipeline:
       - 概論: reference/pipeline/overview.md
       - 計算元素 (Terms): reference/pipeline/terms.md
@@ -205,13 +210,13 @@ nav:
     - Alphalens:
       - API 總覽: reference/alphalens/api.md
     - TejToolAPI:
-      - API 認證: reference/tejtoolapi/api-authentication.md
+      - 概述: reference/tejtoolapi/index.md
       - get_history_data: reference/tejtoolapi/get-history-data.md
-      - Python API: reference/tejtoolapi/python-api.md
       - REST API: reference/tejtoolapi/rest-api.md
   - 期貨專區:
     - 期貨總覽: futures/index.md
     - 建立第一個期貨策略: futures/first-futures-strategy.md
+    - 期貨速查表: futures/futures-cheat-sheet.md
     - 資料管理:
       - 如何 Ingest 期貨價量資料: futures/ingest-futures-pricing.md
     - 進階設定:

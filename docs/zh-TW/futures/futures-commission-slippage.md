@@ -5,7 +5,7 @@
 
 ---
 
-## 概述
+## 1. 概述
 
 在進行期貨回測時，正確設定交易成本是確保回測結果貼近真實交易的關鍵。TQuant Lab 提供了專為期貨設計的成本模型：
 
@@ -14,9 +14,9 @@
 
 ---
 
-## 手續費設定
+## 2. 手續費設定
 
-### PerContract 模型
+### 2.1 PerContract 模型
 
 期貨手續費通常以「每口」計算，使用 PerContract 模型：
 
@@ -41,9 +41,9 @@ def initialize(context):
 
 ---
 
-## 滑價設定
+## 3. 滑價設定
 
-### FixedSlippage 模型
+### 3.1 FixedSlippage 模型
 
 期貨滑價使用 FixedSlippage 模型，以固定點數計算：
 
@@ -67,7 +67,7 @@ def initialize(context):
 
 ---
 
-## 完整範例
+## 4. 完整範例
 
 ```python
 from zipline.api import (
@@ -91,7 +91,7 @@ def initialize(context):
 
 ---
 
-## 現貨 vs 期貨成本模型比較
+## 5. 現貨 vs 期貨成本模型比較
 
 | 特性 | 現貨 | 期貨 |
 |------|------|------|
@@ -101,7 +101,7 @@ def initialize(context):
 
 ---
 
-## 延伸閱讀
+## 6. 延伸閱讀
 
 - [建立你的第一個期貨策略](first-futures-strategy.md)
 - [如何設定手續費模型](../how-to/backtest/set-commission.md)

@@ -7,11 +7,11 @@ Alphalens 是一個用於因子研究與評估的 Python 庫，提供因子分�
 
 ---
 
-## 核心概念
+## 1. 核心概念
 
-### 資訊係數分析 (Information Coefficient, IC)
+### 1.1 資訊係數分析 (Information Coefficient, IC)
 
-資訊係數是一種量化因子預測性的方法，透過計算**因子值**與**持有期報酬**的**斯皮爾曼等級相關係數**（Spearman rank correlation coefficient）而得。
+資訊係數是一種量化因子預測性的方法，透過計算 **因子值** 與 **持有期報酬** 的 **斯皮爾曼等級相關係數** （Spearman rank correlation coefficient）而得。
 
 簡而言之，IC 提供了一種評估方式，來確定較高的因子值是否意味著更高的報酬率，即是否存在單調遞增的關係。理想情況下，我們希望 IC 值越高越好。在主動投資策略中，IC 也常被用來評估基金經理人的預測能力。
 
@@ -28,19 +28,19 @@ Alphalens 是一個用於因子研究與評估的 Python 庫，提供因子分�
 - **頂尖的因子**：IC ≥ 0.15
 - **IC ≥ 0.20**：可能代表存在回測偏差或內線交易
 
-### 資訊分析 vs. 收益分析
+### 1.2 資訊分析 vs. 收益分析
 
-**資訊分析**透過計算因子值與持有期報酬率的相關係數來評估因子的整體預測能力。這是一個單一的全局指標，反映因子在整個股票池中的平均預測力。
+**資訊分析** 透過計算因子值與持有期報酬率的相關係數來評估因子的整體預測能力。這是一個單一的全局指標，反映因子在整個股票池中的平均預測力。
 
-**收益分析**則將股票按因子值大小分成不同分組（通常 5 分組），然後計算每個分組的平均報酬率。這種方法能夠清楚展示因子在不同股票子集中的預測力分佈。
+**收益分析** 則將股票按因子值大小分成不同分組（通常 5 分組），然後計算每個分組的平均報酬率。這種方法能夠清楚展示因子在不同股票子集中的預測力分佈。
 
-**最佳實踐**：結合使用兩種分析工具。資訊係數提供了較為一般化的視角，而分組收益分析則提供了更深入的觀點，能夠明確顯示因子在哪些分組中的預測能力最強。
+**最佳實踐** ：結合使用兩種分析工具。資訊係數提供了較為一般化的視角，而分組收益分析則提供了更深入的觀點，能夠明確顯示因子在哪些分組中的預測能力最強。
 
 ---
 
-## 資訊係數 (IC) 分析函數
+## 2. 資訊係數 (IC) 分析函數
 
-### factor_information_coefficient
+### 2.1 factor_information_coefficient
 
 利用 `factor_information_coefficient` 函數計算各持有期下每一日的 IC 值，觀察因子預測力隨時間變動的情況。
 
@@ -59,11 +59,11 @@ ic.head()
 
 ---
 
-### plot_ic_ts
+### 2.2 plot_ic_ts
 
 利用 `plot_ic_ts` 函數把不同時點的 IC 值繪製成折線圖，可以了解因子預測能力隨著時間的變化情況。
 
-通常會希望看到 IC 在時間序列上大部分的時間點皆**穩定為正**（理想情況下 > 0.05），且**擁有較大的 IC 均值**以及**較小的 IC 標準差**。
+通常會希望看到 IC 在時間序列上大部分的時間點皆 **穩定為正** （理想情況下 > 0.05），且 **擁有較大的 IC 均值** 以及 **較小的 IC 標準差** 。
 
 圖表說明：
 
@@ -79,11 +79,11 @@ alphalens.plotting.plot_ic_ts(ic)
 
 ---
 
-### plot_ic_hist
+### 2.3 plot_ic_hist
 
 利用 `plot_ic_hist` 函數將不同持有期的 IC 序列資料繪製成直方圖，觀察 IC 值的分佈情況。
 
-通常會希望有**較高的 IC 均值**以及**較為集中的分佈**（標準差低、峰度高），表示因子預測力穩定一致。
+通常會希望有 **較高的 IC 均值** 以及 **較為集中的分佈** （標準差低、峰度高），表示因子預測力穩定一致。
 
 #### 範例
 
@@ -93,7 +93,7 @@ alphalens.plotting.plot_ic_hist(ic)
 
 ---
 
-### plot_ic_qq
+### 2.4 plot_ic_qq
 
 QQ 圖（使用 `plot_ic_qq` 函數）可以觀察 IC 值的機率分配是否近似於常態分配。若藍色點的分佈大致貼合紅色線（y=x），代表 IC 的分佈接近常態分配。
 
@@ -107,7 +107,7 @@ alphalens.plotting.plot_ic_qq(ic)
 
 ---
 
-### plot_monthly_ic_heatmap
+### 2.5 plot_monthly_ic_heatmap
 
 將 IC 值按月份取平均，並利用熱區圖觀察因子是否存在月份效應（即預測力在某些月份特別強或特別弱）。
 
@@ -123,7 +123,7 @@ alphalens.plotting.plot_monthly_ic_heatmap(mean_monthly_ic)
 
 ---
 
-### plot_information_table
+### 2.6 plot_information_table
 
 顯示 IC 相關的統計指標表，包括以下各項：
 
@@ -142,7 +142,7 @@ alphalens.plotting.plot_information_table(ic)
 
 ---
 
-### create_information_tear_sheet
+### 2.7 create_information_tear_sheet
 
 生成包含所有 IC 分析圖表的完整報告。此函數會自動生成時間序列圖、直方圖、QQ 圖、月度熱力圖及統計表，提供因子預測力的全面評估。
 
@@ -154,22 +154,22 @@ alphalens.tears.create_information_tear_sheet(factor_data)
 
 ---
 
-## 周轉率分析
+## 3. 周轉率分析
 
-### 周轉率概念
+### 3.1 周轉率概念
 
-因子周轉率間接衡量**因子的穩定性**及**潛在的交易成本**。周轉率低的因子能使投資組合無需頻繁調整持股，也間接代表因子有更好的持續性且享有較低的交易成本。
+因子周轉率間接衡量 **因子的穩定性** 及 **潛在的交易成本** 。周轉率低的因子能使投資組合無需頻繁調整持股，也間接代表因子有更好的持續性且享有較低的交易成本。
 
 Carhart（1997）和 Champagne, Karoui and Patel（2018）都發現，周轉率越高的共同基金績效就越差。
 
-周轉率也會隨**因子的資訊時域**不同而有所差異：
+周轉率也會隨 **因子的資訊時域** 不同而有所差異：
 
-- **短資訊時域**（如短期反轉因子）：訊號迅速消失，導致較高周轉率
-- **長資訊時域**（如基本面因子）：訊號衰減速度較慢，周轉率相對較低
+- **短資訊時域** （如短期反轉因子）：訊號迅速消失，導致較高周轉率
+- **長資訊時域** （如基本面因子）：訊號衰減速度較慢，周轉率相對較低
 
 ---
 
-### quantile_turnover
+### 3.2 quantile_turnover
 
 第 N 分組（quantile）在時點 t 的周轉率定義為：
 
@@ -194,7 +194,7 @@ for holding_period in (1, 5, 10):
 
 ---
 
-### plot_top_bottom_quantile_turnover
+### 3.3 plot_top_bottom_quantile_turnover
 
 繪製 top quantile（最高分組）與 bottom quantile（最低分組）的周轉率折線圖。這兩個分組在因子投資中尤為重要，因為多因子策略通常會做多 top quantile 並同時放空 bottom quantile 來建構多空對沖投組。
 
@@ -210,13 +210,13 @@ for holding_period in (1, 5, 10):
 
 ---
 
-### factor_rank_autocorrelation
+### 3.4 factor_rank_autocorrelation
 
-因子秩自相關係數衡量**當期因子值排序**與**前一期因子值排序**的相關程度。
+因子秩自相關係數衡量 **當期因子值排序** 與 **前一期因子值排序** 的相關程度。
 
 $$\text{自相關係數}_t = Corr(\text{因子值秩}_{i,t}, \text{因子值秩}_{i,t-p})$$
 
-**周轉率與自相關係數呈現負相關**。因此，因子秩自相關係數提供了另一種衡量因子周轉率（即穩定性）的方式。自相關係數高則代表因子在不同時期之間存在較大的相關性和穩定性，同時意味著周轉率較低。
+**周轉率與自相關係數呈現負相關** 。因此，因子秩自相關係數提供了另一種衡量因子周轉率（即穩定性）的方式。自相關係數高則代表因子在不同時期之間存在較大的相關性和穩定性，同時意味著周轉率較低。
 
 #### 範例
 
@@ -234,7 +234,7 @@ for holding_period in (1, 5, 10):
 
 ---
 
-### plot_factor_rank_auto_correlation
+### 3.5 plot_factor_rank_auto_correlation
 
 將不同持有期的因子秩自相關係數繪製成折線圖，觀察因子穩定性在時間序列上的變化。
 
@@ -250,7 +250,7 @@ for holding_period in (1, 5, 10):
 
 ---
 
-### plot_turnover_table
+### 3.6 plot_turnover_table
 
 繪製周轉率與秩自相關係數的統計表格，提供因子穩定性的全面評估。
 
@@ -265,7 +265,7 @@ alphalens.plotting.plot_turnover_table(
 
 ---
 
-### create_turnover_tear_sheet
+### 3.7 create_turnover_tear_sheet
 
 生成包含所有周轉率分析圖表的完整報告。此函數整合周轉率分析的各個方面，提供因子穩定性的完整評估。
 
@@ -277,9 +277,9 @@ alphalens.tears.create_turnover_tear_sheet(factor_data)
 
 ---
 
-## 收益分析函數
+## 4. 收益分析函數
 
-### mean_return_by_quantile
+### 4.1 mean_return_by_quantile
 
 計算不同因子分組在不同時間點的平均報酬率，用於評估因子的預測力分佈。此函數對應於「收益分析」，能清楚展示不同分組的績效差異。
 
@@ -294,7 +294,7 @@ mean_return_by_q, std_err_by_q = alphalens.performance.mean_return_by_quantile(
 
 ---
 
-## 完整工作流程範例
+## 5. 完整工作流程範例
 
 ```python
 import alphalens

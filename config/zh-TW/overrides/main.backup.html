@@ -1,0 +1,694 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    /* Light theme content text - exclude header */
+    [data-md-color-scheme="default"] .md-content *,
+    [data-md-color-scheme="default"] .md-sidebar *,
+    [data-md-color-scheme="default"] .md-main * {
+      color: #000000;
+    }
+    /* Keep header elements white */
+    [data-md-color-scheme="default"] .md-header *,
+    [data-md-color-scheme="default"] .md-header__option *,
+    [data-md-color-scheme="default"] .md-header__option label,
+    [data-md-color-scheme="default"] .md-header__option label svg {
+      color: #ffffff !important;
+      fill: #ffffff !important;
+    }
+    [data-md-color-scheme="default"] a, 
+    [data-md-color-scheme="default"] .md-typeset a {
+      color: #0066cc !important;
+    }
+    [data-md-color-scheme="default"] code:not(pre code) {
+      color: #c41e3a !important;
+    }
+    
+    /* === TQUANTLAB BUTTON IN HEADER CENTER === */
+    .md-header__shop-btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(135deg, #00d4aa 0%, #00b894 50%, #00cec9 100%);
+      background-size: 200% 200%;
+      border: none;
+      border-radius: 25px;
+      color: white !important;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none !important;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4), 
+                  0 0 30px rgba(0, 212, 170, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.15em;
+      z-index: 100;
+      overflow: hidden;
+      animation: gradientShift 3s ease-in-out infinite, buttonGlow 2s ease-in-out infinite, buttonFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    @keyframes buttonGlow {
+      0%, 100% { 
+        box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4), 
+                    0 0 30px rgba(0, 212, 170, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+      50% { 
+        box-shadow: 0 4px 25px rgba(0, 212, 170, 0.6), 
+                    0 0 50px rgba(0, 212, 170, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+    }
+    
+    @keyframes buttonFloat {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-2px); }
+    }
+    
+    .md-header__shop-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: shimmer 2s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    .md-header__shop-btn:hover {
+      animation: gradientShift 1.5s ease-in-out infinite, buttonGlowHover 1s ease-in-out infinite, buttonFloat 2s ease-in-out infinite;
+      transform: translateX(-50%) scale(1.1);
+    }
+    
+    @keyframes buttonGlowHover {
+      0%, 100% { 
+        box-shadow: 0 6px 30px rgba(0, 212, 170, 0.6), 
+                    0 0 60px rgba(0, 212, 170, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+      50% { 
+        box-shadow: 0 8px 40px rgba(0, 212, 170, 0.8), 
+                    0 0 80px rgba(0, 212, 170, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+    }
+    
+    .md-header__shop-btn:active {
+      transform: translateX(-50%) scale(0.98);
+    }
+    
+    .md-header__shop-btn svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      fill: currentColor;
+      animation: pulse-icon 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-icon {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.1) rotate(-5deg); }
+      75% { transform: scale(1.1) rotate(5deg); }
+    }
+    
+    /* Dark theme TQuantlab button */
+    [data-md-color-scheme="slate"] .md-header__shop-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      background-size: 200% 200%;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4), 
+                  0 0 30px rgba(118, 75, 162, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    
+    @keyframes buttonGlowDark {
+      0%, 100% { 
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4), 
+                    0 0 30px rgba(118, 75, 162, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+      50% { 
+        box-shadow: 0 4px 25px rgba(102, 126, 234, 0.6), 
+                    0 0 50px rgba(118, 75, 162, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+    }
+    
+    [data-md-color-scheme="slate"] .md-header__shop-btn {
+      animation: gradientShift 3s ease-in-out infinite, buttonGlowDark 2s ease-in-out infinite, buttonFloat 3s ease-in-out infinite;
+    }
+
+    /* Hide on mobile */
+    @media screen and (max-width: 60em) {
+      .md-header__shop-btn {
+        display: none;
+      }
+    }
+
+    /* === CUSTOM THEME TOGGLE BUTTON === */
+    .custom-theme-toggle {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border: none;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      color: #ffffff !important;
+      transition: all 0.3s ease;
+      margin-left: 0.5rem;
+    }
+
+    .custom-theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.15);
+    }
+
+    .custom-theme-toggle svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      fill: #ffffff !important;
+    }
+  </style>
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+<script>
+// Add TQuantLab button to header
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.md-header__inner');
+  if (header && !document.querySelector('.md-header__shop-btn')) {
+    const shopBtn = document.createElement('a');
+    shopBtn.className = 'md-header__shop-btn';
+    shopBtn.href = 'https://tquant.tejwin.com/shop/';
+    shopBtn.target = '_blank';
+    shopBtn.rel = 'noopener noreferrer';
+    shopBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span>訂閱TQuantlab</span>';
+    header.appendChild(shopBtn);
+  }
+
+  // Add custom theme toggle button
+  const headerNav = document.querySelector('.md-header__inner');
+  if (headerNav && !document.querySelector('.custom-theme-toggle')) {
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'custom-theme-toggle';
+    themeToggle.setAttribute('aria-label', '切換深色/淺色模式');
+    themeToggle.setAttribute('title', '切換深色/淺色模式');
+    
+    // Set initial icon based on current theme
+    const updateIcon = () => {
+      const isDark = document.body.getAttribute('data-md-color-scheme') === 'slate';
+      if (isDark) {
+        themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>';
+      } else {
+        themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>';
+      }
+    };
+    
+    updateIcon();
+    
+    // Toggle theme on click
+    themeToggle.addEventListener('click', function() {
+      const body = document.body;
+      const currentScheme = body.getAttribute('data-md-color-scheme');
+      const newScheme = currentScheme === 'slate' ? 'default' : 'slate';
+      
+      body.setAttribute('data-md-color-scheme', newScheme);
+      
+      // Also update the palette input if exists
+      const paletteInputs = document.querySelectorAll('input[name="__palette"]');
+      paletteInputs.forEach((input, index) => {
+        if (newScheme === 'slate' && index === 1) {
+          input.checked = true;
+        } else if (newScheme === 'default' && index === 0) {
+          input.checked = true;
+        }
+      });
+      
+      // Save preference
+      localStorage.setItem('data-md-color-scheme', newScheme);
+      
+      updateIcon();
+    });
+    
+    // Insert before the search or at the end of header nav
+    const searchForm = headerNav.querySelector('.md-search');
+    if (searchForm) {
+      headerNav.insertBefore(themeToggle, searchForm);
+    } else {
+      headerNav.appendChild(themeToggle);
+    }
+  }
+});
+</script>
+{% endblock %}
+
+{% block announce %}
+ <!-- Add announcement here, including arbitrary HTML -->
+ 如需最新更新，請關注 <strong>@squidfunk</strong> 在
+  <a rel="me" href="https://github.com/tejtw/TQuant-Lab">
+    <span class="twemoji">
+      {% include ".icons/fontawesome/brands/github.svg" %}
+    </span>
+    <strong>GitHub</strong>
+  </a>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+// Restore saved theme immediately on page load
+(function() {
+  const savedTheme = localStorage.getItem('data-md-color-scheme');
+  if (savedTheme) {
+    document.body.setAttribute('data-md-color-scheme', savedTheme);
+  }
+})();
+
+// Loader logic - runs after page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Restore theme again after DOM is ready
+  const savedTheme = localStorage.getItem('data-md-color-scheme');
+  if (savedTheme) {
+    document.body.setAttribute('data-md-color-scheme', savedTheme);
+  }
+  
+  // Check if homepage
+  const path = window.location.pathname;
+  const isHomepage = path === '/' || 
+                     path.endsWith('/index.html') || 
+                     path.endsWith('/zh-TW/') ||
+                     path === '/zh-TW' ||
+                     path === '' ||
+                     /\/zh-TW\/?$/.test(path);
+  
+  // Check session storage
+  const loaderShown = sessionStorage.getItem('tquant-loader-shown');
+  
+  if (isHomepage && !loaderShown) {
+    // Create and show loader
+    const loaderHTML = `
+      <div class="tquant-loader" id="tquant-loader">
+        <div class="loader-scanline"></div>
+        <div class="loader-logo-container">
+          <div class="loader-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+          <div class="loader-ring loader-ring-1"></div>
+          <div class="loader-ring loader-ring-2"></div>
+          <div class="loader-ring loader-ring-3"></div>
+          <img src="assets/images/logo.png" alt="TQuant Lab" class="loader-logo-img" />
+        </div>
+        <div class="loader-text">TQuant Lab</div>
+        <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+        </div>
+        <div class="loader-dots">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </div>
+    `;
+    
+    document.body.insertAdjacentHTML('afterbegin', loaderHTML);
+    
+    // Hide after animation and set dark theme
+    setTimeout(function() {
+      const loader = document.getElementById('tquant-loader');
+      if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(function() {
+          loader.remove();
+          // Set dark theme after loader completes
+          document.body.setAttribute('data-md-color-scheme', 'slate');
+          localStorage.setItem('data-md-color-scheme', 'slate');
+        }, 800);
+      }
+    }, 2500);
+    
+    sessionStorage.setItem('tquant-loader-shown', 'true');
+  }
+});
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<script>
+// === THEME TRANSITION EFFECT ===
+function createThemeTransitionElements() {
+  // Create overlay
+  if (!document.querySelector('.theme-transition-overlay')) {
+    const overlay = document.createElement('div');
+    overlay.className = 'theme-transition-overlay';
+    document.body.appendChild(overlay);
+  }
+  
+  // Create logo for transition
+  if (!document.querySelector('.theme-transition-logo')) {
+    const logo = document.createElement('img');
+    logo.className = 'theme-transition-logo';
+    // Use base URL to ensure correct path
+    const baseUrl = document.querySelector('link[rel="canonical"]')?.href?.replace(/[^/]*$/, '') || '/zh-TW/';
+    logo.src = baseUrl + 'assets/images/logo.png';
+    logo.onerror = function() {
+      // Fallback paths
+      this.src = '/zh-TW/assets/images/logo.png';
+      this.onerror = function() {
+        this.src = '../assets/images/logo.png';
+        this.onerror = function() {
+          this.src = '../../assets/images/logo.png';
+        };
+      };
+    };
+    logo.alt = 'TQuant Lab';
+    document.body.appendChild(logo);
+  }
+  
+  // Create ripple effect element
+  if (!document.querySelector('.theme-ripple')) {
+    const ripple = document.createElement('div');
+    ripple.className = 'theme-ripple';
+    document.body.appendChild(ripple);
+  }
+}
+
+function playThemeTransition() {
+  createThemeTransitionElements();
+  
+  const overlay = document.querySelector('.theme-transition-overlay');
+  const logo = document.querySelector('.theme-transition-logo');
+  const ripple = document.querySelector('.theme-ripple');
+  
+  // Start transition
+  ripple.classList.add('active');
+  
+  setTimeout(() => {
+    overlay.classList.add('active');
+    logo.classList.add('active');
+  }, 100);
+  
+  // End transition
+  setTimeout(() => {
+    logo.classList.remove('active');
+    overlay.classList.remove('active');
+  }, 500);
+  
+  setTimeout(() => {
+    ripple.classList.remove('active');
+  }, 800);
+}
+
+// Watch for theme toggle clicks
+document.addEventListener('DOMContentLoaded', function() {
+  const paletteInputs = document.querySelectorAll('input[name="__palette"]');
+  paletteInputs.forEach(input => {
+    input.addEventListener('change', playThemeTransition);
+  });
+  
+  // Also watch label clicks for the toggle
+  const paletteLabels = document.querySelectorAll('label[for^="__palette"]');
+  paletteLabels.forEach(label => {
+    label.addEventListener('click', () => {
+      setTimeout(playThemeTransition, 50);
+    });
+  });
+});
+
+// Fix theme text color based on data-md-color-scheme
+function fixThemeTextColor() {
+  // This function is intentionally simplified to avoid causing visual artifacts
+  // Theme colors are now handled purely by CSS
+}
+
+// Watch for theme changes
+const themeObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.attributeName === 'data-md-color-scheme') {
+      fixThemeTextColor();
+    }
+  });
+});
+
+// Observe both body and html for attribute changes
+themeObserver.observe(document.body, { attributes: true });
+themeObserver.observe(document.documentElement, { attributes: true });
+
+// Run on load
+document.addEventListener('DOMContentLoaded', function() {
+  fixThemeTextColor();
+  
+  // Create container for toggle buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'md-sidebar-toggle-container';
+  document.body.appendChild(buttonContainer);
+  
+  // Right sidebar (Table of Contents) collapse functionality
+  const secondarySidebar = document.querySelector('.md-sidebar--secondary');
+  
+  if (secondarySidebar) {
+    // Create toggle button for right sidebar
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'md-sidebar-toggle md-sidebar-toggle--secondary';
+    toggleBtn.setAttribute('aria-label', '收合目錄');
+    toggleBtn.setAttribute('title', '收合目錄');
+    toggleBtn.setAttribute('type', 'button');
+    toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.41L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>';
+    
+    buttonContainer.appendChild(toggleBtn);
+    
+    // Toggle functionality for right sidebar - default to collapsed if no saved state
+    const savedSecondaryState = localStorage.getItem('md-sidebar-secondary-collapsed');
+    let isSecondaryCollapsed = savedSecondaryState === null ? true : savedSecondaryState === 'true';
+    
+    // Apply initial state
+    if (isSecondaryCollapsed) {
+      secondarySidebar.classList.add('sidebar-collapsed');
+      toggleBtn.classList.add('collapsed');
+      toggleBtn.setAttribute('title', '展開目錄');
+    }
+    
+    toggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      isSecondaryCollapsed = !isSecondaryCollapsed;
+      
+      if (isSecondaryCollapsed) {
+        secondarySidebar.classList.add('sidebar-collapsed');
+        toggleBtn.classList.add('collapsed');
+        toggleBtn.setAttribute('title', '展開目錄');
+      } else {
+        secondarySidebar.classList.remove('sidebar-collapsed');
+        toggleBtn.classList.remove('collapsed');
+        toggleBtn.setAttribute('title', '收合目錄');
+      }
+      
+      localStorage.setItem('md-sidebar-secondary-collapsed', isSecondaryCollapsed);
+      return false;
+    });
+  }
+  
+  // Left sidebar collapse functionality
+  const primarySidebar = document.querySelector('.md-sidebar--primary');
+  if (primarySidebar) {
+    // Create toggle button for left sidebar
+    const toggleBtnLeft = document.createElement('button');
+    toggleBtnLeft.className = 'md-sidebar-toggle md-sidebar-toggle--primary';
+    toggleBtnLeft.setAttribute('aria-label', '收合選單');
+    toggleBtnLeft.setAttribute('title', '收合選單');
+    toggleBtnLeft.setAttribute('type', 'button');
+    toggleBtnLeft.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>';
+    
+    buttonContainer.appendChild(toggleBtnLeft);
+    
+    // Toggle functionality for left sidebar - default to collapsed if no saved state
+    const savedPrimaryState = localStorage.getItem('md-sidebar-primary-collapsed');
+    let isPrimaryCollapsed = savedPrimaryState === null ? true : savedPrimaryState === 'true';
+    
+    // Apply initial state
+    if (isPrimaryCollapsed) {
+      primarySidebar.classList.add('sidebar-collapsed');
+      toggleBtnLeft.classList.add('collapsed');
+      toggleBtnLeft.setAttribute('title', '展開選單');
+    }
+    
+    toggleBtnLeft.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      isPrimaryCollapsed = !isPrimaryCollapsed;
+      
+      if (isPrimaryCollapsed) {
+        primarySidebar.classList.add('sidebar-collapsed');
+        toggleBtnLeft.classList.add('collapsed');
+        toggleBtnLeft.setAttribute('title', '展開選單');
+      } else {
+        primarySidebar.classList.remove('sidebar-collapsed');
+        toggleBtnLeft.classList.remove('collapsed');
+        toggleBtnLeft.setAttribute('title', '收合選單');
+      }
+      
+      localStorage.setItem('md-sidebar-primary-collapsed', isPrimaryCollapsed);
+      return false;
+    });
+  }
+  
+  // Also run after a small delay to catch dynamically loaded content
+  setTimeout(fixThemeTextColor, 500);
+});
+</script>
+
+<style>
+/* Sidebar Toggle Container */
+.md-sidebar-toggle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Sidebar Toggle Button Base Style */
+.md-sidebar-toggle {
+  position: fixed;
+  top: 5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.3rem;
+  background: linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-accent-fg-color) 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  opacity: 0.7;
+}
+
+.md-sidebar-toggle:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.md-sidebar-toggle:active {
+  transform: scale(0.95);
+}
+
+.md-sidebar-toggle svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+/* Right Sidebar Toggle (Table of Contents) */
+.md-sidebar-toggle--secondary {
+  right: 0.75rem;
+}
+
+/* When collapsed, arrow points left (to expand/show sidebar) */
+.md-sidebar-toggle--secondary.collapsed svg {
+  transform: rotate(180deg);
+}
+
+/* When expanded, arrow points right (to collapse/hide sidebar) - default state */
+.md-sidebar-toggle--secondary svg {
+  transform: rotate(0deg);
+}
+
+/* Left Sidebar Toggle (Navigation) */
+.md-sidebar-toggle--primary {
+  left: 0.75rem;
+}
+
+/* When collapsed, arrow points right (to expand/show sidebar) */
+.md-sidebar-toggle--primary.collapsed svg {
+  transform: rotate(180deg);
+}
+
+/* When expanded, arrow points left (to collapse/hide sidebar) - default state */
+.md-sidebar-toggle--primary svg {
+  transform: rotate(0deg);
+}
+
+/* Sidebar Collapse Animation - only transform, not color/opacity for theme switch */
+.md-sidebar--secondary.sidebar-collapsed {
+  transform: translateX(100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.md-sidebar--primary.sidebar-collapsed {
+  transform: translateX(-100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* When sidebar is collapsed, adjust toggle button icon */
+.md-sidebar-toggle--primary.collapsed {
+  left: 0.75rem;
+}
+
+.md-sidebar-toggle--secondary.collapsed {
+  right: 0.75rem;
+}
+
+/* Dark Theme Adjustments */
+[data-md-color-scheme="slate"] .md-sidebar-toggle {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+[data-md-color-scheme="slate"] .md-sidebar-toggle:hover {
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Hide on mobile */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar-toggle--primary {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .md-sidebar-toggle--secondary {
+    display: none;
+  }
+}
+</style>
+{% endblock %}

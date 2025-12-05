@@ -16,7 +16,7 @@ Zipline 是一個事件驅動的回測框架，它透過一系列定義好的生
 *   **參數**:
     *   `context`: 一個 `dict` 般的物件，用於在回測期間儲存和傳遞策略的狀態資訊。您可以在 `context` 中定義任何自定義變數。
 
-#### 常見操作：
+#### 1.1常見操作
 *   **設定 Benchmark**: 使用 `set_benchmark()`。
 *   **設定交易成本**: 使用 `set_commission()` 和 `set_slippage()`。
 *   **設定交易控制**: 使用 `set_max_leverage()` 等。
@@ -24,7 +24,7 @@ Zipline 是一個事件驅動的回測框架，它透過一系列定義好的生
 *   **初始化自定義變數**: 例如 `context.has_ordered = False`。
 *   **設定排程函數**: 使用 `schedule_function()`。
 
-#### 範例
+#### 1.2範例
 ```python
 from zipline.api import set_benchmark, symbol, set_commission, set_slippage, attach_pipeline
 from zipline.finance import commission, slippage
@@ -55,7 +55,7 @@ def initialize(context):
     *   `context`: 策略狀態物件。
     *   `data`: 數據物件，提供當前日期之前所有可用的歷史數據。
 
-#### 常見操作：
+#### 2.1常見操作
 *   **數據預處理**: 獲取最新的歷史數據或計算盤前指標。
 *   **更新資產池 (Universe)**: 基於盤前信息篩選出當日要關注的股票。
 *   **檢索 Pipeline 輸出**: 獲取 Pipeline 在前一交易日計算出的因子值或信號，並儲存到 `context` 中，供 `handle_data()` 使用。
@@ -63,7 +63,7 @@ def initialize(context):
 !!! important
     `before_trading_start()` 函數 **不能** 用於下達交易訂單。訂單必須在市場開放時間內，通常在 `handle_data()` 中執行。
 
-#### 範例
+#### 2.2範例
 ```python
 from zipline.api import pipeline_output
 
@@ -87,13 +87,13 @@ def before_trading_start(context, data):
     *   `context`: 策略狀態物件。
     *   `data`: 數據物件，提供當前時間點可用的市場數據（例如，最新價格、成交量）。
 
-#### 常見操作：
+#### 3.1常見操作
 *   **獲取市場數據**: 使用 `data.current()` 或 `data.history()` 獲取當前或歷史的價格、成交量等信息。
 *   **計算交易信號**: 根據技術指標、因子值或其他邏輯判斷買賣時機。
 *   **下達訂單**: 使用 `order()`, `order_target()`, `order_percent()`, `order_target_percent()` 等函數執行交易。
 *   **記錄數據**: 使用 `record()` 函數記錄您想要在回測結果中追蹤的數據。
 
-#### 範例
+#### 3.2範例
 ```python
 from zipline.api import order_target_percent
 
@@ -128,12 +128,12 @@ def handle_data(context, data):
     *   `context`: 策略狀態物件 (與 `initialize` 和 `handle_data` 中的 `context` 相同)。
     *   `results`: 一個 `pandas.DataFrame`，包含了回測期間每日的績效數據 (例如，報酬率、資金曲線、最大回撤等)。
 
-#### 常見操作：
+#### 4.1常見操作
 *   **使用 Pyfolio 產生 Tearsheet**: 將 `results` 數據傳遞給 Pyfolio，生成標準的績效分析報表。
 *   **自定義圖表繪製**: 使用 Matplotlib 或 Seaborn 等庫繪製自定義的績效圖表。
 *   **計算自定義指標**: 從 `results` 中提取數據，計算策略特有的指標。
 
-#### 範例
+#### 4.2範例
 ```python
 import matplotlib.pyplot as plt
 import pyfolio

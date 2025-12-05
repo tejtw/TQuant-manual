@@ -11,7 +11,7 @@
 
 此函數用於限制您的投資組合在回測期間的最大槓桿倍數。如果投資組合的槓桿超過此設定，Zipline 將會終止回測並報錯。
 
- ** 參數 ** :
+ **參數** :
 
 *   `max_leverage` (float)
     *   `max_leverage` 應為一個大於 0 的浮點數，表示允許的最大槓桿倍數。
@@ -29,11 +29,11 @@ def initialize(context):
 
 ---
 
-## 2. set_max_position_size()：設定 ** 單一資產最大部位限制 ** 
+## 2. set_max_position_size()：設定單一資產最大部位限制 
 
 此函數用於限制單一資產在投資組合中的最大持有部位。這有助於分散風險，避免單一資產對整個投資組合產生過大的影響。
 
- ** 參數 ** :
+ **參數** :
 
 *   `asset`: (Asset, 可選) 欲設定限制的資產物件。若為 `None`，則限制適用於所有資產。
 *   `max_shares`: (int, 可選) 允許持有的最大股數。
@@ -55,11 +55,11 @@ def initialize(context):
 
 ---
 
-## 3. set_max_order_size()：設定 ** 單筆訂單最大數量限制 ** 
+## 3. set_max_order_size()：設定 **單筆訂單最大數量限制** 
 
 此函數用於限制單次下單的最大數量。這可以防止因意外或邏輯錯誤而下達過大的訂單，同時也能模擬市場深度不足的狀況。
 
- ** 參數 ** : 同 `set_max_position_size()` 的參數。
+ **參數** : 同 `set_max_position_size()` 的參數。
 
 ```python
 from zipline.api import set_max_order_size, symbol
@@ -76,7 +76,7 @@ def initialize(context):
 
 ---
 
-## 4. set_min_order_size()：設定 ** 單筆訂單最小數量限制 ** 
+## 4. set_min_order_size()：設定 **單筆訂單最小數量限制** 
 
 [TODO: 內容缺失]
 

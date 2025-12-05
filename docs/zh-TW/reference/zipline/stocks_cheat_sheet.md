@@ -1,5 +1,8 @@
 # Zipline 股票策略備忘錄 (API Cheat Sheet)
 
+!!! info
+    本頁提供 TQuant Lab 股票策略開發的 API 快速參考，包含初始化、數據獲取、交易下單、部位管理及回測執行等常用函數。
+
 這是一份專為 TQuant Lab 中進行**股票**策略回測設計的 API 快速參考備忘錄。
 
 ---

@@ -61,7 +61,7 @@ logs/
 *.tmp
 *.temp
 *.bak
-
+    
 # Archives
 *.zip
 *.tar.gz
