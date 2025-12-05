@@ -83,7 +83,7 @@ Zipline 策略主要由以下幾個生命週期函數構成，它們在回測的
     *   繪製自訂的策略表現圖表。
     *   輸出最終的統計數據。
 
-> 詳見：[生命週期函數](../../reference/zipline/lifecycle-functions.md)
+> 詳見：[生命週期函數](../reference/zipline/lifecycle-functions.md)
 
 ---
 
@@ -99,7 +99,7 @@ Zipline 策略主要由以下幾個生命週期函數構成，它們在回測的
 *   `context.sim_params`：包含回測的模擬參數，如起始/結束日期、初始資金 (`capital_base`)、資料頻率 (`data_frequency`) 等。
 *   **自訂屬性** ：您可以在 `initialize` 函數中為 `context` 添加任何自訂屬性，以便在 `handle_data` 或其他函數中使用和更新，例如 `context.my_indicator = []`。
 
-> 詳見：[context 變數](../../reference/zipline/context.md)
+> 詳見：[context 變數](../reference/zipline/context.md)
 
 ---
 
@@ -124,8 +124,8 @@ Zipline 提供了兩種主要方式來獲取市場數據：
 *   **停牌或已下市資產** ：Zipline 會自動處理停牌或已下市的資產，避免在這些資產上執行交易。您也可以在策略中檢查 `data.is_lively()` 來確認資產是否可交易。
 *   **現金不足** ：當嘗試下單的資金超過可用現金時，Zipline 會自動調整訂單數量或拒絕訂單。策略設計時應考慮資金管理，避免過度下單。
 
-> 詳見：[Zipline 資料物件](../../reference/zipline/data-object.md)
-> 詳見：[Pipeline API (概論)](../../reference/pipeline/overview.md)
+> 詳見：[Zipline 資料物件](../reference/zipline/data-object.md)
+> 詳見：[Pipeline API (概論)](../reference/pipeline/overview.md)
 
 ---
 
@@ -144,7 +144,7 @@ Zipline 提供了直觀的 API 來執行交易和管理投資組合：
 *   **部位查詢** ：
     您可以隨時透過 `context.portfolio.positions` 查詢當前持有的所有資產及其詳細資訊（如數量、成本價、最新市價）。
 
-> 詳見：[下單函數](../../reference/zipline/orders.md)
+> 詳見：[下單函數](../reference/zipline/orders.md)
 
 ---
 

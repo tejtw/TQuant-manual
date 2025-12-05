@@ -1,6 +1,37 @@
-# 教學：建立你的第一個期貨策略
+# 建立你的第一個期貨策略
 
-這份教學文件旨在引導初學者使用 TQuant Lab，從零開始建立一個完整且可執行的期貨回測策略。我們將以一個簡單的「均線交叉策略」為範例，說明一個期貨策略的完整生命週期，包含資料準備、策略初始化、交易邏輯、轉倉處理，以及最終的回測執行。
+!!! info
+    本教學文件引導您使用 TQuant Lab，從零開始建立一個完整且可執行的期貨回測策略。我們將以一個簡單的「均線交叉策略」為範例，說明一個期貨策略的完整生命週期。
+
+---
+
+<div class="grid cards" markdown>
+
+-   #### 1. 資料準備
+
+    ---
+
+    設定 TEJ API 金鑰，下載期貨商品資料至本地環境。
+
+-   #### 2. 策略初始化
+
+    ---
+
+    設定連續合約、交易成本、績效基準與排程函數。
+
+-   #### 3. 交易邏輯
+
+    ---
+
+    實作均線交叉策略的買賣信號與下單邏輯。
+
+-   #### 4. 轉倉處理
+
+    ---
+
+    處理期貨合約到期前的自動轉倉機制。
+
+</div>
 
 ---
 
@@ -27,7 +58,9 @@ os.environ['mdate'] = '20100101 20250930'
 # 執行 ingest 命令 (首次執行或需更新數據時取消註解)
 # !zipline ingest -b tquant_future
 ```
-> **注意**：`ingest` 命令只需要在第一次執行，或當您需要更新本地資料時執行。在平常的策略開發中，可以將其註解掉以節省時間。
+
+!!! note
+    `ingest` 命令只需要在第一次執行，或當您需要更新本地資料時執行。在平常的策略開發中，可以將其註解掉以節省時間。
 
 ---
 
@@ -74,15 +107,16 @@ def initialize(context):
 `daily_trade` 函數是我們策略的核心，它會根據我們在 `initialize` 中設定的排程被每日呼叫。
 
 這個範例策略的邏輯很簡單：
-1.  使用 `data.history()` 獲取過去一段時間的歷史價格。
-2.  計算短期（10日）與長期（20日）的移動平均線 (MA)。
-3.  當短期均線由下往上穿越長期均線時（黃金交叉），建立多單。
-4.  當短期均線由上往下穿越長期均線時（死亡交叉），平倉。
-5.  使用 `order_target()` 函數來下單，它會自動計算需要買賣的口數以達到我們的目標部位。
-6.  使用 `record()` 記錄我們想要在圖表上觀察的數值。
+
+1. 使用 `data.history()` 獲取過去一段時間的歷史價格。
+2. 計算短期（10日）與長期（20日）的移動平均線 (MA)。
+3. 當短期均線由下往上穿越長期均線時（黃金交叉），建立多單。
+4. 當短期均線由上往下穿越長期均線時（死亡交叉），平倉。
+5. 使用 `order_target()` 函數來下單，它會自動計算需要買賣的口數以達到我們的目標部位。
+6. 使用 `record()` 記錄我們想要在圖表上觀察的數值。
 
 ```python
-from zipline.api import order_target, record, data
+from zipline.api import order_target, record
 
 def daily_trade(context, data):
     # --- 1. 獲取歷史數據 ---
@@ -105,9 +139,9 @@ def daily_trade(context, data):
 
     # --- 5. 執行下單邏輯 ---
     if buy_signal and root_qty == 0:
-        order_target(current_contract, 1) # 目標持有 1 口多單
+        order_target(current_contract, 1)  # 目標持有 1 口多單
     elif sell_signal and root_qty != 0:
-        order_target(current_contract, 0) # 平倉
+        order_target(current_contract, 0)  # 平倉
         
     # --- 6. 記錄數據 ---
     record(price=hist.iloc[-1], short_ma=short_ma, long_ma=long_ma)
@@ -120,12 +154,13 @@ def daily_trade(context, data):
 期貨合約有到期日。為了讓策略可以長期運行，我們必須在舊合約到期前，將部位「轉移」到新的合約上，這個過程稱為「轉倉」。`roll_futures` 函數就是專門用來處理這件事。
 
 它的邏輯如下：
-1.  每日收盤時檢查目前持有的所有期貨部位。
-2.  計算該合約距離自動平倉日 (`auto_close_date`) 還有幾天。
-3.  如果即將到期（例如，5天內），就執行轉倉：
-    a. 取消所有掛在舊合約上的訂單。
-    b. 將舊合約的部位平倉 (`order_target(old_contract, 0)`)。
-    c. 在 `continuous_future` 指向的新合約上，建立相同數量的部位 (`order_target(new_contract, amount)`)。
+
+1. 每日收盤時檢查目前持有的所有期貨部位。
+2. 計算該合約距離自動平倉日 (`auto_close_date`) 還有幾天。
+3. 如果即將到期（例如，5天內），就執行轉倉：
+    - 取消所有掛在舊合約上的訂單。
+    - 將舊合約的部位平倉 (`order_target(old_contract, 0)`)。
+    - 在 `continuous_future` 指向的新合約上，建立相同數量的部位 (`order_target(new_contract, amount)`)。
 
 ```python
 from zipline.api import get_open_orders, cancel_order
@@ -187,4 +222,11 @@ results = run_algorithm(
 
 ---
 
-恭喜！您已經完成了一個完整的期貨策略。您可以試著調整均線的週期、修改交易信號的邏輯，或是更換不同的期貨商品，來觀察策略表現的變化。
+## 下一步
+
+恭喜！您已經完成了一個完整的期貨策略。您可以：
+
+- 試著調整均線的週期
+- 修改交易信號的邏輯
+- 更換不同的期貨商品
+- 使用 [Pyfolio](../how-to/visualization/pyfolio-tearsheet.md) 分析策略績效

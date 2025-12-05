@@ -38,7 +38,7 @@ graph TD
 *   **多資料類型支援** ：
     除股票價量外，TQuant Lab 支援基本面資料、期貨、ETF 等。根據您的策略需求選擇對應的資料 bundle。
 
-> 詳見：[如何 Ingest 股票價量資料](../../how-to/data/ingest-spot-pricing.md)
+> 詳見：[如何 Ingest 股票價量資料](../how-to/data/ingest-spot-pricing.md)
 
 ---
 

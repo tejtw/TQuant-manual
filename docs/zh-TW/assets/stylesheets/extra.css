@@ -36,6 +36,52 @@
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
+/* === LIGHT THEME: Header & Footer text should be WHITE (on dark background) === */
+[data-md-color-scheme="default"] .md-header,
+[data-md-color-scheme="default"] .md-header *,
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-header__topic,
+[data-md-color-scheme="default"] .md-header__ellipsis,
+[data-md-color-scheme="default"] .md-header-nav__button,
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-header .md-icon svg,
+[data-md-color-scheme="default"] .md-header__button svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Search input text - must be dark on white background */
+[data-md-color-scheme="default"] .md-search__input {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-md-color-scheme="default"] .md-footer,
+[data-md-color-scheme="default"] .md-footer *,
+[data-md-color-scheme="default"] .md-footer-meta,
+[data-md-color-scheme="default"] .md-footer-meta *,
+[data-md-color-scheme="default"] .md-footer-nav,
+[data-md-color-scheme="default"] .md-footer-nav *,
+[data-md-color-scheme="default"] .md-footer__link,
+[data-md-color-scheme="default"] .md-footer__title,
+[data-md-color-scheme="default"] .md-footer__direction,
+[data-md-color-scheme="default"] .md-copyright {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-footer .md-icon svg,
+[data-md-color-scheme="default"] .md-footer__button svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
 /* === DARK THEME (slate scheme) - WHITE TEXT === */
 [data-md-color-scheme="slate"] {
   --md-default-fg-color: #ffffff !important;
@@ -420,15 +466,16 @@ h4, .md-typeset h4 {
 
 .md-typeset th, .md-typeset td {
   border: 1px solid var(--md-default-fg-color--lightest);
-  padding: 0.9em 1em;
+  padding: 1em 1.2em;
   text-align: left;
-  font-size: 0.95em;
+  font-size: 1.05em;
 }
 
 .md-typeset th {
   background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
   color: white;
   font-weight: 700;
+  font-size: 1.1em;
   letter-spacing: 0.5px;
 }
 
@@ -663,6 +710,27 @@ h4, .md-typeset h4 {
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
 }
 
+/* Center logo image */
+.loader-logo-img {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  z-index: 10;
+  animation: logoPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 0, 255, 0.5));
+}
+
+@keyframes logoPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 0, 255, 0.5));
+  }
+  50% { 
+    transform: scale(1.1); 
+    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1)) drop-shadow(0 0 60px rgba(255, 0, 255, 0.8));
+  }
+}
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.1); opacity: 0.8; }
@@ -785,4 +853,9 @@ h4, .md-typeset h4 {
 @keyframes scanline {
   0% { top: 0; }
   100% { top: 100%; }
+}
+
+/* === FOOTER: Hide "Made with Material for MkDocs" === */
+.md-footer-meta__inner.md-grid a[href="https://squidfunk.github.io/mkdocs-material/"] {
+  display: none !important;
 }

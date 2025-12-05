@@ -5,7 +5,7 @@
 
 在量化分析中，Benchmark (大盤/市場基準) 是一個衡量您的投資策略表現好壞的關鍵指標。透過將策略的報酬率與 Benchmark 的報酬率進行比較，您可以客觀地評估策略是否產生了超越市場的「超額報酬 (Alpha)」。
 
-在 TQuant Lab (Zipline) 中，設定 Benchmark 主要透過 `set_benchmark()` 函數完成，其結果主要用於 [Pyfolio 績效報表](./visualization/pyfolio-tearsheet.md) 的視覺化分析。
+在 TQuant Lab (Zipline) 中，設定 Benchmark 主要透過 `set_benchmark()` 函數完成，其結果主要用於 [Pyfolio 績效報表](../visualization/pyfolio-tearsheet.md) 的視覺化分析。
 
 ---
 

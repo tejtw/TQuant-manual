@@ -30,7 +30,7 @@ from zipline.api import data
 prices = data.history(symbol('2330'), 'close', 100, '1d')
 ```
 
-詳見：[如何 Ingest 股票價量資料](../../how-to/data/ingest-spot-pricing.md)
+詳見：[如何 Ingest 股票價量資料](../how-to/data/ingest-spot-pricing.md)
 
 ### 如何加載 TEJ 基本面資料？
 
@@ -40,7 +40,7 @@ api = TejToolAPI.TejToolAPI()
 df = api.get_history_data(tickers='2330', fields=['PER', 'PBR'], date='20230101')
 ```
 
-詳見：[如何 Ingest TEJ 財務/非財務資料](../../how-to/data/ingest-tej-fundamental.md)
+詳見：[如何 Ingest TEJ 財務/非財務資料](../how-to/data/ingest-tej-fundamental.md)
 
 ### 如何取得基準指數報酬？
 
@@ -52,7 +52,7 @@ run_algorithm(
 )
 ```
 
-詳見：[如何取得 Benchmark 報酬率](../../how-to/data/get-benchmark-roi.md)
+詳見：[如何取得 Benchmark 報酬率](../how-to/data/get-benchmark-roi.md)
 
 ---
 
@@ -68,7 +68,7 @@ def initialize(context):
     context.short_window = 20
 ```
 
-詳見：[Zipline 生命週期函數](../../reference/zipline/lifecycle-functions.md)
+詳見：[Zipline 生命週期函數](../reference/zipline/lifecycle-functions.md)
 
 ### 如何在每個交易日執行操作？
 
@@ -82,7 +82,7 @@ def handle_data(context, data):
         order(symbol('2330'), 100)
 ```
 
-詳見：[Zipline 生命週期函數](../../reference/zipline/lifecycle-functions.md)
+詳見：[Zipline 生命週期函數](../reference/zipline/lifecycle-functions.md)
 
 ### 如何計算因子並過濾股票？
 
@@ -98,7 +98,7 @@ pipeline = Pipeline(
 )
 ```
 
-詳見：[Pipeline 自訂因子](../../reference/pipeline/custom-factor.md)
+詳見：[Pipeline 自訂因子](../reference/pipeline/custom-factor.md)
 
 ---
 
@@ -125,7 +125,7 @@ shares = int(cash / price)
 order(symbol('2330'), shares)
 ```
 
-詳見：[下單函數](../../reference/zipline/orders.md)
+詳見：[下單函數](../reference/zipline/orders.md)
 
 ### 如何查詢當前持倉？
 
@@ -135,7 +135,7 @@ for asset, position in positions.items():
     print(f"股票: {asset}, 數量: {position.amount}, 成本: {position.cost_basis}")
 ```
 
-詳見：[context 變數](../../reference/zipline/context.md)
+詳見：[context 變數](../reference/zipline/context.md)
 
 ### 如何設定手續費？
 
@@ -145,7 +145,7 @@ from zipline.finance import commission
 set_commission(commission.PerShare(cost=0.001))  # 每股 0.001 元
 ```
 
-詳見：[如何設定手續費模型](../../how-to/backtest/set-commission.md)
+詳見：[如何設定手續費模型](../how-to/backtest/set-commission.md)
 
 ### 如何設定滑價？
 
@@ -155,7 +155,7 @@ from zipline.finance import slippage
 set_slippage(slippage.FixedSlippage(0.001))  # 固定 0.1%
 ```
 
-詳見：[如何設定滑價模型](../../how-to/backtest/set-slippage.md)
+詳見：[如何設定滑價模型](../how-to/backtest/set-slippage.md)
 
 ---
 
@@ -179,7 +179,7 @@ set_do_not_order_list([symbol('2881'), symbol('2882')])
 set_max_order_count(10)  # 最多下 10 單
 ```
 
-詳見：[如何設定交易限制](../../how-to/backtest/set-trading-controls.md)
+詳見：[如何設定交易限制](../how-to/backtest/set-trading-controls.md)
 
 ---
 
@@ -192,7 +192,7 @@ import pyfolio as pf
 pf.create_tear_sheet(returns, positions, transactions)
 ```
 
-詳見：[如何產生 Pyfolo 績效報表](../../how-to/visualization/pyfolio-tearsheet.md)
+詳見：[如何產生 Pyfolo 績效報表](../how-to/visualization/pyfolio-tearsheet.md)
 
 ### 如何進行因子分析？
 
@@ -201,7 +201,7 @@ import alphalens as al
 al.tears.create_factor_tear_sheet(factor, prices)
 ```
 
-詳見：[如何執行 Alphalens 因子分析](../../how-to/factor-analysis/alphalens-tearsheet.md)
+詳見：[如何執行 Alphalens 因子分析](../how-to/factor-analysis/alphalens-tearsheet.md)
 
 ### 如何記錄自訂指標？
 
@@ -216,7 +216,7 @@ def handle_data(context, data):
     )
 ```
 
-詳見：[context 變數](../../reference/zipline/context.md)
+詳見：[context 變數](../reference/zipline/context.md)
 
 ---
 
@@ -252,7 +252,7 @@ context.portfolio.cash             # 現金
 context.portfolio.positions        # 持倉字典
 ```
 
-詳見：[context 變數完整參考](../../reference/zipline/context.md)
+詳見：[context 變數完整參考](../reference/zipline/context.md)
 
 ---
 
@@ -316,16 +316,16 @@ def handle_data(context, data):
 
 ## 進階主題
 
-- [Pipeline 內建因子](../../reference/pipeline/built-ins.md)
-- [自訂 Pipeline 因子](../../reference/pipeline/custom-factor.md)
-- [交易日曆設定](../../concepts/calendars.md)
-- [Zipline 資料物件](../../reference/zipline/data-object.md)
+- [Pipeline 內建因子](../reference/pipeline/built-ins.md)
+- [自訂 Pipeline 因子](../reference/pipeline/custom-factor.md)
+- [交易日曆設定](../concepts/calendars.md)
+- [Zipline 資料物件](../reference/zipline/data-object.md)
 
 ---
 
 ## 無法找到答案？
 
 - 查看 [新手必讀](getting-started.md)
-- 閱讀 [核心概念](../../concepts/workflow.md)
-- 查詢 [完整 API 參考](../../reference/)
+- 閱讀 [核心概念](../concepts/workflow.md)
+- 查詢 [完整 API 參考](../reference/)
 - 查閱 [10 分鐘快速體驗](quick-demo.md)

@@ -92,4 +92,4 @@ TQuant Lab 整合了多個業界領先的開源量化分析工具，並進行了
 準備好開始您的量化投資之旅了嗎？
 
 1.  **環境建置**: 依照 [TQuant Lab 安裝](../how-to/installation.md) 指南，設定您的開發環境。
-2.  **您的第一個策略**: 透過 [你的第一個現貨策略](first-spot-strategy.md) 或 [你的第一個期貨策略](first-futures-strategy.md) 範例，快速體驗 TQuant Lab 的回測功能。
+2.  **您的第一個策略**: 透過 [你的第一個現貨策略](first-spot-strategy.md) 或 [你的第一個期貨策略](../futures/first-futures-strategy.md) 範例，快速體驗 TQuant Lab 的回測功能。

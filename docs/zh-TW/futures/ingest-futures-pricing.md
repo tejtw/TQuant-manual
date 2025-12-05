@@ -1,8 +1,7 @@
-# 操作指南：如何 Ingest 期貨價量資料
+# 如何 Ingest 期貨價量資料
 
-## 目標
-
-本指南將引導您完成將 TEJ 期貨資料下載並整合至 TQuant Lab 本地資料庫的完整步驟。這個過程稱為 "ingest"，它是進行任何回測前最基礎且必要的第一步。
+!!! info
+    本指南將引導您完成將 TEJ 期貨資料下載並整合至 TQuant Lab 本地資料庫的完整步驟。這個過程稱為 "ingest"，它是進行任何回測前最基礎且必要的第一步。
 
 ---
 
@@ -27,9 +26,11 @@ os.environ['TEJAPI_BASE'] = 'https://api.tej.com.tw'
 接著，您需要設定要下載的期貨商品代碼 (`future`)、相關的現貨/指數代碼 (`ticker`)，以及資料的起訖日期 (`mdate`)。
 
 - **`future`**: 指定一個或多個期貨根代碼 (root symbol)，以空格分隔。例如：`'TX'` (台指期), `'MTX'` (小台指)。
-- **注意**: 假如想要下載個股期貨需要加 F ，如台積電個股期為 `CDF`，聯發科為 `DVF`。 
 - **`ticker`**: 指定相關的現貨標的，通常用於設定回測的比較基準 (benchmark)。例如：`'IR0001'` (發行量加權股價報酬指數)。
 - **`mdate`**: 設定資料的起訖日期，格式為 `'YYYYMMDD YYYYMMDD'`。
+
+!!! warning "個股期貨代碼"
+    假如想要下載個股期貨需要加 `F`，如台積電個股期為 `CDF`，聯發科為 `DVF`。
 
 ```python
 # 設定要下載的期貨商品
@@ -70,8 +71,8 @@ os.environ['TEJAPI_KEY'] = 'YOUR_KEY'
 os.environ['TEJAPI_BASE'] = 'https://api.tej.com.tw'
 
 # 2. 設定商品與期間
-os.environ['future'] = 'TX MTX' # 下載台指期與小台指
-os.environ['ticker'] = 'IR0001'   # 下載加權指數作為 benchmark
+os.environ['future'] = 'TX MTX'  # 下載台指期與小台指
+os.environ['ticker'] = 'IR0001'  # 下載加權指數作為 benchmark
 os.environ['mdate'] = '20100101 20250930'
 
 # 3. 執行 Ingest
@@ -79,9 +80,20 @@ os.environ['mdate'] = '20100101 20250930'
 !zipline ingest -b tquant_future
 ```
 
-### 何時需要重新執行？
+---
 
-- **首次設定環境時**：必須執行一次以建立本地資料庫。
-- **需要增加新的期貨商品時**：修改 `os.environ['future']` 後，需重新執行。
-- **需要延長資料期間時**：修改 `os.environ['mdate']` 後，需重新執行。
-- **更新資料到最新**：將結束日期設為當前日期並重新執行。
+## 何時需要重新執行？
+
+| 情境 | 說明 |
+|------|------|
+| **首次設定環境** | 必須執行一次以建立本地資料庫 |
+| **增加新的期貨商品** | 修改 os.environ['future'] 後，需重新執行 |
+| **延長資料期間** | 修改 os.environ['mdate'] 後，需重新執行 |
+| **更新至最新資料** | 將結束日期設為當前日期並重新執行 |
+
+---
+
+## 延伸閱讀
+
+- [建立你的第一個期貨策略](first-futures-strategy.md)
+- [如何 Ingest 股票價量資料](../how-to/data/ingest-spot-pricing.md)

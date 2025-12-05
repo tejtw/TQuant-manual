@@ -148,7 +148,6 @@ nav:
     - 10分鐘體驗: tutorials/quick-demo.md
     - 環境建置: tutorials/setup.md
     - 你的第一個現貨策略: tutorials/first-spot-strategy.md
-    - 你的第一個期貨策略: tutorials/first-futures-strategy.md
     - 常用功能速查: tutorials/quick-reference.md
   - 核心概念:
     - TQuant Lab 分析流程: concepts/workflow.md
@@ -165,7 +164,6 @@ nav:
     - 安裝: how-to/installation.md
     - 資料管理:
       - 如何 Ingest 股票價量資料: how-to/data/ingest-spot-pricing.md
-      - 如何 Ingest 期貨價量資料: how-to/data/ingest-futures-pricing.md
       - 如何 Ingest TEJ 財務/非財務資料: how-to/data/ingest-tej-fundamental.md
       - 如何取得 Benchmark 報酬率: how-to/data/get-benchmark-roi.md
       - 如何取得無風險利率: how-to/data/get-risk-free-rate.md
@@ -202,6 +200,13 @@ nav:
       - API 總覽: reference/alphalens/api.md
     - TejToolAPI:
       - get_history_data: reference/tejtoolapi/get-history-data.md
+  - 期貨專區:
+    - 建立第一個期貨策略: futures/first-futures-strategy.md
+    - 資料管理:
+      - 如何 Ingest 期貨價量資料: futures/ingest-futures-pricing.md
+    - 進階設定:
+      - 手續費與滑價設定: futures/futures-commission-slippage.md
+      - 轉倉機制: futures/futures-rollover.md
 
 
 
@@ -220,4 +225,4 @@ nav:
 
 
 # Copyright string on footer
-copyright: Copyright &copy; 2025 - MkDocs
+copyright: Powered by 湯哥

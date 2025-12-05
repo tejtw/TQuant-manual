@@ -23,15 +23,15 @@
 
 *   `initialize` (`function`)
     *   **用途**：在回測開始時僅執行一次的函數，用於設定策略的初始狀態。
-    *   **詳見**：[生命週期函數](../lifecycle-functions.md)
+    *   **詳見**：[生命週期函數](../../reference/zipline/lifecycle-functions.md)
 
 *   `handle_data` (`function`)
     *   **用途**：在每個交易日被調用一次的核心交易邏輯函數。
-    *   **詳見**：[生命週期函數](../lifecycle-functions.md)
+    *   **詳見**：[生命週期函數](../../reference/zipline/lifecycle-functions.md)
 
 *   `analyze` (`function`, optional)
     *   **用途**：在整個回測結束後執行一次的函數，用於績效分析和視覺化。
-    *   **詳見**：[生命週期函數](../lifecycle-functions.md)
+    *   **詳見**：[生命週期函數](../../reference/zipline/lifecycle-functions.md)
 
 *   `capital_base` (`float`)
     *   **用途**：設定回測開始時的初始資金金額。
@@ -51,15 +51,15 @@
 
 *   `benchmark_sid` (`int`, optional) 或 `benchmark_symbol` (`str`, optional)
     *   **用途**：設定用於比較的基準指數的 Zipline ID 或股票代碼。
-    *   **詳見**：[如何設定與取得 Benchmark 報酬率](../../how-to/data/get-benchmark-roi.md)
+    *   **詳見**：[如何設定與取得 Benchmark 報酬率](../data/get-benchmark-roi.md)
 
 *   `treasury_returns` (`pd.Series`, optional)
     *   **用途**：提供自定義的無風險利率序列。
-    *   **詳見**：[如何設定無風險利率](../../how-to/data/get-risk-free-rate.md)
+    *   **詳見**：[如何設定無風險利率](../data/get-risk-free-rate.md)
 
 *   `before_trading_start` (`function`, optional)
     *   **用途**：在每個交易日開盤前執行一次的函數，通常用於盤前數據準備。
-    *   **詳見**：[生命週期函數](../lifecycle-functions.md)
+    *   **詳見**：[生命週期函數](../../reference/zipline/lifecycle-functions.md)
 
 *   `warm_up_days` (`int`, optional)
     *   **用途**：設定在回測開始前，策略需要「預熱」的交易日數。這些天數的數據會被加載，但不會執行交易或記錄績效，以確保因子計算有足夠的歷史數據。
