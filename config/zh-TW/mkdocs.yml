@@ -167,8 +167,10 @@ nav:
       - 如何 Ingest TEJ 財務/非財務資料: how-to/data/ingest-tej-fundamental.md
       - 如何取得 Benchmark 報酬率: how-to/data/get-benchmark-roi.md
       - 如何取得無風險利率: how-to/data/get-risk-free-rate.md
+      - 如何使用 Pipeline DataFrameLoader 建立 Custom Data: how-to/data/use-dataframeloader.md
     - 回測:
       - 如何執行一個基本的回測: how-to/backtest/run-algorithm.md
+      - 回測模擬參數: how-to/backtest/simulation-params.md
       - 如何設定手續費模型: how-to/backtest/set-commission.md
       - 如何設定滑價模型: how-to/backtest/set-slippage.md
       - 如何設定交易限制: how-to/backtest/set-trading-controls.md
@@ -180,10 +182,14 @@ nav:
     - Zipline:
       - 生命週期函數: reference/zipline/lifecycle-functions.md
       - context 變數: reference/zipline/context.md
+      - 資料物件: reference/zipline/data-object.md
       - 股票池 (Universe): reference/zipline/universe.md
       - 排程函數: reference/zipline/scheduling-functions.md
       - 下單函數: reference/zipline/orders.md
       - 資產物件: reference/zipline/assets.md
+      - 其他 API: reference/zipline/other-api.md
+      - 現貨速查表: reference/zipline/stocks_cheat_sheet.md
+      - 期貨速查表: reference/zipline/futures_cheat_sheet.md
     - Pipeline:
       - 概論: reference/pipeline/overview.md
       - 計算元素 (Terms): reference/pipeline/terms.md
@@ -199,8 +205,12 @@ nav:
     - Alphalens:
       - API 總覽: reference/alphalens/api.md
     - TejToolAPI:
+      - API 認證: reference/tejtoolapi/api-authentication.md
       - get_history_data: reference/tejtoolapi/get-history-data.md
+      - Python API: reference/tejtoolapi/python-api.md
+      - REST API: reference/tejtoolapi/rest-api.md
   - 期貨專區:
+    - 期貨總覽: futures/index.md
     - 建立第一個期貨策略: futures/first-futures-strategy.md
     - 資料管理:
       - 如何 Ingest 期貨價量資料: futures/ingest-futures-pricing.md

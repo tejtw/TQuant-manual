@@ -1,5 +1,8 @@
 # 操作指南：如何設定手續費 (How-to: Set Commission)
 
+!!! info
+    本頁提供如何使用 `set_commission()` 函數在 Zipline 回測中設定交易手續費的詳細指南，包括期貨、股票的基礎計費模型，以及針對台股特殊稅制的自定義模型實作。
+
 ## 目標
 
 在進行任何實際的回測時，納入交易成本（如手續費、證交稅）是評估策略真實表現的關鍵一步。若忽略交易成本，會導致回測績效過於樂觀，從而產生誤判。
@@ -27,10 +30,10 @@ def initialize(context):
 
 ## 情境一：設定期貨手續費 (基礎)
 
-對於期貨交易，最常見的計費方式是**按口數 (Per Contract)** 收取固定費用。
+對於期貨交易，最常見的計費方式是 ** 按口數 (Per Contract) **  收取固定費用。
 
-- **模型**: `commission.PerContract()`
-- **主要參數**:
+-  ** 模型 ** : `commission.PerContract()`
+-  ** 主要參數 ** :
     - `cost`: 每口單邊交易的手續費金額。
     - `exchange_fee`: 交易所費用，可選填。
 
@@ -51,10 +54,10 @@ set_commission(futures=commission.PerContract(cost=200, exchange_fee=0))
 
 ## 情境二：設定股票手續費 (基礎)
 
-對於股票交易，若不考慮稅制差異，基礎計費方式是**按成交金額的百分比 (Per Dollar)** 收取。
+對於股票交易，若不考慮稅制差異，基礎計費方式是 ** 按成交金額的百分比 (Per Dollar) **  收取。
 
-- **模型**: `commission.PerDollar()`
-- **主要參數**:
+-  ** 模型 ** : `commission.PerDollar()`
+-  ** 主要參數 ** :
     - `cost`: 手續費佔成交金額的比例。例如，券商手續費為 0.1425%，則 `cost` 應設為 `0.001425`。
 
 #### 範例：
@@ -74,16 +77,16 @@ set_commission(equities=commission.PerDollar(cost=0.001425))
 
 ### 為何需要自定義？
 
-Zipline 內建的 `PerDollar` 模型假設買進與賣出的費率是相同的。然而，在**台股現貨**交易中，規則通常較為複雜：
-1.  **證交稅**: 只有在**賣出**時才收取（通常為 0.3%）。
-2.  **最低手續費**: 券商通常設有單筆最低手續費（例如 20 元）。
+Zipline 內建的 `PerDollar` 模型假設買進與賣出的費率是相同的。然而，在 ** 台股現貨 ** 交易中，規則通常較為複雜：
+1.   ** 證交稅 ** : 只有在 ** 賣出 ** 時才收取（通常為 0.3%）。
+2.   ** 最低手續費 ** : 券商通常設有單筆最低手續費（例如 20 元）。
 
 為了精確模擬這些規則，我們需要透過繼承 `CommissionModel` 來撰寫自己的費用邏輯。
 
 ### 實作步驟
 
-1.  **定義類別**: 建立一個新類別並繼承 `zipline.finance.commission.CommissionModel`。
-2.  **實作 `calculate` 方法**: 這是計算費用的核心，Zipline 會在每筆成交時呼叫此方法，並傳入訂單 (`order`) 與成交資訊 (`transaction`)。
+1.   ** 定義類別 ** : 建立一個新類別並繼承 `zipline.finance.commission.CommissionModel`。
+2.   ** 實作 `calculate` 方法 ** : 這是計算費用的核心，Zipline 會在每筆成交時呼叫此方法，並傳入訂單 (`order`) 與成交資訊 (`transaction`)。
 
 ### 範例程式碼：台股專用模型
 
@@ -141,7 +144,7 @@ def initialize(context):
 ### 參數解說 (`transaction` 物件)
 
 在 `calculate` 方法中，`transaction` 物件包含了該筆成交的關鍵資訊：
--   `transaction.amount`: 成交股數。**正數為買入，負數為賣出**。
+-   `transaction.amount`: 成交股數。 ** 正數為買入，負數為賣出 ** 。
 -   `transaction.price`: 成交價格。
 
 透過判斷 `transaction.amount` 的正負號，我們就能輕易區分買賣方向，並適用不同的稅率。
@@ -178,6 +181,6 @@ def initialize(context):
 
 - 在 `initialize` 函數中使用 `set_commission` 來定義交易成本。
 - 期貨通常使用 `commission.PerContract` 按口計費。
-- 股票若需精確模擬台股稅制（賣出收稅、買進不收），建議使用**繼承 `CommissionModel` 的自定義類別**。
+- 股票若需精確模擬台股稅制（賣出收稅、買進不收），建議使用 ** 繼承 `CommissionModel` 的自定義類別 ** 。
 
 準確地模擬交易成本，是讓您的回測結果更貼近真實市場表現的必要步驟。

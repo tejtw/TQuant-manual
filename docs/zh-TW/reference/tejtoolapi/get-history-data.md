@@ -15,7 +15,7 @@
 
 
 
-## Paramters:
+## Parameters:
 * ticker: iterable[str] 欲查詢的資料的證券代碼。
 
 * columns: iterable[str]
@@ -55,7 +55,7 @@ tickers = [col.symbol for col in universe]
 ```
 
 ### 2.2 自行 key 入 tickers
-```python 
+```python
 tickers = ['2330','2454','2317','2882','2881']
 ```
 ## 3. tejtoolapi 取得單獨資料庫
@@ -77,7 +77,7 @@ data
 ```
 
 ### 3.2、量化籌碼_周 - 集保庫存欄位
-```python 
+```python
 ticker = tickers
 columns = ['Total_Custodied_Shares_1000_Lots',
        'Custodied_Under_400_Lots_Total_Lots',

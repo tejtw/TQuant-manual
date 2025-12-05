@@ -42,7 +42,7 @@ import os
 
 ---
 
-## 3. 執行 `zipline ingest` 載入價量資料
+## 3. 執行 zipline ingest 載入價量資料
 
 價量資料指 OHLCV 與除權息相關資訊。以下範例載入指定股票價量資料，其中 IR0001 為台灣發行量加權股價報酬指數。
 
@@ -61,7 +61,7 @@ os.environ['mdate'] = '20200103 20230530'
 
 ---
 
-## 4. 使用 `simple_ingest()` 載入價量資料
+## 4. 使用 simple_ingest() 載入價量資料
 
 `simple_ingest()`函數提供另一種取得指定股票價量資料的方法，資料同樣會存入 bundle 中：
 

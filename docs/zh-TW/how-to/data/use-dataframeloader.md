@@ -1,4 +1,4 @@
-# Pipeline DataFrameLoader - Pipeline API with Custom Data
+# 如何使用 Pipeline DataFrameLoader 建立 Custom Data
 
 !!! info
     本頁介紹如何使用 `DataFrameLoader` 將客製化數據導入 Zipline Pipeline，並演示其在數據整合與處理上的應用，擴展 Pipeline 的數據來源。
@@ -8,7 +8,7 @@
 
 ## Imports & Settings
 
-``` py linenums="1" 
+```python
 import os
 import pandas as pd
 
@@ -36,7 +36,7 @@ from TejToolAPI.TejToolAPI import get_history_data
 *   若尚未執行 tquant bundle ingest 的流程，請先執行以下 simple_ingest 程式。
 *   `bundles.load` 函式負責從先前已經 ingest 的 bundle 中載入數據，使使用者能夠在 Zipline 環境中利用 `AssetFinder` 存取證券 `SID`（Security Identifier）。
 
-``` py linenums="1" 
+```python
 start = '2020-01-03'
 end = '2025-02-07'
 
@@ -48,7 +48,7 @@ pool = get_universe(start, end, idx_id=['IX0002'])
 #simple_ingest(name = 'tquant', tickers = pool, start_date = start , end_date = end)
 ```
 
-``` py linenums="1" 
+```python
 bundle_name = 'tquant'
 bundle = bundles.load(bundle_name)
 ```
@@ -62,7 +62,7 @@ bundle = bundles.load(bundle_name)
 3.  透過 `Asset` 物件取得交易代碼（`symbol`）。
 4.  建立 `symbol` mapping `SID` 的對照。
 
-``` py linenums="1"
+```python
 sids = bundle.asset_finder.equities_sids
 assets = bundle.asset_finder.retrieve_all(sids)
 symbols = [i.symbol for i in assets]
@@ -73,7 +73,7 @@ symbol_map = dict(zip(symbols, sids))
 
 這邊取得外資買賣超張數（`Qfii_Diff_Vol`）資料作為示範。
 
-``` py linenums="1"
+```python
 custom_data = get_history_data(
     ticker=symbols,
     columns=['Qfii_Diff_Vol'],
@@ -83,11 +83,11 @@ custom_data = get_history_data(
 )
 ```
 
-``` py linenums="1"
+```python
 custom_data.head()
 ```
 
-## 4. 整理外部資料以符合 `DataFrameLoader` 要求的格式
+## 4. 整理外部資料以符合 DataFrameLoader 要求的格式
 
 *   將外部資料作轉置，一個欄位整理為一個 DataFrame。
 *   接著將外部資料的 coid 替換成 `SID`。
@@ -95,7 +95,7 @@ custom_data.head()
 
 註：此處資料採用 **不平移** 的方式進行處理
 
-``` py linenums="1"
+```python
 transform_data = (
     custom_data
     .set_index(['coid', 'mdate'])['Qfii_Diff_Vol']
@@ -105,6 +105,6 @@ transform_data = (
 )
 ```
 
-``` py linenums="1"
+```python
 transform_data.head()
 ```

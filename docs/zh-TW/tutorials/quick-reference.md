@@ -327,5 +327,5 @@ def handle_data(context, data):
 
 - 查看 [新手必讀](getting-started.md)
 - 閱讀 [核心概念](../concepts/workflow.md)
-- 查詢 [完整 API 參考](../reference/)
+- 查詢 [完整 API 參考](../reference/zipline/lifecycle-functions.md)
 - 查閱 [10 分鐘快速體驗](quick-demo.md)

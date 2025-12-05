@@ -1,6 +1,6 @@
 # 環境建置：安裝與設定 TQuant Lab
 
-!!!Info 
+!!! info
     本文件提供 TQuant Lab 的詳細安裝與環境設定指南，確保您能順利啟動並開始使用平台。
 
 ## 系統要求與支援環境
@@ -15,13 +15,13 @@
 
 ## 安裝方式
 
-以下提供三種安裝 `zipline-tej` (TQuant Lab 的核心套件) 的方式， **建議優先採用 A 或 B 方式** 。
+以下提供三種安裝 `zipline-tej` (TQuant Lab 的核心套件) 的方式， **建議優先採用 1 或 2 方式** 。
 
-### A. 透過 Docker 安裝 zipline-tej ( **推薦** )
+## 1. 透過 Docker 安裝 zipline-tej ( **推薦** )
 
 使用 Docker 安裝是最推薦的方式，它提供了一個隔離且一致的運行環境，能有效避免套件相依性問題。
 
-#### 先決條件
+### 1.1 先決條件
 
 請確保您的系統已安裝 Docker Desktop：
 
@@ -32,7 +32,7 @@
 !!! warning "重新啟動您的電腦"
     如果您剛在 Windows 系統上安裝了 Docker，請記得重新啟動電腦，否則可能會遇到容器網路連線方面的異常問題。
 
-#### 安裝步驟
+### 1.2 安裝步驟
 
 1.  **從 Docker Hub 下載映像檔** ：
     在終端機中執行以下指令，下載官方 `tquant` Docker 映像檔：
@@ -59,7 +59,7 @@
         *   `volume` 在 Windows 10 WSL 環境中的位置通常為：`\wsl$\docker-desktop-data\data\docker\volumes\data\_data`
         *   若您希望容器在停止時自動移除，可以在 `docker run` 命令中加入 `--rm` 參數。
 
-#### 使用 Jupyter Notebook
+### 1.3 使用 Jupyter Notebook
 
 容器啟動後，您會在終端機中看到類似以下的網址。複製該網址並貼至瀏覽器即可開始使用 Jupyter Notebook。
 
@@ -67,7 +67,7 @@
 http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 ```
 
-#### 操作已關閉的容器 (Container)
+### 1.4 操作已關閉的容器 (Container)
 
 若您需要操作之前創建但已關閉的容器，請依照以下步驟：
 
@@ -91,7 +91,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     docker logs --tail 50 <CONTAINER_ID>
     ```
 
-#### 更新 tquant Docker 容器
+### 1.5 更新 tquant Docker 容器
 
 為確保您使用的 `tquant` 環境是最新版本，請定期更新您的 Docker 容器。這些步驟會停止並刪除現有容器，但由於資料儲存在 `volume` 中，您的資料將不會遺失。
 
@@ -115,7 +115,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     docker run -v data:/app -p 8888:8888 --name tquant tej87681088/tquant
     ```
 
-### B. 透過 Anaconda Prompt 一鍵安裝 zipline-tej ( **推薦** )
+## 2. 透過 Anaconda Prompt 一鍵安裝 zipline-tej ( **推薦** )
 
 此方式適用於已安裝 Anaconda 的使用者，可透過預設的環境配置文件快速設定好運行環境。
 
@@ -154,11 +154,11 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     !!! note "為什麼建議使用虛擬環境？"
         使用虛擬環境可以為不同的專案建立獨立的 Python 運行環境，有效避免不同專案間的套件衝突問題。
 
-### C. 直接透過 pip install 安裝 zipline-tej (可能會有未預期的錯誤)
+## 3. 直接透過 pip install 安裝 zipline-tej (可能會有未預期的錯誤)
 
 此方法較不推薦，因為可能會有未預期的套件相依性問題，需自行除錯。
 
-#### 於本機端安裝 zipline-tej
+### 3.1 於本機端安裝 zipline-tej
 
 建議在獨立的虛擬環境中進行安裝：
 
@@ -192,19 +192,19 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 
 2.  **安裝套件** ：
 
-    #### 使用 pip 安裝
+    #### 3.1.1 使用 pip 安裝
 
     ```bash
     pip install zipline-tej notebook
     ```
 
-    #### 使用 conda 安裝 (針對 Jupyter 核心)
+    #### 3.1.2 使用 conda 安裝 (針對 Jupyter 核心)
 
     ```bash
     conda install -c conda-forge nb_conda_kernels
     ```
 
-#### 於 Google Colab 使用 zipline-tej
+### 3.2 於 Google Colab 使用 zipline-tej
 
 若在 Google Colab 環境下使用，可直接執行以下指令安裝：
 
@@ -231,9 +231,9 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     matplotlib.rc('font', family='Arial Unicode MS')
     ```
 
-## 檢查與更新 TQuant Lab
+## 4. 檢查與更新 TQuant Lab
 
-### 檢查版本
+### 4.1 檢查版本
 
 安裝完成後，您可以使用以下指令檢查 `zipline-tej` 的當前版本：
 
@@ -241,7 +241,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 !pip show zipline-tej
 ```
 
-### 更新至最新版本
+### 4.2 更新至最新版本
 
 為確保您使用的是最新功能與修復，請執行以下指令更新 `zipline-tej`：
 
