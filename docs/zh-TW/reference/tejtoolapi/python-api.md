@@ -1,6 +1,11 @@
 # Python API 文件
 
+!!! info
+    本頁提供 TEJ Python API 的詳細說明，包括 API 認證、免費與付費資料庫類型，以及 Python 方式存取 TEJ 資料庫的相關資訊。
+
 TEJ Python API 提供了訪問 TEJ 資料庫的 Python 方式。
+
+---
 
 ## API 認證
 
@@ -28,6 +33,7 @@ tejapi.ApiConfig.api_key = "YOURAPIKEY"
   - 每天最多 500 次呼叫
   - 每天呼叫最多 10,000 筆資料（可分頁取得，分頁總筆數上限為 50,000）
 
-> 此頁面正在建構中
+!!! note
+    此頁面正在建構中
 
 詳細內容請參考: `.backup/zh-TW_backup/python_api/document_pythonapi.md`

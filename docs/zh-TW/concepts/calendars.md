@@ -31,13 +31,13 @@ Zipline 透過一個強大的交易日曆系統來解決這個問題，而 TQuan
 
 TQuant Lab 使用 `tej-exchange-calendars` 套件來提供專為台灣市場客製化的交易日曆。主要包含兩個核心日曆：`TEJ_XTAI` 用於股票市場，`TEJ` 用於期貨市場。
 
-### `TEJ_XTAI` 日曆 (股票市場)
+### TEJ_XTAI 日曆 (股票市場)
 
 *   **全名**：Taiwan Stock Exchange Calendar (台灣證券交易所日曆)
 *   **用途**：專為台灣股票市場設計，完整包含了台灣證券交易所的所有交易日、休市日、以及特殊的開收盤時間規則。
 *   **適用場景**：進行台股、ETF 等證券交易的策略回測。
 
-### `TEJ` 日曆 (期貨市場)
+### TEJ 日曆 (期貨市場)
 
 *   **全名**：Taiwan Futures Exchange Calendar (台灣期貨交易所日曆)
 *   **用途**：專為台灣期貨市場設計，包含了台灣期貨交易所的交易日規則。
@@ -63,7 +63,7 @@ stock_calendar = get_calendar('TEJ_XTAI')
 futures_calendar = get_calendar('TEJ')
 ```
 
-### 在 `run_algorithm` 中指定日曆
+### 在 run_algorithm 中指定日曆
 
 在執行回測時，將獲取到的日曆實例傳遞給 `trading_calendar` 參數。
 
@@ -106,7 +106,7 @@ futures_results = run_algorithm(
 
 交易日曆物件本身也提供了一些實用的屬性和方法，供您在策略中查詢時間相關的資訊。
 
-### `.all_sessions` 屬性
+### .all_sessions 屬性
 
 *   **用途**：獲取該日曆在 TQuant Lab 資料庫中所涵蓋的全部交易日期。
 *   **返回**：一個 `pandas.DatetimeIndex` 物件，包含了所有交易日的日期。
@@ -124,7 +124,7 @@ futures_results = run_algorithm(
     print(sessions_after_2020[:5])
     ```
 
-### `is_session(timestamp)` 方法
+### is_session(timestamp) 方法
 
 *   **用途**：檢查某個時間戳是否為交易日。
 *   **返回**：布林值 (`True` 或 `False`)。
@@ -140,7 +140,7 @@ futures_results = run_algorithm(
     print(f"Is {a_day.date()} a trading day? {is_trading_day}") # 應返回 False
     ```
 
-### `sessions_in_range(start_ts, end_ts)` 方法
+### sessions_in_range(start_ts, end_ts) 方法
 
 *   **用途**：獲取兩個時間戳之間的所有交易日。
 *   **返回**：一個 `pandas.DatetimeIndex` 物件。
@@ -158,7 +158,7 @@ futures_results = run_algorithm(
     print(f"Number of trading days in Q1 2023: {len(q1_sessions)}")
     ```
 
-### `next_open()` / `previous_open()` 方法
+### next_open() / previous_open() 方法
 
 *   **用途**：獲取指定時間點之後或之前的下一個/上一個開盤時間。
 *   **範例**：找到 2023 年元旦之後的第一個開盤時間。
@@ -174,7 +174,7 @@ futures_results = run_algorithm(
     print(f"Next open after {a_day.date()}: {next_opening_time}")
     ```
 
-### `next_close()` / `previous_close()` 方法
+### next_close() / previous_close() 方法
 
 *   **用途**：獲取指定時間點之後或之前的下一個/上一個收盤時間。
 *   **範例**：找到 2023 年 3 月 8 日之前的最後一個收盤時間。

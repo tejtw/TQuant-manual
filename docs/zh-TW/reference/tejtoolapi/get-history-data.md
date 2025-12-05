@@ -1,11 +1,17 @@
 # API 取得資料
-* TEJTOOLAPI 主要整併股價與不同屬性的資料庫，透過輸入股票代碼 (TICKERS) 和欄位 (FIELD) 後，可將欲抓取的資料整併為以日頻率的 DataFrame。
 
-* 主要整併方法是以交易日期表為索引整併股價與不同屬性的資料，以下示範 TEJTOOLAPI 利用`get_history_data`獲取歷史資料，並整併股價與不同屬性資料表的所有欄位。
-* 財務數據是根據發布日（announcement date）來mapping，非發布日的財務數據會使用當下可獲得最新的資料為準進行填值。
-    * ex: 2330 在 2010-02-01 時所能獲得最新的財務資料為 2009Q3 的財務資料，則 2010-01-01 會以 2009Q3 的資料進行填補。惟公司2009Q4自結財報早於 2010-02-01 發布時，且 include_self_acc = 'Y'，這時 2010-02-01 的財務數據使用自結財務數據。
+!!! info
+    本頁詳細說明如何使用 TEJ Tool API 的 `get_history_data` 函數來獲取歷史資料，並整併股價與不同屬性的資料表，包括參數說明和使用範例。
 
-* TEJTOOLAPI 可抓取的資料欄位可參考 : <https://tquant.tejwin.com/資料集/>
+---
+
+*   TEJTOOLAPI 主要整併股價與不同屬性的資料庫，透過輸入股票代碼 (TICKERS) 和欄位 (FIELD) 後，可將欲抓取的資料整併為以日頻率的 DataFrame。
+
+*   主要整併方法是以交易日期表為索引整併股價與不同屬性的資料，以下示範 TEJTOOLAPI 利用`get_history_data`獲取歷史資料，並整併股價與不同屬性資料表的所有欄位。
+*   財務數據是根據發布日（announcement date）來mapping，非發布日的財務數據會使用當下可獲得最新的資料為準進行填值。
+    *   ex: 2330 在 2010-02-01 時所能獲得最新的財務資料為 2009Q3 的財務資料，則 2010-01-01 會以 2009Q3 的資料進行填補。惟公司2009Q4自結財報早於 2010-02-01 發布時，且 include_self_acc = 'Y'，這時 2010-02-01 的財務數據使用自結財務數據。
+
+*   TEJTOOLAPI 可抓取的資料欄位可參考 : <https://tquant.tejwin.com/資料集/>
 
 
 
@@ -41,7 +47,7 @@ import TejToolAPI
 from zipline.data import bundles
 ```
 ## 2. 取得 tickers
-## 2.1 取得 bundle 的 tickers
+### 2.1 取得 bundle 的 tickers
 ```python
 bundle_data = bundles.load('tquant')
 universe = bundle_data.asset_finder.retrieve_all(bundle_data.asset_finder.equities_sids)  #.remove(symbol('IR0001'))   
@@ -53,7 +59,7 @@ tickers = [col.symbol for col in universe]
 tickers = ['2330','2454','2317','2882','2881']
 ```
 ## 3. tejtoolapi 取得單獨資料庫
-## 3.1、月營收的欄位
+### 3.1、月營收的欄位
 ```python
 ticker = tickers
 columns = ['Sales_Accu_LastYear', 'Sales_Accu_3M',
@@ -70,7 +76,7 @@ data = TejToolAPI.get_history_data(ticker=ticker,
 data   
 ```
 
-## 3.2、量化籌碼_周 - 集保庫存欄位
+### 3.2、量化籌碼_周 - 集保庫存欄位
 ```python 
 ticker = tickers
 columns = ['Total_Custodied_Shares_1000_Lots',
@@ -95,7 +101,7 @@ data1 = TejToolAPI.get_history_data(ticker=ticker,
 data1 
 ```
 
-## 3.3、抓取財務資料參數設定
+### 3.3、抓取財務資料參數設定
 `ticker`
 
 * 單一股票 :['2330']

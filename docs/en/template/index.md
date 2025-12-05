@@ -141,4 +141,3 @@ pip install -e foo-toolkit
 ```
 
   [GitHub]: https://github.com/foo/foo-toolkit
-

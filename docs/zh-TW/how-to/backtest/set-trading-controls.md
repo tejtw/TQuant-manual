@@ -1,141 +1,86 @@
-# set_do_not_order_list 函數介紹
+# 如何設定交易限制
 
-## zipline.api.set_do_not_order_list(restricted_list, on_error='fail')
-預先設定一個不希望交易到的股票清單
+!!! info
+    本頁提供如何在 Zipline 回測中設定交易限制的詳細指南，包括 `set_max_leverage()`、`set_max_position_size()` 和 `set_max_order_size()` 的使用方法，幫助您模擬真實世界的市場約束。
 
-- **restricted_list** (*container[Asset], SecurityList*):
-  - 指定不可交易的股票清單。
-  - 此容器內的元素必須為 `Asset` 物件（例如：`Equity(0 [1101])`，可用 `symbol("1101")` 轉換）。
-- **on_error** (*str, optional*):
-  - 可選 `'fail'` 與 `'log'`。前者在違反限制時直接中止程式並顯示錯誤訊息；後者則只記錄錯誤但繼續執行。
-  - 預設為 `'fail'`。
-  - 若設定為 `'log'`，請先設定 log（詳見下方程式碼）：
-    ```python
-    from logbook import Logger, StderrHandler, INFO
-    # 設定 log 顯示方式
-    log_handler = StderrHandler(
-        format_string='[{record.time:%Y-%m-%d %H:%M:%S.%f}]: {record.level_name}: {record.func_name}: {record.message}',
-        level=INFO
-    )
-    log_handler.push_application()
-    log = Logger('Algorithm')
-    ```
-    
-## 範例
+在量化回測中設定交易限制是至關重要的一環。這些限制有助於模擬真實世界的市場約束、管理策略風險，並確保回測結果更具可信度。Zipline 提供了多個 API 函數來實施這些交易控制。
 
-在下列範例中，我們將 1101 加入限制清單，並用 `on_error='log'`，然後於 7/26 嘗試下單買入 1101：
+---
+
+## 1. set_max_leverage()：設定最大槓桿倍數
+
+此函數用於限制您的投資組合在回測期間的最大槓桿倍數。如果投資組合的槓桿超過此設定，Zipline 將會終止回測並報錯。
+
+**參數**:
+
+*   `max_leverage` (float)
+    *   `max_leverage` 應為一個大於 0 的浮點數，表示允許的最大槓桿倍數。
 
 ```python
+from zipline.api import set_max_leverage
+
 def initialize(context):
-    context.i = 0
-    set_do_not_order_list(restricted_list=[symbol('1101')], on_error='log')
-    set_slippage(slippage.FixedSlippage(spread=0.0))
-    set_commission(commission.PerDollar(cost=commission_cost))
-    set_benchmark(symbol('IR0001'))
+    # 設定最大槓桿倍數為 3.0
+    set_max_leverage(3.0)
+```
+
+!!! warning
+    過高的槓桿可能會導致在市場波動時，投資組合價值迅速歸零。請根據您的風險承受能力審慎設定。
+
+---
+
+## 2. set_max_position_size()：設定**單一資產最大部位限制**
+
+此函數用於限制單一資產在投資組合中的最大持有部位。這有助於分散風險，避免單一資產對整個投資組合產生過大的影響。
+
+**參數**:
+
+*   `asset`: (Asset, 可選) 欲設定限制的資產物件。若為 `None`，則限制適用於所有資產。
+*   `max_shares`: (int, 可選) 允許持有的最大股數。
+*   `max_notional`: (float, 可選) 允許持有的最大市值 (美元)。
+*   `on_error`: (str, 可選) 當限制被違反時的處理方式。選項包括 `'fail'` (終止回測)、`'log'` (記錄警告並繼續)、`'warn'` (發出警告並繼續)、`'ignore'` (忽略)。預設為 `'fail'`。
+
+> `max_shares` 和 `max_notional` 至少必須設定其中一個。
+
+```python
+from zipline.api import set_max_position_size, symbol
+
+def initialize(context):
+    # 設定台泥 (1101) 的最大持有股數為 1050 股，違反時記錄警告
+    set_max_position_size(asset=symbol('1101'), max_shares=1050, on_error='log')
     
-def handle_data(context, data):
-    if context.i == 0:  # 2018-07-24
-        order(symbol('2330'), 100)
-        
-    if context.i == 2:  # 2018-07-26
-        order(symbol('1101'), 100)
-        
-    if context.i == 4:  # 2018-07-30
-        order(symbol('1216'), 100)
-        
-    context.i += 1
-
-commission_cost = 0.001425
-capital_base = 1e6
-
-performance = run_algorithm(
-    start=start_dt,
-    end=end_dt,
-    initialize=initialize,
-    handle_data=handle_data,
-    capital_base=capital_base,
-    trading_calendar=get_calendar(calendar_name),
-    bundle=bundle_name
-)
-
-positions, transactions, orders = get_transaction_detail(performance)
+    # 設定台積電 (2330) 的最大持有股數為 2000 股，且最大市值不超過 600,000 元，違反時記錄警告
+    set_max_position_size(asset=symbol('2330'), max_shares=2000, max_notional=600000, on_error='log')
 ```
-# Zipline Trading Controls 交易限制函數
 
-## 在 Zipline 中可以加入六種不同的交易限制：
+---
 
-交易限制功能可以確保演算法如您所預期的的方式執行，並有助於避免預期外交易所帶來的不良後果。
+## 3. set_max_order_size()：設定**單筆訂單最大數量限制**
 
-- [set_do_not_order_list](#set_do_not_order_lis)：預先設定一個不希望交易到的股票清單。
-- [set_long_only](#set_long_only)：預先設定投資組合不能持有任何短部位（short positions）。
-- [set_max_leverage](#set_max_leverage)：設定投資組合的槓桿限制。
-- [set_max_order_count](#set_max_order_count)：限制一天內能夠下幾張 order。
-- [set_max_order_size](#set_max_order_size)：限制特定股票（或全部）的單次下單股數及金額。
-- [set_max_position_size](#set_max_position_size)：限制特定股票（或全部）在帳上的股數及市值。
+此函數用於限制單次下單的最大數量。這可以防止因意外或邏輯錯誤而下達過大的訂單，同時也能模擬市場深度不足的狀況。
 
-## 閱讀本篇之前請先閱讀以下文章：
-
-- [TSMC buy and hold strategy.ipynb](#)
-- [Zipline Order (order & order_target).ipynb](#)
-- [Zipline Order（value & target_value）](#)
-- [Zipline Order（percent & target_percent）](#)
-- [Zipline Slippage](#)
-
-### 補充說明：
-
-- 交易限制系列函數通常在initialize階段使用。
-- 可以一次加入多個交易限制。
-- 因為交易限制函數皆是 zipline api 方法，需先from zipline.api import <欲使用的方法> 或 from zipline.api import *。
-
-## 設定環境
+**參數**: 同 `set_max_position_size()` 的參數。
 
 ```python
-import pandas as pd
-import numpy as np
-import datetime
-import tejapi
-import time
-import os
-import warnings
-warnings.filterwarnings('ignore')
+from zipline.api import set_max_order_size, symbol
 
-# tej_key
-tej_key ='your key'
-tejapi.ApiConfig.api_key = tej_key
-os.environ['TEJAPI_BASE'] = "https://api.tej.com.tw"
-os.environ['TEJAPI_KEY'] = tej_key
+def initialize(context):
+    # 設定台泥 (1101) 的單筆最大下單股數為 1000 股
+    set_max_order_size(asset=symbol('1101'), max_shares=1000, on_error='log')
 
-# date
-start='2018-07-24'
-end='2018-08-24'
-os.environ['mdate'] = '20180724 20180824'
-
-tz = 'UTC'
-start_dt, end_dt = pd.Timestamp(start, tz = tz), pd.Timestamp(end, tz = tz)
-
-# calendar
-calendar_name='TEJ'
-
-# bundle_name
-bundle_name = 'tquant'
-
-os.environ['ticker'] = "2330 1216 1101 IR0001 2317 5844 2454 2357"
-!zipline ingest -b tquant
+    # 設定台積電 (2330) 的單筆最大下單股數為 2000 股，且最大市值不超過 481,000 元
+    set_max_order_size(asset=symbol('2330'), max_shares=2000, max_notional=481000, on_error='log')
 ```
-```python
-from zipline.api import *
-from zipline import run_algorithm
-from zipline.finance import commission, slippage
-from zipline.utils.calendar_utils import get_calendar
 
-from zipline.utils.run_algo import  get_transaction_detail
+> `max_notional` 是根據下單時的收盤價計算。因此，由於實際成交價與收盤價可能存在差異，最終成交的股數和金額仍可能微幅超出 `max_notional` 的限制。
 
-from logbook import Logger, StderrHandler, INFO
+---
 
-# 設定log顯示方式
-log_handler = StderrHandler(format_string='[{record.time:%Y-%m-%d %H:%M:%S.%f}]: ' +
-                            '{record.level_name}: {record.func_name}: {record.message}',
-                            level=INFO)
-log_handler.push_application()
-log = Logger('Algorithm')
-```
+## 4. set_min_order_size()：設定**單筆訂單最小數量限制**
+
+[TODO: 內容缺失]
+
+撰寫者註：
+在 `TQuant-Lab` 專案的範例中，並未找到 `set_min_order_size` 函數的明確使用範例。
+根據 [RULE-T1] (絕對真實性)，在沒有可驗證的參考資料前，無法撰寫此文件的技術內容。
+此問題已記錄在 `_CURRENT_TASK.md` 中，等待審查者提供進一步的指引。

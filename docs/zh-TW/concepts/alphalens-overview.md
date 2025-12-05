@@ -15,27 +15,27 @@ Alphalens 能夠將您從 Pipeline 中生成的因子數據，與市場價格數
 
 ### 因子 (Factor)
 
-*   **定義**：因子是能夠解釋或預測資產報酬的特徵。例如，市值、本益比、動量、波動率等都可以是因子。
-*   **來源**：在 TQuant Lab 中，因子通常透過 Zipline Pipeline 生成。
+*   **定義** ：因子是能夠解釋或預測資產報酬的特徵。例如，市值、本益比、動量、波動率等都可以是因子。
+*   **來源** ：在 TQuant Lab 中，因子通常透過 Zipline Pipeline 生成。
 
 ### 因子報酬 (Factor Returns)
 
-*   **定義**：將股票根據因子值進行分組（例如，分為 5 個分位數組），然後計算每個分組在未來一段時間內的平均報酬。因子報酬衡量了因子值高低與未來報酬之間的關係。
-*   **多空組合**：通常會比較因子值最高的分組（多頭）與最低的分組（空頭）之間的報酬差異，以評估因子的預測能力。
+*   **定義** ：將股票根據因子值進行分組（例如，分為 5 個分位數組），然後計算每個分組在未來一段時間內的平均報酬。因子報酬衡量了因子值高低與未來報酬之間的關係。
+*   **多空組合** ：通常會比較因子值最高的分組（多頭）與最低的分組（空頭）之間的報酬差異，以評估因子的預測能力。
 
 ### 資訊係數 (Information Coefficient, IC)
 
-*   **定義**：IC 衡量了因子值與未來報酬之間的 **秩相關性 (Rank Correlation)** 。簡單來說，它評估了因子對未來報酬的預測能力。
-*   **範圍**：IC 值介於 -1 到 1 之間。
+*   **定義** ：IC 衡量了因子值與未來報酬之間的 **秩相關性 (Rank Correlation)** 。簡單來說，它評估了因子對未來報酬的預測能力。
+*   **範圍** ：IC 值介於 -1 到 1 之間。
     *   `IC > 0`：因子值越高，未來報酬越高（正相關）。
     *   `IC < 0`：因子值越高，未來報酬越低（負相關）。
     *   `IC = 0`：因子與未來報酬無關。
-*   **重要性**：一個穩定且顯著為正（或負）的 IC 值，是因子有效性的重要證據。
+*   **重要性** ：一個穩定且顯著為正（或負）的 IC 值，是因子有效性的重要證據。
 
 ### 因子排序自相關 (Factor Rank Autocorrelation)
 
-*   **定義**：衡量因子在不同時間點上的排序穩定性。例如，一個股票今天在因子值上排名靠前，那麼它明天是否仍然排名靠前？
-*   **重要性**：高自相關性意味著因子值變化緩慢，這有助於降低策略的換手率 (Turnover)，從而減少交易成本。低自相關性則可能導致高換手率。
+*   **定義** ：衡量因子在不同時間點上的排序穩定性。例如，一個股票今天在因子值上排名靠前，那麼它明天是否仍然排名靠前？
+*   **重要性** ：高自相關性意味著因子值變化緩慢，這有助於降低策略的換手率 (Turnover)，從而減少交易成本。低自相關性則可能導致高換手率。
 
 ---
 
@@ -47,37 +47,37 @@ Alphalens 能夠將您從 Pipeline 中生成的因子數據，與市場價格數
 
 您需要準備兩個主要的數據集：
 
-1.  **因子數據 (Factor Data)**：
+1.  **因子數據 (Factor Data)** ：
     *   一個 Pandas Series 或 DataFrame，索引為 `(日期, 資產)` 的 MultiIndex。
     *   值為每個資產在每個日期上的因子值。
     *   通常來自 Zipline Pipeline 的輸出。
 
-2.  **價格數據 (Pricing Data)**：
+2.  **價格數據 (Pricing Data)** ：
     *   一個 Pandas DataFrame，索引為 `日期`，欄位為 `資產`。
     *   值為每個資產在每個日期上的收盤價（或其他用於計算報酬的價格）。
     *   通常來自 Zipline 的 `data.history()` 或直接從 TEJ 獲取。
 
-### 步驟 2：清洗與對齊數據 (`get_clean_factor_and_forward_returns`)
+### 步驟 2：清洗與對齊數據 (get_clean_factor_and_forward_returns)
 
 這是 Alphalens 工作流程中最關鍵的一步。`alphalens.utils.get_clean_factor_and_forward_returns()` 函數會自動處理以下任務：
 
-*   **數據對齊**：將因子數據與價格數據按日期和資產進行對齊。
-*   **計算未來報酬**：根據指定的持有期 (`periods`)，計算每個資產在因子值發布後未來一段時間的報酬率。
-*   **數據清洗**：處理缺失值、異常值，並確保數據格式符合 Alphalens 的要求。
+*   **數據對齊** ：將因子數據與價格數據按日期和資產進行對齊。
+*   **計算未來報酬** ：根據指定的持有期 (`periods`)，計算每個資產在因子值發布後未來一段時間的報酬率。
+*   **數據清洗** ：處理缺失值、異常值，並確保數據格式符合 Alphalens 的要求。
 
 此函數提供多個參數來控制因子的分組方式：
 
 *   `quantiles` (int, default 5)：
-    *   **用途**：將因子值分為指定數量的分位數組。例如，`quantiles=5` 會將股票分為 5 組，每組包含大致相同數量的股票。
-    *   **適用場景**：當您希望按股票數量平均分組時使用。
+    *   **用途** ：將因子值分為指定數量的分位數組。例如，`quantiles=5` 會將股票分為 5 組，每組包含大致相同數量的股票。
+    *   **適用場景** ：當您希望按股票數量平均分組時使用。
 
 *   `bins` (list or array, optional)：
-    *   **用途**：提供自定義的因子值邊界來進行分組。例如，`bins=[-np.inf, -1, 0, 1, np.inf]` 會將因子值分為小於 -1、-1 到 0、0 到 1、大於 1 的四組。
-    *   **適用場景**：當您希望根據因子值的實際分佈或特定閾值進行分組時使用。
+    *   **用途** ：提供自定義的因子值邊界來進行分組。例如，`bins=[-np.inf, -1, 0, 1, np.inf]` 會將因子值分為小於 -1、-1 到 0、0 到 1、大於 1 的四組。
+    *   **適用場景** ：當您希望根據因子值的實際分佈或特定閾值進行分組時使用。
 
 *   `binning_by_group` (bool, default False)：
-    *   **用途**：當設置為 `True` 時，會根據 `groupby` 參數指定的組（例如行業）分別進行分位數或分箱操作。
-    *   **適用場景**：當您希望在每個行業內部獨立進行因子分組，以消除行業偏見時使用。
+    *   **用途** ：當設置為 `True` 時，會根據 `groupby` 參數指定的組（例如行業）分別進行分位數或分箱操作。
+    *   **適用場景** ：當您希望在每個行業內部獨立進行因子分組，以消除行業偏見時使用。
 
 ```python
 import alphalens as al
@@ -114,13 +114,13 @@ factor_data_bins = al.utils.get_clean_factor_and_forward_returns(
 # 範例 3: 假設有行業分組數據，並按行業進行分組 (binning_by_group=True)
 # industry_data = pd.Series(..., index=pd.MultiIndex.from_product(...))
 # factor_data_by_group = al.utils.get_clean_factor_and_forward_returns(
-#     factor=factor_data,
-#     prices=pricing_data,
-#     periods=(1, 5, 10),
-#     quantiles=5,
-#     groupby=industry_data, # 傳入行業分組數據
-#     binning_by_group=True, # 在每個行業內部獨立分組
-#     max_loss=0.35
+# factor=factor_data,
+# prices=pricing_data,
+# periods=(1, 5, 10),
+# quantiles=5,
+# groupby=industry_data, # 傳入行業分組數據
+# binning_by_group=True, # 在每個行業內部獨立分組
+# max_loss=0.35
 # )
 
 print("使用 quantiles 分組的數據頭部：")
@@ -184,11 +184,11 @@ Alphalens 報告提供了豐富的視覺化和統計數據，幫助您全面評�
 
 當我們計算股票報酬時，這些報酬往往包含兩部分：一部分來自市場的整體波動，另一部分來自股票自身的特質（即因子）。去市場化就是將每檔股票的報酬率扣除全市場（或特定組別）的平均報酬，使得分析的重點聚焦於因子帶來的相對收益，而非市場的漲跌。
 
-### `demeaned` 參數的使用
+### demeaned 參數的使用
 
 Alphalens 的許多函數（特別是與報酬相關的分析函數，例如 `alphalens.tears.create_returns_tear_sheet` 或 `alphalens.performance.mean_return_by_quantile`）都提供了 `demeaned` 參數。當 `demeaned` 設置為 `True` 時，Alphalens 會在計算因子報酬之前，對股票報酬進行去市場化處理。
 
-*   `demeaned=True`：計算去市場化後的因子報酬，有助於評估因子的純粹 Alpha 貢獻。
+*   `demeaned=True`：計算去市場化後的因子報酬，有助於評估因子的 **純粹 Alpha 貢獻** 。
 *   `demeaned=False` (預設值)：計算原始因子報酬，包含市場波動的影響。
 
 ```python
@@ -204,16 +204,16 @@ al.tears.create_returns_tear_sheet(factor_data_cleaned, demeaned=True)
 
 # 您也可以在計算 mean_return_by_quantile 時指定 demeaned 參數
 # mean_return_by_q_demeaned = al.performance.mean_return_by_quantile(
-#     factor_data_cleaned, 
-#     demeaned=True
+# factor_data_cleaned, 
+# demeaned=True
 # )
 ```
 
 ### 何時使用去市場化？
 
-*   **評估因子純粹 Alpha**：當您希望評估因子在剔除市場影響後的獨立預測能力時，應使用去市場化。
-*   **比較不同因子**：在比較不同因子的表現時，去市場化可以提供更公平的基礎，因為它減少了市場風格對比較的干擾。
-*   **構建中性策略**：對於旨在構建市場中性策略的研究者來說，去市場化是理解因子貢獻的關鍵一步。
+*   **評估因子純粹 Alpha** ：當您希望評估因子在剔除市場影響後的獨立預測能力時，應使用去市場化。
+*   **比較不同因子** ：在比較不同因子的表現時，去市場化可以提供更公平的基礎，因為它減少了市場風格對比較的干擾。
+*   **構建中性策略** ：對於旨在構建市場中性策略的研究者來說，去市場化是理解因子貢獻的關鍵一步。
 
 ---
 

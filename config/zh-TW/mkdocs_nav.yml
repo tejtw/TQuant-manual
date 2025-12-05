@@ -15,6 +15,7 @@ nav:
       - 交易日曆: concepts/calendars.md
     - Pyfolo:
       - Pyfolo 績效分析概論: concepts/pyfolio-overview.md
+      - 績效指標與回測分析: concepts/performance-metrics.md
     - Alphalens:
       - Alphalens 因子分析概論: concepts/alphalens-overview.md
   - 操作指南:
@@ -25,11 +26,13 @@ nav:
       - 如何 Ingest TEJ 財務/非財務資料: how-to/data/ingest-tej-fundamental.md
       - 如何取得 Benchmark 報酬率: how-to/data/get-benchmark-roi.md
       - 如何取得無風險利率: how-to/data/get-risk-free-rate.md
+      - Pipeline DataFrameLoader: how-to/data/use-dataframeloader.md
     - 回測:
       - 如何執行一個基本的回測: how-to/backtest/run-algorithm.md
       - 如何設定手續費模型: how-to/backtest/set-commission.md
       - 如何設定滑價模型: how-to/backtest/set-slippage.md
       - 如何設定交易限制: how-to/backtest/set-trading-controls.md
+      - 回測模擬參數: how-to/backtest/simulation-params.md
     - 視覺化:
       - 如何產生 Pyfolo 績效報表: how-to/visualization/pyfolio-tearsheet.md
     - 因子分析:
@@ -42,6 +45,8 @@ nav:
       - 排程函數: reference/zipline/scheduling-functions.md
       - 下單函數: reference/zipline/orders.md
       - 資產物件: reference/zipline/assets.md
+      - 資料物件: reference/zipline/data-object.md
+      - 其他 API 參考: reference/zipline/other-api.md
     - Pipeline:
       - 概論: reference/pipeline/overview.md
       - 計算元素 (Terms): reference/pipeline/terms.md
@@ -57,6 +62,7 @@ nav:
     - Alphalens:
       - API 總覽: reference/alphalens/api.md
     - TejToolAPI:
+      - API 認證: reference/tejtoolapi/api-authentication.md
+      - Python API 總覽: reference/tejtoolapi/python-api.md
+      - REST API 總覽: reference/tejtoolapi/rest-api.md
       - get_history_data: reference/tejtoolapi/get-history-data.md
-    - Empyrical:
-      - API 總覽: reference/empyrical/api.md

@@ -1,122 +1,153 @@
-# EquityPricing 資料集
+# Zipline Pipeline 資料集：EquityPricing
 
 !!! info
-    本頁詳細介紹 `TWEquityPricing` 資料集，它是 TQuant Lab Pipeline 中用於獲取台灣股票市場歷史價量數據的核心資料集。內容涵蓋其可用欄位、在 Pipeline 中的使用方法，以及常見的應用範例。
+    本頁詳細介紹 Zipline Pipeline 中的 `EquityPricing` 資料集，包括其用途、提供的欄位、如何存取數據以及在 Pipeline 中使用的範例，是構建價量因子的基礎。
 
-`TWEquityPricing` 是 Zipline Pipeline 中最基礎也最常用的資料集之一。它封裝了台灣股票市場每日的開盤價、最高價、最低價、收盤價和成交量，為絕大多數技術分析因子的計算提供了必要的數據基礎。
-
----
-
-## 1. `TWEquityPricing` 核心概念
-
-`TWEquityPricing` 代表了 TQuant Lab 資料庫中所有股票的歷史價量數據。當您在 Pipeline 中引用此資料集時，Zipline 引擎會自動處理數據的載入和對齊，確保您的因子計算能夠高效且準確地進行。
-
-**主要特點**：
-
-*   **標準化欄位**：提供了標準化的價量欄位名稱 (`open`, `high`, `low`, `close`, `volume`)，方便使用者記憶和使用。
-*   **自動數據對齊**：Pipeline 會自動處理不同股票的交易日期和數據長度，您無需手動對齊時間序列。
-*   **高效能存取**：數據以優化的 bcolz 格式儲存，確保在回測過程中能夠快速讀取。
+在 Zipline Pipeline 中，`EquityPricing` 是一個核心的內建 `DataSet`，專門用於提供股票的價量數據。它是您構建各種價量因子、篩選器以及交易策略的基礎。
 
 ---
 
-## 2. 可用欄位
+## 1. EquityPricing 簡介
 
-`TWEquityPricing` 資料集包含以下五個核心欄位，您可以直接在 Pipeline 中訪問它們：
-
-*   `open`
-    *   **類型**：`float`
-    *   **說明**：當日的開盤價。
-
-*   `high`
-    *   **類型**：`float`
-    *   **說明**：當日的最高價。
-
-*   `low`
-    *   **類型**：`float`
-    *   **說明**：當日的最低價。
-
-*   `close`
-    *   **類型**：`float`
-    *   **說明**：當日的收盤價。
-
-*   `volume`
-    *   **類型**：`integer`
-    *   **說明**：當日的成交量 (單位：股)。
+`EquityPricing` 包含了股票在每個交易日的開盤價、最高價、最低價、收盤價和成交量等標準資訊。當您在 Pipeline 中引用 `EquityPricing` 時，Zipline 會自動從您選擇的資料包 (`bundle`) 中讀取這些數據，並進行必要的清洗和對齊，確保數據的可用性和一致性。
 
 ---
 
-## 3. 在 Pipeline 中的使用方法
+## 2. EquityPricing 提供的欄位
 
-在 Pipeline 中使用 `TWEquityPricing` 非常簡單。您只需從 `zipline.pipeline.data` 模組導入它，然後就可以像訪問物件屬性一樣訪問其欄位。
+`EquityPricing` 提供以下常用的價量欄位作為 `BoundColumn` 物件：
 
-### 範例 1：獲取最新收盤價
+*   `open`: 每日開盤價。
+*   `high`: 每日最高價。
+*   `low`: 每日最低價。
+*   `close`: 每日收盤價。
+*   `volume`: 每日成交量。
 
-在 Pipeline 中，您通常會使用 `.latest` 屬性來獲取每個欄位的最新值。這代表了 Pipeline 在當前計算日可用的最新數據（通常是前一交易日的數據）。
+---
+
+## 3. 如何存取 EquityPricing 欄位數據
+
+您可以透過 `EquityPricing.column_name` 方式獲取 `BoundColumn` 物件，再利用其 `.latest` 或 `.slice()` 方法來指定您想要提取的數據。
+
+### 3.1. .latest：獲取單一最新值
+
+`.latest` 用於獲取 Pipeline 計算當天（或前一個交易日）的最新數據點。
 
 ```python
-from zipline.pipeline import Pipeline
-from zipline.pipeline.data import TWEquityPricing
+from zipline.pipeline.data import EquityPricing
 
-def make_my_pipeline():
-    # 獲取最新的收盤價
-    latest_close = TWEquityPricing.close.latest
+# 獲取最新收盤價
+latest_close_price = EquityPricing.close.latest
+
+# 獲取最新成交量
+latest_volume = EquityPricing.volume.latest
+```
+
+### 3.2. .slice(window_length)：獲取歷史窗口數據
+
+`.slice(window_length)` 用於獲取 Pipeline 計算當天之前，指定 `window_length` 天數的歷史數據窗口。這在計算移動平均、標準差等需要歷史數據的因子時非常有用。
+
+```python
+from zipline.pipeline.data import EquityPricing
+
+# 獲取過去 20 天的收盤價數據
+historical_close_prices = EquityPricing.close.slice(window_length=20)
+
+# 獲取過去 10 天的成交量數據
+historical_volume = EquityPricing.volume.slice(window_length=10)
+```
+
+### 3.3. .history(window_length, frequency)：獲取歷史窗口數據 (進階用法)
+
+`history()` 方法也可用於獲取歷史數據，它在 `handle_data` 中更為常見。在 Pipeline 中，`.slice()` 通常是更直接和慣用的方式。`history` 方法的 `frequency` 參數可以指定數據頻率 (例如 `'1d'` 代表日頻率)。
+
+```python
+from zipline.pipeline.data import EquityPricing
+
+# 獲取過去 5 天的日收盤價數據 (在 Pipeline 中，通常會透過 .slice() 實現類似功能)
+historical_close_pipeline = EquityPricing.close.history(5, '1d')
+```
+
+---
+
+## 4. 範例
+
+以下是一個完整的 Pipeline 範例，演示如何在 Pipeline 中使用 `EquityPricing` 獲取最新收盤價、計算其 20 日簡單移動平均，並獲取 10 日成交量。
+
+```python
+import pandas as pd
+from zipline import run_algorithm
+from zipline.api import (
+    attach_pipeline,
+    pipeline_output,
+    set_benchmark,
+    symbol,
+    order_target_percent
+)
+from zipline.pipeline import Pipeline
+from zipline.pipeline.factors import SimpleMovingAverage, AverageDollarVolume
+from zipline.pipeline.data import EquityPricing
+from zipline.pipeline.filters import AverageDollarVolume as ADVFilter # 重命名以避免衝突
+
+# 1. 定義 Pipeline
+def make_my_pricing_pipeline():
+    # 獲取最新收盤價
+    latest_close = EquityPricing.close.latest
+    # 計算 20 日簡單移動平均線
+    sma_20 = SimpleMovingAverage(inputs=[EquityPricing.close], window_length=20)
+    # 獲取過去 10 天的成交量總和
+    volume_10d_sum = EquityPricing.volume.sum(window_length=10) # Sum 是一個 Factor
     
+    # 篩選器：過去 5 天平均日成交金額前 30 檔股票
+    high_volume_filter = AverageDollarVolume(window_length=5).top(30)
+
     return Pipeline(
         columns={
-            'close_price': latest_close
-        }
+            'Close_Price': latest_close,
+            'SMA_20': sma_20,
+            'Volume_10D_Sum': volume_10d_sum
+        },
+        screen=high_volume_filter # 篩選 Universe
     )
+
+# 2. Zipline 回測設置
+def initialize(context):
+    set_benchmark(symbol('IR0001')) # 設定 Benchmark
+    attach_pipeline(make_my_pricing_pipeline(), 'my_pricing_pipeline') # 附掛 Pipeline
+
+def before_trading_start(context, data):
+    pipeline_results = pipeline_output('my_pricing_pipeline')
+    context.my_universe = pipeline_results.index.get_level_values(1).tolist()
+    context.pipeline_data = pipeline_results
+
+def handle_data(context, data):
+    if not context.my_universe:
+        return
+
+    for asset in context.my_universe:
+        if data.can_trade(asset) and asset in context.pipeline_data.index.get_level_values(1):
+            close_price = context.pipeline_data.loc[(data.current_dt.date(), asset), 'Close_Price']
+            sma_20 = context.pipeline_data.loc[(data.current_dt.date(), asset), 'SMA_20']
+            volume_sum = context.pipeline_data.loc[(data.current_dt.date(), asset), 'Volume_10D_Sum']
+
+            # 示例邏輯：如果收盤價高於 SMA_20 且成交量充足，則買入
+            if close_price > sma_20 and volume_sum > 1_000_000: # 假設成交量大於 1 百萬
+                order_target_percent(asset, 1.0 / len(context.my_universe))
+            elif close_price < sma_20 and asset in context.portfolio.positions:
+                order_target_percent(asset, 0.0)
+
+def analyze(context, results):
+    print("回測分析完成。")
+
+# 執行回測
+results = run_algorithm(
+    start=pd.Timestamp('2020-01-01', tz='UTC'),
+    end=pd.Timestamp('2021-01-01', tz='UTC'),
+    initialize=initialize,
+    handle_data=handle_data,
+    analyze=analyze,
+    capital_base=1_000_000,
+    bundle='tquant',
+    before_trading_start=before_trading_start
+)
 ```
-
-### 範例 2：作為因子的輸入
-
-`TWEquityPricing` 的欄位是大多數內建因子和自訂因子的主要數據來源。
-
-```python
-from zipline.pipeline import Pipeline
-from zipline.pipeline.data import TWEquityPricing
-from zipline.pipeline.factors import SimpleMovingAverage, FastStochasticOscillator
-
-def make_my_pipeline():
-    # 將收盤價作為 SimpleMovingAverage 的輸入
-    mean_close_20 = SimpleMovingAverage(inputs=[TWEquityPricing.close], window_length=20)
-    
-    # 將收盤價、最低價、最高價作為 FastStochasticOscillator 的輸入
-    k_value = FastStochasticOscillator(
-        inputs=[TWEquityPricing.close, TWEquityPricing.low, TWEquityPricing.high],
-        window_length=10
-    )
-    
-    return Pipeline(
-        columns={
-            'mean_close_20': mean_close_20,
-            'k_value': k_value
-        }
-    )
-```
-
-### 範例 3：在自訂因子中使用
-
-在創建 [自訂因子](../../reference/pipeline/custom-factor.md) 時，`TWEquityPricing` 的欄位也是最常用的 `inputs` 之一。
-
-```python
-from zipline.pipeline import CustomFactor
-from zipline.pipeline.data import TWEquityPricing
-import numpy as np
-
-class HighLowSpread(CustomFactor):
-    # 定義輸入為最高價和最低價
-    inputs = [TWEquityPricing.high, TWEquityPricing.low]
-    window_length = 1 # 只需要當日的數據
-
-    def compute(self, today, assets, out, high_prices, low_prices):
-        # high_prices 和 low_prices 都是 (1 x N) 的 NumPy 陣列
-        # 計算當日最高價與最低價的價差
-        out[:] = high_prices[0] - low_prices[0]
-```
-
----
-
-## 總結
-
-`TWEquityPricing` 是 TQuant Lab Pipeline 中不可或缺的基礎資料集。無論是計算技術指標、篩選股票，還是創建複雜的自訂因子，都離不開它所提供的價量數據。熟練掌握 `TWEquityPricing` 的使用，是進行量化策略研究的第一步。

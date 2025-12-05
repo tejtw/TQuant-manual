@@ -1,125 +1,134 @@
-# Zipline Context 功能介紹
+# Zipline 回測中的 context 物件
 
-__請於閱讀本文前，預先閱讀 TSMC buy and hold strategy，以了解四大函式 (initialize, handel_data, analyze, run_algorithm) 使用方法。__
+!!! info
+    本頁深入介紹 Zipline 回測中的 `context` 物件，包括其核心作用、主要內建屬性、自定義屬性以及完整範例，幫助使用者理解如何儲存和傳遞策略狀態資訊。
 
-在 Zipline 程式運行中的各種數據，會記錄在context並不斷更新，所以在程式運行中，可以隨時取得即時資訊。下面介紹幾個常用項目：
+在 Zipline 的事件驅動回測框架中，`context` 物件是策略的核心。它在整個回測過程中持續存在，並在 `initialize()`、`before_trading_start()`、`handle_data()` 和 `analyze()` 等生命週期函數之間傳遞策略的狀態資訊。透過 `context`，您可以存取投資組合的當前狀態、記錄交易資訊，以及儲存任何自定義的策略變數。
+
+---
+
+## 1. context 簡介
+
+`context` 就像一個專屬於您策略的儲物櫃，它：
+*   **持久性**: 一旦在 `initialize()` 中設定，`context` 的內容就會在整個回測期間保持不變，除非您明確修改它。
+*   **可變性**: 您可以在回測的任何階段讀取或修改 `context` 的屬性。
+*   **全局性**: 它是策略中所有生命週期函數共享的唯一狀態容器。
+
+---
+
+## 2. context 的主要內建屬性
+
+`context` 物件內置了幾個重要的屬性，提供了關於投資組合和回測環境的實時資訊。
+
+### 2.1. context.portfolio：投資組合狀態
+
+`context.portfolio` 是一個非常重要的屬性，它提供了當前投資組合的詳細情況。
+
+*   `context.portfolio.cash`: 當前可用的現金餘額。
+*   `context.portfolio.positions`: 一個字典型物件，鍵為資產物件，值為 `Position` 物件，包含了您目前持有的所有資產及其詳細資訊（例如持股數量 `amount`）。
+    *   `context.portfolio.positions[asset].amount`: 獲取特定資產的持股數量。
+    *   `context.portfolio.positions.keys()`: 獲取一個列表，包含所有目前持有的資產物件。
+*   `context.portfolio.portfolio_value`: 投資組合的當前總市值（現金 + 持股價值）。
+*   `context.portfolio.positions_value`: 所有持股的當前總市值。
+
+#### 範例
+```python
+def handle_data(context, data):
+    # 檢查是否有足夠的現金來下單
+    if context.portfolio.cash > 10000:
+        # ... 執行買入操作 ...
+        pass
     
-    context.asset
-    context.account
-    context.portfolio
-    context.blotter
-
-# context.asset
-
-在 initialize 的階段可以加入
-
-    context.tickers = ['1216', '2330', '2327']
-    context.asset = [symbol(ticker) for ticker in context.tickers]  
-
-建立一個股票清單：[Equity(2 [1216]), Equity(14 [2330]), Equity(13 [2327])]，格式是 list，裡面資料型態是 zipline.asset.Assets，這樣在handle_data 階段就可以用來選取股票。
-
-## context.account
-
-account 裡面的資訊，大多都是來自 context.portfolio，共計有：
+    # 遍歷所有持有的部位
+    for asset, position in context.portfolio.positions.items():
+        print(f"持有 {asset.symbol} 股數: {position.amount}, 當前市值: {position.last_sale_price * position.amount}")
     
-    account.settled_cash = portfolio.cash 帳上現金
-    account.accrued_interest = 0.0。股票不適用。
-    account.buying_power = np.inf （無限大）。股票不適用。
-    account.equity_with_loan = portfolio.portfolio_value 投資組合總市值
-    account.total_positions_value = portfolio.portfolio_value - portfolio.cash 投資組合總市值 - 現金
-    account.total_positions_exposure = portfolio.positions_exposure sum(股數 * 當天收盤價)，long為正值，short為負值
-    account.regt_equity = portfolio.cash 現金
-    account.regt_margin = np.inf （無限大）。股票不適用。
-    account.initial_margin_requirement = 0.0 必須保證金。股票不適用。
-    account.maintenance_margin_requirement = 0.0 維持保證金。股票不適用。
-    account.available_funds = portfolio.cash 現金
-    account.excess_liquidity = portfolio.cash 現金
-    account.cushion = portfolio.cash / portfolio.portfolio_value 現金 / 投資組合總市值，後者如果是 0 則回傳 np.inf （無限大）
-    account.day_trades_remaining = 剩餘交易日，預設np.inf （無限大）。股票不適用。
-    account.net_liquidation = portfolio.portfolio_value
-    account.gross_leverage = gross_exposure / portfolio_value 後者如果是 0 則回傳 np.inf （無限大）
-    account.net_leverage = net_exposure / portfolio_value 後者如果是 0 則回傳 np.inf （無限大）
-    account.leverage = account.gross_leverage
+    # 打印投資組合總價值
+    print(f"投資組合總價值: {context.portfolio.portfolio_value}")
+```
+
+### 2.2. context.blotter：交易記錄器
+
+`context.blotter` 物件提供了對交易歷史和未完成訂單的訪問介面。儘管在一般的策略範例中不常用，但對於需要精細控制訂單狀態或分析歷史交易的進階策略非常有用。
+
+*   `context.blotter.open_orders`: 獲取一個字典，包含所有尚未完全成交的訂單。
+
+### 2.3. context.asset_finder：資產查找器
+
+`context.asset_finder` 是一個用於根據符號 (symbol)、SID (Zipline ID) 或其他屬性查找資產物件的工具。在大多數情況下，您可以使用 `zipline.api.symbol()` 或 `asset_finder.lookup_symbol()` 來獲取資產物件。
+
+---
+
+## 3. 自定義屬性 (Custom Attributes)
+
+您可以在 `initialize()` 函數中為 `context` 物件添加任意自定義屬性，以便在回測的後續階段（如 `handle_data()`）中存儲和檢索策略的內部狀態或額外數據。
+
+#### 範例
+```python
+def initialize(context):
+    context.my_flag = False          # 儲存布林值
+    context.counter = 0              # 儲存整數計數器
+    context.stock_list = []          # 儲存股票列表
+    context.my_data_dict = {}        # 儲存字典
+
+def handle_data(context, data):
+    if not context.my_flag:
+        print("這是第一次進入 handle_data！")
+        context.my_flag = True # 修改自定義屬性
     
-gross_exposure算法：sum(股數 * 當天收盤價)。其中，股數不管是long或short都是正值
+    context.counter += 1
+    if context.counter % 10 == 0:
+        print(f"已運行 {context.counter} 次 handle_data。")
+```
 
-net_exposure算法：sum(股數 * 當天收盤價)。其中，股數long為正，short為負
+---
 
-## context.portfolio
+## 4. 完整範例
 
-portfolio裡面的資訊，有一些也同時出現在回測產出的資料中，但是有些計算方式不太一樣
-    
-    cash_flow：從開始日到當天的累計現金流，流入正流出負
-    starting_cash：起始資金，不是當天開始時的現金
-    portfolio_value：positions_value + cash 投資組合總市值
-    pnl：累計的pnl，為 portfolio_value - 起始資金
-    returns：累計return，( 1 + 每日 pnl / 每日起始 portfolio_value) 的乘積 - 1
-    cash：回測資料中的 ending_cash
-    positions：帳上的股票部位
-    start_date：整個測試的開始日
-    positions_value：跟 net_exposure 算法一樣，sum(股數 * 當天收盤價)。其中，股數long為正，short為負
-    positions_exposure：買賣股票時 value = exposure，跟上面一樣 參考~\zipline\finance\_finance_ext.pyx
-    
-context.portfolio.positions 回傳內容範例：
-
-{Equity(0 [1101]): Position({'asset': Equity(0 [1101]), 'amount': 1000, 'cost_basis': 45.56483750129291, 'last_sale_price': 45.1, 'last_sale_date': Timestamp('2018-07-25 05:30:00+0000', tz='UTC')}), Equity(14 [2330]): Position({'asset': Equity(14 [2330]), 'amount': -1000, 'cost_basis': 240.65657496810346, 'last_sale_price': 240.5, 'last_sale_date': Timestamp('2018-07-25 05:30:00+0000', tz='UTC')})}
-
-## context.blotter
-
-blotter主要紀錄訂單相關的資訊
-
-1. slippage_models 紀錄這次模擬時，股票和期貨所用的slippage model，範例：
-
-    {<class 'zipline.assets._assets.Equity'>: VolumeShareSlippage(
-    volume_limit=0.025,
-    price_impact=0.1), <class 'zipline.assets._assets.Future'>: VolatilityVolumeShare(volume_limit=0.05, eta=<varies>)}
-
-    
-2. commissions_models 概念相同，範例：
-
-     {<class 'zipline.assets._assets.Equity'>: PerDollar(cost_per_dollar=0.001425), <class 'zipline.assets._assets.Future'>: 
-    PerContract(cost_per_contract=0.85, exchange_fee=<varies>, min_trade_cost=0)}
-
-    
-3. open_orders：回傳字典，key是asset (例如 symbol('2327'))，對應list，list裡面是該股票的open orders：
-    
-    Order({'id': 'c201d801586349febfd88f3b97b35738', 'dt': Timestamp('2022-10-20 05:30:00+0000', tz='UTC'), 'reason': None, 
-    'created': Timestamp('2022-10-20 05:30:00+0000', tz='UTC'), 'amount': 1000, 'filled': 0, 'commission': 0, 'stop': None, 
-    'limit': None, 'stop_reached': False, 'limit_reached': False, 'sid': Equity(11 [2327]), 'status': <ORDER_STATUS.OPEN: 0>})
-    
-
-4. orders：目前為止所有的訂單，包括open, canceled, filled，回傳格式是字典，key是order id，對應的是和上面一樣的 <class 'zipline.finance.order.Order'>
-
-
-5. new_orders：當天創立的訂單，回傳一個清單，裡面物件和上面一樣，<class 'zipline.finance.order.Order'>
-
-
-6. current_dt： 當日日期
-
-## context.sim_params
-
-sim_params紀錄各種模擬的參數，範例：
-
-    SimulationParameters(
-    start_session=2022-12-05 00:00:00+00:00,
-    end_session=2022-12-23 00:00:00+00:00,
-    capital_base=1000000.0,
-    data_frequency=daily,
-    emission_rate=daily,
-    first_open=2022-12-05 01:01:00+00:00,
-    last_close=2022-12-23 05:30:00+00:00,
-    trading_calendar=<exchange_calendars.exchange_calendar_tejxtai.TEJ_XTAIExchangeCalendar object at 0x000001B76D7682E0>
-    )
-
-1. start_session：開始日，UTC午夜時間
-2. end_session：結束日，UTC午夜時間
-3. capital_base：起始資金
-4. data_frequency：資料頻率，目前僅支援日頻率
-5. emission_rate：計算頻率，也是每日
-6. first_open：第一個開始交易時間
-7. last_close：最後一個收盤時間
-8. trading_calendar：使用的交易日曆(TEJ_XTAI)
+以下是一個完整的範例，演示如何在 `initialize()` 中設定 `context`，並在 `handle_data()` 中使用其內建和自定義屬性。
 
 ```python
+import pandas as pd
+from zipline import run_algorithm
+from zipline.api import symbol, order_target_percent, record, set_benchmark
 
+def initialize(context):
+    context.my_asset = symbol('2330') # 設定一個要交易的資產
+    context.has_ordered = False       # 自定義旗標，追蹤是否已下單
+    context.trade_count = 0           # 自定義計數器
+    set_benchmark(symbol('IR0001'))   # 設定 Benchmark
+
+def handle_data(context, data):
+    # 檢查是否已下單
+    if not context.has_ordered:
+        # 使用 context.portfolio.cash 檢查是否有足夠現金
+        if context.portfolio.cash > data.current(context.my_asset, 'price') * 100: # 假設買100股
+            order_target_percent(context.my_asset, 1.0) # 全倉買入
+            context.has_ordered = True
+            context.trade_count += 1
+            print(f"買入 {context.my_asset.symbol}，現金餘額: {context.portfolio.cash}")
+    
+    # 在每隔一段時間後打印持倉信息
+    context.trade_count += 1
+    if context.trade_count % 50 == 0:
+        if context.my_asset in context.portfolio.positions:
+            pos = context.portfolio.positions[context.my_asset]
+            print(f"日期: {data.current_dt.date()} 持有 {pos.asset.symbol} 股數: {pos.amount}")
+        print(f"投資組合總價值: {context.portfolio.portfolio_value}")
+
+def analyze(context, results):
+    # 此處可以利用 context 進行分析，例如打印最終的 trade_count
+    print(f"總交易次數: {context.trade_count}")
+    print(f"最終投資組合價值: {results.iloc[-1]['portfolio_value']}")
+
+# 執行回測
+results = run_algorithm(
+    start=pd.Timestamp('2022-01-01', tz='UTC'),
+    end=pd.Timestamp('2023-01-01', tz='UTC'),
+    initialize=initialize,
+    handle_data=handle_data,
+    analyze=analyze,
+    capital_base=1_000_000,
+    bundle='tquant'
+)
 ```

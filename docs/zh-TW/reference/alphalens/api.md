@@ -1,135 +1,152 @@
+# Alphalens API 總覽
 
+!!! info
+    本頁提供 Alphalens 相關 API 的詳細說明，包括因子分析、資訊係數 (IC) 分析、周轉率分析及相關繪圖函數的用途和計算方式。
+
+Alphalens 是一個用於因子研究與評估的 Python 庫，提供因子分析、績效評估和周轉率分析等工具。
 
 ---
 
-# documents23.md
+## 核心概念
 
-# Information Analysis
+### 資訊係數分析 (Information Coefficient, IC)
 
-- Information Coefficient（IC）是另一種觀察因子預測性的方法，透過計算**因子值**與**持有期報酬**的**斯皮爾曼等級相關係數（Spearman rank correlation coefficient）**而得。
-- 簡而言之，IC提供了一種評估方式，來確定較高的因子值是否意味著更高的報酬率，即是否存在單調遞增的關係。因此，理想情況下，**我們希望IC值越高越好**。在主動投資策略中，IC也常被用來評估基金經理人的預測能力。
-- 由於IC是等級相關係數，其值的範圍是介於+1到-1之間。當IC=1時，意味著該因子完全沒有雜訊，並可以做出完美的預測；IC=0時，表示該因子無預測能力，全為雜訊；若IC值為負時，則代表預測方向與真實方向完全相反，這時我們可以透過調整預測方向來應對。
-- 那麼，IC值到底要多高才算是好呢？不同的研究或投資人對此有各自的見解。例如，Grinold and Kahn（2000）指出：一個良好的因子其IC值應達到**0.05**；一個出色的因子，其IC值應達到0.10；而一個頂尖的因子，其IC值應達到0.15。然而，如果IC值高達0.20，可能代表存在回測偏差或是非法的內線交易行為。
-- 然而，這種評判標準會因人或所投資的市場而異，可根據個人需求設定更嚴格或更寬鬆的標準。此外，當存在多個候選因子時，也可以利用IC對它們進行比較，選擇IC值較高的因子。
+資訊係數是一種量化因子預測性的方法，透過計算**因子值**與**持有期報酬**的**斯皮爾曼等級相關係數**（Spearman rank correlation coefficient）而得。
 
-## Information Analysis vs. Returns Analysis
-- 在報酬率分析中，我們會按照股票的因子值大小進行分組，然後分析每個分組的報酬率。透過觀察**各分組的報酬率（quantiles return，QR）**，我們可以了解一個因子在股票池中的**預測能力分佈**，例如，某個因子是否只在top quantile的股票中顯示出預測能力，或者它是否對整個股票池都具有預測力。
-- 資訊係數則是描述因子與其持有期報酬率間線性關係的相關係數。雖然較高的IC值代表該因子具有較佳的預測能力，但由於計算IC時沒有進行樣本分組，我們無法明確知道這預測能力是來自股票池的哪部分。也就是說，一個因子可能只在股票池的某一子集中具有預測效果。
-- 為了更全面評估一個因子，最好是結合使用兩種分析工具。**IC提供了較為一般化的視角，而QR則提供了更深入的觀點，能夠明確顯示因子在哪些分組中的預測能力最強，以及在哪些分組中效果不那麼明顯**。若僅依賴IC，可能會**遺漏因子在不同股票之間的表現差異**。反之，若只考慮QR而不考量IC，則可能會忽略掉**因子整體的預測強度**。
+簡而言之，IC 提供了一種評估方式，來確定較高的因子值是否意味著更高的報酬率，即是否存在單調遞增的關係。理想情況下，我們希望 IC 值越高越好。在主動投資策略中，IC 也常被用來評估基金經理人的預測能力。
 
-## Performance Metrics & Plotting Functions
+由於 IC 是等級相關係數，其值的範圍是介於 +1 到 -1 之間：
 
-### IC Time Series
-利用`factor_information_coefficient`函數計算各持有期下每一日的IC值，觀察因子預測力隨時間變動的情況。
+- **IC = 1**：該因子完全沒有雜訊，並可以做出完美的預測
+- **IC = 0**：該因子無預測能力，全為雜訊
+- **IC < 0**：預測方向與真實方向完全相反
 
-#### 計算方式：
-$${在時點t的IC值（IC_{t, n}）=}{Corr(因子值_{i,t}}{ ,}{持有期報酬率_{i,t,n})}$$
-- 其中，i為公司、n為持有期、Corr為斯皮爾曼相關係數。
-- 若date=2013-01-03，持有期=10D：
-  Corr(date=2013-01-03當天所有股票的**因子值**, date=2013-01-03當天所有股票持有10D的**報酬率**)
+根據 Grinold and Kahn（2000）的研究：
+
+- **良好的因子**：IC ≥ 0.05
+- **出色的因子**：IC ≥ 0.10
+- **頂尖的因子**：IC ≥ 0.15
+- **IC ≥ 0.20**：可能代表存在回測偏差或內線交易
+
+### 資訊分析 vs. 收益分析
+
+**資訊分析**透過計算因子值與持有期報酬率的相關係數來評估因子的整體預測能力。這是一個單一的全局指標，反映因子在整個股票池中的平均預測力。
+
+**收益分析**則將股票按因子值大小分成不同分組（通常 5 分組），然後計算每個分組的平均報酬率。這種方法能夠清楚展示因子在不同股票子集中的預測力分佈。
+
+**最佳實踐**：結合使用兩種分析工具。資訊係數提供了較為一般化的視角，而分組收益分析則提供了更深入的觀點，能夠明確顯示因子在哪些分組中的預測能力最強。
+
+---
+
+## 資訊係數 (IC) 分析函數
+
+### factor_information_coefficient
+
+利用 `factor_information_coefficient` 函數計算各持有期下每一日的 IC 值，觀察因子預測力隨時間變動的情況。
+
+#### 計算方式
+
+$$IC_{t,n} = Corr(\text{因子值}_{i,t}, \text{持有期報酬率}_{i,t,n})$$
+
+其中，$i$ 為股票代號、$n$ 為持有期天數、$Corr$ 為斯皮爾曼秩相關係數。
+
+#### 範例
 
 ```python
 ic = alphalens.performance.factor_information_coefficient(factor_data)
 ic.head()
 ```
 
-利用`plotting.plot_ic_ts`函數把不同時點的IC值繪製成折線圖，可以了解因子預測能力隨著時間的變化情況。  
-- 通常會希望看到IC在時間序列上大部分的時間點皆**穩定為正（甚至＞0.05）**，且**擁有較大的IC均值**以及**較小的IC標準差**。  
-- 其中，圖中藍色線為每日的IC值；綠色線為近一個月（過去22天）的IC均值；左上角顯示IC均值及IC標準差（利用每日的IC值計算平均數及標準差）。
-- 近一個月的IC均值計算方式為`ic.rolling(window=22,min_periods=None).mean()`，因此當過去22天的資料中有一筆是NA時，近一個月的IC均值就是NA。
+---
+
+### plot_ic_ts
+
+利用 `plot_ic_ts` 函數把不同時點的 IC 值繪製成折線圖，可以了解因子預測能力隨著時間的變化情況。
+
+通常會希望看到 IC 在時間序列上大部分的時間點皆**穩定為正**（理想情況下 > 0.05），且**擁有較大的 IC 均值**以及**較小的 IC 標準差**。
+
+圖表說明：
+
+- **藍色線**：每日的 IC 值
+- **綠色線**：近一個月（過去 22 天）的 IC 均值（滾動平均）
+- **左上角資訊**：整期間的 IC 均值及 IC 標準差
+
+#### 範例
 
 ```python
 alphalens.plotting.plot_ic_ts(ic)
 ```
 
-### IC Histograms
+---
 
-- 利用`plotting.plot_ic_hist`函數將不同持有期的IC序列資料繪製成直方圖觀察IC值的分佈情況（Alphalens利用`seaborn.histplot()`函數繪製）。
-- 通常會希望有**較高的IC均值**以及**較為集中的分佈（標準差低）**。  
-- 圖中白色虛線為IC均值；藍色實線為利用kernel density estimate方法估計的機率密度函數。因直方圖受限於長條寬度（bin），而不夠準確。Alphalens將`seaborn.histplot()`的`kde`參數設為True，利用kernel density estimate的方式估計機率密度，得到平滑且連續的結果。
+### plot_ic_hist
+
+利用 `plot_ic_hist` 函數將不同持有期的 IC 序列資料繪製成直方圖，觀察 IC 值的分佈情況。
+
+通常會希望有**較高的 IC 均值**以及**較為集中的分佈**（標準差低、峰度高），表示因子預測力穩定一致。
+
+#### 範例
 
 ```python
 alphalens.plotting.plot_ic_hist(ic)
 ```
 
-### IC Q-Q Plot
+---
 
-QQ圖（使用`plot_ic_qq`函數）可以觀察**IC值的機率分配是否近似於常態分配**。以下圖來觀察，若藍色點的分佈大致貼合紅色線（y=x），代表IC的分佈接近常態分配。
+### plot_ic_qq
+
+QQ 圖（使用 `plot_ic_qq` 函數）可以觀察 IC 值的機率分配是否近似於常態分配。若藍色點的分佈大致貼合紅色線（y=x），代表 IC 的分佈接近常態分配。
+
+若 IC 分布偏離常態，可能代表因子存在極端事件或其他非線性特徵。
+
+#### 範例
 
 ```python
 alphalens.plotting.plot_ic_qq(ic)
 ```
 
-### Monthly IC Heatmap
-將IC值按月取平均。
+---
+
+### plot_monthly_ic_heatmap
+
+將 IC 值按月份取平均，並利用熱區圖觀察因子是否存在月份效應（即預測力在某些月份特別強或特別弱）。
+
+#### 範例
 
 ```python
-mean_monthly_ic = alphalens.performance.mean_information_coefficient(factor_data, 
-                                                                     by_time='M')
-mean_monthly_ic.head()
-```
-利用熱區圖觀察因子是否有月份效應。
-
-```python
+mean_monthly_ic = alphalens.performance.mean_information_coefficient(
+    factor_data, 
+    by_time='M'
+)
 alphalens.plotting.plot_monthly_ic_heatmap(mean_monthly_ic)
 ```
 
-### Information Coefficient by Year
-將IC值按年取平均。
+---
 
-```python
-mean_yearly_ic = alphalens.performance.mean_information_coefficient(factor_data,
-                                                                    by_time='1Y')
-mean_yearly_ic.head()
-```
-```python
-fig = plt.figure(dpi=200)
-mean_yearly_ic.index = mean_yearly_ic.index.year
-mean_yearly_ic.plot.bar(figsize=(8, 4),rot=0,ax=plt.gca())
-plt.tight_layout()
-```
+### plot_information_table
 
-### Information Table
-- `IC Mean`（IC均值）：把各持有期下的IC值取平均。  
+顯示 IC 相關的統計指標表，包括以下各項：
 
+- **IC Mean**（IC 均值）：各持有期下的 IC 值取平均
+- **IC Std.Div**（IC 標準差）：IC 值的樣本標準差
+- **Risk-Adjusted IC**：IC Mean / IC Std.Div，兼顧因子選股能力與穩定性
+- **IC Skew**：IC 值的偏態係數（衡量分布的非對稱性）
+- **IC Kurtosis**：IC 值的峰態係數（衡量分布的厚尾程度）
+- **t-stat(IC) & p-value(IC)**：T 檢定統計量及 p 值，用於檢驗 IC 是否顯著異於 0
 
-- `IC Std.`（IC標準差）：利用各持有期下的IC值計算樣本標準差。  
-
-
-- `Risk-Adjusted IC`（風險調整後的IC值）：
-  - = `IC Mean` / `IC Std.`。
-  - 風險調整後的IC能兼顧因子**選股能力與穩定性**，相較於IC均值，是更好的衡量指標。投資組合的資訊比率（information ratio，IR）大致上等於風險調整後的IC。且因IR的值越大越好，所以風險調整後的IC也是越大越好。（Qian and Hua, 2004）  
-  - 關於IR的高低標準，不同的研究或投資人對此有各自的看法。例如，Grinold and Kahn（2000）認為好的投資組合IR應達到**0.5**；一個出色的投資組合IR則應達到1.0。而全球知名的資產管理公司富達國際（Fidelity International）認為，IR>=0.4是相對較佳的。
-
-
-- `IC Skew`：
-  - 利用`scipy.stats.skew()`函數計算IC值的偏態係數（SciPy是一個開源的Python演算法庫和數學工具包）。
-  - `scipy.stats.skew()`的`bias`參數設定為為True，代表未將利用小樣本資料計算偏態係數造成的偏誤進行修正。
-  - 常態分配的偏態係數為0（by Fisher’s definition）。[scipy.stats.skew](https://docs.scipy.org/doc/scipy-1.8.0/reference/generated/scipy.stats.skew.html)  
-
-
-- `IC Kurtosis`：
-  - 利用`scipy.stats.kurtosis()`函數計算IC值的峰態係數。
-  - `scipy.stats.skew()`的`bias`參數設定為為True，代表未將利用小樣本資料計算峰態係數造成的偏誤進行修正。
-  - 常態分配的峰態係數為0（by Fisher’s definition）。[scipy.stats.kurtosis](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kurtosis.html)  
-
-
-- `t-stat(IC)`與`p-value(IC)`：利用`scipy.stats.ttest_lsamp()`，將IC資料進行T檢定，檢驗其是否顯著異於0。
-  $${檢定統計量=}\frac{IC Mean－0}{\sqrt{\frac {IC Std.}{樣本數}}}$$ 
+#### 範例
 
 ```python
 alphalens.plotting.plot_information_table(ic)
 ```
-```python
-print(stats.skew(ic))  #Alphalens計算的版本
-print(stats.skew(ic, bias=False)) #EXCEL計算的版本
 
-print(stats.kurtosis(ic))  #Alphalens計算的版本
-print(stats.kurtosis(ic, bias=False)) #EXCEL計算的版本
-```
-## Information Tear Sheet
+---
 
-Information analysis 所有圖表
+### create_information_tear_sheet
+
+生成包含所有 IC 分析圖表的完整報告。此函數會自動生成時間序列圖、直方圖、QQ 圖、月度熱力圖及統計表，提供因子預測力的全面評估。
+
+#### 範例
 
 ```python
 alphalens.tears.create_information_tear_sheet(factor_data)
@@ -137,100 +154,169 @@ alphalens.tears.create_information_tear_sheet(factor_data)
 
 ---
 
-# documents25.md
+## 周轉率分析
 
-# Turnover Analysis
+### 周轉率概念
 
+因子周轉率間接衡量**因子的穩定性**及**潛在的交易成本**。周轉率低的因子能使投資組合無需頻繁調整持股，也間接代表因子有更好的持續性且享有較低的交易成本。
 
-- 因子周轉率間接衡量**因子的穩定性**及**潛在的交易成本**（Aphalens並沒有考慮佣金、滑價等交易成本）。周轉率低的因子能使投資組合不需要頻繁調整持股，也間接代表因子有更好的持續性且享有較低的交易成本。
-- 在過往文獻中，Carhart（1997）和Champagne, Karoui and Patel（2018）都發現，周轉率越高的共同基金績效就越差。因此，過高的周轉率會侵蝕投資策略的獲利，並且無論該筆交易最終結果是賺錢或賠錢，都需要支付因周轉率高而產生的成本，這是不可忽視的。
-- 除此之外，周轉率也會隨**因子的資訊時域**不同而有所差異。
-  - 資訊時域（**也稱為shelf life或information horizon**），資訊時域指的是利用特定因子資訊所能預測的時間範圍。有些因子的訊號可能在幾天內迅速消失，而有些則可能持續一年仍保有其預測能力（Grinold and Kahn, 2000）。
-  - 如果一個因子具有相對短的資訊時域（例如短期反轉因子），代表它只能預測短期內的股價報酬，這樣的因子訊號會迅速衰減（signal decays），導致較高周轉率，因為我們需要不斷調整投資部位。如果一個因子具有相對長的資訊時域（例如基本面因子），因子訊號衰減速度就會較慢，周轉率也會相對較低（Qian, Sorensen and Hua, 2007）。
-- Alphalens中提供了周轉率分析的兩種工具（**因子周轉率及因子自我相關係數**）供我們使用。在有多個候選因子的情形下，我們可以利用這些工具作為因子選擇標準之一。而當我們在實際回測中使用某個因子時，我們也可以利用這些工具來考慮要使用哪一種再平衡方案。
+Carhart（1997）和 Champagne, Karoui and Patel（2018）都發現，周轉率越高的共同基金績效就越差。
 
+周轉率也會隨**因子的資訊時域**不同而有所差異：
 
-## 因子周轉率 Turnover
-第N組（quantile）在時點t的周轉率 = 本期在第N組但前P期不在這一組的股票數量／本期在第N組的股票數量
-- 若資料為日頻率且持有期為10日，則前P期就代表前10日。
-- 根據上述公式，若資料為日頻率且持有期為10日，則前P期即代表前10日。若某一組的周轉率為5%，這意味著在10天前屬於這個分組的股票，有5%已經不再屬於這個分組。
-- 周轉率本身沒有固定的標準來判定其理想範圍，有些經理人可能會設定特定的投資政策，例如：投資組合周轉率不得超過20%。此外，投資風格也會影響周轉率。當有多個同風格的因子時，可比較它們的周轉率，並在IC值相近時，優先選擇周轉率較低的因子。
+- **短資訊時域**（如短期反轉因子）：訊號迅速消失，導致較高周轉率
+- **長資訊時域**（如基本面因子）：訊號衰減速度較慢，周轉率相對較低
 
-        
-## 因子自我相關係數 Autocorrelation
-- 因子自我相關係數衡量**當期因子值排序**與**前一期因子值排序**的相關程度。
-- **周轉率與自我相關係數呈現負相關**。因此，因子自我相關係數提供了另一種衡量因子周轉率的方式。如果自我相關性低，這意味著因子的當前排序與之前的排序關聯度不大，所以投資組合可能需要頻繁調整持股，導致高周轉率。而自我相關性高則代表因子在不同時期之間存在較大的相關性和穩定性（儘管這不會影響其預測價格變動的能力）。所以**自我相關係數可以與因子周轉率相互印證。**
-- 計算因子自我相關的公式：  
+---
 
-  $${在時點t的自我相關係數 =}{Corr(因子值_{i,t}}{ ,}{因子值_{i,t-p})}$$  
-  $$$$
-  - 其中，i代表公司，p是持有期，Corr表示斯皮爾曼相關係數。
-  - 若資料為日頻率且持有期為10日，則前P期就代表前10日。  
-  
-## Performance Metrics & Plotting Functions
+### quantile_turnover
 
-### Quantile Turnover
-`quantile_turnover`函數計算第N組周轉率的公式為：本期在第N組但前P期不在這一組的資產數量／本期在第N組的資產數量。
+第 N 分組（quantile）在時點 t 的周轉率定義為：
 
-- P由period參數控制。若資料為日頻率且period＝10，則前P期就代表前10日；通常period會設定與持有期相同。  
-- N由quantile參數來指定。若quantile＝1則計算第1組的周轉率。 
-- 通常隨著**持有期的增長**，**周轉率也相應上升**，而周轉率的波動性亦增加。這是因為較長的時間間隔會帶來更多的新資訊，因此投資組合於**每一次再平衡**時需要進行更頻繁的調整。**這並不意味著持有期越短越好**，因為持有期=1D，就代表需要每天再平衡，一年以252天來算，就要換股252次。
+$$\text{周轉率}_{N,t} = \frac{\text{本期在第 N 組但前 P 期不在此組的股票數}}{\text{本期在第 N 組的股票總數}}$$
 
-以下計算持有期=1d的周轉率：
+此指標衡量因子排序變化的幅度，值越高表示因子排序變化越大，交易成本可能越高。
+
+#### 範例
 
 ```python
-quantile_turnover =\
-{
-        HOLDING_PERIODS: pd.concat([alphalens.performance.quantile_turnover(factor_data['factor_quantile'],
-                                                           quantile=quantile,
-                                                           period=HOLDING_PERIODS)
-             for quantile in factor_data.factor_quantile.sort_values().unique().tolist()],axis=1,)
-        for HOLDING_PERIODS in (1, 5, 10)
-        }
-
-quantile_turnover
+quantile_turnover = {}
+for holding_period in (1, 5, 10):
+    quantile_turnover[holding_period] = pd.concat([
+        alphalens.performance.quantile_turnover(
+            factor_data['factor_quantile'],
+            quantile=q,
+            period=holding_period
+        ) 
+        for q in factor_data.factor_quantile.sort_values().unique().tolist()
+    ], axis=1)
 ```
-將因子周轉率繪製成折線圖，觀察在時序列上的變化。
-- 在此，我們只繪製**top quantile**與**bottom quantile**的周轉率。
-- 這是因為在因子投資中，我們通常會做多top quantile並同時放空bottom quantile來建構多空對沖投組，或是僅做多top quantile來建立純做多投組。因此，這兩個分組尤為重要。
+
+---
+
+### plot_top_bottom_quantile_turnover
+
+繪製 top quantile（最高分組）與 bottom quantile（最低分組）的周轉率折線圖。這兩個分組在因子投資中尤為重要，因為多因子策略通常會做多 top quantile 並同時放空 bottom quantile 來建構多空對沖投組。
+
+#### 範例
 
 ```python
-for HOLDING_PERIODS in (1, 5, 10):
-    alphalens.plotting.plot_top_bottom_quantile_turnover(quantile_turnover[HOLDING_PERIODS],
-                                                         period=HOLDING_PERIODS)
-    plt.tight_layout()
+for holding_period in (1, 5, 10):
+    alphalens.plotting.plot_top_bottom_quantile_turnover(
+        quantile_turnover[holding_period],
+        period=holding_period
+    )
 ```
-### Factor Rank Autocorrelation
-利用`factor_rank_autocorrelation()`函數計算因子自我相關係數。
+
+---
+
+### factor_rank_autocorrelation
+
+因子秩自相關係數衡量**當期因子值排序**與**前一期因子值排序**的相關程度。
+
+$$\text{自相關係數}_t = Corr(\text{因子值秩}_{i,t}, \text{因子值秩}_{i,t-p})$$
+
+**周轉率與自相關係數呈現負相關**。因此，因子秩自相關係數提供了另一種衡量因子周轉率（即穩定性）的方式。自相關係數高則代表因子在不同時期之間存在較大的相關性和穩定性，同時意味著周轉率較低。
+
+#### 範例
 
 ```python
-factor_rank_autocorrelation=pd.DataFrame()
-for HOLDING_PERIODS in (1, 5, 10):
-    factor_rank_autocorrelation=pd.concat([factor_rank_autocorrelation,
-                                           (alphalens.performance.factor_rank_autocorrelation(factor_data,
-                                                                                              period=HOLDING_PERIODS))],
-                                          axis=1
-                                         )
-factor_rank_autocorrelation.head(15)
+factor_rank_autocorr = pd.DataFrame()
+for holding_period in (1, 5, 10):
+    factor_rank_autocorr = pd.concat([
+        factor_rank_autocorr,
+        alphalens.performance.factor_rank_autocorrelation(
+            factor_data,
+            period=holding_period
+        )
+    ], axis=1)
 ```
-將不同持有期的因子自我相關係數繪製成折線圖，觀察在時序列上的變化。同時折線圖左上角也呈現**平均自我相關係數**。
+
+---
+
+### plot_factor_rank_auto_correlation
+
+將不同持有期的因子秩自相關係數繪製成折線圖，觀察因子穩定性在時間序列上的變化。
+
+#### 範例
 
 ```python
-for HOLDING_PERIODS in (1, 5, 10):
-    alphalens.plotting.plot_factor_rank_auto_correlation(factor_rank_autocorrelation[HOLDING_PERIODS],
-                                                         period=HOLDING_PERIODS)
-    plt.tight_layout()
+for holding_period in (1, 5, 10):
+    alphalens.plotting.plot_factor_rank_auto_correlation(
+        factor_rank_autocorr[holding_period],
+        period=holding_period
+    )
 ```
-### Turnover table
+
+---
+
+### plot_turnover_table
+
+繪製周轉率與秩自相關係數的統計表格，提供因子穩定性的全面評估。
+
+#### 範例
 
 ```python
-alphalens.plotting.plot_turnover_table(factor_rank_autocorrelation,
-                                       quantile_turnover)
+alphalens.plotting.plot_turnover_table(
+    factor_rank_autocorr,
+    quantile_turnover
+)
 ```
 
-## Turnover Tear Sheet
+---
 
-所有 Turnover analysis 圖表
+### create_turnover_tear_sheet
+
+生成包含所有周轉率分析圖表的完整報告。此函數整合周轉率分析的各個方面，提供因子穩定性的完整評估。
+
+#### 範例
+
 ```python
 alphalens.tears.create_turnover_tear_sheet(factor_data)
+```
+
+---
+
+## 收益分析函數
+
+### mean_return_by_quantile
+
+計算不同因子分組在不同時間點的平均報酬率，用於評估因子的預測力分佈。此函數對應於「收益分析」，能清楚展示不同分組的績效差異。
+
+#### 範例
+
+```python
+mean_return_by_q, std_err_by_q = alphalens.performance.mean_return_by_quantile(
+    factor_data, 
+    by_date=True
+)
+```
+
+---
+
+## 完整工作流程範例
+
+```python
+import alphalens
+import pandas as pd
+
+# 1. 準備因子資料與價格資料
+factor_data = alphalens.utils.get_clean_factor_and_forward_returns(
+    factor,
+    prices,
+    quantiles=5,
+    periods=(1, 5, 10),
+    groupby=sector_map
+)
+
+# 2. IC 資訊係數分析
+ic = alphalens.performance.factor_information_coefficient(factor_data)
+alphalens.plotting.plot_ic_ts(ic)
+alphalens.tears.create_information_tear_sheet(factor_data)
+
+# 3. 周轉率與穩定性分析
+alphalens.tears.create_turnover_tear_sheet(factor_data)
+
+# 4. 完整績效報告
+alphalens.tears.create_full_tear_sheet(factor_data)
 ```

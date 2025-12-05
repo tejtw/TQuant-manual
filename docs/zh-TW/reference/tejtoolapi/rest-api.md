@@ -1,6 +1,11 @@
 # REST API 文件
 
+!!! info
+    本頁提供 TEJ REST API 的詳細說明，包括 Datatables API 的使用方法、範例，以及其他相關的提示資訊。
+
 TEJ REST API 提供了一套簡易的方式來存取 TEJ 資料庫，並輸出 JSON 或 XML 格式。
+
+---
 
 ## Datatables API
 
@@ -24,10 +29,13 @@ GET https://api.tej.com.tw/api/datatables/{datatable_code}/{table_code}.{format}
     GET https://api.tej.com.tw/api/datatables/TWN/APRCD.xml?api_key=<YOURAPIKEY>
     ```
 
-## 提示
+---
+
+### 提示
 
 您可以直接使用瀏覽器來取得資料，也可以透過工具程式（例如 curl, wget 等）
 
-> 此頁面正在建構中
+!!! note
+    此頁面正在建構中
 
 詳細內容請參考: `.backup/zh-TW_backup/rest_api/document_restapi.md`

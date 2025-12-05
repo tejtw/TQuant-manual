@@ -1,167 +1,117 @@
-# 手續費模型介紹
-* 交易成本（transaction costs）被廣泛認為是影響投資績效的重要因素。它們不僅影響投資績效，還影響了將資產轉換成現金的難易度。
+# 如何設定手續費模型
 
-## zipline.api.set_commission(self, equities=None, futures=None)
-設定回測時所使用的手續費模型
+!!! info
+    本頁提供如何在 Zipline 回測中設定手續費模型的詳細指南，包括 `set_commission()` 的使用方法、內建手續費模型類型和自定義手續費模型範例。
 
-## Parameters：
-* equities (EquityCommissionModel, optional) －用於交易股票的手續費模型。
-    * EquityCommissionModel：`zipline.finance.commission`
+在量化回測中，交易成本（手續費與交易稅）是影響策略實際績效的關鍵因素。精確設定手續費模型，能夠使回測結果更貼近真實交易環境，從而避免對策略盈利能力的過度樂觀估計。
 
-* futures (FutureCommissionModel, optional) －用於交易期貨的手續費模型。（目前不支援）
-    * FutureCommissionModel：`zipline.finance.commission`
+Zipline 提供了多種內建手續費模型，並允許您定義自定義模型以適應不同的交易規則。
 
-## Raises：
-SetCommissionPostInit－`set_commission` 只能在 initialize 階段使用。
+---
 
-## Notes：
-* `set_commission` 只能一次用一種方法。
-* 手續費計算時，價格以成交日收盤價為準，數量也以成交時為準。也就是說，如果因為股數變動造成 amount 有任何變化，計算上都是用成交時新的 amount。
+## 1. set_commission() 函數概覽
 
-## 手續費模型共有四種：
-* `zipline.finance.commission.PerShare`
-* `zipline.finance.commission.PerTrade`
-* `zipline.finance.commission.PerDollar`
-* `zipline.finance.commission.Custom_TW_Commission`
+`zipline.api.set_commission()` 函數用於在回測中設定交易的手續費模型。此函數通常在 `initialize` 函數中呼叫，並且可以針對股票 (equities) 和期貨 (futures) 分別設定不同的手續費規則。
 
-## Examples：
+```python
+from zipline.api import set_commission
+from zipline.finance import commission # 必須導入 commission 模組
+```
+
+*   `equities`: (CommissionModel) 股票交易的手續費模型。
+*   `futures`: (CommissionModel) 期貨交易的手續費模型。
+
+---
+
+## 2. Zipline 內建手續費模型
+
+Zipline 提供了以下幾種常用的內建手續費模型：
+
+### 2.1. PerShare：**按股數計費**
+
+`PerShare` 模型按照每股固定的費用計算手續費，並可設定每筆交易的最低手續費。
+
+*   `cost`: 每股的費用。
+*   `min_trade_cost`: 每筆交易的最低手續費。
+
 ```python
 from zipline.api import set_commission
 from zipline.finance import commission
 
 def initialize(context):
-    set_commission(commission.<其中一種commission models>)
+    # 每股手續費 0.00285 元，每筆最低 20 元
+    set_commission(equities=commission.PerShare(cost=0.00285, min_trade_cost=20))
 ```
 
-# PerDollar : 按照交易金額抽成計算
-## `zipline.finance.commission.PerDollar(cost=0.0015)`
-* 按照交易金額抽成計算。
-* 僅適用於 equities。
+### 2.2. PerTrade：**按筆數計費**
 
-## Parameters：
-* cost (float, optional) : 每交易一元的股票所需支付的固定費用。預設為 0.0015 元。
-### Notes：
-手續費計算時，價格以成交日收盤價為準，數量也以成交時為準，也就是說，如果因為股數變動造成 amount 有任何變化，計算上都是用成交時新的 amount。手續費計算時，價格以成交日收盤價為準，數量也以成交時為準，也就是說，如果因為股數變動造成 amount 有任何變化，計算上都是用成交時新的 amount。
-## Examples: 
+`PerTrade` 模型對每一筆交易收取固定的手續費，與交易的股數或金額無關。
+
+*   `cost`: 每筆交易的固定費用。
+
 ```python
-import pandas as pd
-import datetime
-import tejapi
-import os
-import warnings
-from logbook import Logger, StderrHandler, INFO
-warnings.filterwarnings('ignore')
+from zipline.api import set_commission
+from zipline.finance import commission
 
-# set log
-log_handler = StderrHandler(format_string='[{record.time:%Y-%m-%d %H:%M:%S.%f}]: ' +
-                            '{record.level_name}: {record.func_name}: {record.message}',
-                            level=INFO)
-log_handler.push_application()
-log = Logger('CommissionModel')
-
-# tej_key
-os.environ['TEJAPI_KEY'] = "your key" 
-os.environ['TEJAPI_BASE'] = "https://api.tej.com.tw"
-
-# date
-# set date
-start='2022-12-01'
-end='2022-12-31'
-os.environ['mdate'] = '20221201 20221231'
-
-tz = 'UTC'
-start_dt, end_dt = pd.Timestamp(start, tz = tz), pd.Timestamp(end, tz = tz)
-
-# calendar
-calendar_name='TEJ'
-
-# bundle_name
-bundle_name = 'tquant'
-
-# ticker
-os.environ['ticker'] = '1216 IR0001'
-
-# ingest
-!zipline ingest -b tquant
-```
-Merging daily equity files:  
-[2023-11-27 03:31:44.753277] INFO: zipline.data.bundles.core: Ingesting tquant.
-```python
-from zipline.finance import commission, slippage
-from zipline.api import *
-
-from zipline import run_algorithm
-from zipline.utils.calendar_utils import get_calendar
-
-from zipline.utils.run_algo import (get_transaction_detail,
-                                    get_record_vars)
+def initialize(context):
+    # 每筆交易固定收取 0.5 元手續費
+    set_commission(equities=commission.PerTrade(cost=0.5))
 ```
 
-* 模型參數`cost`設定為： 0.001 ，相當於每交易一元的股票所需支付 0.001 元。
-* 滑價模型設定為：`slippage.FixedSlippage(spread=0.00)`。其中，spread 設定為 0，這樣會比較好觀察結果，因為滑價會導致成交價格改變。若有滑價則會使用考慮滑價後的價格計算手續費。
+### 2.3. PerDollar：**按交易金額比例計費**
+
+`PerDollar` 模型按照交易總金額的百分比來計算手續費。這類似於證券商的交易手續費率。
+
+*   `cost`: 交易金額的百分比（以小數表示，例如 0.0015 代表 0.15%）。
+
 ```python
-def initialize_perdollar(context):
-    context.i = 0
-    context.tickers = ['1216']
-    context.asset = [symbol(ticker) for ticker in context.tickers]      
-    set_slippage(slippage.FixedSlippage(spread=0.00))
-    
-    # set_commission
+from zipline.api import set_commission
+from zipline.finance import commission
+
+def initialize(context):
+    # 按交易金額的 0.1% (0.001) 收取手續費
     set_commission(equities=commission.PerDollar(cost=0.001))
-    
-    set_benchmark(symbol('IR0001'))
-
-def handle_data(context, data):
-
-    if context.i == 0:
-        for asset in context.asset:
-            order_target(asset, 1000)
-    if context.i == 2:
-        for asset in context.asset:
-            order_target(asset, 0)
-            
-    record(close=data.current(context.asset, 'close'))
-    context.i += 1
-
-capital_base = 1e5
 ```
+
+> 針對期貨交易，Zipline 也提供 `PerContract` 模型（按每手合約計費）。若要同時設定股票和期貨手續費，可將 `equities` 和 `futures` 參數一起使用。
+>
+> ```python
+> from zipline.api import set_commission
+> from zipline.finance import commission
+>
+> def initialize(context):
+>     set_commission(
+>         equities=commission.PerDollar(cost=0.003),  # 股票按金額 0.3%
+>         futures=commission.PerContract(cost=200, exchange_fee=0) # 期貨每手 200 元
+>     )
+> ```
+
+---
+
+## 3. 自定義手續費模型：Custom_TW_Commission
+
+TQuant Lab 為了符合台灣股票市場的交易慣例，內置了一個 `Custom_TW_Commission` 模型。這個模型允許您設定更貼近實際的手續費率、折扣和交易稅。
+
+#### 參數
+*   `min_trade_cost`: 每筆交易的最低手續費（台幣）。
+*   `discount`: 手續費折扣，例如 `1.0` 代表無折扣，`0.6` 代表 6 折。
+*   `tax`: 交易稅率，例如 `0.003` 代表 0.3%。
+
+#### 範例
 ```python
-closing_price = tejapi.get('TWN/APIPRCD',
-                           coid=['1216'],
-                           opts={'columns':['mdate','coid','close_d']},
-                           mdate={'gte':start_dt,'lte':end_dt },
-                           paginate=True)
+from zipline.api import set_commission
+from zipline.finance import commission
 
-perdollar = run_algorithm(start=start_dt,
-                          end=end_dt,
-                          initialize=initialize_perdollar,
-                          handle_data=handle_data,
-                          capital_base=capital_base,
-                          trading_calendar=get_calendar(calendar_name),
-                          bundle=bundle_name)
-```
-* 查看12/1的收盤價
-```python
-# 收盤價
-closing_price[0:2]
-```
+# 假設 Custom_TW_Commission 已在 zipline.finance.commission 中定義
+# 或者您需要從其他路徑導入
+# from tquant.custom_commission import Custom_TW_Commission # 實際路徑可能不同
 
-
-* 在 12/1 下單一張統一（1216）股票，用 `PerDollar` 算法，費用就是下一個交易日 12/2 的收盤價 65 * 1000 股 * 0.001 = 65。
-```python
-# PerDollar算法：費用65元
-perdollar['orders'][1]
+def initialize(context):
+    # 設定台灣股票專用手續費模型：
+    # 每筆最低 20 元，無折扣，交易稅 0.3%
+    set_commission(equities=commission.Custom_TW_Commission(
+        min_trade_cost=20,
+        discount=1.0,
+        tax=0.003
+    ))
 ```
-[{'id': '363000dc2c1e4e5eae7ed2ec4b85ee43',  
-'dt': Timestamp('2022-12-02 13:30:00+0800', tz='Asia/Taipei'),  
-  'reason': None,  
-  'created': Timestamp('2022-12-01 13:30:00+0800', tz='Asia/Taipei'),  
-  'amount': 1000,  
-  'filled': 1000,  
-  'commission': 65.0,  
-  'stop': None,  
-  'limit': None,  
-  'stop_reached': False,  
-  'limit_reached': False,  
-  'sid': Equity(0 [1216]),  
-  'status': <ORDER_STATUS.FILLED: 1>}]  

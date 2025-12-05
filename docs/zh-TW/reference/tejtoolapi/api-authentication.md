@@ -1,3 +1,10 @@
+# TEJ Tool API 認證
+
+!!! info
+    本頁說明如何使用 TEJ Tool API 進行認證，包括取得 API Key、設定 API Key，以及免費與付費資料庫的差異。
+
+---
+
 ## 開始使用
 以下文件將說明如何使用TEJ API來存取TEJ 資料庫。
 
@@ -42,23 +49,23 @@ Tejapi提供各類程式語言用以存取資料，請選擇下列各類程式�
 
 <div class="grid cards" markdown>
 
--   :material-application-braces:{ .lg .middle } __REST API__
+-   :material-application-braces:{ .lg .middle } __ REST API __
 
     ---
 
     說明透過https存取REST API的使用方式
 
-    [:octicons-arrow-right-24: Reference](#)
+    [:octicons-arrow-right-24: Reference](rest-api.md)
 
--   :simple-python:{ .lg .middle } __Python API__
+-   :simple-python:{ .lg .middle } __ Python API __
 
     ---
 
     說明利用 Python使用 TEJ API的方式
 
-    [:octicons-arrow-right-24: Reference](#)
+    [:octicons-arrow-right-24: Reference](python-api.md)
 
--   :simple-r:{ .lg .middle } __R API__
+-   :simple-r:{ .lg .middle } __ R API __
 
     ---
 
@@ -66,7 +73,7 @@ Tejapi提供各類程式語言用以存取資料，請選擇下列各類程式�
 
     [:octicons-arrow-right-24: Reference](#)
 
--   :material-dot-net:{ .lg .middle } __.NET API__
+-   :material-dot-net:{ .lg .middle } __ .NET API __
 
     ---
 
@@ -75,5 +82,3 @@ Tejapi提供各類程式語言用以存取資料，請選擇下列各類程式�
     [:octicons-arrow-right-24: Reference](#)
 
 </div>
-
-[restapi]: ../../docs/zh-TW/rest_api/document_restapi.md

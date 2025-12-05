@@ -1,90 +1,168 @@
-## Handle_data 函式
-`handle_data` 為構建 zipline 交易策略的重要函式，會在回測開始後每天被呼叫，主要任務為設定交易策略、下單與紀錄交易資訊。
+# Zipline 回測生命週期函數參考
 
-其中 `handle_data` 含有兩種參數 -- __context__ , __data__。__context__ 與上述 `initialize` 介紹功能相同，這裡為了記錄交易天數與否持有台積電股票，我們設定為:
+!!! info
+    本頁詳細說明 Zipline 回測的生命週期函數，包括 `initialize()`、`before_trading_start()`、`handle_data()` 和 `analyze()` 的用途、執行時機和常見操作，幫助使用者編寫有效的 Zipline 策略。
 
-```
-def handle_data(context, data):
-    
-    # 每次交易日加 1 天。
-    context.day += 1 
-    
-    # 判別是否持有台積電，請注意我們在 initialize 設定 context.has_ordered 為 False。
-    if not context.has_ordered:
-```
+Zipline 是一個事件驅動的回測框架，它透過一系列定義好的生命週期函數來執行交易策略。理解這些函數的用途和執行時機，對於編寫有效的 Zipline 策略至關重要。
 
-接著我們引入交易下單函式，下單函式共有六個不同種類，請見教材中以 zipline order 開頭之文件，這裡使用最基礎的下單函式:
+本文件將詳細說明 `initialize()`、`before_trading_start()`、`handle_data()` 和 `analyze()` 這四個核心函數。
 
-### zipline.api.order
+---
 
-買進或賣出 n 股的資產標的。
+## 1. initialize(context)
 
-#### Parameters:
-* asset: _zipline.assets.Asset_
-        欲下單之資產，請注意資料型態為 zipline 獨有的 Asset 型態。
-* amount: _int_
-        欲下單股數。
-* limit_price: _float_, optional
-        限價。
-* stop_price: _float_, optional
-        停價。
+*   **用途**: 策略執行前的初始化設定。
+*   **執行時機**: 在回測開始時僅執行 **一次**。
+*   **參數**:
+    *   `context`: 一個 `dict` 般的物件，用於在回測期間儲存和傳遞策略的狀態資訊。您可以在 `context` 中定義任何自定義變數。
 
-加入下單函式 order(symbol("2330")，其中 symbol("2330") 就是 zipline 中的 Asset 資料型態。之後，我們會將 context.has_ordered 調整成 True，此時下個交易日就不會再度下單，更改完程式如下:
-```
-def handle_data(context, data):
-    
-    context.day += 1 
-    if not context.has_ordered:
-        
-        # 下單台積電股票一張 == 1000股
-        order(symbol("2330", 1000)
-        
-        # 設定 context.has_ordered 為 True 以避免下次交易日下單
-        context.has_ordered = True
-```
-最後為了記錄交易天數、是否持有部位與當日價格，我們使用 `record` 函式，其功能為記錄每個交易日的資訊並且在最終 `run_algorithm` 輸出的資料表中，以欄位型式加入所紀錄資訊。其程式編輯方式如下:
-```
-record( 欄位名稱 = 資訊)
-```
-這裡我們紀錄當天交易天數 (context.day)、是否持有部位 (context.has_ordered) 與當天收盤價格 (data.current(symbol("2330"), "close"))，其中上面所提到的 data 就是在 `handle_data` 中的 __data__，__data__ 主要功能為保存每天股價的價量資料並且提供呼叫，於本實例我們欲紀錄當天收盤價，於是用到 `data.current()` 函式。
+#### 常見操作：
+*   **設定 Benchmark**: 使用 `set_benchmark()`。
+*   **設定交易成本**: 使用 `set_commission()` 和 `set_slippage()`。
+*   **設定交易控制**: 使用 `set_max_leverage()` 等。
+*   **附掛 Pipeline**: 使用 `attach_pipeline()`。
+*   **初始化自定義變數**: 例如 `context.has_ordered = False`。
+*   **設定排程函數**: 使用 `schedule_function()`。
 
-### zipline.data.current
-
-呼叫股票的當日價量資訊。
-
-#### Parameters:
-* assets: _zipline.asset.Asset_
-        所欲呼叫的股票，請注意資料型態為 zipline 獨有的 Asset 型態。
-* fields: _str_
-        所欲呼叫的價量資訊，提供 'close', 'open', 'high', 'low' 與 'volume'。
-
-由於我們希望記錄台積電當日收盤價格，因此程式編輯如下:
-```
-def handle_data(context, data):
-    context.day += 1 
-    if not context.has_ordered:
-        order(symbol("2330", 1000)
-        context.has_ordered = True
-        
-    record( # 紀錄用
-        trade_days = context.day,
-        has_ordered = context.has_ordered,
-        TSMC = data.current(symbol("2330"), "close")
-    )
-```
-
+#### 範例
 ```python
-from zipline.api import order, record, symbol
+from zipline.api import set_benchmark, symbol, set_commission, set_slippage, attach_pipeline
+from zipline.finance import commission, slippage
+from zipline.pipeline import Pipeline
+from zipline.pipeline.factors import SimpleMovingAverage
+from zipline.pipeline.data import EquityPricing
+
+def make_my_pipeline():
+    # 這裡定義一個簡單的 Pipeline
+    return Pipeline(columns={'SMA': SimpleMovingAverage(inputs=[EquityPricing.close], window_length=20)})
+
+def initialize(context):
+    context.my_stock = symbol('2330')
+    set_benchmark(symbol('IR0001')) # 設定Benchmark
+    set_commission(equities=commission.PerDollar(cost=0.001)) # 設定手續費
+    set_slippage(equities=slippage.VolumeShareSlippage(volume_limit=0.025, price_impact=0.1)) # 設定滑價
+    attach_pipeline(make_my_pipeline(), 'my_strategy_pipeline') # 附掛 Pipeline
+    context.trading_signal_triggered = False # 初始化自定義變數
+```
+
+---
+
+## 2. before_trading_start(context, data)
+
+*   **用途**: 每日盤前數據準備和決策。
+*   **執行時機**: 每個交易日 **開盤前** 執行一次，在 `handle_data()` 之前。
+*   **參數**:
+    *   `context`: 策略狀態物件。
+    *   `data`: 數據物件，提供當前日期之前所有可用的歷史數據。
+
+#### 常見操作：
+*   **數據預處理**: 獲取最新的歷史數據或計算盤前指標。
+*   **更新資產池 (Universe)**: 基於盤前信息篩選出當日要關注的股票。
+*   **檢索 Pipeline 輸出**: 獲取 Pipeline 在前一交易日計算出的因子值或信號，並儲存到 `context` 中，供 `handle_data()` 使用。
+
+!!! important
+    `before_trading_start()` 函數 **不能** 用於下達交易訂單。訂單必須在市場開放時間內，通常在 `handle_data()` 中執行。
+
+#### 範例
+```python
+from zipline.api import pipeline_output
+
+def before_trading_start(context, data):
+    # 獲取 Pipeline 在前一交易日計算的結果，並存儲到 context 中
+    context.pipeline_data = pipeline_output('my_strategy_pipeline')
+    # 可以進行一些盤前數據的篩選或處理
+    if not context.pipeline_data.empty:
+        context.today_factors = context.pipeline_data['SMA']
+    else:
+        context.today_factors = None
+```
+
+---
+
+## 3. handle_data(context, data)
+
+*   **用途**: 執行核心交易邏輯。
+*   **執行時機**: 在回測的每個時間單位（例如，每日或每分鐘）都會被呼叫。
+*   **參數**:
+    *   `context`: 策略狀態物件。
+    *   `data`: 數據物件，提供當前時間點可用的市場數據（例如，最新價格、成交量）。
+
+#### 常見操作：
+*   **獲取市場數據**: 使用 `data.current()` 或 `data.history()` 獲取當前或歷史的價格、成交量等信息。
+*   **計算交易信號**: 根據技術指標、因子值或其他邏輯判斷買賣時機。
+*   **下達訂單**: 使用 `order()`, `order_target()`, `order_percent()`, `order_target_percent()` 等函數執行交易。
+*   **記錄數據**: 使用 `record()` 函數記錄您想要在回測結果中追蹤的數據。
+
+#### 範例
+```python
+from zipline.api import order_target_percent
 
 def handle_data(context, data):
-    context.day += 1
-    if not context.has_ordered:
-        order(symbol("2330"), 1000)
-        context.has_ordered = True
-        
-    record(
-        trade_days = context.day,
-        has_ordered = context.has_ordered,
-        TSMC = data.current(symbol("2330"), "close")
+    # 檢查是否有 Pipeline 數據可用
+    if context.today_factors is None or context.my_stock not in context.today_factors.index:
+        return
+
+    current_sma = context.today_factors.loc[context.my_stock]
+    current_price = data.current(context.my_stock, 'price')
+
+    # 簡單的均線突破策略：如果股價高於均線，則全倉買入
+    if current_price > current_sma and not context.trading_signal_triggered:
+        order_target_percent(context.my_stock, 1.0) # 全倉買入
+        context.trading_signal_triggered = True
+    # 如果股價低於均線，且已持有，則清倉
+    elif current_price < current_sma and context.my_stock in context.portfolio.positions:
+        order_target_percent(context.my_stock, 0.0) # 清倉
+        context.trading_signal_triggered = False
+
+    # 記錄數據 (例如股價和均線，方便分析)
+    record(price=current_price, sma=current_sma)
+```
+
+---
+
+## 4. analyze(context, results)
+
+*   **用途**: 回測結束後的績效分析和視覺化。
+*   **執行時機**: 在整個回測流程完成後僅執行 **一次**。
+*   **參數**:
+    *   `context`: 策略狀態物件 (與 `initialize` 和 `handle_data` 中的 `context` 相同)。
+    *   `results`: 一個 `pandas.DataFrame`，包含了回測期間每日的績效數據 (例如，報酬率、資金曲線、最大回撤等)。
+
+#### 常見操作：
+*   **使用 Pyfolio 產生 Tearsheet**: 將 `results` 數據傳遞給 Pyfolio，生成標準的績效分析報表。
+*   **自定義圖表繪製**: 使用 Matplotlib 或 Seaborn 等庫繪製自定義的績效圖表。
+*   **計算自定義指標**: 從 `results` 中提取數據，計算策略特有的指標。
+
+#### 範例
+```python
+import matplotlib.pyplot as plt
+import pyfolio
+from pyfolio.utils import extract_rets_pos_txn_from_zipline
+
+def analyze(context, results):
+    # 繪製投資組合價值曲線
+    results['portfolio_value'].plot(figsize=(10, 6))
+    plt.title('Portfolio Value Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Portfolio Value')
+    plt.grid(True)
+    plt.show()
+
+    # 使用 Pyfolio 生成績效報表
+    returns, positions, transactions = extract_rets_pos_txn_from_zipline(results)
+    benchmark_rets = results.benchmark_return # 假設 benchmark_return 存在於 results 中
+
+    # 時區標準化 (為 Pyfolio 準備)
+    returns.index = returns.index.tz_localize(None).tz_localize('UTC')
+    positions.index = positions.index.tz_localize(None).tz_localize('UTC')
+    transactions.index = transactions.index.tz_localize(None).tz_localize('UTC')
+    benchmark_rets.index = benchmark_rets.index.tz_localize(None).tz_localize('UTC')
+
+    pyfolio.tears.create_full_tear_sheet(
+        returns=returns,
+        positions=positions,
+        transactions=transactions,
+        benchmark_rets=benchmark_rets
     )
+    plt.show() # 確保 Pyfolio 的圖表顯示
 ```

@@ -95,6 +95,3 @@ When Details is enabled and an admonition block is started with ??? instead of !
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
     nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
-
-
-

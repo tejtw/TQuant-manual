@@ -120,7 +120,7 @@ pf.show_perf_stats(returns, positions=positions, transactions=transactions)
 
 ## 5. 常見問題與解決方案
 
-### `extract_rets_pos_txn_from_zipline` 執行失敗
+### extract_rets_pos_txn_from_zipline 執行失敗
 
 在極少數情況下（例如回測時間過短或沒有任何交易），`extract_rets_pos_txn_from_zipline` 可能會因為無法提取有效的交易數據而執行失敗。為了增強程式碼的穩健性，建議使用 `try-except` 區塊來處理這種異常情況。
 

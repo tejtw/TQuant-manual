@@ -3,9 +3,9 @@
 !!! info
     本頁深入解釋 Zipline Pipeline 的運作原理，包括其核心組件（Factors, Filters, Classifiers）、資料集 (DataSets) 的概念、以及如何透過 Pipeline 高效地生成交易訊號，為使用者建立對 Pipeline 的全面理解。
 
-Zipline Pipeline 是一個強大的 API，專為在大量的證券時間序列數據上進行高效計算而設計。在量化交易中，我們經常需要對整個市場的股票計算各種指標（如移動平均、波動率），並根據這些指標篩選出符合特定條件的股票池。如果使用傳統的 for-loop 逐一處理每隻股票，當股票數量龐大或計算複雜時，效率會非常低下。
+Zipline Pipeline 是一個強大且高效的工具，專為在大量的證券時間序列數據上進行高效計算而設計。在量化交易中，我們經常需要對整個市場的股票計算各種指標（如移動平均、波動率），並根據這些指標篩選出符合特定條件的股票池。如果使用傳統的 for-loop 逐一處理每隻股票，當股票數量龐大或計算複雜時，效率會非常低下。
 
-Pipeline 的核心優勢在於它將所有計算 **向量化** (Vectorized)，利用底層優化的 `NumPy` 和 `Pandas` 運算，一次性地對所有資產進行橫截面計算，從从而極大地提升了運算效率。
+它將所有計算 **向量化** (Vectorized)，利用底層優化的 `NumPy` 和 `Pandas` 運算， **一次性** 地對所有資產進行橫截面計算，從从而極大地提升了運算效率。
 
 ## 1. Pipeline 簡介
 
@@ -152,7 +152,7 @@ class MyMomentum(CustomFactor):
 
 Pipeline 的設計旨在與 Zipline 的事件驅動回測框架無縫協作，為策略提供每日更新的交易訊號。
 
-### 在 `handle_data` 中獲取 Pipeline 結果
+### 在 handle_data 中獲取 Pipeline 結果
 
 如前所述，在 `handle_data(context, data)` 函數中，您可以透過 `pipeline_output('您的 Pipeline 名稱')` 來獲取 Pipeline 在當日計算出的結果。這個結果是一個 Pandas DataFrame，其索引為資產 (Asset)，欄位為您在 Pipeline 中定義的 Factors、Filters 或 Classifiers 的輸出。
 

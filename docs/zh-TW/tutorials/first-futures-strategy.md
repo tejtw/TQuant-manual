@@ -69,7 +69,7 @@ os.environ['mdate'] = '20200101 20241231'
 !!! note
     `ingest` 指令只需在初次使用或更新資料時執行一次。若您在 Jupyter Notebook 中執行，請保留 `!` 符號；若在終端機 (Terminal) 執行，請移除 `!`。
 
-### 步驟 2：定義 `initialize` 函式
+### 步驟 2：定義 initialize 函式
 
 `initialize` 函式會在回測開始時執行一次，用於進行初始設定，例如設定手續費、滑價、Benchmark，以及定義我們要交易的資產。
 
@@ -103,7 +103,7 @@ def initialize(context):
     )
 ```
 
-### 步驟 3：定義 `handle_data` 函式
+### 步驟 3：定義 handle_data 函式
 
 `handle_data` 是策略的核心，它會在每個交易日被呼叫一次，用於處理當天的資料並產生交易決策。
 
@@ -188,13 +188,13 @@ results = run_algorithm(
 **績效分析程式碼** ：
 
 ```python
-# 產生 Pyfolio 績效報表
-returns, positions, transactions = pf.utils.extract_rets_pos_txn_from_zipline(results)
+# 從 Zipline 結果中提取報酬、部位和交易資訊
+bt_returns, bt_positions, bt_transactions = pf.utils.extract_rets_pos_txn_from_zipline(results)
 
 pf.create_full_tear_sheet(
-    returns,
-    positions=positions,
-    transactions=transactions,
+    bt_returns,
+    positions=bt_positions,
+    transactions=bt_transactions,
     benchmark_rets=results.benchmark_period_return
 )
 ```

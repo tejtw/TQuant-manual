@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
+{% block styles %}
+  {{ super() }}
+  <style>
+    [data-md-color-scheme="default"] * {
+      color: #000000;
+    }
+    [data-md-color-scheme="default"] a, 
+    [data-md-color-scheme="default"] .md-typeset a {
+      color: #0066cc !important;
+    }
+    [data-md-color-scheme="default"] code:not(pre code) {
+      color: #c41e3a !important;
+    }
+  </style>
+{% endblock %}
+
 {% block announce %}
  <!-- Add announcement here, including arbitrary HTML -->
  如需最新更新，請關注 <strong>@squidfunk</strong> 在
@@ -11,11 +27,119 @@
   </a>
 {% endblock %}
 
+{% block scripts %}
+{{ super() }}
+<script>
+// Loader logic - runs after page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if homepage
+  const path = window.location.pathname;
+  const isHomepage = path === '/' || 
+                     path.endsWith('/index.html') || 
+                     path.endsWith('/zh-TW/') ||
+                     path === '/zh-TW' ||
+                     path === '' ||
+                     /\/zh-TW\/?$/.test(path);
+  
+  // Check session storage
+  const loaderShown = sessionStorage.getItem('tquant-loader-shown');
+  
+  if (isHomepage && !loaderShown) {
+    // Create and show loader
+    const loaderHTML = `
+      <div class="tquant-loader" id="tquant-loader">
+        <div class="loader-scanline"></div>
+        <div class="loader-logo-container">
+          <div class="loader-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+          <div class="loader-ring loader-ring-1"></div>
+          <div class="loader-ring loader-ring-2"></div>
+          <div class="loader-ring loader-ring-3"></div>
+          <div class="loader-hexagon"></div>
+        </div>
+        <div class="loader-text">TQuant Lab</div>
+        <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+        </div>
+        <div class="loader-dots">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </div>
+    `;
+    
+    document.body.insertAdjacentHTML('afterbegin', loaderHTML);
+    
+    // Hide after animation
+    setTimeout(function() {
+      const loader = document.getElementById('tquant-loader');
+      if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(function() {
+          loader.remove();
+        }, 800);
+      }
+    }, 2500);
+    
+    sessionStorage.setItem('tquant-loader-shown', 'true');
+  }
+});
+</script>
+{% endblock %}
+
 {% block content %}
 {{ super() }}
 
 <script>
+// Fix theme text color based on data-md-color-scheme
+function fixThemeTextColor() {
+  const colorScheme = document.body.getAttribute('data-md-color-scheme') || 
+                      document.documentElement.getAttribute('data-md-color-scheme');
+  
+  const isDarkMode = colorScheme === 'slate';
+  const textColor = isDarkMode ? '#ffffff' : '#000000';
+  const linkColor = isDarkMode ? '#64b5f6' : '#0066cc';
+  const codeColor = isDarkMode ? '#ff9800' : '#c41e3a';
+  
+  document.querySelectorAll('.md-content *').forEach(element => {
+    const isLink = element.tagName === 'A';
+    const isCode = element.tagName === 'CODE' && !element.closest('pre');
+    const isHeading = /^H[1-6]$/.test(element.tagName);
+    
+    if (isLink) {
+      element.style.setProperty('color', linkColor, 'important');
+    } else if (isCode) {
+      element.style.setProperty('color', codeColor, 'important');
+    } else if (!isHeading) {
+      element.style.setProperty('color', textColor, 'important');
+    }
+  });
+}
+
+// Watch for theme changes
+const themeObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.attributeName === 'data-md-color-scheme') {
+      fixThemeTextColor();
+    }
+  });
+});
+
+// Observe both body and html for attribute changes
+themeObserver.observe(document.body, { attributes: true });
+themeObserver.observe(document.documentElement, { attributes: true });
+
+// Run on load
 document.addEventListener('DOMContentLoaded', function() {
+  fixThemeTextColor();
+  
   // Create container for toggle buttons
   const buttonContainer = document.createElement('div');
   buttonContainer.className = 'md-sidebar-toggle-container';
@@ -99,6 +223,9 @@ document.addEventListener('DOMContentLoaded', function() {
       toggleBtnLeft.classList.add('collapsed');
     }
   }
+  
+  // Also run after a small delay to catch dynamically loaded content
+  setTimeout(fixThemeTextColor, 500);
 });
 </script>
 
@@ -156,17 +283,15 @@ document.addEventListener('DOMContentLoaded', function() {
   transform: scaleX(-1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .md-sidebar-toggle {
-    background-color: #3a3a3a;
-    border-color: #555555;
-    color: #ffffff;
-  }
-  
-  .md-sidebar-toggle:hover {
-    background-color: var(--md-accent-fg-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
+[data-md-color-scheme="slate"] .md-sidebar-toggle {
+  background-color: #3a3a3a;
+  border-color: #555555;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar-toggle:hover {
+  background-color: var(--md-accent-fg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 </style>
 {% endblock %}

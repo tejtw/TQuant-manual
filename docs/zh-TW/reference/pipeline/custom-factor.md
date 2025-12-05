@@ -1,199 +1,188 @@
-# 自訂因子 (CustomFactor)
+# Zipline CustomFactor：創建自定義因子
 
 !!! info
     本頁深入介紹 Zipline Pipeline 中的 `CustomFactor`，說明如何透過繼承此類別來創建自訂的因子，以滿足特定的量化策略需求。內容涵蓋 `CustomFactor` 的核心概念、參數、`compute` 方法的實現細節，並提供實用的程式碼範例。
 
-在 Zipline Pipeline 中，**因子 (Factors)** 是用於從原始數據中提取數值訊號的核心組件。雖然 Pipeline 提供了許多 [內建因子](../../reference/pipeline/built-ins.md)，但在實際的量化研究中，您可能需要創建獨特的、符合您策略邏輯的自訂因子。`CustomFactor` 類別正是為此目的而設計的，它允許您完全控制因子的計算邏輯。
+在 Zipline 的 Pipeline API 中，`Factor` 允許您對數據進行數值計算。雖然 Zipline 提供了許多內建因子，但實務上您常常需要根據自己的策略需求創建獨特的分析指標。`CustomFactor` 就是為此而生，它讓您能夠完全自定義因子的計算邏輯。
+
+`CustomFactor` 類別繼承自 `Factor`，這表示它擁有 `Factor` 的所有基本特性，並在此基礎上提供了一個 `compute` 方法供您覆寫，以實現您的自定義邏輯。
 
 ---
 
-## 1. `CustomFactor` 核心概念
+## 1. CustomFactor 簡介
 
-`CustomFactor` 是一個抽象基類，您需要繼承它並實現其 `compute` 方法來定義您的自訂因子。它的運作方式與內建因子類似，都是接收輸入數據 (`inputs`) 和時間窗口 (`window_length`)，然後在每個交易日計算出一個數值輸出。
-
-**主要特點**：
-
-*   **高度靈活性**：您可以利用 `NumPy`、`Pandas` 等 Python 函式庫，在 `compute` 方法中實現任意複雜的數學運算或邏輯判斷。
-*   **避免向前看偏誤**：`CustomFactor` 的設計確保了在計算當前日的因子值時，只會使用到該時間點之前（或當前時間點的開盤前）的歷史數據，有效避免了向前看偏誤 (Look-ahead Bias)。
-*   **高效的向量化運算**：儘管您編寫的是 Python 程式碼，但 Pipeline 的底層優化會盡可能地將 `compute` 方法中的 `NumPy` 運算向量化，從而保持高效的執行性能。
+*   **用途**: 允許開發者定義任何基於歷史數據的橫截面因子計算邏輯。
+*   **繼承**: 必須繼承自 `zipline.pipeline.CustomFactor`。
+*   **核心**: 透過實作 `compute()` 方法來定義因子的計算方式。
 
 ---
 
-## 2. `CustomFactor` 參數
+## 2. CustomFactor 的核心屬性與方法
 
-在定義 `CustomFactor` 時，您可以設定以下關鍵參數：
+在定義 `CustomFactor` 時，您需要設定以下核心屬性，並實作 `compute()` 方法：
 
-*   `inputs` (iterable, optional)
-    *   **說明**：指定因子計算所需的原始數據來源。這通常是一個 `BoundColumn` 物件的列表，例如 `[TWEquityPricing.close]`。
-    *   **範例**：如果您需要收盤價和開盤價來計算因子，則 `inputs=[TWEquityPricing.close, TWEquityPricing.open]`。
-
-*   `window_length` (int, optional)
-    *   **說明**：定義因子計算所需的時間窗口長度。例如，如果需要計算 10 日移動平均，則 `window_length=10`。
-    *   **重要**：`window_length` 決定了 `compute` 方法中 `inputs` 參數所接收到的歷史數據量。
-
-*   `mask` (zipline.pipeline.Filter, optional)
-    *   **說明**：一個可選的 `Filter` 物件，用於限制哪些資產需要計算此因子。只有通過 `mask` 篩選的資產才會被納入計算。
-    *   **範例**：`mask=MarketCap().top(100)` 表示只對市值排名前 100 的股票計算此因子。
-
-*   `outputs` (iterable[str], optional)
-    *   **說明**：定義因子輸出的欄位名稱。通常情況下，一個 `CustomFactor` 只輸出一個值，因此此參數不常顯式設定。如果需要輸出多個值，則需要指定多個名稱。
+*   `inputs`:
+    *   **(類別屬性)** 一個列表，包含 `BoundColumn` 物件（例如 `EquityPricing.close`），這些是因子計算所需的歷史數據輸入。
+    *   範例：`inputs = [EquityPricing.close, EquityPricing.volume]`
+*   `window_length`:
+    *   **(類別屬性)** 一個整數，定義因子計算所需的歷史數據窗口長度。例如，`window_length = 20` 表示因子會使用過去 20 天的數據進行計算。
+*   `compute(self, today, assets, out, *arrays)`:
+    *   **(方法)** 這是您必須覆寫的核心方法，用於實現自定義因子的計算邏輯。它在每個交易日都會被呼叫。
+    *   `self`: `CustomFactor` 實例本身。
+    *   `today`: (`pd.Timestamp`) 當前正在計算因子的日期。
+    *   `assets`: (`np.array`) 一維 NumPy 數組，包含當前 Pipeline Universe 中的資產 SID。
+    *   `out`: (`np.array`) 一維 NumPy 數組，您必須將計算出的因子值寫入此數組中。它的長度與 `assets` 相同。
+    *   `*arrays`: 變長參數，每個參數對應於 `inputs` 列表中的一個歷史數據輸入。每個 `array` 都是一個 2D NumPy 數組，形狀為 `(window_length, len(assets))`，包含過去 `window_length` 天的數據。
+*   `dtype`:
+    *   **(類別屬性)** 定義因子的輸出數據類型，例如 `np.float64`。
+*   `missing_value`:
+    *   **(類別屬性)** 當數據缺失時用於填充的預設值。
 
 ---
 
-## 3. `compute` 方法詳解
+## 3. 如何創建 CustomFactor
 
-`compute` 方法是 `CustomFactor` 的核心，您必須在此方法中實現因子的計算邏輯。它的簽名如下：
+以下將以一個簡單的 `StdDev` (標準差) 因子為例，演示如何繼承 `CustomFactor` 並實作 `compute` 方法來計算過去 `N` 天收盤價的滾動標準差。
 
 ```python
-def compute(self, today, assets, out, *inputs):
-    # 您的因子計算邏輯
-    pass
-```
-
-*   `self`：`CustomFactor` 實例本身。
-*   `today` (pandas.Timestamp)
-    *   **說明**：當前 Pipeline 執行計算的日期。這是一個 `pandas.Timestamp` 物件，帶有時區資訊。
-*   `assets` (numpy.ndarray)
-    *   **說明**：一個長度為 N 的 NumPy 陣列，包含了當前需要計算因子的資產的 `sid` (Zipline 內部資產 ID)。
-*   `out` (numpy.ndarray)
-    *   **說明**：一個長度為 N 的 NumPy 陣列，您需要將計算出的因子結果寫入此陣列中。`out` 陣列的每個元素對應 `assets` 陣列中的一個資產。
-*   `*inputs` (numpy.ndarray)
-    *   **說明**：這是一個可變參數，其數量和順序與您在 `CustomFactor` 的 `inputs` 參數中定義的數據來源一致。每個 `input` 都是一個 `MxN` 的 NumPy 陣列，其中 `M` 是 `window_length`，`N` 是資產數量。它包含了每個資產在過去 `window_length` 天的歷史數據。
-
-**`compute` 方法的執行流程**：
-
-1.  Zipline 引擎在每個交易日調用 `compute` 方法。
-2.  它會根據您定義的 `inputs` 和 `window_length`，準備好對應的歷史數據，並作為 `*inputs` 傳遞給 `compute`。
-3.  您在 `compute` 方法中執行計算，並將結果寫入 `out` 陣列。
-4.  Zipline 引擎會收集所有資產的 `out` 陣列結果，並將其整合到 Pipeline 的最終輸出 DataFrame 中。
-
----
-
-## 4. 建立自訂因子範例
-
-以下透過幾個範例，展示如何建立不同類型的 `CustomFactor`。
-
-### 範例 1：計算滾動標準差
-
-此範例計算每檔股票每天的滾動標準差 (Standard Deviation)，用於衡量價格波動性。
-
-```python
-from zipline.pipeline import CustomFactor, Pipeline
-from zipline.pipeline.data import TWEquityPricing
 import numpy as np
-import pandas as pd
+from zipline.pipeline import CustomFactor
+from zipline.pipeline.data import EquityPricing
 
 class StdDev(CustomFactor):
-    # 定義因子計算所需的輸入數據和時間窗口
-    inputs = [TWEquityPricing.close]
-    window_length = 7 # 計算 7 日滾動標準差
+    """
+    計算過去 N 天收盤價的滾動標準差。
+    """
+    # 因子計算所需的輸入數據 (這裡只需要收盤價)
+    inputs = [EquityPricing.close]
+    
+    # 因子計算所需的歷史數據窗口長度 (將在初始化時傳入)
+    window_length = 0 # 這裡設為0，因為實際會在實例化時設定
 
-    def compute(self, today, assets, out, values):
-        # values 是一個 (window_length x 資產數量) 的 NumPy 陣列
-        # np.nanstd 會沿著時間軸 (axis=0) 計算每個資產的標準差
-        out[:] = np.nanstd(values, axis=0)
+    # 因子輸出的數據類型
+    dtype = np.float64
 
-def make_pipeline_std_dev():
-    return Pipeline(
-        columns={
-            'std_dev': StdDev()
-        }
-    )
-
-# 假設您已 ingest 資料並設定好環境
-# from zipline.TQresearch.tej_pipeline import run_pipeline
-# result = run_pipeline(make_pipeline_std_dev(), pd.Timestamp('2013-01-03', tz='UTC'), pd.Timestamp('2023-01-03', tz='UTC'))
-# print(result.head())
-```
-
-### 範例 2：計算開收盤價差的 10 日平均
-
-此範例展示如何使用多個輸入數據來計算因子，並預設 `inputs` 和 `window_length`。
-
-```python
-from zipline.pipeline import CustomFactor, Pipeline
-from zipline.pipeline.data import TWEquityPricing
-import numpy as np
-import pandas as pd
-
-class TenDayMeanDifference(CustomFactor):
-    # 預設輸入為收盤價和開盤價
-    inputs = [TWEquityPricing.close, TWEquityPricing.open]
-    window_length = 10 # 預設計算 10 日平均
-
-    def compute(self, today, assets, out, c_price, o_price):
-        # c_price 和 o_price 分別是收盤價和開盤價的歷史數據陣列
-        # 計算每日價差的 10 日平均
-        out[:] = np.nanmean(c_price - o_price, axis=0)
-
-def make_pipeline_mean_diff():
-    # 直接使用預設參數
-    close_open_diff = TenDayMeanDifference()
-    return Pipeline(
-        columns={
-            'close_open_diff': close_open_diff
-        }
-    )
-
-# 假設您已 ingest 資料並設定好環境
-# from zipline.TQresearch.tej_pipeline import run_pipeline
-# result = run_pipeline(make_pipeline_mean_diff(), pd.Timestamp('2013-01-03', tz='UTC'), pd.Timestamp('2023-01-03', tz='UTC'))
-# print(result.head())
-```
-
-**覆蓋預設參數**：
-
-您可以在 `make_pipeline` 函數中為 `CustomFactor` 實例化時，覆蓋其預設的 `inputs` 或 `window_length` 參數。這提供了更大的靈活性。
-
-```python
-# 覆蓋 TenDayMeanDifference 的 inputs，改為使用最高價和最低價
-def make_pipeline_overridden_mean_diff():
-    close_open_diff = TenDayMeanDifference(inputs=[TWEquityPricing.high, TWEquityPricing.low])
-    return Pipeline(
-        columns={
-            'close_open_diff': close_open_diff
-        }
-    )
-
-# 假設您已 ingest 資料並設定好環境
-# from zipline.TQresearch.tej_pipeline import run_pipeline
-# result = run_pipeline(make_pipeline_overridden_mean_diff(), pd.Timestamp('2013-01-03', tz='UTC'), pd.Timestamp('2023-01-03', tz='UTC'))
-# print(result.head())
-```
-
-### 範例 3：理解 `window_length` 的計算
-
-`window_length` 參數定義了因子計算所需的歷史數據窗口。重要的是要理解，這個窗口是從**當前交易日的前一個交易日**開始向前計算的，以避免向前看偏誤。
-
-```python
-from zipline.pipeline import CustomFactor, Pipeline
-from zipline.pipeline.data import TWEquityPricing
-import numpy as np
-import pandas as pd
-
-class TenDaysLowest(CustomFactor):
-    inputs=[TWEquityPricing.close]
-    window_length=10 # 計算前 10 日最低收盤價
+    # 當數據缺失時的填充值
+    missing_value = 0.0
 
     def compute(self, today, assets, out, close_prices):
-        # close_prices 包含從 (today - 10 個交易日) 到 (today - 1 個交易日) 的數據
-        out[:] = np.nanmin(close_prices, axis=0)
-
-def make_pipeline_lowest():
-    return Pipeline(
-        columns={
-            'TenDaysLowest': TenDaysLowest()
-        }
-    )
-
-# 假設您已 ingest 資料並設定好環境
-# from zipline.TQresearch.tej_pipeline import run_pipeline
-# results = run_pipeline(make_pipeline_lowest(), pd.Timestamp('2013-03-18', tz='UTC'), pd.Timestamp('2023-01-03', tz='UTC'))        
-# print(results.head())
+        """
+        核心的因子計算邏輯。
+        """
+        # close_prices 是一個 (window_length, len(assets)) 的 NumPy 數組
+        # 計算每個資產在指定窗口長度內的標準差
+        out[:] = np.nanstd(close_prices, axis=0) # axis=0 對時間維度求標準差
 ```
 
 ---
 
-## 總結
+## 4. 在 Pipeline 中使用 CustomFactor
 
-`CustomFactor` 是 Zipline Pipeline 中一個極其強大的功能，它賦予了量化研究者無限的靈活性來創建和測試自訂的交易因子。透過深入理解其參數和 `compute` 方法的運作機制，您可以將任何複雜的數據處理邏輯轉化為高效的 Pipeline 因子，從而提升策略的深度和廣度。
+創建 `CustomFactor` 後，您就可以像使用任何內建因子一樣，將其應用到您的 Pipeline 中。
+
+#### 範例
+```python
+from zipline.pipeline import Pipeline
+# from zipline.pipeline.factors import SimpleMovingAverage # 也可以同時使用內建因子
+
+def make_my_pipeline():
+    # 實例化 CustomFactor，並設定其 window_length
+    my_std_dev = StdDev(window_length=20) # 計算 20 日滾動標準差
+
+    return Pipeline(
+        columns={
+            'StdDev_20D': my_std_dev,
+            'Close_Price': EquityPricing.close.latest # 也可以獲取最新收盤價
+        }
+    )
+```
+
+---
+
+## 5. 完整範例
+
+以下是一個完整的範例，演示如何定義一個 `CustomFactor` 並在 Zipline 回測中使用它。
+
+```python
+import pandas as pd
+import numpy as np
+from zipline import run_algorithm
+from zipline.api import (
+    attach_pipeline,
+    pipeline_output,
+    set_benchmark,
+    symbol,
+    order_target_percent
+)
+from zipline.pipeline import Pipeline, CustomFactor
+from zipline.pipeline.data import EquityPricing
+from zipline.pipeline.filters import AverageDollarVolume
+
+# 1. 定義 CustomFactor: 計算 N 日滾動標準差
+class CustomStdDev(CustomFactor):
+    inputs = [EquityPricing.close]
+    window_length = 0 # 將在實例化時覆蓋
+    dtype = np.float64
+    missing_value = 0.0
+
+    def compute(self, today, assets, out, close_prices):
+        out[:] = np.nanstd(close_prices, axis=0)
+
+# 2. 定義 Pipeline
+def make_my_pipeline():
+    # 實例化自定義因子，計算 20 日滾動標準差
+    my_std_dev_20d = CustomStdDev(window_length=20)
+    
+    # 篩選器：過去 10 天平均日成交金額前 20 檔股票
+    high_volume_filter = AverageDollarVolume(window_length=10).top(20)
+
+    return Pipeline(
+        columns={
+            'Custom_StdDev_20D': my_std_dev_20d,
+            'Close_Price': EquityPricing.close.latest
+        },
+        screen=high_volume_filter # 透過 screen 篩選 Universe
+    )
+
+# 3. Zipline 回測設置
+def initialize(context):
+    set_benchmark(symbol('IR0001'))
+    attach_pipeline(make_my_pipeline(), 'my_strategy_pipeline') 
+
+def before_trading_start(context, data):
+    pipeline_results = pipeline_output('my_strategy_pipeline')
+    context.my_universe = pipeline_results.index.get_level_values(1).tolist()
+    context.pipeline_data = pipeline_results
+
+def handle_data(context, data):
+    if not context.my_universe:
+        return
+
+    for asset in context.my_universe:
+        if data.can_trade(asset) and asset in context.pipeline_data.index.get_level_values(1):
+            std_dev_value = context.pipeline_data.loc[(data.current_dt.date(), asset), 'Custom_StdDev_20D']
+            current_price = data.current(asset, 'price')
+
+            # 簡單策略：如果股價波動較大（例如，高於其 20 日標準差的 X 倍），則進行操作
+            # 這裡僅作示例，實際策略會更複雜
+            if current_price > 100 and std_dev_value > 5: # 假設股價大於100且波動大於5
+                if asset not in context.portfolio.positions:
+                    order_target_percent(asset, 1.0 / len(context.my_universe))
+            elif current_price < 90 and asset in context.portfolio.positions:
+                order_target_percent(asset, 0.0)
+
+def analyze(context, results):
+    print("回測分析完成。")
+
+# 執行回測
+results = run_algorithm(
+    start=pd.Timestamp('2020-01-01', tz='UTC'),
+    end=pd.Timestamp('2021-01-01', tz='UTC'),
+    initialize=initialize,
+    handle_data=handle_data,
+    analyze=analyze,
+    capital_base=1_000_000,
+    bundle='tquant',
+    before_trading_start=before_trading_start
+)
+```

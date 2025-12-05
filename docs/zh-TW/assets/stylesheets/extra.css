@@ -1,6 +1,77 @@
 /* --- UI Optimization: Premium Quality Enhancements for Material for MkDocs --- */
 /* Direct fixes for all 5 issues: search, header bar, Mermaid, code blocks, admonitions */
 
+/* === LIGHT THEME (default scheme) - BLACK TEXT === */
+[data-md-color-scheme="default"] {
+  --md-default-fg-color: #000000 !important;
+  --md-text-color: #000000 !important;
+  --md-typeset-color: #000000 !important;
+}
+
+[data-md-color-scheme="default"] .md-main,
+[data-md-color-scheme="default"] .md-main__inner,
+[data-md-color-scheme="default"] .md-content,
+[data-md-color-scheme="default"] .md-content__inner,
+[data-md-color-scheme="default"] .md-typeset {
+  color: #000000 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset p,
+[data-md-color-scheme="default"] .md-typeset li,
+[data-md-color-scheme="default"] .md-typeset span,
+[data-md-color-scheme="default"] .md-typeset div,
+[data-md-color-scheme="default"] .md-typeset td,
+[data-md-color-scheme="default"] .md-typeset th {
+  color: #000000 !important;
+}
+
+/* Light theme links - blue */
+[data-md-color-scheme="default"] .md-typeset a:not(.md-nav__link):not(.md-header__button):not(.md-logo) {
+  color: #0066cc !important;
+}
+
+/* Light theme inline code - red */
+[data-md-color-scheme="default"] .md-typeset code:not(pre code) {
+  color: #c41e3a !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* === DARK THEME (slate scheme) - WHITE TEXT === */
+[data-md-color-scheme="slate"] {
+  --md-default-fg-color: #ffffff !important;
+  --md-text-color: #ffffff !important;
+  --md-typeset-color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-main,
+[data-md-color-scheme="slate"] .md-main__inner,
+[data-md-color-scheme="slate"] .md-content,
+[data-md-color-scheme="slate"] .md-content__inner,
+[data-md-color-scheme="slate"] .md-typeset {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset p,
+[data-md-color-scheme="slate"] .md-typeset li,
+[data-md-color-scheme="slate"] .md-typeset span,
+[data-md-color-scheme="slate"] .md-typeset div,
+[data-md-color-scheme="slate"] .md-typeset td,
+[data-md-color-scheme="slate"] .md-typeset th {
+  color: #ffffff !important;
+}
+
+/* Dark theme links - light blue */
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-nav__link):not(.md-header__button):not(.md-logo) {
+  color: #64b5f6 !important;
+}
+
+/* Dark theme inline code - orange */
+[data-md-color-scheme="slate"] .md-typeset code:not(pre code) {
+  color: #ff9800 !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
 /* === GLOBAL CSS VARIABLES FOR THEME AWARENESS === */
 
 :root {
@@ -16,45 +87,55 @@
   --mermaid-cluster-fill-light: #e8eef7;
   --mermaid-cluster-stroke-light: #3f51b5;
 
-  /* Heading accent colors */
-  --heading-h1-color: #1a73e8;
-  --heading-h2-color: #1e88e5;
-  --heading-h3-color: #1976d2;
+  /* Heading accent colors - light theme */
+  --heading-h1-color: #1a73e86a;
+  --heading-h2-color: #004886;
+  --heading-h3-color: #003467;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --md-shadow-color-light: rgba(255, 255, 255, 0.15);
-    --md-shadow-color-dark: rgba(255, 255, 255, 0.25);
+/* Dark theme heading colors */
+[data-md-color-scheme="slate"] {
+  --md-shadow-color-light: rgba(255, 255, 255, 0.15);
+  --md-shadow-color-dark: rgba(255, 255, 255, 0.25);
 
-    /* Mermaid colors for dark theme - Premium quality */
-    --mermaid-node-fill-dark: #2d3748;
-    --mermaid-node-stroke-dark: #64b5f6;
-    --mermaid-text-fill-dark: #f5f5f5;
-    --mermaid-edge-stroke-dark: #64b5f6;
-    --mermaid-cluster-fill-dark: #1f2937;
-    --mermaid-cluster-stroke-dark: #64b5f6;
+  /* Mermaid colors for dark theme - Premium quality */
+  --mermaid-node-fill-dark: #2d3748;
+  --mermaid-node-stroke-dark: #005eaa;
+  --mermaid-text-fill-dark: #ffffff;
+  --mermaid-edge-stroke-dark: #64b5f6;
+  --mermaid-cluster-fill-dark: #1f2937;
+  --mermaid-cluster-stroke-dark: #64b5f6;
 
-    /* Heading colors for dark mode */
-    --heading-h1-color: #90caf9;
-    --heading-h2-color: #81d4fa;
-    --heading-h3-color: #80deea;
-  }
+  /* Heading colors for dark mode */
+  --heading-h1-color: #00e6ea;
+  --heading-h2-color: #008bcc;
+  --heading-h3-color: #80deea;
 }
 
 /* === GENERAL TYPOGRAPHY === */
 
 .md-typeset {
-  font-size: 1.25em;
+  font-size: 0.9rem; /* Smaller global base font size */
   line-height: 1.8;
   letter-spacing: 0.3px;
-  color: var(--md-default-fg-color);
 }
 
 .md-typeset p {
-  font-size: 1.2em;
+  font-size: 0.85rem; /* Paragraphs slightly smaller than the new base */
   margin-bottom: 1.2em;
-  color: var(--md-default-fg-color);
+}
+
+.md-typeset ul li,
+.md-typeset ol li {
+  font-size: 0.95rem; /* Lists slightly larger than paragraphs */
+  line-height: 1.8;
+  margin-bottom: 0.6em;
+}
+
+/* Explicitly target admonition content */
+.md-typeset .admonition > p,
+.md-typeset .admonition > .admonition-title + p {
+  font-size: 0.95rem; /* Admonition content to match lists for prominence */
 }
 
 /* === PROBLEM 1 FIX: SEARCH BOX - VISIBLE IN BOTH THEMES === */
@@ -77,58 +158,46 @@
   border: 1px solid #e0e0e0 !important;
   border-radius: 4px;
   font-size: 1.1em;
-  padding: 0.8em 0.8em 0.8em 2.5em !important;
+  padding: 0.6em 1em 0.6em 2.8em !important;
   line-height: 1.6;
   vertical-align: middle;
+  text-indent: 0.3em;
 }
 
 .md-search__input::placeholder {
-  color: rgba(0, 0, 0, 0.54) !important;
+  color: rgba(0, 0, 0, 0.65) !important;
   opacity: 1;
+  font-size: 1.15em !important;
+  font-weight: 500;
 }
 
 .md-search__form {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
+/* Search icon positioning */
 .md-search__icon {
-  width: 1.3em !important;
-  height: 1.3em !important;
-  position: absolute;
-  left: 0.8em;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
+  width: 1.3rem !important;
+  height: 1.3rem !important;
+  position: absolute !important;
+  left: 0.7rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  .md-search__input {
-    color: #ffffff !important;
-    background-color: #2c2c2c !important;
-    border: 1px solid #424242 !important;
-  }
-  .md-search__input::placeholder {
-    color: rgba(255, 255, 255, 0.8) !important;
-    opacity: 1;
-  }
-  
-  .md-typeset {
-    color: #e8e8e8 !important;
-  }
-  
-  .md-typeset p {
-    color: #e8e8e8 !important;
-  }
+/* Dark theme search input */
+[data-md-color-scheme="slate"] .md-search__input {
+  color: #ffffff !important;
+  background-color: #2c2c2c !important;
+  border: 1px solid #424242 !important;
 }
 
-@media (prefers-color-scheme: light) {
-  .md-typeset {
-    color: #2c2c2c !important;
-  }
-  
-  .md-typeset p {
-    color: #2c2c2c !important;
-  }
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 1;
 }
 
 /* === PROBLEM 2 FIX: HEADER BAR OPTIMIZATION === */
@@ -206,32 +275,31 @@ h4, .md-typeset h4 {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .md-typeset pre {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.05));
-    box-shadow: 0 2px 8px var(--md-shadow-color-light),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  .md-typeset pre:hover {
-    box-shadow: 0 8px 24px var(--md-shadow-color-light),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
+/* Dark theme code blocks */
+[data-md-color-scheme="slate"] .md-typeset pre {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.05));
+  box-shadow: 0 2px 8px var(--md-shadow-color-light),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre:hover {
+  box-shadow: 0 8px 24px var(--md-shadow-color-light),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .md-typeset code {
-  font-size: 0.9em;
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #e53935;
+  font-size: 0.7rem; /* Smaller for inline code */
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
-  .md-typeset code {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ff9800;
-  }
+/* Code blocks content (inside pre tags) */
+.md-typeset pre code {
+  font-size: 0.8rem; /* Code blocks slightly larger than inline code */
+  line-height: 1.5;
+  color: inherit !important;
+  background-color: transparent !important;
 }
 
 /* === PROBLEM 5 FIX: ADMONITION BLOCKS QUALITY ELEVATION === */
@@ -250,6 +318,13 @@ h4, .md-typeset h4 {
 .md-typeset .admonition:hover {
   box-shadow: 0 6px 16px var(--md-shadow-color-light);
   transform: translateY(-2px);
+}
+
+/* Light theme admonition text - black */
+[data-md-color-scheme="default"] .md-typeset .admonition p,
+[data-md-color-scheme="default"] .md-typeset .admonition li,
+[data-md-color-scheme="default"] .md-typeset .admonition span {
+  color: #000000 !important;
 }
 
 /* Info block styling */
@@ -286,39 +361,44 @@ h4, .md-typeset h4 {
 }
 
 /* Dark mode admonition adjustments */
-@media (prefers-color-scheme: dark) {
-  .md-typeset .admonition {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)) !important;
-    box-shadow: 0 2px 8px var(--md-shadow-color-light);
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)) !important;
+  box-shadow: 0 2px 8px var(--md-shadow-color-light);
+}
 
-  .md-typeset .admonition:hover {
-    box-shadow: 0 6px 16px var(--md-shadow-color-light);
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition:hover {
+  box-shadow: 0 6px 16px var(--md-shadow-color-light);
+}
 
-  .md-typeset .admonition.info {
-    background: linear-gradient(135deg, rgba(100, 181, 246, 0.1), rgba(100, 181, 246, 0.05)) !important;
-  }
+/* Dark theme admonition text - white */
+[data-md-color-scheme="slate"] .md-typeset .admonition p,
+[data-md-color-scheme="slate"] .md-typeset .admonition li,
+[data-md-color-scheme="slate"] .md-typeset .admonition span {
+  color: #ffffff !important;
+}
 
-  .md-typeset .admonition.info > .admonition-title {
-    color: #90caf9 !important;
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition.info {
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.1), rgba(100, 181, 246, 0.05)) !important;
+}
 
-  .md-typeset .admonition.warning {
-    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05)) !important;
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition.info > .admonition-title {
+  color: #90caf9 !important;
+}
 
-  .md-typeset .admonition.warning > .admonition-title {
-    color: #ffb74d !important;
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05)) !important;
+}
 
-  .md-typeset .admonition.important {
-    background: linear-gradient(135deg, rgba(239, 154, 154, 0.1), rgba(239, 154, 154, 0.05)) !important;
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning > .admonition-title {
+  color: #ffb74d !important;
+}
 
-  .md-typeset .admonition.important > .admonition-title {
-    color: #ef9a9a !important;
-  }
+[data-md-color-scheme="slate"] .md-typeset .admonition.important {
+  background: linear-gradient(135deg, rgba(239, 154, 154, 0.1), rgba(239, 154, 154, 0.05)) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.important > .admonition-title {
+  color: #ef9a9a !important;
 }
 
 /* === TABLE STYLING === */
@@ -356,10 +436,8 @@ h4, .md-typeset h4 {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-@media (prefers-color-scheme: dark) {
-  .md-typeset tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.03);
-  }
+[data-md-color-scheme="slate"] .md-typeset tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 /* === LINKS STYLING === */
@@ -395,255 +473,316 @@ h4, .md-typeset h4 {
 .mermaid .node rect, 
 .mermaid .node circle, 
 .mermaid .node polygon {
-  fill: var(--mermaid-node-fill-light) !important;
-  stroke: var(--mermaid-node-stroke-light) !important;
-  stroke-width: 2px !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  fill: #e8f0fe !important; /* Lighter blue */
+  stroke: #1e88e5 !important; /* Stronger blue */
+  stroke-width: 2.5px !important;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1)) !important;
 }
 
 .mermaid .node text {
-  fill: var(--mermaid-text-fill-light) !important;
+  fill: #0d47a1 !important; /* Darker blue text */
   font-weight: 600 !important;
   font-size: 1.1em !important;
 }
 
 .mermaid .edgePath .path {
-  stroke: var(--mermaid-edge-stroke-light) !important;
+  stroke: #1565c0 !important; /* Medium blue */
   stroke-width: 2.5px !important;
   fill: none !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
 }
 
 .mermaid .edgeLabel {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid var(--mermaid-edge-stroke-light) !important;
-  border-radius: 4px !important;
+  background-color: rgba(232, 240, 254, 0.98) !important; /* Lighter blue background */
+  border: 2px solid #1e88e5 !important;
+  color: #0d47a1 !important;
+  font-weight: 500 !important;
   padding: 0.3em 0.5em !important;
+  border-radius: 4px !important;
   font-size: 0.95em !important;
 }
 
 .mermaid .cluster rect {
-  fill: var(--mermaid-cluster-fill-light) !important;
-  stroke: var(--mermaid-cluster-stroke-light) !important;
+  fill: #f3f6fe !important; /* Even lighter blue */
+  stroke: #1e88e5 !important;
   stroke-width: 2px !important;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08));
+  opacity: 0.9;
 }
 
 .mermaid .cluster text {
-  fill: var(--mermaid-node-stroke-light) !important;
+  fill: #0d47a1 !important;
   font-weight: 700 !important;
   font-size: 1.05em !important;
 }
 
-/* Dark mode - Premium Mermaid rendering */
-@media (prefers-color-scheme: dark) {
-  .mermaid .node rect, 
-  .mermaid .node circle, 
-  .mermaid .node polygon {
-    fill: var(--mermaid-node-fill-dark) !important;
-    stroke: var(--mermaid-node-stroke-dark) !important;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-  }
-
-  .mermaid .node text {
-    fill: var(--mermaid-text-fill-dark) !important;
-    font-size: 1.1em !important;
-  }
-
-  .mermaid .edgePath .path {
-    stroke: var(--mermaid-edge-stroke-dark) !important;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
-  }
-
-  .mermaid .edgeLabel {
-    background-color: rgba(45, 55, 72, 0.95) !important;
-    border: 1px solid var(--mermaid-edge-stroke-dark) !important;
-    color: var(--mermaid-text-fill-dark) !important;
-  }
-
-  .mermaid .cluster rect {
-    fill: var(--mermaid-cluster-fill-dark) !important;
-    stroke: var(--mermaid-cluster-stroke-dark) !important;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-  }
-
-  .mermaid .cluster text {
-    fill: var(--mermaid-node-stroke-dark) !important;
-  }
-}
-
-/* === PROBLEM 4 FIX: COLLAPSIBLE SIDEBAR NAVIGATION === */
-
-/* Keep sidebars visible - no aggressive hiding */
-.md-sidebar {
-  z-index: auto;
-}
-
-/* === PROBLEM 5 FIX: LIGHT MODE TEXT COLOR OPTIMIZATION === */
-
-/* Reduce visual noise in light mode by softening contrast */
-.md-typeset h1, 
-.md-typeset h2, 
-.md-typeset h3,
-.md-typeset h4,
-.md-typeset h5,
-.md-typeset h6 {
-  letter-spacing: 0.4px;
-}
-
-/* Soften accent colors in light mode for better readability */
-@media (prefers-color-scheme: light) {
-  .md-typeset {
-    --md-default-fg-color: #333333;
-  }
-  
-  .md-typeset a {
-    color: #0066cc;
-  }
-  
-  .md-typeset a:hover {
-    color: #004499;
-  }
-  
-  .md-typeset strong {
-    color: #222222;
-    font-weight: 700;
-  }
-  
-  .md-typeset em {
-    font-style: italic;
-    color: #444444;
-  }
-}
-
-/* === PROBLEM 6 FIX: MERMAID DIAGRAM TEXTURE & DEPTH === */
-
-.mermaid {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+/* Dark mode - Enhanced Mermaid appearance with better contrast */
+[data-md-color-scheme="slate"] .mermaid {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%) !important;
+  padding: 2em;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .mermaid .node rect,
+[data-md-color-scheme="slate"] .mermaid .node circle,
+[data-md-color-scheme="slate"] .mermaid .node polygon {
+  fill: #404854 !important;
+  stroke: #90caf9 !important;
+  stroke-width: 2.5px !important;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .node text {
+  fill: #ffffff !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .edgePath .path {
+  stroke: #90caf9 !important;
+  stroke-width: 2.5px !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .edgeLabel {
+  background-color: rgba(64, 72, 84, 0.98) !important;
+  border: 1px solid #90caf9 !important;
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .cluster rect {
+  fill: #3a4555 !important;
+  stroke: #90caf9 !important;
+  stroke-width: 2px !important;
+  opacity: 0.9;
+}
+
+[data-md-color-scheme="slate"] .mermaid .cluster text {
+  fill: #90caf9 !important;
+  font-weight: 700 !important;
+}
+
+/* === FUTURISTIC LOADING ANIMATION === */
+
+/* Loading overlay */
+.tquant-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  opacity: 1;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.tquant-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Cyber grid background */
+.tquant-loader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+}
+
+/* Main logo container */
+.loader-logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Rotating rings */
+.loader-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.loader-ring-1 {
+  width: 180px;
+  height: 180px;
+  border-top-color: #00ffff;
+  border-right-color: #00ffff;
+  animation: spin 2s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.loader-ring-2 {
+  width: 150px;
+  height: 150px;
+  border-bottom-color: #ff00ff;
+  border-left-color: #ff00ff;
+  animation: spin 1.5s linear infinite reverse;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.loader-ring-3 {
+  width: 120px;
+  height: 120px;
+  border-top-color: #00ff88;
+  border-right-color: #00ff88;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Center hexagon */
+.loader-hexagon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #00ffff, #00ff88);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  animation: pulse 1.5s ease-in-out infinite, hexRotate 3s linear infinite;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes hexRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Floating particles */
+.loader-particles {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00ffff;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; background: #00ffff; }
+.particle:nth-child(2) { left: 80%; top: 30%; animation-delay: 0.5s; background: #ff00ff; }
+.particle:nth-child(3) { left: 20%; top: 70%; animation-delay: 1s; background: #00ff88; }
+.particle:nth-child(4) { left: 70%; top: 80%; animation-delay: 1.5s; background: #ffff00; }
+.particle:nth-child(5) { left: 50%; top: 10%; animation-delay: 2s; background: #00ffff; }
+.particle:nth-child(6) { left: 90%; top: 60%; animation-delay: 2.5s; background: #ff00ff; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-20px) scale(1.5); opacity: 1; }
+}
+
+/* Loading text */
+.loader-text {
+  margin-top: 40px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #00ff88, #00ffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Progress bar */
+.loader-progress {
+  margin-top: 30px;
+  width: 250px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
   overflow: hidden;
   position: relative;
 }
 
-/* Enhanced node styling for texture */
-.mermaid .node {
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
-  transition: filter 0.3s ease;
+.loader-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #00ff88);
+  background-size: 200% 100%;
+  animation: progressFill 2s ease-out forwards, gradientShift 1s ease infinite;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
 }
 
-.mermaid .node:hover {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
-/* Enhanced path/edge styling */
-.mermaid .edgePath {
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
-  transition: filter 0.3s ease;
+/* Glowing dots */
+.loader-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
 }
 
-.mermaid .edgePath:hover {
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+.loader-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ffff;
+  border-radius: 50%;
+  animation: dotPulse 1.4s ease-in-out infinite;
 }
 
-/* Cluster styling with better depth */
-.mermaid .cluster {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+.loader-dot:nth-child(1) { animation-delay: 0s; }
+.loader-dot:nth-child(2) { animation-delay: 0.2s; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; box-shadow: 0 0 15px #00ffff; }
 }
 
-/* Light mode: Enhanced Mermaid appearance */
-@media (prefers-color-scheme: light) {
-  .mermaid {
-    background: #ffffff !important;
-    padding: 2em;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e8eef7;
-  }
-  
-  .mermaid .node rect,
-  .mermaid .node circle,
-  .mermaid .node polygon {
-    fill: #e8f0fe !important;
-    stroke: #1e88e5 !important;
-    stroke-width: 2.5px !important;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1)) !important;
-  }
-  
-  .mermaid .node text {
-    fill: #0d47a1 !important;
-    font-size: 1.1em !important;
-    font-weight: 600 !important;
-  }
-  
-  .mermaid .edgePath .path {
-    stroke: #1565c0 !important;
-    stroke-width: 2.5px !important;
-  }
-  
-  .mermaid .edgeLabel {
-    background-color: rgba(232, 240, 254, 0.98) !important;
-    border: 2px solid #1e88e5 !important;
-    color: #0d47a1 !important;
-    font-weight: 500 !important;
-  }
-  
-  .mermaid .cluster rect {
-    fill: #f3f6fe !important;
-    stroke: #1e88e5 !important;
-    stroke-width: 2px !important;
-    opacity: 0.9;
-  }
-  
-  .mermaid .cluster text {
-    fill: #0d47a1 !important;
-    font-weight: 700 !important;
-    font-size: 1.05em !important;
-  }
+/* Scan line effect */
+.loader-scanline {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+  animation: scanline 2s linear infinite;
 }
 
-/* Dark mode: Enhanced Mermaid appearance with better contrast */
-@media (prefers-color-scheme: dark) {
-  .mermaid {
-    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%) !important;
-    padding: 2em;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-  }
-  
-  .mermaid .node rect,
-  .mermaid .node circle,
-  .mermaid .node polygon {
-    fill: #404854 !important;
-    stroke: #90caf9 !important;
-    stroke-width: 2.5px !important;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) !important;
-  }
-  
-  .mermaid .node text {
-    fill: #ffffff !important;
-    font-size: 1.1em !important;
-    font-weight: 600 !important;
-  }
-  
-  .mermaid .edgePath .path {
-    stroke: #90caf9 !important;
-    stroke-width: 2.5px !important;
-  }
-  
-  .mermaid .edgeLabel {
-    background-color: rgba(64, 72, 84, 0.98) !important;
-    border: 1px solid #90caf9 !important;
-    color: #ffffff !important;
-  }
-  
-  .mermaid .cluster rect {
-    fill: #3a4555 !important;
-    stroke: #90caf9 !important;
-    stroke-width: 2px !important;
-  }
-  
-  .mermaid .cluster text {
-    fill: #90caf9 !important;
-    font-weight: 700 !important;
-  }
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100%; }
 }

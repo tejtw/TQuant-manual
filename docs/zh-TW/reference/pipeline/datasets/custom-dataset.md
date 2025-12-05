@@ -13,7 +13,7 @@
 
 ---
 
-## 1. `Custom DataSets` 核心概念
+## 1. Custom DataSets 核心概念
 
 創建一個自訂資料集的過程，本質上是將您的外部數據轉換為 Zipline 的 `bcolz` 格式，並提供一個描述文件 (`extension.py`) 讓 Zipline 能夠識別和載入它。
 
@@ -51,7 +51,7 @@ date,sid,foreign_ownership_ratio
 !!! note
     `sid` 是 Zipline 內部的整數 ID，而不是股票代碼字串 (如 '2330')。您需要自行將股票代碼映射到 `sid`。
 
-### 步驟 2：編寫 `extension.py`
+### 步驟 2：編寫 extension.py
 
 接下來，在您的 Zipline 設定目錄下 (通常是 `~/.zipline/`) 創建一個名為 `extension.py` 的檔案。這個檔案是 Zipline 用於發現和載入自訂資料的入口。
 
@@ -100,7 +100,7 @@ register_dataset(MyCustomDataSet, MyCustomDataSetLoader)
 3.  **`DataFrameLoader`**：這是實際的數據載入器。它會使用 `CSVLoader` 載入的數據，並將其與您的 `DataSet` 欄位進行綁定。
 4.  **`register_dataset`**：最後，您需要調用 `register_dataset` 函數，將您的 `DataSet` 類別和 `DataFrameLoader` 實例註冊到 Zipline 中。
 
-### 步驟 3：執行 `zipline ingest`
+### 步驟 3：執行 zipline ingest
 
 完成 `extension.py` 的編寫後，打開終端機，執行 `zipline ingest` 指令：
 

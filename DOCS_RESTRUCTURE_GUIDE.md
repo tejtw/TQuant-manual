@@ -123,7 +123,6 @@ nav:
 | | **Pyfolo** | API 總覽 | **黃彥博** | `example/documents39.md`+ | `reference/pyfolio/api.md` |
 | | **Alphalens**| API 總覽 | **黃彥博** | `example/documents43.md`+ | `reference/alphalens/api.md` |
 | | **TejToolAPI**| `get_history_data` | **黃彥博** | `example/documents47.md` | `reference/tejtoolapi/get-history-data.md`|
-| | **Empyrical**| API 總覽 | **胡益鳴** | `example/documents48.md`+ | `reference/empyrical/api.md` |
 
 ---
 

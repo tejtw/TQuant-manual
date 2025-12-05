@@ -202,8 +202,6 @@ nav:
       - API 總覽: reference/alphalens/api.md
     - TejToolAPI:
       - get_history_data: reference/tejtoolapi/get-history-data.md
-    - Empyrical:
-      - API 總覽: reference/empyrical/api.md
 
 
 
