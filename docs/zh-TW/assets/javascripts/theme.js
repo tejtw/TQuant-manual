@@ -14,22 +14,7 @@
 (function() {
   'use strict';
 
-  // ==========================================================================
-  // 1. Theme Management
-  // ==========================================================================
 
-  /**
-   * Restore saved theme on page load
-   */
-  function restoreTheme() {
-    const savedTheme = localStorage.getItem('data-md-color-scheme');
-    if (savedTheme) {
-      document.body.setAttribute('data-md-color-scheme', savedTheme);
-    }
-  }
-
-  // Restore theme immediately
-  restoreTheme();
 
   // ==========================================================================
   // 2. TQuantLab Button
@@ -680,7 +665,6 @@
   // ==========================================================================
 
   document.addEventListener('DOMContentLoaded', function() {
-    restoreTheme();
     addTQuantLabButton();
     addThemeToggle();
     createSidebarToggles();

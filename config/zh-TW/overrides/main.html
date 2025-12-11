@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
+{% block header %}
+  <script>
+    // Immediately set the theme from localStorage to prevent flashing
+    var savedTheme = localStorage.getItem('data-md-color-scheme');
+    if (savedTheme) {
+      document.body.setAttribute('data-md-color-scheme', savedTheme);
+    }
+  </script>
+  {{ super() }}
+{% endblock %}
+
 {# ============================================================================
    TQuant Lab - Main Template Override (Simplified)
    
