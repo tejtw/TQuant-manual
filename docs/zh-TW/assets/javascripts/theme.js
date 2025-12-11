@@ -14,6 +14,31 @@
 (function() {
   'use strict';
 
+  // ==========================================================================
+  // 1. Theme Management
+  // ==========================================================================
+
+  /**
+   * Restore saved theme from localStorage and apply it.
+   * This is called on initial load and after every instant navigation.
+   */
+  function restoreTheme() {
+    const savedTheme = localStorage.getItem('data-md-color-scheme');
+    if (savedTheme) {
+      document.body.setAttribute('data-md-color-scheme', savedTheme);
+    }
+  }
+
+  /**
+   * Update the sun/moon icon on the custom theme toggle button.
+   */
+  function updateThemeToggleIcon() {
+    const themeToggle = document.querySelector('.custom-theme-toggle');
+    if (themeToggle) {
+        const isDark = document.body.getAttribute('data-md-color-scheme') === 'slate';
+        themeToggle.innerHTML = isDark ? sunIcon : moonIcon;
+    }
+  }
 
 
   // ==========================================================================
@@ -63,12 +88,8 @@
       themeToggle.setAttribute('aria-label', '切換深色/淺色模式');
       themeToggle.setAttribute('title', '切換深色/淺色模式');
       
-      const updateIcon = () => {
-        const isDark = document.body.getAttribute('data-md-color-scheme') === 'slate';
-        themeToggle.innerHTML = isDark ? sunIcon : moonIcon;
-      };
-      
-      updateIcon();
+      // Use the globally defined update function
+      updateThemeToggleIcon();
       
       themeToggle.addEventListener('click', function() {
         const body = document.body;
@@ -93,7 +114,7 @@
           });
           
           localStorage.setItem('data-md-color-scheme', newScheme);
-          updateIcon();
+          updateThemeToggleIcon();
         }, 150);
       });
       
@@ -661,16 +682,28 @@
   }
 
   // ==========================================================================
-  // Initialize on DOM Ready
+  // Initialize on DOM Ready & Hook into Instant Loading
   // ==========================================================================
 
   document.addEventListener('DOMContentLoaded', function() {
+    // Run all initial setup functions
     addTQuantLabButton();
     addThemeToggle();
     createSidebarToggles();
     showLoader();
     watchThemeToggle();
     watchSearchState();
+
+    // Now, set up the theme persistence for initial and instant loads
+    restoreTheme();
+    updateThemeToggleIcon();
+
+    if (window.document$) {
+      window.document$.subscribe(function() {
+        restoreTheme();
+        updateThemeToggleIcon();
+      });
+    }
   });
 
 })();
