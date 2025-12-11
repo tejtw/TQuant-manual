@@ -1,219 +1,219 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>http://127.0.0.1:8000/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/assets/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/assets/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/alphalens-overview/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/alphalens-overview/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/calendars/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/calendars/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/performance-metrics/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/performance-metrics/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/pipeline-overview/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/pipeline-overview/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/pyfolio-overview/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/pyfolio-overview/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/workflow/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/workflow/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/concepts/zipline-engine/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/concepts/zipline-engine/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/futures/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/futures/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/futures/first-futures-strategy/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/futures/first-futures-strategy/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/futures/futures-cheat-sheet/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/futures/futures-cheat-sheet/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/futures/futures-commission-slippage/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/futures/futures-commission-slippage/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/futures/futures-rollover/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/futures/futures-rollover/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/futures/ingest-futures-pricing/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/futures/ingest-futures-pricing/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/installation/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/installation/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/backtest/run-algorithm/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/run-algorithm/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/backtest/set-commission/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/set-commission/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/backtest/set-slippage/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/set-slippage/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/backtest/set-trading-controls/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/set-trading-controls/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/backtest/simulation-params/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/simulation-params/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/data/get-benchmark-roi/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/data/get-benchmark-roi/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/data/get-risk-free-rate/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/data/get-risk-free-rate/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/data/ingest-spot-pricing/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/data/ingest-spot-pricing/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/data/ingest-tej-fundamental/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/data/ingest-tej-fundamental/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/data/use-dataframeloader/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/data/use-dataframeloader/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/factor-analysis/alphalens-tearsheet/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/factor-analysis/alphalens-tearsheet/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/how-to/visualization/pyfolio-tearsheet/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/how-to/visualization/pyfolio-tearsheet/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/alphalens/api/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/alphalens/api/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/built-ins/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/built-ins/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/custom-factor/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/custom-factor/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/overview/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/overview/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/terms/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/terms/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/datasets/custom-dataset/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/custom-dataset/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/datasets/equity-pricing/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/equity-pricing/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/datasets/overview/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/overview/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/pipeline/datasets/tej-datasets/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/tej-datasets/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/tejtoolapi/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/tejtoolapi/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/tejtoolapi/get-history-data/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/tejtoolapi/get-history-data/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/tejtoolapi/rest-api/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/tejtoolapi/rest-api/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/assets/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/assets/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/context/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/context/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/data-object/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/data-object/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/lifecycle-functions/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/lifecycle-functions/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/orders/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/orders/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/other-api/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/other-api/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/scheduling-functions/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/scheduling-functions/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/stocks_cheat_sheet/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/stocks_cheat_sheet/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/reference/zipline/universe/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/universe/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/tutorials/first-spot-strategy/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/tutorials/first-spot-strategy/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/tutorials/getting-started/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/tutorials/getting-started/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/tutorials/quick-demo/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/tutorials/quick-demo/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/tutorials/quick-reference/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/tutorials/quick-reference/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8000/tutorials/setup/</loc>
+         <loc>https://tejtw.github.io/TQuant-manual/tutorials/setup/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
 </urlset>
