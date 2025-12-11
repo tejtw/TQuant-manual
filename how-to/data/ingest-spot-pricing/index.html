@@ -12,29 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/">
+        <link rel="canonical" href="http://127.0.0.1:8000/how-to/data/ingest-spot-pricing/">
       
       
+        <link rel="prev" href="../../installation/">
       
-        <link rel="next" href="tutorials/getting-started/">
+      
+        <link rel="next" href="../ingest-tej-fundamental/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>TQuant-manual</title>
+        <title>如何 Ingest 股票價量資料 - TQuant-manual</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tquant-lab" class="md-skip">
+        <a href="#ingest" class="md-skip">
           跳轉到
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首頁
+              如何 Ingest 股票價量資料
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     TQuant-manual
@@ -274,37 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首頁
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -320,48 +295,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速導覽
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相關連結
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/getting-started/" class="md-nav__link">
+      <a href="../../../tutorials/getting-started/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-demo/" class="md-nav__link">
+      <a href="../../../tutorials/quick-demo/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../../tutorials/setup/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../../../tutorials/first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-reference/" class="md-nav__link">
+      <a href="../../../tutorials/quick-reference/" class="md-nav__link">
         
   
   
@@ -640,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/workflow/" class="md-nav__link">
+      <a href="../../../concepts/workflow/" class="md-nav__link">
         
   
   
@@ -725,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/zipline-engine/" class="md-nav__link">
+      <a href="../../../concepts/zipline-engine/" class="md-nav__link">
         
   
   
@@ -753,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../../../concepts/pipeline-overview/" class="md-nav__link">
         
   
   
@@ -781,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/calendars/" class="md-nav__link">
+      <a href="../../../concepts/calendars/" class="md-nav__link">
         
   
   
@@ -872,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../../../concepts/pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -900,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/performance-metrics/" class="md-nav__link">
+      <a href="../../../concepts/performance-metrics/" class="md-nav__link">
         
   
   
@@ -989,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/alphalens-overview/" class="md-nav__link">
+      <a href="../../../concepts/alphalens-overview/" class="md-nav__link">
         
   
   
@@ -1029,8 +962,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1048,13 +983,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1075,7 +1008,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1093,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/installation/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
@@ -1118,8 +1051,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1137,13 +1072,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -1164,7 +1097,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1179,10 +1112,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="how-to/data/ingest-spot-pricing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    如何 Ingest 股票價量資料
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1198,6 +1158,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 載入所需套件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bundle 設置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Bundle 設置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bundletquant-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        價量資料 bundle（tquant bundle）設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundlefundamentals-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非價量資料 bundle（fundamentals bundle）需要的資訊：
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-zipline-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 執行 zipline ingest 載入價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-simple_ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 使用 simple_ingest() 載入價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 更新價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 新增價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1210,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1238,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1266,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1294,7 +1368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/use-dataframeloader/" class="md-nav__link">
+      <a href="../use-dataframeloader/" class="md-nav__link">
         
   
   
@@ -1391,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1419,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1447,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1475,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1503,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1592,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1854,7 +1928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../../../reference/zipline/lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1882,7 +1956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/context/" class="md-nav__link">
+      <a href="../../../reference/zipline/context/" class="md-nav__link">
         
   
   
@@ -1910,7 +1984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/data-object/" class="md-nav__link">
+      <a href="../../../reference/zipline/data-object/" class="md-nav__link">
         
   
   
@@ -1938,7 +2012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/universe/" class="md-nav__link">
+      <a href="../../../reference/zipline/universe/" class="md-nav__link">
         
   
   
@@ -1966,7 +2040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../../../reference/zipline/scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1994,7 +2068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/orders/" class="md-nav__link">
+      <a href="../../../reference/zipline/orders/" class="md-nav__link">
         
   
   
@@ -2022,7 +2096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/assets/" class="md-nav__link">
+      <a href="../../../reference/zipline/assets/" class="md-nav__link">
         
   
   
@@ -2050,7 +2124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/other-api/" class="md-nav__link">
+      <a href="../../../reference/zipline/other-api/" class="md-nav__link">
         
   
   
@@ -2078,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
+      <a href="../../../reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
         
   
   
@@ -2175,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/overview/" class="md-nav__link">
+      <a href="../../../reference/pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2203,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/terms/" class="md-nav__link">
+      <a href="../../../reference/pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2231,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/custom-factor/" class="md-nav__link">
+      <a href="../../../reference/pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2259,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/built-ins/" class="md-nav__link">
+      <a href="../../../reference/pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2346,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/overview/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/overview/" class="md-nav__link">
         
   
   
@@ -2374,7 +2448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
         
   
   
@@ -2402,7 +2476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
         
   
   
@@ -2430,7 +2504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
@@ -2527,7 +2601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pyfolio/api.md" class="md-nav__link">
+      <a href="../../../reference/pyfolio/api.md" class="md-nav__link">
         
   
   
@@ -2616,7 +2690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/alphalens/api/" class="md-nav__link">
+      <a href="../../../reference/alphalens/api/" class="md-nav__link">
         
   
   
@@ -2676,7 +2750,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="reference/tejtoolapi/" class="md-nav__link ">
+            <a href="../../../reference/tejtoolapi/" class="md-nav__link ">
               
   
   
@@ -2720,7 +2794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../../reference/tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
@@ -2748,7 +2822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../../reference/tejtoolapi/rest-api/" class="md-nav__link">
         
   
   
@@ -2819,7 +2893,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="futures/" class="md-nav__link ">
+            <a href="../../../futures/" class="md-nav__link ">
               
   
   
@@ -2863,7 +2937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2891,7 +2965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -2972,7 +3046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3063,7 +3137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3091,7 +3165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-rollover/" class="md-nav__link">
+      <a href="../../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3154,10 +3228,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速導覽
+        1. 載入所需套件
       
     </span>
   </a>
@@ -3165,10 +3239,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#2-bundle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相關連結
+        2. Bundle 設置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Bundle 設置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bundletquant-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        價量資料 bundle（tquant bundle）設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundlefundamentals-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非價量資料 bundle（fundamentals bundle）需要的資訊：
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-zipline-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 執行 zipline ingest 載入價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-simple_ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 使用 simple_ingest() 載入價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 更新價量資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 新增價量資料
       
     </span>
   </a>
@@ -3195,36 +3341,130 @@
   
 
 
-<h1 id="tquant-lab">TQuant Lab：一站式量化研究平台<a class="headerlink" href="#tquant-lab" title="Permanent link">&para;</a></h1>
+<h1 id="ingest">如何 Ingest 股票價量資料<a class="headerlink" href="#ingest" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>歡迎來到 TQuant Lab！本平台整合了全台最完善的量化資料、最強大的事件驅動型回測引擎，以及專業的績效分析工具。無論您是量化研究新手或資深專家，TQuant Lab 都能助您將策略想法轉化為實戰成果。</p>
+<p>本頁提供如何將股票價量資料 Ingest 到 TQuant Lab 的詳細指南，並說明相關的參數設定與步驟。</p>
 </div>
-<p>TQuant Lab 具備三大核心優勢：</p>
+<hr />
+<p>本課程實作如何將資料（如價量、基本面、籌碼面等）ingest 到 zipline 回測引擎中。透過這個動作，後續使用 Pipeline API 時，就可以很有效率地獲取資料並計算因子。</p>
+<h2 id="1">1. 載入所需套件<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span></code></pre></div>
+<h2 id="2-bundle">2. Bundle 設置<a class="headerlink" href="#2-bundle" title="Permanent link">&para;</a></h2>
+<p>介紹環境變數設定，並運用設定的環境變數做價量、非價量資料的 bundle。</p>
+<p><strong>在 import zipline 前，必須先設定以下環境變數(os.environ)：</strong></p>
+<h3 id="bundletquant-bundle">價量資料 bundle（tquant bundle）設定<a class="headerlink" href="#bundletquant-bundle" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>卓越數據品質</strong>：整合龐大且經嚴格驗證的 PIT（Point In Time）資料庫，確保回測結果真實可靠。</li>
-<li><strong>強大回測引擎</strong>：採用 Zipline 事件驅動型回測框架，支援複雜策略邏輯、模組化建構與高效模擬。</li>
-<li><strong>全方位分析工具</strong>：內建 Pyfolio 與 Alphalens 等專業套件，提供詳細績效指標與視覺化報告，助您精準評估策略表現。</li>
+<li><code>os.environ['TEJAPI_BASE'] = "https://api.tej.com.tw"</code><ul>
+<li>用於連結TEJ資料庫</li>
+</ul>
+</li>
+<li><code>os.environ['TEJAPI_KEY'] = "Your_Key"</code><ul>
+<li>用於識別使用者</li>
+</ul>
+</li>
+<li><code>os.environ['ticker'] = "xxxx xxxx xxxx"</code><ul>
+<li>設置我們所需要的股票代碼</li>
+</ul>
+</li>
+<li><code>os.environ['mdate'] = "yyyymmdd yyyymmdd"</code><ul>
+<li>設置取得資料的起始時間與結束時間</li>
+</ul>
+</li>
+<li><code>!zipline ingest -b tquant</code><ul>
+<li>將上方資料 ingest 進 bundle。</li>
+</ul>
+</li>
+</ul>
+<h3 id="bundlefundamentals-bundle">非價量資料 bundle（fundamentals bundle）需要的資訊：<a class="headerlink" href="#bundlefundamentals-bundle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>os.environ['fields'] = 'field1, field2, field3'</code><ul>
+<li>設置撈取非價量資料的欄位，其中 field1、field2、field3 代表資料欄位名稱</li>
+</ul>
+</li>
+<li><code>os.environ['include_self_acc'] = 'N'(預設)</code><ul>
+<li>設置是否涵蓋公司自結財務，其中設定<code>'Y'</code>代表財務資料包含自結財務，<code>'N'</code>則表示不包含</li>
+</ul>
+</li>
+<li><code>!zipline ingest -b fundamentals</code><ul>
+<li>將非價量資料 ingest 進 bundle。</li>
+</ul>
+</li>
 </ul>
 <hr />
-<h2 id="_1">快速導覽<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：</p>
-<ul>
-<li><a href="./"><strong>首頁</strong></a>：平台概覽與最新資訊。</li>
-<li><a href="tutorials/getting-started/"><strong>教學</strong></a>：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。</li>
-<li><a href="concepts/workflow/"><strong>核心概念</strong></a>：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。</li>
-<li><a href="how-to/installation/"><strong>操作指南</strong></a>：提供詳細的安裝、資料管理與回測設定教學。</li>
-<li><a href="reference/zipline/lifecycle-functions/"><strong>API 參考</strong></a>：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。</li>
-</ul>
+<h2 id="3-zipline-ingest">3. 執行 zipline ingest 載入價量資料<a class="headerlink" href="#3-zipline-ingest" title="Permanent link">&para;</a></h2>
+<p>價量資料指 OHLCV 與除權息相關資訊。以下範例載入指定股票價量資料，其中 IR0001 為台灣發行量加權股價報酬指數。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">tickers</span> <span class="o">=</span> <span class="s1">&#39;IR0001 0050 0056 00737 1108 1101 1102 1103 6243 6451 1216 1301 1303 1326 1402 1476 1590 1605 1722 1802 2002 2105 2201 2207 2227 2301 2939 4108 4148 6431 6541 6657 2883 2891 2543 2929 2303 6505 9926 2308 2311 2317 2324 2325 2327 2330 2347 2353 2354 2357 2379 2382 2395 2408 2409 2412 2448 2454 2474 2492 2498 2603 2609 2615 2618 2633 2801 2823 2880 2881 2882 2883 2884 2885 2886 2887 2888 2890 2891 2892 2912 3008 3009 3034 3037 3045 3231 3474 3481 3673 3697 3711 4904 4938 5854 5871 5876 5880 6239 6415 6505 6669 6770 8046 8454 9904 9910&#39;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;總共有 :&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">tickers</span><span class="o">.</span><span class="n">split</span><span class="p">()),</span><span class="s2">&quot;筆資料&quot;</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TEJAPI_BASE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://api.tej.com.tw&#39;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Your_Key&quot;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tickers</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;mdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;20200103 20230530&#39;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="err">!</span><span class="n">zipline</span> <span class="n">ingest</span> <span class="o">-</span><span class="n">b</span> <span class="n">tquant</span>
+</span></code></pre></div>
 <hr />
-<h2 id="_2">相關連結<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="4-simple_ingest">4. 使用 simple_ingest() 載入價量資料<a class="headerlink" href="#4-simple_ingest" title="Permanent link">&para;</a></h2>
+<p><code>simple_ingest()</code>函數提供另一種取得指定股票價量資料的方法，資料同樣會存入 bundle 中：</p>
+<p><code>simple_ingest()</code>函數載入價量資料所需參數資訊如下：</p>
 <ul>
-<li><a href="https://tquant.tejwin.com/">TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰</a>  </li>
-<li><a href="https://github.com/tejtw/TQuant-Lab">GitHub - tejtw/TQuant-Lab: 使用文件、程式範例</a>  </li>
-<li><a href="https://pypi.org/project/zipline-tej/">PYPI - zipline-tej</a>  </li>
-<li><a href="https://www.tejwin.com/">TEJ官網 - 大中華最值得信賴的金融解決方案 | TEJ台灣經濟新報</a>  </li>
-<li><a href="https://tquant.tejwin.com/shop/">TQuant Lab 訂閱連結</a></li>
+<li><code>name</code> (<code>str</code>) = <code>'tquant'</code><ul>
+<li>定義 bundle 名稱</li>
 </ul>
+</li>
+<li><code>tickers</code> (<code>list</code> or <code>str</code>) = <code>['xxxx', 'xxxx', 'xxxx']</code> or <code>'xxxx xxxx xxxx'</code><ul>
+<li>設置我們需要的股票代碼</li>
+</ul>
+</li>
+<li><code>start_date</code> (<code>str</code>) = <code>'yyyy-mm-dd'</code><ul>
+<li>設置起始日期</li>
+</ul>
+</li>
+<li><code>end_date</code> (<code>str</code>) = <code>'yyyy-mm-dd'</code><ul>
+<li>設置結束日期</li>
+</ul>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>請注意，<code>zipline ingest</code> 和 <code>zipline add</code> 指令在執行時會連接至 TEJ 伺服器以載入資料。這會 <strong>消耗您的 TEJ API 流量</strong>。</p>
+</div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.data.run_ingest</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_ingest</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;2020-01-03&#39;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2023-05-30&#39;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">simple_ingest</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;tquant&#39;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>              <span class="n">tickers</span> <span class="o">=</span> <span class="n">tickers</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>              <span class="n">start_date</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>              <span class="n">end_date</span> <span class="o">=</span> <span class="n">end</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>              <span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5">5. 更新價量資料<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>透過輸入 <code>zipline update -b tquant</code> 指令，可以更新當前使用的 tquant bundle，以獲得最新的交易價格和交易量資訊。</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 執行前</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>!zipline<span class="w"> </span>bundle-info
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>!zipline<span class="w"> </span>update<span class="w"> </span>-b<span class="w"> </span>tquant
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 執行後</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>!zipline<span class="w"> </span>bundle-info
+</span></code></pre></div></p>
+<hr />
+<h2 id="6">6. 新增價量資料<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>使用 <code>zipline add -t &lt;tickers_want_to_add&gt;</code> 指令，可以向現有的 tquant bundle 中新增所選的股票。</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 執行前</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>!zipline<span class="w"> </span>bundle-info
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>!zipline<span class="w"> </span>add<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;6523 6208&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 執行後</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>!zipline<span class="w"> </span>bundle-info
+</span></code></pre></div></p>
 
 
 
@@ -3263,15 +3503,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
+          
+          <a href="../../installation/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 安裝">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                安裝
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="tutorials/getting-started/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 新手必讀">
+          <a href="../ingest-tej-fundamental/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 如何 Ingest TEJ 財務/非財務資料">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                新手必讀
+                如何 Ingest TEJ 財務/非財務資料
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3350,14 +3606,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="assets/javascripts/mathjax.js"></script>
+        <script src="../../../assets/javascripts/mathjax.js"></script>
       
-        <script src="assets/javascripts/theme.js"></script>
+        <script src="../../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

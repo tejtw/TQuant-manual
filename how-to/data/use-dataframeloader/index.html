@@ -12,29 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/">
+        <link rel="canonical" href="http://127.0.0.1:8000/how-to/data/use-dataframeloader/">
       
       
+        <link rel="prev" href="../get-risk-free-rate/">
       
-        <link rel="next" href="tutorials/getting-started/">
+      
+        <link rel="next" href="../../backtest/run-algorithm/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>TQuant-manual</title>
+        <title>如何使用 Pipeline DataFrameLoader 建立 Custom Data - TQuant-manual</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tquant-lab" class="md-skip">
+        <a href="#pipeline-dataframeloader-custom-data" class="md-skip">
           跳轉到
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首頁
+              如何使用 Pipeline DataFrameLoader 建立 Custom Data
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     TQuant-manual
@@ -274,37 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首頁
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -320,48 +295,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速導覽
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相關連結
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/getting-started/" class="md-nav__link">
+      <a href="../../../tutorials/getting-started/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-demo/" class="md-nav__link">
+      <a href="../../../tutorials/quick-demo/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../../tutorials/setup/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../../../tutorials/first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-reference/" class="md-nav__link">
+      <a href="../../../tutorials/quick-reference/" class="md-nav__link">
         
   
   
@@ -640,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/workflow/" class="md-nav__link">
+      <a href="../../../concepts/workflow/" class="md-nav__link">
         
   
   
@@ -725,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/zipline-engine/" class="md-nav__link">
+      <a href="../../../concepts/zipline-engine/" class="md-nav__link">
         
   
   
@@ -753,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../../../concepts/pipeline-overview/" class="md-nav__link">
         
   
   
@@ -781,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/calendars/" class="md-nav__link">
+      <a href="../../../concepts/calendars/" class="md-nav__link">
         
   
   
@@ -872,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../../../concepts/pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -900,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/performance-metrics/" class="md-nav__link">
+      <a href="../../../concepts/performance-metrics/" class="md-nav__link">
         
   
   
@@ -989,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/alphalens-overview/" class="md-nav__link">
+      <a href="../../../concepts/alphalens-overview/" class="md-nav__link">
         
   
   
@@ -1029,8 +962,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1048,13 +983,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1075,7 +1008,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1093,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/installation/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
@@ -1118,8 +1051,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1137,13 +1072,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -1164,7 +1097,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1182,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-spot-pricing/" class="md-nav__link">
+      <a href="../ingest-spot-pricing/" class="md-nav__link">
         
   
   
@@ -1210,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1238,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1266,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1291,10 +1224,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="how-to/data/use-dataframeloader/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    如何使用 Pipeline DataFrameLoader 建立 Custom Data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1310,6 +1270,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#imports-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imports &amp; Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-tquant-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 載入先前已導入的 tquant bundle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 取得證券標的（Symbols）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tej-tool-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 利用 TEJ TOOL API 獲取資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dataframeloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 整理外部資料以符合 DataFrameLoader 要求的格式
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1391,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1419,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1447,7 +1482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1475,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1503,7 +1538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1592,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1854,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../../../reference/zipline/lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1882,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/context/" class="md-nav__link">
+      <a href="../../../reference/zipline/context/" class="md-nav__link">
         
   
   
@@ -1910,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/data-object/" class="md-nav__link">
+      <a href="../../../reference/zipline/data-object/" class="md-nav__link">
         
   
   
@@ -1938,7 +1973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/universe/" class="md-nav__link">
+      <a href="../../../reference/zipline/universe/" class="md-nav__link">
         
   
   
@@ -1966,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../../../reference/zipline/scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1994,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/orders/" class="md-nav__link">
+      <a href="../../../reference/zipline/orders/" class="md-nav__link">
         
   
   
@@ -2022,7 +2057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/assets/" class="md-nav__link">
+      <a href="../../../reference/zipline/assets/" class="md-nav__link">
         
   
   
@@ -2050,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/other-api/" class="md-nav__link">
+      <a href="../../../reference/zipline/other-api/" class="md-nav__link">
         
   
   
@@ -2078,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
+      <a href="../../../reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
         
   
   
@@ -2175,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/overview/" class="md-nav__link">
+      <a href="../../../reference/pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2203,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/terms/" class="md-nav__link">
+      <a href="../../../reference/pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2231,7 +2266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/custom-factor/" class="md-nav__link">
+      <a href="../../../reference/pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2259,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/built-ins/" class="md-nav__link">
+      <a href="../../../reference/pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2346,7 +2381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/overview/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/overview/" class="md-nav__link">
         
   
   
@@ -2374,7 +2409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
         
   
   
@@ -2402,7 +2437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
         
   
   
@@ -2430,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
+      <a href="../../../reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
@@ -2527,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pyfolio/api.md" class="md-nav__link">
+      <a href="../../../reference/pyfolio/api.md" class="md-nav__link">
         
   
   
@@ -2616,7 +2651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/alphalens/api/" class="md-nav__link">
+      <a href="../../../reference/alphalens/api/" class="md-nav__link">
         
   
   
@@ -2676,7 +2711,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="reference/tejtoolapi/" class="md-nav__link ">
+            <a href="../../../reference/tejtoolapi/" class="md-nav__link ">
               
   
   
@@ -2720,7 +2755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../../reference/tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
@@ -2748,7 +2783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../../reference/tejtoolapi/rest-api/" class="md-nav__link">
         
   
   
@@ -2819,7 +2854,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="futures/" class="md-nav__link ">
+            <a href="../../../futures/" class="md-nav__link ">
               
   
   
@@ -2863,7 +2898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2891,7 +2926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -2972,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3063,7 +3098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3091,7 +3126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-rollover/" class="md-nav__link">
+      <a href="../../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3154,10 +3189,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#imports-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速導覽
+        Imports &amp; Settings
       
     </span>
   </a>
@@ -3165,10 +3200,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-tquant-bundle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相關連結
+        1. 載入先前已導入的 tquant bundle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 取得證券標的（Symbols）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tej-tool-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 利用 TEJ TOOL API 獲取資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dataframeloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 整理外部資料以符合 DataFrameLoader 要求的格式
       
     </span>
   </a>
@@ -3195,36 +3263,95 @@
   
 
 
-<h1 id="tquant-lab">TQuant Lab：一站式量化研究平台<a class="headerlink" href="#tquant-lab" title="Permanent link">&para;</a></h1>
+<h1 id="pipeline-dataframeloader-custom-data">如何使用 Pipeline DataFrameLoader 建立 Custom Data<a class="headerlink" href="#pipeline-dataframeloader-custom-data" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>歡迎來到 TQuant Lab！本平台整合了全台最完善的量化資料、最強大的事件驅動型回測引擎，以及專業的績效分析工具。無論您是量化研究新手或資深專家，TQuant Lab 都能助您將策略想法轉化為實戰成果。</p>
+<p>本頁介紹如何使用 <code>DataFrameLoader</code> 將客製化數據導入 Zipline Pipeline，並演示其在數據整合與處理上的應用，擴展 Pipeline 的數據來源。</p>
 </div>
-<p>TQuant Lab 具備三大核心優勢：</p>
-<ul>
-<li><strong>卓越數據品質</strong>：整合龐大且經嚴格驗證的 PIT（Point In Time）資料庫，確保回測結果真實可靠。</li>
-<li><strong>強大回測引擎</strong>：採用 Zipline 事件驅動型回測框架，支援複雜策略邏輯、模組化建構與高效模擬。</li>
-<li><strong>全方位分析工具</strong>：內建 Pyfolio 與 Alphalens 等專業套件，提供詳細績效指標與視覺化報告，助您精準評估策略表現。</li>
-</ul>
 <hr />
-<h2 id="_1">快速導覽<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：</p>
+<p><code>DataFrameLoader</code> 允許將客製化的數據透過 DataFrame 導入至 pipeline 中，本範例將演示 <code>DataFrameLoader</code> 的用法。</p>
+<h2 id="imports-settings">Imports &amp; Settings<a class="headerlink" href="#imports-settings" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_BASE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://api.tej.com.tw&#39;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;YOUR KEY&#39;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.loaders</span><span class="w"> </span><span class="kn">import</span> <span class="n">EquityPricingLoader</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.loaders.frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrameLoader</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">DataSet</span><span class="p">,</span> <span class="n">TQAltDataSet</span><span class="p">,</span> <span class="n">EquityPricing</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimplePipelineEngine</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">TW_EQUITIES</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.data.data_portal</span><span class="w"> </span><span class="kn">import</span> <span class="n">bundles</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.data.run_ingest</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_ingest</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.sources.TEJ_Api_Data</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_universe</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kn">from</span><span class="w"> </span><span class="nn">TejToolAPI.TejToolAPI</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_history_data</span>
+</span></code></pre></div>
+<h2 id="1-tquant-bundle">1. 載入先前已導入的 tquant bundle<a class="headerlink" href="#1-tquant-bundle" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="./"><strong>首頁</strong></a>：平台概覽與最新資訊。</li>
-<li><a href="tutorials/getting-started/"><strong>教學</strong></a>：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。</li>
-<li><a href="concepts/workflow/"><strong>核心概念</strong></a>：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。</li>
-<li><a href="how-to/installation/"><strong>操作指南</strong></a>：提供詳細的安裝、資料管理與回測設定教學。</li>
-<li><a href="reference/zipline/lifecycle-functions/"><strong>API 參考</strong></a>：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。</li>
+<li>若尚未執行 tquant bundle ingest 的流程，請先執行以下 simple_ingest 程式。</li>
+<li><code>bundles.load</code> 函式負責從先前已經 ingest 的 bundle 中載入數據，使使用者能夠在 Zipline 環境中利用 <code>AssetFinder</code> 存取證券 <code>SID</code>（Security Identifier）。</li>
 </ul>
-<hr />
-<h2 id="_2">相關連結<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;2020-01-03&#39;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2025-02-07&#39;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">start_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;utc&#39;</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">end_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;utc&#39;</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">pool</span> <span class="o">=</span> <span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">idx_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;IX0002&#39;</span><span class="p">])</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">#simple_ingest(name = &#39;tquant&#39;, tickers = pool, start_date = start , end_date = end)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">bundle_name</span> <span class="o">=</span> <span class="s1">&#39;tquant&#39;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">bundle</span> <span class="o">=</span> <span class="n">bundles</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">bundle_name</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="2-symbols">2. 取得證券標的（Symbols）<a class="headerlink" href="#2-symbols" title="Permanent link">&para;</a></h2>
+<p>在 Zipline 中，<code>AssetFinder</code> 是一個專門負責管理資產（<code>Asset</code>）資訊的工具，提供查找和檢索證券標的的功能。以下四行程式碼分別執行：</p>
+<ol>
+<li>取得 bundle 中所有股票的 <code>SID</code>。</li>
+<li>透過 SID 取得對應的 <code>Asset</code> 物件。</li>
+<li>透過 <code>Asset</code> 物件取得交易代碼（<code>symbol</code>）。</li>
+<li>建立 <code>symbol</code> mapping <code>SID</code> 的對照。</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">sids</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">asset_finder</span><span class="o">.</span><span class="n">equities_sids</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">assets</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">asset_finder</span><span class="o">.</span><span class="n">retrieve_all</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">symbols</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">symbol</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">assets</span><span class="p">]</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">symbol_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">symbols</span><span class="p">,</span> <span class="n">sids</span><span class="p">))</span>
+</span></code></pre></div>
+<h2 id="3-tej-tool-api">3. 利用 TEJ TOOL API 獲取資料<a class="headerlink" href="#3-tej-tool-api" title="Permanent link">&para;</a></h2>
+<p>這邊取得外資買賣超張數（<code>Qfii_Diff_Vol</code>）資料作為示範。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">custom_data</span> <span class="o">=</span> <span class="n">get_history_data</span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">ticker</span><span class="o">=</span><span class="n">symbols</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Qfii_Diff_Vol&#39;</span><span class="p">],</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">transfer_to_chinese</span><span class="o">=</span><span class="kc">False</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">custom_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</span></code></pre></div>
+<h2 id="4-dataframeloader">4. 整理外部資料以符合 DataFrameLoader 要求的格式<a class="headerlink" href="#4-dataframeloader" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://tquant.tejwin.com/">TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰</a>  </li>
-<li><a href="https://github.com/tejtw/TQuant-Lab">GitHub - tejtw/TQuant-Lab: 使用文件、程式範例</a>  </li>
-<li><a href="https://pypi.org/project/zipline-tej/">PYPI - zipline-tej</a>  </li>
-<li><a href="https://www.tejwin.com/">TEJ官網 - 大中華最值得信賴的金融解決方案 | TEJ台灣經濟新報</a>  </li>
-<li><a href="https://tquant.tejwin.com/shop/">TQuant Lab 訂閱連結</a></li>
+<li>將外部資料作轉置，一個欄位整理為一個 DataFrame。</li>
+<li>接著將外部資料的 coid 替換成 <code>SID</code>。</li>
+<li>最後將外部資料的 mdate 設定為 UTC 時區。</li>
 </ul>
+<p>註：此處資料採用 <strong>不平移</strong> 的方式進行處理</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">transform_data</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">custom_data</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;coid&#39;</span><span class="p">,</span> <span class="s1">&#39;mdate&#39;</span><span class="p">])[</span><span class="s1">&#39;Qfii_Diff_Vol&#39;</span><span class="p">]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;coid&#39;</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">symbol_map</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span> <span class="c1"># errors = &#39;raise&#39; 會在遇到錯誤時拋出異常，避免 bundle 與 custom_data 資產不一致</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;UTC&#39;</span><span class="p">)</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">transform_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</span></code></pre></div>
 
 
 
@@ -3263,15 +3390,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
+          
+          <a href="../get-risk-free-rate/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 如何取得無風險利率">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                如何取得無風險利率
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="tutorials/getting-started/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 新手必讀">
+          <a href="../../backtest/run-algorithm/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 如何執行一個基本的回測">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                新手必讀
+                如何執行一個基本的回測
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3350,14 +3493,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="assets/javascripts/mathjax.js"></script>
+        <script src="../../../assets/javascripts/mathjax.js"></script>
       
-        <script src="assets/javascripts/theme.js"></script>
+        <script src="../../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

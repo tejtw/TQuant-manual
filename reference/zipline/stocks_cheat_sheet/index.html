@@ -12,29 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/">
+        <link rel="canonical" href="http://127.0.0.1:8000/reference/zipline/stocks_cheat_sheet/">
       
       
+        <link rel="prev" href="../other-api/">
       
-        <link rel="next" href="tutorials/getting-started/">
+      
+        <link rel="next" href="../../pipeline/overview/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>TQuant-manual</title>
+        <title>現貨速查表 - TQuant-manual</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tquant-lab" class="md-skip">
+        <a href="#zipline-api-cheat-sheet" class="md-skip">
           跳轉到
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首頁
+              現貨速查表
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     TQuant-manual
@@ -274,37 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首頁
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -320,48 +295,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速導覽
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相關連結
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/getting-started/" class="md-nav__link">
+      <a href="../../../tutorials/getting-started/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-demo/" class="md-nav__link">
+      <a href="../../../tutorials/quick-demo/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../../tutorials/setup/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../../../tutorials/first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-reference/" class="md-nav__link">
+      <a href="../../../tutorials/quick-reference/" class="md-nav__link">
         
   
   
@@ -640,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/workflow/" class="md-nav__link">
+      <a href="../../../concepts/workflow/" class="md-nav__link">
         
   
   
@@ -725,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/zipline-engine/" class="md-nav__link">
+      <a href="../../../concepts/zipline-engine/" class="md-nav__link">
         
   
   
@@ -753,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../../../concepts/pipeline-overview/" class="md-nav__link">
         
   
   
@@ -781,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/calendars/" class="md-nav__link">
+      <a href="../../../concepts/calendars/" class="md-nav__link">
         
   
   
@@ -872,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../../../concepts/pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -900,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/performance-metrics/" class="md-nav__link">
+      <a href="../../../concepts/performance-metrics/" class="md-nav__link">
         
   
   
@@ -989,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/alphalens-overview/" class="md-nav__link">
+      <a href="../../../concepts/alphalens-overview/" class="md-nav__link">
         
   
   
@@ -1093,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/installation/" class="md-nav__link">
+      <a href="../../../how-to/installation/" class="md-nav__link">
         
   
   
@@ -1182,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-spot-pricing/" class="md-nav__link">
+      <a href="../../../how-to/data/ingest-spot-pricing/" class="md-nav__link">
         
   
   
@@ -1210,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../../../how-to/data/ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1238,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../../../how-to/data/get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1266,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../../../how-to/data/get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1294,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/use-dataframeloader/" class="md-nav__link">
+      <a href="../../../how-to/data/use-dataframeloader/" class="md-nav__link">
         
   
   
@@ -1391,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../../how-to/backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1419,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../../how-to/backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1447,7 +1380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../../how-to/backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1475,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../../how-to/backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1503,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../../how-to/backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1592,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../../how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../../how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1721,8 +1654,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1740,13 +1675,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1767,7 +1700,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1782,8 +1715,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1809,13 +1744,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1836,7 +1769,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1854,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1882,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/context/" class="md-nav__link">
+      <a href="../context/" class="md-nav__link">
         
   
   
@@ -1910,7 +1843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/data-object/" class="md-nav__link">
+      <a href="../data-object/" class="md-nav__link">
         
   
   
@@ -1938,7 +1871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/universe/" class="md-nav__link">
+      <a href="../universe/" class="md-nav__link">
         
   
   
@@ -1966,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1994,7 +1927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/orders/" class="md-nav__link">
+      <a href="../orders/" class="md-nav__link">
         
   
   
@@ -2022,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/assets/" class="md-nav__link">
+      <a href="../assets/" class="md-nav__link">
         
   
   
@@ -2050,7 +1983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/other-api/" class="md-nav__link">
+      <a href="../other-api/" class="md-nav__link">
         
   
   
@@ -2075,10 +2008,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    現貨速查表
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2094,6 +2054,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-initialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 初始化 (initialize)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-data-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 數據獲取 (Data Access)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-trading-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 交易與訂單 (Trading &amp; Orders)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-portfolio-positions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 投資組合與部位 (Portfolio &amp; Positions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-execution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 執行與分析 (Execution &amp; Analysis)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2175,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/overview/" class="md-nav__link">
+      <a href="../../pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2203,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/terms/" class="md-nav__link">
+      <a href="../../pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2231,7 +2266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/custom-factor/" class="md-nav__link">
+      <a href="../../pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2259,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/built-ins/" class="md-nav__link">
+      <a href="../../pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2346,7 +2381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/overview/" class="md-nav__link">
+      <a href="../../pipeline/datasets/overview/" class="md-nav__link">
         
   
   
@@ -2374,7 +2409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
+      <a href="../../pipeline/datasets/equity-pricing/" class="md-nav__link">
         
   
   
@@ -2402,7 +2437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
+      <a href="../../pipeline/datasets/tej-datasets/" class="md-nav__link">
         
   
   
@@ -2430,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
+      <a href="../../pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
@@ -2527,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pyfolio/api.md" class="md-nav__link">
+      <a href="../../pyfolio/api.md" class="md-nav__link">
         
   
   
@@ -2616,7 +2651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/alphalens/api/" class="md-nav__link">
+      <a href="../../alphalens/api/" class="md-nav__link">
         
   
   
@@ -2676,7 +2711,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="reference/tejtoolapi/" class="md-nav__link ">
+            <a href="../../tejtoolapi/" class="md-nav__link ">
               
   
   
@@ -2720,7 +2755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
@@ -2748,7 +2783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../tejtoolapi/rest-api/" class="md-nav__link">
         
   
   
@@ -2819,7 +2854,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="futures/" class="md-nav__link ">
+            <a href="../../../futures/" class="md-nav__link ">
               
   
   
@@ -2863,7 +2898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2891,7 +2926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -2972,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3063,7 +3098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3091,7 +3126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-rollover/" class="md-nav__link">
+      <a href="../../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3154,10 +3189,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-initialize" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速導覽
+        1. 初始化 (initialize)
       
     </span>
   </a>
@@ -3165,10 +3200,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#2-data-access" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相關連結
+        2. 數據獲取 (Data Access)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-trading-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 交易與訂單 (Trading &amp; Orders)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-portfolio-positions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 投資組合與部位 (Portfolio &amp; Positions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-execution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 執行與分析 (Execution &amp; Analysis)
       
     </span>
   </a>
@@ -3195,36 +3263,252 @@
   
 
 
-<h1 id="tquant-lab">TQuant Lab：一站式量化研究平台<a class="headerlink" href="#tquant-lab" title="Permanent link">&para;</a></h1>
+<h1 id="zipline-api-cheat-sheet">Zipline 股票策略備忘錄 (API Cheat Sheet)<a class="headerlink" href="#zipline-api-cheat-sheet" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>歡迎來到 TQuant Lab！本平台整合了全台最完善的量化資料、最強大的事件驅動型回測引擎，以及專業的績效分析工具。無論您是量化研究新手或資深專家，TQuant Lab 都能助您將策略想法轉化為實戰成果。</p>
+<p>本頁提供 TQuant Lab 股票策略開發的 API 快速參考，包含初始化、數據獲取、交易下單、部位管理及回測執行等常用函數。</p>
 </div>
-<p>TQuant Lab 具備三大核心優勢：</p>
-<ul>
-<li><strong>卓越數據品質</strong>：整合龐大且經嚴格驗證的 PIT（Point In Time）資料庫，確保回測結果真實可靠。</li>
-<li><strong>強大回測引擎</strong>：採用 Zipline 事件驅動型回測框架，支援複雜策略邏輯、模組化建構與高效模擬。</li>
-<li><strong>全方位分析工具</strong>：內建 Pyfolio 與 Alphalens 等專業套件，提供詳細績效指標與視覺化報告，助您精準評估策略表現。</li>
-</ul>
+<p>這是一份專為 TQuant Lab 中進行**股票**策略回測設計的 API 快速參考備忘錄。</p>
 <hr />
-<h2 id="_1">快速導覽<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：</p>
-<ul>
-<li><a href="./"><strong>首頁</strong></a>：平台概覽與最新資訊。</li>
-<li><a href="tutorials/getting-started/"><strong>教學</strong></a>：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。</li>
-<li><a href="concepts/workflow/"><strong>核心概念</strong></a>：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。</li>
-<li><a href="how-to/installation/"><strong>操作指南</strong></a>：提供詳細的安裝、資料管理與回測設定教學。</li>
-<li><a href="reference/zipline/lifecycle-functions/"><strong>API 參考</strong></a>：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。</li>
-</ul>
+<h2 id="1-initialize">1. 初始化 (<code>initialize</code>)<a class="headerlink" href="#1-initialize" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>symbol(ticker_str)</code></td>
+<td style="text-align: left;">根據股票代碼取得 <code>Equity</code> 資產物件。</td>
+<td style="text-align: left;"><code>context.asset = symbol('2330')</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>set_benchmark(asset)</code></td>
+<td style="text-align: left;">設定回測的績效比較基準。</td>
+<td style="text-align: left;"><code>set_benchmark(symbol('IR0001'))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>set_commission(...)</code></td>
+<td style="text-align: left;">設定交易手續費模型。</td>
+<td style="text-align: left;"><code>set_commission(equities=commission.PerDollar(cost=0.001425))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>set_slippage(...)</code></td>
+<td style="text-align: left;">設定滑價模型。</td>
+<td style="text-align: left;"><code>set_slippage(equities=slippage.VolumeShareSlippage())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>schedule_function(...)</code></td>
+<td style="text-align: left;">註冊一個排程函數，在特定時間週期性執行。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.every_day())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date_rules.every_day()</code></td>
+<td style="text-align: left;">日期規則：每個交易日。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.every_day())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date_rules.week_start()</code></td>
+<td style="text-align: left;">日期規則：每週的第一個交易日。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.week_start())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date_rules.month_start()</code></td>
+<td style="text-align: left;">日期規則：每個月的第一個交易日。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.month_start())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>time_rules.market_open()</code></td>
+<td style="text-align: left;">時間規則：每日開盤時。可加 <code>minutes</code> 或 <code>hours</code> 參數做偏移。</td>
+<td style="text-align: left;"><code>time_rules.market_open(minutes=30)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>time_rules.market_close()</code></td>
+<td style="text-align: left;">時間規則：每日收盤時。可加 <code>minutes</code> 或 <code>hours</code> 參數做偏移。</td>
+<td style="text-align: left;"><code>time_rules.market_close(minutes=15)</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="_2">相關連結<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://tquant.tejwin.com/">TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰</a>  </li>
-<li><a href="https://github.com/tejtw/TQuant-Lab">GitHub - tejtw/TQuant-Lab: 使用文件、程式範例</a>  </li>
-<li><a href="https://pypi.org/project/zipline-tej/">PYPI - zipline-tej</a>  </li>
-<li><a href="https://www.tejwin.com/">TEJ官網 - 大中華最值得信賴的金融解決方案 | TEJ台灣經濟新報</a>  </li>
-<li><a href="https://tquant.tejwin.com/shop/">TQuant Lab 訂閱連結</a></li>
-</ul>
+<h2 id="2-data-access">2. 數據獲取 (Data Access)<a class="headerlink" href="#2-data-access" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>data.history(...)</code></td>
+<td style="text-align: left;">獲取歷史數據，回傳一個 <code>pandas.DataFrame</code>。</td>
+<td style="text-align: left;"><code>hist = data.history(asset, 'price', 50, '1d')</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>data.current(...)</code></td>
+<td style="text-align: left;">獲取指定資產的當前數據（價格、成交量等）。</td>
+<td style="text-align: left;"><code>price = data.current(asset, 'price')</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>data.can_trade(asset)</code></td>
+<td style="text-align: left;">檢查指定資產在當前時間點是否可交易。</td>
+<td style="text-align: left;"><code>if data.can_trade(my_asset): ...</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_datetime()</code></td>
+<td style="text-align: left;">取得目前回測的時間點 (UTC)。</td>
+<td style="text-align: left;"><code>current_time = get_datetime()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-trading-orders">3. 交易與訂單 (Trading &amp; Orders)<a class="headerlink" href="#3-trading-orders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>order(asset, amount)</code></td>
+<td style="text-align: left;">下一張市價單，買入/賣出指定 <code>amount</code> 的股數。正數為買，負數為賣。</td>
+<td style="text-align: left;"><code>order(symbol('2330'), 1000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_target(asset, amount)</code></td>
+<td style="text-align: left;">下單將資產部位調整至目標 <code>amount</code> 股數。</td>
+<td style="text-align: left;"><code>order_target(symbol('2330'), 5000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_target_percent(asset, pct)</code></td>
+<td style="text-align: left;">下單將資產部位調整至佔總投資組合價值的 <code>pct</code> 比例。</td>
+<td style="text-align: left;"><code>order_target_percent(symbol('2330'), 0.1)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_value(asset, value)</code></td>
+<td style="text-align: left;">下單買入/賣出價值 <code>value</code> 的股票。</td>
+<td style="text-align: left;"><code>order_value(symbol('2330'), 500000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_target_value(asset, value)</code></td>
+<td style="text-align: left;">下單將資產部位調整至目標價值 <code>value</code>。</td>
+<td style="text-align: left;"><code>order_target_value(symbol('2330'), 200000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LimitOrder(price)</code></td>
+<td style="text-align: left;">限價單樣式，需與 <code>order()</code> 函數配合使用。</td>
+<td style="text-align: left;"><code>order(asset, 1000, style=LimitOrder(599.0))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StopOrder(price)</code></td>
+<td style="text-align: left;">停損單樣式（市價）。</td>
+<td style="text-align: left;"><code>order(asset, -1000, style=StopOrder(550.0))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StopLimitOrder(limit, stop)</code></td>
+<td style="text-align: left;">停損限價單樣式。</td>
+<td style="text-align: left;"><code>order(asset, -1000, style=StopLimitOrder(550, 551))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_order(order_id)</code></td>
+<td style="text-align: left;">透過訂單 ID 查詢訂單物件。<code>order()</code> 函數會回傳 ID。</td>
+<td style="text-align: left;"><code>my_order = get_order(order_id)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_open_orders()</code></td>
+<td style="text-align: left;">取得所有未成交的掛單。</td>
+<td style="text-align: left;"><code>open_orders = get_open_orders()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cancel_order(order_id)</code></td>
+<td style="text-align: left;">根據訂單 ID 取消一筆未成交的掛單。</td>
+<td style="text-align: left;"><code>cancel_order(my_order_id)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-portfolio-positions">4. 投資組合與部位 (Portfolio &amp; Positions)<a class="headerlink" href="#4-portfolio-positions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.portfolio_value</code></td>
+<td style="text-align: left;">(屬性) 整個投資組合的總淨值。</td>
+<td style="text-align: left;"><code>net_worth = context.portfolio.portfolio_value</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.cash</code></td>
+<td style="text-align: left;">(屬性) 帳戶中的現金餘額。</td>
+<td style="text-align: left;"><code>cash_balance = context.portfolio.cash</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.positions</code></td>
+<td style="text-align: left;">(屬性) 一個字典，包含所有當前持有的部位。</td>
+<td style="text-align: left;"><code>for asset, pos in context.portfolio.positions.items(): ...</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.positions_value</code></td>
+<td style="text-align: left;">(屬性) 所有持倉的總市值。</td>
+<td style="text-align: left;"><code>total_pos_value = context.portfolio.positions_value</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>position.amount</code></td>
+<td style="text-align: left;">(屬性) 持有的股數。</td>
+<td style="text-align: left;"><code>shares = position.amount</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>position.cost_basis</code></td>
+<td style="text-align: left;">(屬性) 平均持有成本。</td>
+<td style="text-align: left;"><code>avg_cost = position.cost_basis</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>position.last_sale_price</code></td>
+<td style="text-align: left;">(屬性) 最新成交價格。</td>
+<td style="text-align: left;"><code>current_price = position.last_sale_price</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-execution-analysis">5. 執行與分析 (Execution &amp; Analysis)<a class="headerlink" href="#5-execution-analysis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>run_algorithm(...)</code></td>
+<td style="text-align: left;"><strong>核心執行函數</strong>，啟動整個回測。</td>
+<td style="text-align: left;"><code>results = run_algorithm(...)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>record(**kwargs)</code></td>
+<td style="text-align: left;">在每個時間點記錄一個或多個變數，以便後續分析。</td>
+<td style="text-align: left;"><code>record(my_ma=ma_value, price=current_price)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_calendar(name)</code></td>
+<td style="text-align: left;">取得一個交易日曆物件。</td>
+<td style="text-align: left;"><code>trading_calendar=get_calendar('TEJ')</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3263,15 +3547,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
+          
+          <a href="../other-api/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 其他 API">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                其他 API
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="tutorials/getting-started/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 新手必讀">
+          <a href="../../pipeline/overview/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 概論">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                新手必讀
+                概論
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3350,14 +3650,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="assets/javascripts/mathjax.js"></script>
+        <script src="../../../assets/javascripts/mathjax.js"></script>
       
-        <script src="assets/javascripts/theme.js"></script>
+        <script src="../../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

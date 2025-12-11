@@ -12,29 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/">
+        <link rel="canonical" href="http://127.0.0.1:8000/reference/zipline/context/">
       
       
+        <link rel="prev" href="../lifecycle-functions/">
       
-        <link rel="next" href="tutorials/getting-started/">
+      
+        <link rel="next" href="../data-object/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>TQuant-manual</title>
+        <title>context 變數 - TQuant-manual</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tquant-lab" class="md-skip">
+        <a href="#zipline-context" class="md-skip">
           跳轉到
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首頁
+              context 變數
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     TQuant-manual
@@ -274,37 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首頁
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -320,48 +295,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速導覽
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相關連結
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/getting-started/" class="md-nav__link">
+      <a href="../../../tutorials/getting-started/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-demo/" class="md-nav__link">
+      <a href="../../../tutorials/quick-demo/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../../tutorials/setup/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../../../tutorials/first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-reference/" class="md-nav__link">
+      <a href="../../../tutorials/quick-reference/" class="md-nav__link">
         
   
   
@@ -640,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/workflow/" class="md-nav__link">
+      <a href="../../../concepts/workflow/" class="md-nav__link">
         
   
   
@@ -725,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/zipline-engine/" class="md-nav__link">
+      <a href="../../../concepts/zipline-engine/" class="md-nav__link">
         
   
   
@@ -753,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../../../concepts/pipeline-overview/" class="md-nav__link">
         
   
   
@@ -781,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/calendars/" class="md-nav__link">
+      <a href="../../../concepts/calendars/" class="md-nav__link">
         
   
   
@@ -872,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../../../concepts/pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -900,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/performance-metrics/" class="md-nav__link">
+      <a href="../../../concepts/performance-metrics/" class="md-nav__link">
         
   
   
@@ -989,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/alphalens-overview/" class="md-nav__link">
+      <a href="../../../concepts/alphalens-overview/" class="md-nav__link">
         
   
   
@@ -1093,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/installation/" class="md-nav__link">
+      <a href="../../../how-to/installation/" class="md-nav__link">
         
   
   
@@ -1182,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-spot-pricing/" class="md-nav__link">
+      <a href="../../../how-to/data/ingest-spot-pricing/" class="md-nav__link">
         
   
   
@@ -1210,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../../../how-to/data/ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1238,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../../../how-to/data/get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1266,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../../../how-to/data/get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1294,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/use-dataframeloader/" class="md-nav__link">
+      <a href="../../../how-to/data/use-dataframeloader/" class="md-nav__link">
         
   
   
@@ -1391,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../../how-to/backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1419,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../../how-to/backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1447,7 +1380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../../how-to/backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1475,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../../how-to/backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1503,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../../how-to/backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1592,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../../how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../../how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1721,8 +1654,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1740,13 +1675,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1767,7 +1700,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1782,8 +1715,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1809,13 +1744,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1836,7 +1769,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1854,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1879,10 +1812,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="reference/zipline/context/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    context 變數
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1898,6 +1858,143 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. context 簡介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. context 的主要內建屬性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. context 的主要內建屬性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-contextportfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. context.portfolio：投資組合狀態
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. context.portfolio：投資組合狀態">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        範例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-contextblotter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. context.blotter：交易記錄器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-contextasset_finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. context.asset_finder：資產查找器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-custom-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 自定義屬性 (Custom Attributes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 自定義屬性 (Custom Attributes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        範例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 完整範例
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1910,7 +2007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/data-object/" class="md-nav__link">
+      <a href="../data-object/" class="md-nav__link">
         
   
   
@@ -1938,7 +2035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/universe/" class="md-nav__link">
+      <a href="../universe/" class="md-nav__link">
         
   
   
@@ -1966,7 +2063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1994,7 +2091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/orders/" class="md-nav__link">
+      <a href="../orders/" class="md-nav__link">
         
   
   
@@ -2022,7 +2119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/assets/" class="md-nav__link">
+      <a href="../assets/" class="md-nav__link">
         
   
   
@@ -2050,7 +2147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/other-api/" class="md-nav__link">
+      <a href="../other-api/" class="md-nav__link">
         
   
   
@@ -2078,7 +2175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
+      <a href="../stocks_cheat_sheet/" class="md-nav__link">
         
   
   
@@ -2175,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/overview/" class="md-nav__link">
+      <a href="../../pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2203,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/terms/" class="md-nav__link">
+      <a href="../../pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2231,7 +2328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/custom-factor/" class="md-nav__link">
+      <a href="../../pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2259,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/built-ins/" class="md-nav__link">
+      <a href="../../pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2346,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/overview/" class="md-nav__link">
+      <a href="../../pipeline/datasets/overview/" class="md-nav__link">
         
   
   
@@ -2374,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
+      <a href="../../pipeline/datasets/equity-pricing/" class="md-nav__link">
         
   
   
@@ -2402,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
+      <a href="../../pipeline/datasets/tej-datasets/" class="md-nav__link">
         
   
   
@@ -2430,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
+      <a href="../../pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
@@ -2527,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pyfolio/api.md" class="md-nav__link">
+      <a href="../../pyfolio/api.md" class="md-nav__link">
         
   
   
@@ -2616,7 +2713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/alphalens/api/" class="md-nav__link">
+      <a href="../../alphalens/api/" class="md-nav__link">
         
   
   
@@ -2676,7 +2773,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="reference/tejtoolapi/" class="md-nav__link ">
+            <a href="../../tejtoolapi/" class="md-nav__link ">
               
   
   
@@ -2720,7 +2817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
@@ -2748,7 +2845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../tejtoolapi/rest-api/" class="md-nav__link">
         
   
   
@@ -2819,7 +2916,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="futures/" class="md-nav__link ">
+            <a href="../../../futures/" class="md-nav__link ">
               
   
   
@@ -2863,7 +2960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2891,7 +2988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -2972,7 +3069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3063,7 +3160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3091,7 +3188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-rollover/" class="md-nav__link">
+      <a href="../../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3154,10 +3251,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速導覽
+        1. context 簡介
       
     </span>
   </a>
@@ -3165,10 +3262,105 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. context 的主要內建屬性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. context 的主要內建屬性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-contextportfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. context.portfolio：投資組合狀態
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. context.portfolio：投資組合狀態">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        範例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-contextblotter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. context.blotter：交易記錄器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-contextasset_finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. context.asset_finder：資產查找器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-custom-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 自定義屬性 (Custom Attributes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 自定義屬性 (Custom Attributes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相關連結
+        範例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 完整範例
       
     </span>
   </a>
@@ -3195,36 +3387,120 @@
   
 
 
-<h1 id="tquant-lab">TQuant Lab：一站式量化研究平台<a class="headerlink" href="#tquant-lab" title="Permanent link">&para;</a></h1>
+<h1 id="zipline-context">Zipline 回測中的 context 物件<a class="headerlink" href="#zipline-context" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>歡迎來到 TQuant Lab！本平台整合了全台最完善的量化資料、最強大的事件驅動型回測引擎，以及專業的績效分析工具。無論您是量化研究新手或資深專家，TQuant Lab 都能助您將策略想法轉化為實戰成果。</p>
+<p>本頁深入介紹 Zipline 回測中的 <code>context</code> 物件，包括其核心作用、主要內建屬性、自定義屬性以及完整範例，幫助使用者理解如何儲存和傳遞策略狀態資訊。</p>
 </div>
-<p>TQuant Lab 具備三大核心優勢：</p>
-<ul>
-<li><strong>卓越數據品質</strong>：整合龐大且經嚴格驗證的 PIT（Point In Time）資料庫，確保回測結果真實可靠。</li>
-<li><strong>強大回測引擎</strong>：採用 Zipline 事件驅動型回測框架，支援複雜策略邏輯、模組化建構與高效模擬。</li>
-<li><strong>全方位分析工具</strong>：內建 Pyfolio 與 Alphalens 等專業套件，提供詳細績效指標與視覺化報告，助您精準評估策略表現。</li>
-</ul>
+<p>在 Zipline 的事件驅動回測框架中，<code>context</code> 物件是策略的核心。它在整個回測過程中持續存在，並在 <code>initialize()</code>、<code>before_trading_start()</code>、<code>handle_data()</code> 和 <code>analyze()</code> 等生命週期函數之間傳遞策略的狀態資訊。透過 <code>context</code>，您可以存取投資組合的當前狀態、記錄交易資訊，以及儲存任何自定義的策略變數。</p>
 <hr />
-<h2 id="_1">快速導覽<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：</p>
-<ul>
-<li><a href="./"><strong>首頁</strong></a>：平台概覽與最新資訊。</li>
-<li><a href="tutorials/getting-started/"><strong>教學</strong></a>：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。</li>
-<li><a href="concepts/workflow/"><strong>核心概念</strong></a>：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。</li>
-<li><a href="how-to/installation/"><strong>操作指南</strong></a>：提供詳細的安裝、資料管理與回測設定教學。</li>
-<li><a href="reference/zipline/lifecycle-functions/"><strong>API 參考</strong></a>：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。</li>
-</ul>
+<h2 id="1-context">1. context 簡介<a class="headerlink" href="#1-context" title="Permanent link">&para;</a></h2>
+<p><code>context</code> 就像一個專屬於您策略的儲物櫃，它：
+*   <strong>持久性</strong>: 一旦在 <code>initialize()</code> 中設定，<code>context</code> 的內容就會在整個回測期間保持不變，除非您明確修改它。
+*   <strong>可變性</strong>: 您可以在回測的任何階段讀取或修改 <code>context</code> 的屬性。
+*   <strong>全局性</strong>: 它是策略中所有生命週期函數共享的唯一狀態容器。</p>
 <hr />
-<h2 id="_2">相關連結<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="2-context">2. context 的主要內建屬性<a class="headerlink" href="#2-context" title="Permanent link">&para;</a></h2>
+<p><code>context</code> 物件內置了幾個重要的屬性，提供了關於投資組合和回測環境的實時資訊。</p>
+<h3 id="21-contextportfolio">2.1. context.portfolio：投資組合狀態<a class="headerlink" href="#21-contextportfolio" title="Permanent link">&para;</a></h3>
+<p><code>context.portfolio</code> 是一個非常重要的屬性，它提供了當前投資組合的詳細情況。</p>
 <ul>
-<li><a href="https://tquant.tejwin.com/">TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰</a>  </li>
-<li><a href="https://github.com/tejtw/TQuant-Lab">GitHub - tejtw/TQuant-Lab: 使用文件、程式範例</a>  </li>
-<li><a href="https://pypi.org/project/zipline-tej/">PYPI - zipline-tej</a>  </li>
-<li><a href="https://www.tejwin.com/">TEJ官網 - 大中華最值得信賴的金融解決方案 | TEJ台灣經濟新報</a>  </li>
-<li><a href="https://tquant.tejwin.com/shop/">TQuant Lab 訂閱連結</a></li>
+<li><code>context.portfolio.cash</code>: 當前可用的現金餘額。</li>
+<li><code>context.portfolio.positions</code>: 一個字典型物件，鍵為資產物件，值為 <code>Position</code> 物件，包含了您目前持有的所有資產及其詳細資訊（例如持股數量 <code>amount</code>）。<ul>
+<li><code>context.portfolio.positions[asset].amount</code>: 獲取特定資產的持股數量。</li>
+<li><code>context.portfolio.positions.keys()</code>: 獲取一個列表，包含所有目前持有的資產物件。</li>
 </ul>
+</li>
+<li><code>context.portfolio.portfolio_value</code>: 投資組合的當前總市值（現金 + 持股價值）。</li>
+<li><code>context.portfolio.positions_value</code>: 所有持股的當前總市值。</li>
+</ul>
+<h4 id="_1">範例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># 檢查是否有足夠的現金來下單</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">cash</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="c1"># ... 執行買入操作 ...</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">pass</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="c1"># 遍歷所有持有的部位</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">for</span> <span class="n">asset</span><span class="p">,</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;持有 </span><span class="si">{</span><span class="n">asset</span><span class="o">.</span><span class="n">symbol</span><span class="si">}</span><span class="s2"> 股數: </span><span class="si">{</span><span class="n">position</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">, 當前市值: </span><span class="si">{</span><span class="n">position</span><span class="o">.</span><span class="n">last_sale_price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">position</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="c1"># 打印投資組合總價值</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;投資組合總價值: </span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">portfolio_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="22-contextblotter">2.2. context.blotter：交易記錄器<a class="headerlink" href="#22-contextblotter" title="Permanent link">&para;</a></h3>
+<p><code>context.blotter</code> 物件提供了對交易歷史和未完成訂單的訪問介面。儘管在一般的策略範例中不常用，但對於需要精細控制訂單狀態或分析歷史交易的進階策略非常有用。</p>
+<ul>
+<li><code>context.blotter.open_orders</code>: 獲取一個字典，包含所有尚未完全成交的訂單。</li>
+</ul>
+<h3 id="23-contextasset_finder">2.3. context.asset_finder：資產查找器<a class="headerlink" href="#23-contextasset_finder" title="Permanent link">&para;</a></h3>
+<p><code>context.asset_finder</code> 是一個用於根據符號 (symbol)、SID (Zipline ID) 或其他屬性查找資產物件的工具。在大多數情況下，您可以使用 <code>zipline.api.symbol()</code> 或 <code>asset_finder.lookup_symbol()</code> 來獲取資產物件。</p>
+<hr />
+<h2 id="3-custom-attributes">3. 自定義屬性 (Custom Attributes)<a class="headerlink" href="#3-custom-attributes" title="Permanent link">&para;</a></h2>
+<p>您可以在 <code>initialize()</code> 函數中為 <code>context</code> 物件添加任意自定義屬性，以便在回測的後續階段（如 <code>handle_data()</code>）中存儲和檢索策略的內部狀態或額外數據。</p>
+<h4 id="_2">範例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">my_flag</span> <span class="o">=</span> <span class="kc">False</span>          <span class="c1"># 儲存布林值</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">context</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># 儲存整數計數器</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">context</span><span class="o">.</span><span class="n">stock_list</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1"># 儲存股票列表</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">my_data_dict</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c1"># 儲存字典</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">context</span><span class="o">.</span><span class="n">my_flag</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;這是第一次進入 handle_data！&quot;</span><span class="p">)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">context</span><span class="o">.</span><span class="n">my_flag</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># 修改自定義屬性</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">context</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;已運行 </span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">counter</span><span class="si">}</span><span class="s2"> 次 handle_data。&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4">4. 完整範例<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>以下是一個完整的範例，演示如何在 <code>initialize()</code> 中設定 <code>context</code>，並在 <code>handle_data()</code> 中使用其內建和自定義屬性。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_algorithm</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">order_target_percent</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">set_benchmark</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">context</span><span class="o">.</span><span class="n">my_asset</span> <span class="o">=</span> <span class="n">symbol</span><span class="p">(</span><span class="s1">&#39;2330&#39;</span><span class="p">)</span> <span class="c1"># 設定一個要交易的資產</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">context</span><span class="o">.</span><span class="n">has_ordered</span> <span class="o">=</span> <span class="kc">False</span>       <span class="c1"># 自定義旗標，追蹤是否已下單</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">context</span><span class="o">.</span><span class="n">trade_count</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># 自定義計數器</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">set_benchmark</span><span class="p">(</span><span class="n">symbol</span><span class="p">(</span><span class="s1">&#39;IR0001&#39;</span><span class="p">))</span>   <span class="c1"># 設定 Benchmark</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># 檢查是否已下單</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">context</span><span class="o">.</span><span class="n">has_ordered</span><span class="p">:</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="c1"># 使用 context.portfolio.cash 檢查是否有足夠現金</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">cash</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">current</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">my_asset</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">:</span> <span class="c1"># 假設買100股</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>            <span class="n">order_target_percent</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">my_asset</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="c1"># 全倉買入</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            <span class="n">context</span><span class="o">.</span><span class="n">has_ordered</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>            <span class="n">context</span><span class="o">.</span><span class="n">trade_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;買入 </span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">my_asset</span><span class="o">.</span><span class="n">symbol</span><span class="si">}</span><span class="s2">，現金餘額: </span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">cash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="c1"># 在每隔一段時間後打印持倉信息</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="n">context</span><span class="o">.</span><span class="n">trade_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">trade_count</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">my_asset</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">positions</span><span class="p">:</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>            <span class="n">pos</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">positions</span><span class="p">[</span><span class="n">context</span><span class="o">.</span><span class="n">my_asset</span><span class="p">]</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;日期: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">current_dt</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2"> 持有 </span><span class="si">{</span><span class="n">pos</span><span class="o">.</span><span class="n">asset</span><span class="o">.</span><span class="n">symbol</span><span class="si">}</span><span class="s2"> 股數: </span><span class="si">{</span><span class="n">pos</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;投資組合總價值: </span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">portfolio_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="c1"># 此處可以利用 context 進行分析，例如打印最終的 trade_count</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;總交易次數: </span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">trade_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;最終投資組合價值: </span><span class="si">{</span><span class="n">results</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;portfolio_value&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="c1"># 執行回測</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="n">results</span> <span class="o">=</span> <span class="n">run_algorithm</span><span class="p">(</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="n">start</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    <span class="n">end</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    <span class="n">initialize</span><span class="o">=</span><span class="n">initialize</span><span class="p">,</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>    <span class="n">handle_data</span><span class="o">=</span><span class="n">handle_data</span><span class="p">,</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>    <span class="n">analyze</span><span class="o">=</span><span class="n">analyze</span><span class="p">,</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="n">capital_base</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>    <span class="n">bundle</span><span class="o">=</span><span class="s1">&#39;tquant&#39;</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="p">)</span>
+</span></code></pre></div>
 
 
 
@@ -3263,15 +3539,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
+          
+          <a href="../lifecycle-functions/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 生命週期函數">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                生命週期函數
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="tutorials/getting-started/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 新手必讀">
+          <a href="../data-object/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 資料物件">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                新手必讀
+                資料物件
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3350,14 +3642,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="assets/javascripts/mathjax.js"></script>
+        <script src="../../../assets/javascripts/mathjax.js"></script>
       
-        <script src="assets/javascripts/theme.js"></script>
+        <script src="../../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

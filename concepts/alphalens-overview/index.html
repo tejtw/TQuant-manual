@@ -12,29 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/">
+        <link rel="canonical" href="http://127.0.0.1:8000/concepts/alphalens-overview/">
       
       
+        <link rel="prev" href="../performance-metrics/">
       
-        <link rel="next" href="tutorials/getting-started/">
+      
+        <link rel="next" href="../../how-to/installation/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>TQuant-manual</title>
+        <title>Alphalens 因子分析概論 - TQuant-manual</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tquant-lab" class="md-skip">
+        <a href="#alphalens" class="md-skip">
           跳轉到
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首頁
+              Alphalens 因子分析概論
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     TQuant-manual
@@ -274,37 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首頁
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -320,48 +295,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速導覽
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相關連結
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/getting-started/" class="md-nav__link">
+      <a href="../../tutorials/getting-started/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-demo/" class="md-nav__link">
+      <a href="../../tutorials/quick-demo/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../tutorials/setup/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../../tutorials/first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-reference/" class="md-nav__link">
+      <a href="../../tutorials/quick-reference/" class="md-nav__link">
         
   
   
@@ -578,8 +511,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -595,13 +530,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -622,7 +555,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -640,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/workflow/" class="md-nav__link">
+      <a href="../workflow/" class="md-nav__link">
         
   
   
@@ -725,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/zipline-engine/" class="md-nav__link">
+      <a href="../zipline-engine/" class="md-nav__link">
         
   
   
@@ -753,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../pipeline-overview/" class="md-nav__link">
         
   
   
@@ -781,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/calendars/" class="md-nav__link">
+      <a href="../calendars/" class="md-nav__link">
         
   
   
@@ -872,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -900,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/performance-metrics/" class="md-nav__link">
+      <a href="../performance-metrics/" class="md-nav__link">
         
   
   
@@ -933,8 +866,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -944,13 +879,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -971,7 +904,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -986,10 +919,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="concepts/alphalens-overview/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alphalens 因子分析概論
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1005,6 +965,248 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-alphalens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Alphalens 的核心概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Alphalens 的核心概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子 (Factor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#factor-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子報酬 (Factor Returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information-coefficient-ic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資訊係數 (Information Coefficient, IC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#factor-rank-autocorrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子排序自相關 (Factor Rank Autocorrelation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-alphalens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Alphalens 工作流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Alphalens 工作流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        步驟 1：準備因子數據與價格數據
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get_clean_factor_and_forward_returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        步驟 2：清洗與對齊數據 (get_clean_factor_and_forward_returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tear-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        步驟 3：生成因子分析報告 (Tear Sheet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-alphalens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 解讀 Alphalens 關鍵圖表與指標
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 解讀 Alphalens 關鍵圖表與指標">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子報酬分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資訊係數 (IC) 分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        換手率分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-demeaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 去市場化 (Demeaning) 概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 去市場化 (Demeaning) 概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什麼是去市場化？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demeaned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        demeaned 參數的使用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何時使用去市場化？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        總結
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1093,7 +1295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/installation/" class="md-nav__link">
+      <a href="../../how-to/installation/" class="md-nav__link">
         
   
   
@@ -1182,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-spot-pricing/" class="md-nav__link">
+      <a href="../../how-to/data/ingest-spot-pricing/" class="md-nav__link">
         
   
   
@@ -1210,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../../how-to/data/ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1238,7 +1440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../../how-to/data/get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1266,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../../how-to/data/get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1294,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/use-dataframeloader/" class="md-nav__link">
+      <a href="../../how-to/data/use-dataframeloader/" class="md-nav__link">
         
   
   
@@ -1391,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../how-to/backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1419,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../how-to/backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1447,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1475,7 +1677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1503,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1592,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1854,7 +2056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../../reference/zipline/lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1882,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/context/" class="md-nav__link">
+      <a href="../../reference/zipline/context/" class="md-nav__link">
         
   
   
@@ -1910,7 +2112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/data-object/" class="md-nav__link">
+      <a href="../../reference/zipline/data-object/" class="md-nav__link">
         
   
   
@@ -1938,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/universe/" class="md-nav__link">
+      <a href="../../reference/zipline/universe/" class="md-nav__link">
         
   
   
@@ -1966,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../../reference/zipline/scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1994,7 +2196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/orders/" class="md-nav__link">
+      <a href="../../reference/zipline/orders/" class="md-nav__link">
         
   
   
@@ -2022,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/assets/" class="md-nav__link">
+      <a href="../../reference/zipline/assets/" class="md-nav__link">
         
   
   
@@ -2050,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/other-api/" class="md-nav__link">
+      <a href="../../reference/zipline/other-api/" class="md-nav__link">
         
   
   
@@ -2078,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
+      <a href="../../reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
         
   
   
@@ -2175,7 +2377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/overview/" class="md-nav__link">
+      <a href="../../reference/pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2203,7 +2405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/terms/" class="md-nav__link">
+      <a href="../../reference/pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2231,7 +2433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/custom-factor/" class="md-nav__link">
+      <a href="../../reference/pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2259,7 +2461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/built-ins/" class="md-nav__link">
+      <a href="../../reference/pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2346,7 +2548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/overview/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/overview/" class="md-nav__link">
         
   
   
@@ -2374,7 +2576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
         
   
   
@@ -2402,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
         
   
   
@@ -2430,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
@@ -2527,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pyfolio/api.md" class="md-nav__link">
+      <a href="../../reference/pyfolio/api.md" class="md-nav__link">
         
   
   
@@ -2616,7 +2818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/alphalens/api/" class="md-nav__link">
+      <a href="../../reference/alphalens/api/" class="md-nav__link">
         
   
   
@@ -2676,7 +2878,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="reference/tejtoolapi/" class="md-nav__link ">
+            <a href="../../reference/tejtoolapi/" class="md-nav__link ">
               
   
   
@@ -2720,7 +2922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../reference/tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
@@ -2748,7 +2950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../reference/tejtoolapi/rest-api/" class="md-nav__link">
         
   
   
@@ -2819,7 +3021,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="futures/" class="md-nav__link ">
+            <a href="../../futures/" class="md-nav__link ">
               
   
   
@@ -2863,7 +3065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2891,7 +3093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -2972,7 +3174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3063,7 +3265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3091,7 +3293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-rollover/" class="md-nav__link">
+      <a href="../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3154,21 +3356,221 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-alphalens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速導覽
+        1. Alphalens 的核心概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Alphalens 的核心概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子 (Factor)
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#factor-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子報酬 (Factor Returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information-coefficient-ic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資訊係數 (Information Coefficient, IC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#factor-rank-autocorrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子排序自相關 (Factor Rank Autocorrelation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#2-alphalens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Alphalens 工作流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Alphalens 工作流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        步驟 1：準備因子數據與價格數據
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get_clean_factor_and_forward_returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        步驟 2：清洗與對齊數據 (get_clean_factor_and_forward_returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tear-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        步驟 3：生成因子分析報告 (Tear Sheet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-alphalens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 解讀 Alphalens 關鍵圖表與指標
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 解讀 Alphalens 關鍵圖表與指標">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子報酬分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資訊係數 (IC) 分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相關連結
+        換手率分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-demeaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 去市場化 (Demeaning) 概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 去市場化 (Demeaning) 概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什麼是去市場化？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demeaned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        demeaned 參數的使用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何時使用去市場化？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        總結
       
     </span>
   </a>
@@ -3195,36 +3597,228 @@
   
 
 
-<h1 id="tquant-lab">TQuant Lab：一站式量化研究平台<a class="headerlink" href="#tquant-lab" title="Permanent link">&para;</a></h1>
+<h1 id="alphalens">Alphalens 因子分析概論<a class="headerlink" href="#alphalens" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>歡迎來到 TQuant Lab！本平台整合了全台最完善的量化資料、最強大的事件驅動型回測引擎，以及專業的績效分析工具。無論您是量化研究新手或資深專家，TQuant Lab 都能助您將策略想法轉化為實戰成果。</p>
+<p>本頁介紹 TQuant Lab 中整合的強大因子分析工具 Alphalens，內容涵蓋其核心功能、如何從 Pipeline 因子數據中生成因子分析報告，以及如何解讀報告中的關鍵指標和圖表，幫助您深入評估因子的有效性。</p>
 </div>
-<p>TQuant Lab 具備三大核心優勢：</p>
+<p>在量化投資中，因子 (Factor) 是驅動策略的核心。一個有效的因子能夠預測資產未來的報酬，從而為策略帶來超額收益。然而，如何科學地評估一個因子的有效性、穩定性以及其潛在的交易成本，是因子研究中的關鍵挑戰。Alphalens 正是為了解決這些問題而設計的 Python 套件。</p>
+<p>Alphalens 能夠將您從 Pipeline 中生成的因子數據，與市場價格數據結合，自動計算一系列標準化的因子分析指標和視覺化圖表，幫助您全面了解因子的品質。</p>
+<hr />
+<h2 id="1-alphalens">1. Alphalens 的核心概念<a class="headerlink" href="#1-alphalens" title="Permanent link">&para;</a></h2>
+<p>在深入了解 Alphalens 的使用之前，讓我們先回顧幾個核心概念：</p>
+<h3 id="factor">因子 (Factor)<a class="headerlink" href="#factor" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>卓越數據品質</strong>：整合龐大且經嚴格驗證的 PIT（Point In Time）資料庫，確保回測結果真實可靠。</li>
-<li><strong>強大回測引擎</strong>：採用 Zipline 事件驅動型回測框架，支援複雜策略邏輯、模組化建構與高效模擬。</li>
-<li><strong>全方位分析工具</strong>：內建 Pyfolio 與 Alphalens 等專業套件，提供詳細績效指標與視覺化報告，助您精準評估策略表現。</li>
+<li><strong>定義</strong> ：因子是能夠解釋或預測資產報酬的特徵。例如，市值、本益比、動量、波動率等都可以是因子。</li>
+<li><strong>來源</strong> ：在 TQuant Lab 中，因子通常透過 Zipline Pipeline 生成。</li>
+</ul>
+<h3 id="factor-returns">因子報酬 (Factor Returns)<a class="headerlink" href="#factor-returns" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定義</strong> ：將股票根據因子值進行分組（例如，分為 5 個分位數組），然後計算每個分組在未來一段時間內的平均報酬。因子報酬衡量了因子值高低與未來報酬之間的關係。</li>
+<li><strong>多空組合</strong> ：通常會比較因子值最高的分組（多頭）與最低的分組（空頭）之間的報酬差異，以評估因子的預測能力。</li>
+</ul>
+<h3 id="information-coefficient-ic">資訊係數 (Information Coefficient, IC)<a class="headerlink" href="#information-coefficient-ic" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定義</strong> ：IC 衡量了因子值與未來報酬之間的 <strong>秩相關性 (Rank Correlation)</strong> 。簡單來說，它評估了因子對未來報酬的預測能力。</li>
+<li><strong>範圍</strong> ：IC 值介於 -1 到 1 之間。<ul>
+<li><code>IC &gt; 0</code>：因子值越高，未來報酬越高（正相關）。</li>
+<li><code>IC &lt; 0</code>：因子值越高，未來報酬越低（負相關）。</li>
+<li><code>IC = 0</code>：因子與未來報酬無關。</li>
+</ul>
+</li>
+<li><strong>重要性</strong> ：一個穩定且顯著為正（或負）的 IC 值，是因子有效性的重要證據。</li>
+</ul>
+<h3 id="factor-rank-autocorrelation">因子排序自相關 (Factor Rank Autocorrelation)<a class="headerlink" href="#factor-rank-autocorrelation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定義</strong> ：衡量因子在不同時間點上的排序穩定性。例如，一個股票今天在因子值上排名靠前，那麼它明天是否仍然排名靠前？</li>
+<li><strong>重要性</strong> ：高自相關性意味著因子值變化緩慢，這有助於降低策略的換手率 (Turnover)，從而減少交易成本。低自相關性則可能導致高換手率。</li>
 </ul>
 <hr />
-<h2 id="_1">快速導覽<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：</p>
+<h2 id="2-alphalens">2. Alphalens 工作流程<a class="headerlink" href="#2-alphalens" title="Permanent link">&para;</a></h2>
+<p>使用 Alphalens 進行因子分析的標準流程如下：</p>
+<h3 id="1">步驟 1：準備因子數據與價格數據<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>您需要準備兩個主要的數據集：</p>
+<ol>
+<li>
+<p><strong>因子數據 (Factor Data)</strong> ：</p>
 <ul>
-<li><a href="./"><strong>首頁</strong></a>：平台概覽與最新資訊。</li>
-<li><a href="tutorials/getting-started/"><strong>教學</strong></a>：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。</li>
-<li><a href="concepts/workflow/"><strong>核心概念</strong></a>：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。</li>
-<li><a href="how-to/installation/"><strong>操作指南</strong></a>：提供詳細的安裝、資料管理與回測設定教學。</li>
-<li><a href="reference/zipline/lifecycle-functions/"><strong>API 參考</strong></a>：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。</li>
+<li>一個 Pandas Series 或 DataFrame，索引為 <code>(日期, 資產)</code> 的 MultiIndex。</li>
+<li>值為每個資產在每個日期上的因子值。</li>
+<li>通常來自 Zipline Pipeline 的輸出。</li>
+</ul>
+</li>
+<li>
+<p><strong>價格數據 (Pricing Data)</strong> ：</p>
+<ul>
+<li>一個 Pandas DataFrame，索引為 <code>日期</code>，欄位為 <code>資產</code>。</li>
+<li>值為每個資產在每個日期上的收盤價（或其他用於計算報酬的價格）。</li>
+<li>通常來自 Zipline 的 <code>data.history()</code> 或直接從 TEJ 獲取。</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-get_clean_factor_and_forward_returns">步驟 2：清洗與對齊數據 (get_clean_factor_and_forward_returns)<a class="headerlink" href="#2-get_clean_factor_and_forward_returns" title="Permanent link">&para;</a></h3>
+<p>這是 Alphalens 工作流程中最關鍵的一步。<code>alphalens.utils.get_clean_factor_and_forward_returns()</code> 函數會自動處理以下任務：</p>
+<ul>
+<li><strong>數據對齊</strong> ：將因子數據與價格數據按日期和資產進行對齊。</li>
+<li><strong>計算未來報酬</strong> ：根據指定的持有期 (<code>periods</code>)，計算每個資產在因子值發布後未來一段時間的報酬率。</li>
+<li><strong>數據清洗</strong> ：處理缺失值、異常值，並確保數據格式符合 Alphalens 的要求。</li>
+</ul>
+<p>此函數提供多個參數來控制因子的分組方式：</p>
+<ul>
+<li>
+<p><code>quantiles</code> (int, default 5)：</p>
+<ul>
+<li><strong>用途</strong> ：將因子值分為指定數量的分位數組。例如，<code>quantiles=5</code> 會將股票分為 5 組，每組包含大致相同數量的股票。</li>
+<li><strong>適用場景</strong> ：當您希望按股票數量平均分組時使用。</li>
+</ul>
+</li>
+<li>
+<p><code>bins</code> (list or array, optional)：</p>
+<ul>
+<li><strong>用途</strong> ：提供自定義的因子值邊界來進行分組。例如，<code>bins=[-np.inf, -1, 0, 1, np.inf]</code> 會將因子值分為小於 -1、-1 到 0、0 到 1、大於 1 的四組。</li>
+<li><strong>適用場景</strong> ：當您希望根據因子值的實際分佈或特定閾值進行分組時使用。</li>
+</ul>
+</li>
+<li>
+<p><code>binning_by_group</code> (bool, default False)：</p>
+<ul>
+<li><strong>用途</strong> ：當設置為 <code>True</code> 時，會根據 <code>groupby</code> 參數指定的組（例如行業）分別進行分位數或分箱操作。</li>
+<li><strong>適用場景</strong> ：當您希望在每個行業內部獨立進行因子分組，以消除行業偏見時使用。</li>
+</ul>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">alphalens</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">al</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 假設 factor_data 是您從 Pipeline 獲取的因子值 (MultiIndex: date, asset)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 假設 pricing_data 是您獲取的股票價格數據 (DataFrame: index=date, columns=asset)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># 為了演示，我們創建一些模擬數據</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">factor_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;utc&#39;</span><span class="p">)],</span> <span class="p">[</span><span class="s1">&#39;2330&#39;</span><span class="p">,</span> <span class="s1">&#39;2454&#39;</span><span class="p">,</span> <span class="s1">&#39;2303&#39;</span><span class="p">,</span> <span class="s1">&#39;2881&#39;</span><span class="p">]]))</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">pricing_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;utc&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2330&#39;</span><span class="p">,</span> <span class="s1">&#39;2454&#39;</span><span class="p">,</span> <span class="s1">&#39;2303&#39;</span><span class="p">,</span> <span class="s1">&#39;2881&#39;</span><span class="p">])</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># 範例 1: 使用 quantiles 進行分組 (預設行為)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">factor_data_quantiles</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_clean_factor_and_forward_returns</span><span class="p">(</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">factor</span><span class="o">=</span><span class="n">factor_data</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">prices</span><span class="o">=</span><span class="n">pricing_data</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">periods</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="c1"># 計算未來 1, 5, 10 天的報酬</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">quantiles</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="c1"># 將因子分為 5 個分位數組</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">groupby</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">max_loss</span><span class="o">=</span><span class="mf">0.35</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">)</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># 範例 2: 使用 bins 進行自定義分組</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">factor_data_bins</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_clean_factor_and_forward_returns</span><span class="p">(</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">factor</span><span class="o">=</span><span class="n">factor_data</span><span class="p">,</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="n">prices</span><span class="o">=</span><span class="n">pricing_data</span><span class="p">,</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="n">periods</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="c1"># 自定義 5 個分箱邊界</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="n">groupby</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="n">max_loss</span><span class="o">=</span><span class="mf">0.35</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">)</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="c1"># 範例 3: 假設有行業分組數據，並按行業進行分組 (binning_by_group=True)</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1"># industry_data = pd.Series(..., index=pd.MultiIndex.from_product(...))</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="c1"># factor_data_by_group = al.utils.get_clean_factor_and_forward_returns(</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="c1"># factor=factor_data,</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1"># prices=pricing_data,</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="c1"># periods=(1, 5, 10),</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="c1"># quantiles=5,</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="c1"># groupby=industry_data, # 傳入行業分組數據</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="c1"># binning_by_group=True, # 在每個行業內部獨立分組</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="c1"># max_loss=0.35</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="c1"># )</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;使用 quantiles 分組的數據頭部：&quot;</span><span class="p">)</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="nb">print</span><span class="p">(</span><span class="n">factor_data_quantiles</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</span></code></pre></div>
+<h3 id="3-tear-sheet">步驟 3：生成因子分析報告 (Tear Sheet)<a class="headerlink" href="#3-tear-sheet" title="Permanent link">&para;</a></h3>
+<p>Alphalens 提供了多種 Tear Sheet 函數，用於生成不同側重點的報告。最常用的是 <code>create_full_tear_sheet()</code>，它會生成一份包含所有標準分析圖表和指標的綜合報告。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 生成完整的因子分析報告</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">al</span><span class="o">.</span><span class="n">tears</span><span class="o">.</span><span class="n">create_full_tear_sheet</span><span class="p">(</span><span class="n">factor_data_cleaned</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 您也可以生成特定類型的報告，例如：</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># al.tears.create_returns_tear_sheet(factor_data_cleaned) # 僅報酬相關分析</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># al.tears.create_information_tear_sheet(factor_data_cleaned) # 僅 IC 相關分析</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># al.tears.create_turnover_tear_sheet(factor_data_cleaned) # 僅換手率相關分析</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3-alphalens">3. 解讀 Alphalens 關鍵圖表與指標<a class="headerlink" href="#3-alphalens" title="Permanent link">&para;</a></h2>
+<p>Alphalens 報告提供了豐富的視覺化和統計數據，幫助您全面評估因子的品質。</p>
+<h3 id="_1">因子報酬分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>分位數累積報酬圖 (Cumulative Returns by Factor Quantile)</strong>
+    此圖將股票按因子值分為不同的分位數組（例如 5 組），然後繪製每個分位數組的累積報酬。一個有效的因子通常會顯示出因子值最高的分組（多頭）累積報酬顯著高於因子值最低的分組（空頭）的趨勢。</p>
+</li>
+<li>
+<p><strong>分位數平均報酬條形圖 (Mean Return by Quantile Bar Plot)</strong>
+    此圖以條形圖的形式展示每個因子分位數組的平均報酬。理想情況下，您會看到報酬率隨著因子分位數的增加而單調遞增（或遞減）。</p>
+</li>
+</ul>
+<h3 id="ic">資訊係數 (IC) 分析<a class="headerlink" href="#ic" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>IC 時間序列圖 (IC Time Series)</strong>
+    此圖顯示了 IC 值隨時間的變化。您可以觀察 IC 的穩定性、均值和波動性。一個好的因子應該有穩定且顯著的 IC 值。</p>
+</li>
+<li>
+<p><strong>IC 分佈直方圖 (IC Histogram)</strong>
+    此圖展示了 IC 值的頻率分佈。您可以判斷 IC 值是否集中在正值區域，以及其分佈是否接近常態分佈。</p>
+</li>
+<li>
+<p><strong>月度 IC 熱力圖 (Monthly IC Heatmap)</strong>
+    此圖以熱力圖的形式展示因子在每年各月份的平均 IC 值，有助於發現因子是否存在季節性效應。</p>
+</li>
+</ul>
+<h3 id="_2">換手率分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>因子換手率圖 (Factor Turnover)</strong>
+    此圖衡量了因子分位數組中股票的換手速度。高換手率意味著因子值變化頻繁，可能導致較高的交易成本。</p>
+</li>
+<li>
+<p><strong>因子排序自相關圖 (Factor Rank Autocorrelation)</strong>
+    此圖顯示了因子排序的穩定性。高自相關性意味著因子值在一段時間內相對穩定，有助於降低換手率。</p>
+</li>
 </ul>
 <hr />
-<h2 id="_2">相關連結<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="4-demeaning">4. 去市場化 (Demeaning) 概念<a class="headerlink" href="#4-demeaning" title="Permanent link">&para;</a></h2>
+<p>在因子分析中，「去市場化 (Demeaning)」是一個重要的概念，它旨在消除整體市場波動對因子報酬的影響，從而更清晰地揭示因子本身的預測能力。</p>
+<h3 id="_3">什麼是去市場化？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>當我們計算股票報酬時，這些報酬往往包含兩部分：一部分來自市場的整體波動，另一部分來自股票自身的特質（即因子）。去市場化就是將每檔股票的報酬率扣除全市場（或特定組別）的平均報酬，使得分析的重點聚焦於因子帶來的相對收益，而非市場的漲跌。</p>
+<h3 id="demeaned">demeaned 參數的使用<a class="headerlink" href="#demeaned" title="Permanent link">&para;</a></h3>
+<p>Alphalens 的許多函數（特別是與報酬相關的分析函數，例如 <code>alphalens.tears.create_returns_tear_sheet</code> 或 <code>alphalens.performance.mean_return_by_quantile</code>）都提供了 <code>demeaned</code> 參數。當 <code>demeaned</code> 設置為 <code>True</code> 時，Alphalens 會在計算因子報酬之前，對股票報酬進行去市場化處理。</p>
 <ul>
-<li><a href="https://tquant.tejwin.com/">TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰</a>  </li>
-<li><a href="https://github.com/tejtw/TQuant-Lab">GitHub - tejtw/TQuant-Lab: 使用文件、程式範例</a>  </li>
-<li><a href="https://pypi.org/project/zipline-tej/">PYPI - zipline-tej</a>  </li>
-<li><a href="https://www.tejwin.com/">TEJ官網 - 大中華最值得信賴的金融解決方案 | TEJ台灣經濟新報</a>  </li>
-<li><a href="https://tquant.tejwin.com/shop/">TQuant Lab 訂閱連結</a></li>
+<li><code>demeaned=True</code>：計算去市場化後的因子報酬，有助於評估因子的 <strong>純粹 Alpha 貢獻</strong> 。</li>
+<li><code>demeaned=False</code> (預設值)：計算原始因子報酬，包含市場波動的影響。</li>
 </ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">alphalens</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">al</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># 假設 factor_data_cleaned 是經過 get_clean_factor_and_forward_returns 處理後的數據</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># 範例 1: 計算未去市場化的因子報酬 (預設行為)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">al</span><span class="o">.</span><span class="n">tears</span><span class="o">.</span><span class="n">create_returns_tear_sheet</span><span class="p">(</span><span class="n">factor_data_cleaned</span><span class="p">,</span> <span class="n">demeaned</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># 範例 2: 計算去市場化後的因子報酬</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">al</span><span class="o">.</span><span class="n">tears</span><span class="o">.</span><span class="n">create_returns_tear_sheet</span><span class="p">(</span><span class="n">factor_data_cleaned</span><span class="p">,</span> <span class="n">demeaned</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># 您也可以在計算 mean_return_by_quantile 時指定 demeaned 參數</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># mean_return_by_q_demeaned = al.performance.mean_return_by_quantile(</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># factor_data_cleaned, </span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># demeaned=True</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># )</span>
+</span></code></pre></div>
+<h3 id="_4">何時使用去市場化？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>評估因子純粹 Alpha</strong> ：當您希望評估因子在剔除市場影響後的獨立預測能力時，應使用去市場化。</li>
+<li><strong>比較不同因子</strong> ：在比較不同因子的表現時，去市場化可以提供更公平的基礎，因為它減少了市場風格對比較的干擾。</li>
+<li><strong>構建中性策略</strong> ：對於旨在構建市場中性策略的研究者來說，去市場化是理解因子貢獻的關鍵一步。</li>
+</ul>
+<hr />
+<h2 id="_5">總結<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Alphalens 是量化因子研究中不可或缺的工具。它提供了一套標準化、系統化的方法來評估因子的預測能力、穩定性和交易成本。透過熟練運用 Alphalens 生成並解讀因子分析報告，並理解 <code>quantiles</code>、<code>bins</code>、<code>binning_by_group</code> 以及「去市場化 (Demeaning)」等關鍵參數，您可以更科學地篩選和優化您的投資因子，從而構建出更具競爭力的量化策略。</p>
 
 
 
@@ -3263,15 +3857,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
+          
+          <a href="../performance-metrics/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 績效指標詳解">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                績效指標詳解
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="tutorials/getting-started/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 新手必讀">
+          <a href="../../how-to/installation/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 安裝">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                新手必讀
+                安裝
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3350,14 +3960,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="assets/javascripts/mathjax.js"></script>
+        <script src="../../assets/javascripts/mathjax.js"></script>
       
-        <script src="assets/javascripts/theme.js"></script>
+        <script src="../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

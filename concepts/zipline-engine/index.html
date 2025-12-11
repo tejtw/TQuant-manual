@@ -12,29 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="http://127.0.0.1:8000/">
+        <link rel="canonical" href="http://127.0.0.1:8000/concepts/zipline-engine/">
       
       
+        <link rel="prev" href="../workflow/">
       
-        <link rel="next" href="tutorials/getting-started/">
+      
+        <link rel="next" href="../pipeline-overview/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>TQuant-manual</title>
+        <title>Zipline 引擎核心機制 - TQuant-manual</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tquant-lab" class="md-skip">
+        <a href="#zipline" class="md-skip">
           跳轉到
         </a>
       
@@ -106,9 +108,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首頁
+              Zipline 引擎核心機制
             
           </span>
         </div>
@@ -248,9 +250,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     TQuant-manual
@@ -274,37 +276,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首頁
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -320,48 +295,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速導覽
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相關連結
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/getting-started/" class="md-nav__link">
+      <a href="../../tutorials/getting-started/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-demo/" class="md-nav__link">
+      <a href="../../tutorials/quick-demo/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../tutorials/setup/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../../tutorials/first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/quick-reference/" class="md-nav__link">
+      <a href="../../tutorials/quick-reference/" class="md-nav__link">
         
   
   
@@ -578,8 +511,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -595,13 +530,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -622,7 +555,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -640,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/workflow/" class="md-nav__link">
+      <a href="../workflow/" class="md-nav__link">
         
   
   
@@ -665,8 +598,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -680,13 +615,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -707,7 +640,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -722,10 +655,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="concepts/zipline-engine/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zipline 引擎核心機制
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -741,6 +701,231 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-zipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Zipline 簡介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 事件驅動模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 核心生命週期函數
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 核心生命週期函數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-initializecontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. initialize(context)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-handle_datacontext-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. handle_data(context, data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-before_trading_startcontext-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. before_trading_start(context, data) (可選)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-analyzecontext-perf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. analyze(context, perf) (可選)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. context 物件：策略的記憶體
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 資料處理機制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 資料處理機制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-case-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邊界情況處理 (Edge Case Handling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 交易執行與部位管理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 交易執行模式與訂單管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 交易執行模式與訂單管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-order-limit-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        市價單 (Market Order) 與限價單 (Limit Order)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        訂單執行順序與優先級
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        未成交訂單的過夜處理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 效能與最佳實踐
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        總結
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -753,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../pipeline-overview/" class="md-nav__link">
         
   
   
@@ -781,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/calendars/" class="md-nav__link">
+      <a href="../calendars/" class="md-nav__link">
         
   
   
@@ -872,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -900,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/performance-metrics/" class="md-nav__link">
+      <a href="../performance-metrics/" class="md-nav__link">
         
   
   
@@ -989,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/alphalens-overview/" class="md-nav__link">
+      <a href="../alphalens-overview/" class="md-nav__link">
         
   
   
@@ -1093,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/installation/" class="md-nav__link">
+      <a href="../../how-to/installation/" class="md-nav__link">
         
   
   
@@ -1182,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-spot-pricing/" class="md-nav__link">
+      <a href="../../how-to/data/ingest-spot-pricing/" class="md-nav__link">
         
   
   
@@ -1210,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../../how-to/data/ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1238,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../../how-to/data/get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1266,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../../how-to/data/get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1294,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/data/use-dataframeloader/" class="md-nav__link">
+      <a href="../../how-to/data/use-dataframeloader/" class="md-nav__link">
         
   
   
@@ -1391,7 +1576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../how-to/backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1419,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../how-to/backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1447,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1475,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1503,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1592,7 +1777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1854,7 +2039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../../reference/zipline/lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1882,7 +2067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/context/" class="md-nav__link">
+      <a href="../../reference/zipline/context/" class="md-nav__link">
         
   
   
@@ -1910,7 +2095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/data-object/" class="md-nav__link">
+      <a href="../../reference/zipline/data-object/" class="md-nav__link">
         
   
   
@@ -1938,7 +2123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/universe/" class="md-nav__link">
+      <a href="../../reference/zipline/universe/" class="md-nav__link">
         
   
   
@@ -1966,7 +2151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../../reference/zipline/scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1994,7 +2179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/orders/" class="md-nav__link">
+      <a href="../../reference/zipline/orders/" class="md-nav__link">
         
   
   
@@ -2022,7 +2207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/assets/" class="md-nav__link">
+      <a href="../../reference/zipline/assets/" class="md-nav__link">
         
   
   
@@ -2050,7 +2235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/other-api/" class="md-nav__link">
+      <a href="../../reference/zipline/other-api/" class="md-nav__link">
         
   
   
@@ -2078,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
+      <a href="../../reference/zipline/stocks_cheat_sheet/" class="md-nav__link">
         
   
   
@@ -2175,7 +2360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/overview/" class="md-nav__link">
+      <a href="../../reference/pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2203,7 +2388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/terms/" class="md-nav__link">
+      <a href="../../reference/pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2231,7 +2416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/custom-factor/" class="md-nav__link">
+      <a href="../../reference/pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2259,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/built-ins/" class="md-nav__link">
+      <a href="../../reference/pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2346,7 +2531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/overview/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/overview/" class="md-nav__link">
         
   
   
@@ -2374,7 +2559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/equity-pricing/" class="md-nav__link">
         
   
   
@@ -2402,7 +2587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/tej-datasets/" class="md-nav__link">
         
   
   
@@ -2430,7 +2615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
@@ -2527,7 +2712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/pyfolio/api.md" class="md-nav__link">
+      <a href="../../reference/pyfolio/api.md" class="md-nav__link">
         
   
   
@@ -2616,7 +2801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/alphalens/api/" class="md-nav__link">
+      <a href="../../reference/alphalens/api/" class="md-nav__link">
         
   
   
@@ -2676,7 +2861,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="reference/tejtoolapi/" class="md-nav__link ">
+            <a href="../../reference/tejtoolapi/" class="md-nav__link ">
               
   
   
@@ -2720,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../reference/tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
@@ -2748,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../reference/tejtoolapi/rest-api/" class="md-nav__link">
         
   
   
@@ -2819,7 +3004,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="futures/" class="md-nav__link ">
+            <a href="../../futures/" class="md-nav__link ">
               
   
   
@@ -2863,7 +3048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2891,7 +3076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -2972,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3063,7 +3248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3091,7 +3276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="futures/futures-rollover/" class="md-nav__link">
+      <a href="../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3154,10 +3339,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-zipline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速導覽
+        1. Zipline 簡介
       
     </span>
   </a>
@@ -3165,10 +3350,193 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 事件驅動模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 核心生命週期函數
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 核心生命週期函數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-initializecontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. initialize(context)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-handle_datacontext-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. handle_data(context, data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-before_trading_startcontext-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. before_trading_start(context, data) (可選)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-analyzecontext-perf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. analyze(context, perf) (可選)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. context 物件：策略的記憶體
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 資料處理機制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 資料處理機制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-case-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邊界情況處理 (Edge Case Handling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 交易執行與部位管理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 交易執行模式與訂單管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 交易執行模式與訂單管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-order-limit-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        市價單 (Market Order) 與限價單 (Limit Order)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        訂單執行順序與優先級
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相關連結
+        未成交訂單的過夜處理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 效能與最佳實踐
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        總結
       
     </span>
   </a>
@@ -3195,36 +3563,185 @@
   
 
 
-<h1 id="tquant-lab">TQuant Lab：一站式量化研究平台<a class="headerlink" href="#tquant-lab" title="Permanent link">&para;</a></h1>
+<h1 id="zipline">Zipline 引擎核心機制<a class="headerlink" href="#zipline" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>歡迎來到 TQuant Lab！本平台整合了全台最完善的量化資料、最強大的事件驅動型回測引擎，以及專業的績效分析工具。無論您是量化研究新手或資深專家，TQuant Lab 都能助您將策略想法轉化為實戰成果。</p>
+<p>本頁深入解釋 Zipline 引擎的運作原理，包括其核心組件（如 <code>initialize</code>, <code>handle_data</code>, <code>before_trading_start</code>）、事件驅動模型、以及資料處理機制，為使用者建立對 Zipline 引擎的全面理解。</p>
 </div>
-<p>TQuant Lab 具備三大核心優勢：</p>
+<p>Zipline 是 TQuant Lab 的核心回測引擎，它提供了一個強大且靈活的框架，用於模擬股票、期貨等金融資產的交易策略。Zipline 的設計理念是 <strong>事件驅動 (Event-Driven)</strong> ，這意味著它會按照時間順序處理市場事件（如開盤、收盤、交易數據更新），並根據策略邏輯執行相應的操作。</p>
+<h2 id="1-zipline">1. Zipline 簡介<a class="headerlink" href="#1-zipline" title="Permanent link">&para;</a></h2>
+<p>Zipline 是一個由 Quantopian 開源的 Python 函式庫，專為量化交易策略的回測而設計。它提供了一套完整的工具，讓研究者能夠：</p>
 <ul>
-<li><strong>卓越數據品質</strong>：整合龐大且經嚴格驗證的 PIT（Point In Time）資料庫，確保回測結果真實可靠。</li>
-<li><strong>強大回測引擎</strong>：採用 Zipline 事件驅動型回測框架，支援複雜策略邏輯、模組化建構與高效模擬。</li>
-<li><strong>全方位分析工具</strong>：內建 Pyfolio 與 Alphalens 等專業套件，提供詳細績效指標與視覺化報告，助您精準評估策略表現。</li>
+<li><strong>模擬真實市場環境</strong> ：精確重現歷史市場數據，包括價格、成交量、交易成本等。</li>
+<li><strong>快速開發策略</strong> ：透過簡潔的 API 撰寫交易邏輯。</li>
+<li><strong>高效執行回測</strong> ：優化後的數據結構和事件處理機制，確保回測效率。</li>
+<li><strong>整合分析工具</strong> ：與 Pyfolio 等工具無縫整合，提供豐富的績效分析報告。</li>
+</ul>
+<p>在 TQuant Lab 中，Zipline 引擎是所有策略回測的基石，負責處理資料流、執行交易指令、管理投資組合狀態，並最終產出詳細的回測結果。</p>
+<hr />
+<h2 id="2">2. 事件驅動模型<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>Zipline 的事件驅動模型是其核心特色。它不是簡單地遍歷時間序列數據，而是模擬市場中發生的各種事件，並在這些事件發生時觸發策略中定義的函數。這使得策略能夠對市場變化做出即時反應，更貼近真實交易。</p>
+<pre class="mermaid"><code>graph TD
+    Start[回測開始] --&gt; Initialize(initialize函數); 
+    Initialize --&gt; LoopDay{每日循環}; 
+    LoopDay -- 每個交易日開始 --&gt; BeforeTradingStart(before_trading_start函數); 
+    BeforeTradingStart --&gt; HandleData(handle_data函數); 
+    HandleData --&gt; EndDay{每日結束}; 
+    EndDay -- 還有交易日? --&gt; LoopDay; 
+    LoopDay -- 無交易日 --&gt; Analyze(analyze函數); 
+    Analyze --&gt; End[回測結束];
+
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style End fill:#f9f,stroke:#333,stroke-width:2px
+    style Initialize fill:#bbf,stroke:#333,stroke-width:2px
+    style BeforeTradingStart fill:#bbf,stroke:#333,stroke-width:2px
+    style HandleData fill:#bbf,stroke:#333,stroke-width:2px
+    style Analyze fill:#bbf,stroke:#333,stroke-width:2px</code></pre>
+<hr />
+<h2 id="3">3. 核心生命週期函數<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>Zipline 策略主要由以下幾個生命週期函數構成，它們在回測的不同階段被調用：</p>
+<h3 id="31-initializecontext">3.1. initialize(context)<a class="headerlink" href="#31-initializecontext" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>執行時機</strong> ：在回測開始時 <strong>僅執行一次</strong> 。</li>
+<li><strong>作用</strong> ：用於設定策略的初始狀態和參數，例如：<ul>
+<li>定義初始資金 (<code>context.capital_base</code>)。</li>
+<li>設定手續費 (<code>set_commission</code>) 和滑價 (<code>set_slippage</code>) 模型。</li>
+<li>註冊 Pipeline (<code>attach_pipeline</code>)。</li>
+<li>設定基準指數 (<code>set_benchmark</code>)。</li>
+<li>初始化策略所需的變數 (<code>context.my_variable = ...</code>)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-handle_datacontext-data">3.2. handle_data(context, data)<a class="headerlink" href="#32-handle_datacontext-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>執行時機</strong> ：在每個交易日 <strong>盤中</strong> 被調用一次。對於日頻回測，通常在開盤後執行，並可獲取當日開盤後的最新數據。</li>
+<li><strong>作用</strong> ：這是策略的核心邏輯所在。您將在此處：<ul>
+<li>獲取最新的市場數據 (<code>data.current()</code>, <code>data.history()</code>)。</li>
+<li>獲取 Pipeline 計算出的交易訊號 (<code>pipeline_output()</code>)。</li>
+<li>根據交易邏輯判斷買賣時機。</li>
+<li>執行下單操作 (<code>order</code>, <code>order_target_percent</code>)。</li>
+<li>記錄自訂指標 (<code>record</code>)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="33-before_trading_startcontext-data">3.3. before_trading_start(context, data) (可選)<a class="headerlink" href="#33-before_trading_startcontext-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>執行時機</strong> ：在每個交易日 <strong>開盤前</strong> 被調用一次。</li>
+<li><strong>作用</strong> ：適用於需要在盤前進行資料預處理、計算或調整策略狀態的場景，例如：<ul>
+<li>更新每日的股票池。</li>
+<li>計算盤前因子。</li>
+<li>調整策略的風險參數。</li>
+</ul>
+</li>
+</ul>
+<h3 id="34-analyzecontext-perf">3.4. analyze(context, perf) (可選)<a class="headerlink" href="#34-analyzecontext-perf" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>執行時機</strong> ：在整個回測結束時 <strong>僅執行一次</strong> 。</li>
+<li><strong>作用</strong> ：用於對回測結果進行最終分析和視覺化，例如：<ul>
+<li>使用 Pyfolio 生成績效報告。</li>
+<li>繪製自訂的策略表現圖表。</li>
+<li>輸出最終的統計數據。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>詳見：<a href="../../reference/zipline/lifecycle-functions/">生命週期函數</a></p>
+</blockquote>
+<hr />
+<h2 id="4-context">4. context 物件：策略的記憶體<a class="headerlink" href="#4-context" title="Permanent link">&para;</a></h2>
+<p><code>context</code> 物件是 Zipline 策略中一個至關重要的概念，它在整個回測過程中持續存在，並在不同的生命週期函數之間傳遞策略的狀態和資訊。您可以將其視為策略的「記憶體」或「全局變數儲存庫」。</p>
+<p><code>context</code> 包含了多個重要的屬性，讓您可以存取投資組合、帳戶、訂單等即時資訊：</p>
+<ul>
+<li><code>context.portfolio</code>：包含投資組合的詳細資訊，如總資產價值 (<code>portfolio_value</code>)、現金餘額 (<code>cash</code>)、當前持倉 (<code>positions</code>) 等。</li>
+<li><code>context.account</code>：提供帳戶層級的資訊，如槓桿率 (<code>leverage</code>)、可用資金 (<code>buying_power</code>) 等。</li>
+<li><code>context.blotter</code>：記錄所有訂單和交易的資訊，包括未成交訂單 (<code>open_orders</code>)、已成交訂單 (<code>orders</code>) 等。</li>
+<li><code>context.sim_params</code>：包含回測的模擬參數，如起始/結束日期、初始資金 (<code>capital_base</code>)、資料頻率 (<code>data_frequency</code>) 等。</li>
+<li><strong>自訂屬性</strong> ：您可以在 <code>initialize</code> 函數中為 <code>context</code> 添加任何自訂屬性，以便在 <code>handle_data</code> 或其他函數中使用和更新，例如 <code>context.my_indicator = []</code>。</li>
+</ul>
+<blockquote>
+<p>詳見：<a href="../../reference/zipline/context/">context 變數</a></p>
+</blockquote>
+<hr />
+<h2 id="5">5. 資料處理機制<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>Zipline 提供了兩種主要方式來獲取市場數據：</p>
+<ul>
+<li>
+<p><strong><code>data.history(asset, field, bar_count, frequency)</code></strong> ：
+    用於獲取指定資產在過去一段時間內的歷史數據。例如，獲取某股票過去 100 天的收盤價。</p>
+</li>
+<li>
+<p><strong><code>data.current(asset, field)</code></strong> ：
+    用於獲取指定資產在當前交易日（或當前模擬時間點）的最新數據。例如，獲取當前股票的最新價格或成交量。</p>
+</li>
+<li>
+<p><strong>Pipeline 與資料整合</strong> ：
+    Pipeline API 能夠高效地處理大量歷史數據，計算出複雜的因子和交易訊號。這些訊號在 <code>handle_data</code> 中透過 <code>pipeline_output()</code> 函數被獲取，並用於驅動交易決策。</p>
+</li>
+</ul>
+<h3 id="edge-case-handling">邊界情況處理 (Edge Case Handling)<a class="headerlink" href="#edge-case-handling" title="Permanent link">&para;</a></h3>
+<p>在實際回測中，需要注意資料的完整性和各種可能發生的邊界情況：</p>
+<ul>
+<li><strong>缺失資料 (NaN)</strong> ：當 <code>data.history()</code> 或 <code>pipeline_output()</code> 返回 NaN 時，策略應有相應的處理邏輯，例如跳過該資產或使用前一天的數據。</li>
+<li><strong>停牌或已下市資產</strong> ：Zipline 會自動處理停牌或已下市的資產，避免在這些資產上執行交易。您也可以在策略中檢查 <code>data.is_lively()</code> 來確認資產是否可交易。</li>
+<li><strong>現金不足</strong> ：當嘗試下單的資金超過可用現金時，Zipline 會自動調整訂單數量或拒絕訂單。策略設計時應考慮資金管理，避免過度下單。</li>
+</ul>
+<blockquote>
+<p>詳見：<a href="../../reference/zipline/data-object/">Zipline 資料物件</a>
+詳見：<a href="../../reference/pipeline/overview/">Pipeline API (概論)</a></p>
+</blockquote>
+<hr />
+<h2 id="6">6. 交易執行與部位管理<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>Zipline 提供了直觀的 API 來執行交易和管理投資組合：</p>
+<ul>
+<li>
+<p><strong>下單函數</strong> ：</p>
+<ul>
+<li><code>order(asset, amount)</code>：以市價單形式買入或賣出指定數量的資產。</li>
+<li><code>order_target_percent(asset, percent)</code>：調整指定資產的持倉比例至目標百分比。Zipline 會自動計算需要買賣的數量。</li>
+<li><code>order_target_value(asset, value)</code>：調整指定資產的持倉價值至目標金額。</li>
+</ul>
+</li>
+<li>
+<p><strong>手續費與滑價模型</strong> ：
+    Zipline 允許您設定詳細的手續費 (<code>set_commission</code>) 和滑價 (<code>set_slippage</code>) 模型，以更真實地模擬交易成本對策略績效的影響。</p>
+</li>
+<li>
+<p><strong>部位查詢</strong> ：
+    您可以隨時透過 <code>context.portfolio.positions</code> 查詢當前持有的所有資產及其詳細資訊（如數量、成本價、最新市價）。</p>
+</li>
+</ul>
+<blockquote>
+<p>詳見：<a href="../../reference/zipline/orders/">下單函數</a></p>
+</blockquote>
+<hr />
+<h2 id="7">7. 交易執行模式與訂單管理<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>Zipline 不僅模擬交易行為，也處理訂單的生命週期，理解這些有助於策略的精確控制。</p>
+<h3 id="market-order-limit-order">市價單 (Market Order) 與限價單 (Limit Order)<a class="headerlink" href="#market-order-limit-order" title="Permanent link">&para;</a></h3>
+<p>Zipline 預設以下單函數如 <code>order()</code> 發出 <strong>市價單</strong> ，根據回測頻率（日頻或分鐘頻）在下一個可用的條形數據點進行成交。您也可以使用 <code>order_target_value()</code> 或 <code>order_target_percent()</code> 來管理您的持倉比重。</p>
+<h3 id="_1">訂單執行順序與優先級<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>在日頻回測中，所有 <code>handle_data</code> 中發出的訂單會被收集，並在當日收盤時以收盤價執行，考慮滑價和手續費。Zipline 內部會盡可能模擬真實市場中的訂單撮合邏輯。</p>
+<h3 id="_2">未成交訂單的過夜處理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>如果訂單在當天未能完全成交（例如，因為流動性不足或設定了限價），未成交的部分將會「過夜」並在下一個交易日繼續嘗試成交，直到訂單被完全成交、取消或達到預設的超時期限。在 <code>initialize</code> 或 <code>before_trading_start</code> 中，您可以透過 <code>context.blotter.open_orders</code> 檢查未成交訂單。</p>
+<hr />
+<h2 id="8">8. 效能與最佳實踐<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>為了高效地運行回測並獲得可靠的結果，遵循一些最佳實踐至關重要。</p>
+<ul>
+<li>
+<p><strong>在 <code>handle_data()</code> 中避免複雜計算</strong> ：
+    <code>handle_data()</code> 在每個交易日都會被呼叫，應盡量保持其輕量化。將大規模的數據處理和因子計算移至 Pipeline 中，或使用 <code>before_trading_start()</code> 進行盤前一次性計算，可以顯著提升回測速度。</p>
+</li>
+<li>
+<p><strong>使用 Pipeline 而非 for-loop 進行大規模因子計算</strong> ：
+    Pipeline 專為處理多資產時間序列數據而優化，使用 C 語言底層實現，比 Python 的 for-loop 效率高出數個量級。對於涉及大量股票或複雜因子的計算，務必使用 Pipeline。</p>
+</li>
+<li>
+<p><strong>合理設定回測頻率與資料量</strong> ：
+    過高的回測頻率（例如分鐘頻數據）和過長的歷史區間會大幅增加回測時間和記憶體消耗。根據策略的特性選擇最合適的數據頻率，並只載入必要的歷史資料。</p>
+</li>
 </ul>
 <hr />
-<h2 id="_1">快速導覽<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：</p>
-<ul>
-<li><a href="./"><strong>首頁</strong></a>：平台概覽與最新資訊。</li>
-<li><a href="tutorials/getting-started/"><strong>教學</strong></a>：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。</li>
-<li><a href="concepts/workflow/"><strong>核心概念</strong></a>：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。</li>
-<li><a href="how-to/installation/"><strong>操作指南</strong></a>：提供詳細的安裝、資料管理與回測設定教學。</li>
-<li><a href="reference/zipline/lifecycle-functions/"><strong>API 參考</strong></a>：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。</li>
-</ul>
-<hr />
-<h2 id="_2">相關連結<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://tquant.tejwin.com/">TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰</a>  </li>
-<li><a href="https://github.com/tejtw/TQuant-Lab">GitHub - tejtw/TQuant-Lab: 使用文件、程式範例</a>  </li>
-<li><a href="https://pypi.org/project/zipline-tej/">PYPI - zipline-tej</a>  </li>
-<li><a href="https://www.tejwin.com/">TEJ官網 - 大中華最值得信賴的金融解決方案 | TEJ台灣經濟新報</a>  </li>
-<li><a href="https://tquant.tejwin.com/shop/">TQuant Lab 訂閱連結</a></li>
-</ul>
+<h2 id="_3">總結<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Zipline 引擎是 TQuant Lab 量化交易策略的基石。透過其 <strong>事件驅動模型</strong> 、清晰的生命週期函數、強大的 <code>context</code> 物件以及靈活的資料與交易 API，研究者可以高效地開發、測試和優化複雜的交易策略，從而將量化思想轉化為實際的投資成果。</p>
 
 
 
@@ -3263,15 +3780,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
+          
+          <a href="../workflow/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: TQuant Lab 分析流程">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                TQuant Lab 分析流程
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="tutorials/getting-started/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 新手必讀">
+          <a href="../pipeline-overview/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Pipeline 投資訊號生成">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                新手必讀
+                Pipeline 投資訊號生成
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3350,14 +3883,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="assets/javascripts/mathjax.js"></script>
+        <script src="../../assets/javascripts/mathjax.js"></script>
       
-        <script src="assets/javascripts/theme.js"></script>
+        <script src="../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
