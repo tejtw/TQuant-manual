@@ -12,31 +12,31 @@
         <meta name="author" content="TEJ">
       
       
-        <link rel="canonical" href="https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/overview/">
+        <link rel="canonical" href="https://tejtw.github.io/TQuant-manual/tutorials/stocks_cheat_sheet/">
       
       
-        <link rel="prev" href="../../built-ins/">
+        <link rel="prev" href="../quick-reference/">
       
       
-        <link rel="next" href="../equity-pricing/">
+        <link rel="next" href="../../concepts/workflow/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <link rel="icon" href="../../assets/images/logo_2.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>概論 - TQuant-manual</title>
+        <title>現貨速查表 - TQuant Lab-使用說明</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pipeline-dataset" class="md-skip">
+        <a href="#zipline-api-cheat-sheet" class="md-skip">
           跳轉到
         </a>
       
@@ -125,9 +125,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="../../../.." title="TQuant-manual" class="md-header__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../.." title="TQuant Lab-使用說明" class="md-header__button md-logo" aria-label="TQuant Lab-使用說明" data-md-component="logo">
       
-  <img src="../../../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -138,13 +138,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            TQuant-manual
+            TQuant Lab-使用說明
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              概論
+              現貨速查表
             
           </span>
         </div>
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="TQuant-manual" class="md-nav__button md-logo" aria-label="TQuant-manual" data-md-component="logo">
+    <a href="../.." title="TQuant Lab-使用說明" class="md-nav__button md-logo" aria-label="TQuant Lab-使用說明" data-md-component="logo">
       
-  <img src="../../../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
-    TQuant-manual
+    TQuant Lab-使用說明
   </label>
   
     <div class="md-nav__source">
@@ -297,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -321,8 +321,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -336,17 +338,17 @@
       
         
       
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -367,7 +369,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -385,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -413,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/quick-demo/" class="md-nav__link">
+      <a href="../quick-demo/" class="md-nav__link">
         
   
   
@@ -441,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/setup/" class="md-nav__link">
+      <a href="../setup/" class="md-nav__link">
         
   
   
@@ -469,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/first-spot-strategy/" class="md-nav__link">
+      <a href="../first-spot-strategy/" class="md-nav__link">
         
   
   
@@ -497,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/quick-reference/" class="md-nav__link">
+      <a href="../quick-reference/" class="md-nav__link">
         
   
   
@@ -513,6 +515,136 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    現貨速查表
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    現貨速查表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-initialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 初始化 (initialize)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-data-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 數據獲取 (Data Access)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-trading-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 交易與訂單 (Trading &amp; Orders)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-portfolio-positions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 投資組合與部位 (Portfolio &amp; Positions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-execution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 執行與分析 (Execution &amp; Analysis)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -591,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/workflow/" class="md-nav__link">
+      <a href="../../concepts/workflow/" class="md-nav__link">
         
   
   
@@ -676,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/zipline-engine/" class="md-nav__link">
+      <a href="../../concepts/zipline-engine/" class="md-nav__link">
         
   
   
@@ -704,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/pipeline-overview/" class="md-nav__link">
+      <a href="../../concepts/pipeline-overview/" class="md-nav__link">
         
   
   
@@ -732,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/calendars/" class="md-nav__link">
+      <a href="../../concepts/calendars/" class="md-nav__link">
         
   
   
@@ -823,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/pyfolio-overview/" class="md-nav__link">
+      <a href="../../concepts/pyfolio-overview/" class="md-nav__link">
         
   
   
@@ -851,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/performance-metrics/" class="md-nav__link">
+      <a href="../../concepts/performance-metrics/" class="md-nav__link">
         
   
   
@@ -940,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concepts/alphalens-overview/" class="md-nav__link">
+      <a href="../../concepts/alphalens-overview/" class="md-nav__link">
         
   
   
@@ -1044,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/installation/" class="md-nav__link">
+      <a href="../../how-to/installation/" class="md-nav__link">
         
   
   
@@ -1133,7 +1265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/data/ingest-spot-pricing/" class="md-nav__link">
+      <a href="../../how-to/data/ingest-spot-pricing/" class="md-nav__link">
         
   
   
@@ -1161,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/data/ingest-tej-fundamental/" class="md-nav__link">
+      <a href="../../how-to/data/ingest-tej-fundamental/" class="md-nav__link">
         
   
   
@@ -1189,7 +1321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/data/get-benchmark-roi/" class="md-nav__link">
+      <a href="../../how-to/data/get-benchmark-roi/" class="md-nav__link">
         
   
   
@@ -1217,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/data/get-risk-free-rate/" class="md-nav__link">
+      <a href="../../how-to/data/get-risk-free-rate/" class="md-nav__link">
         
   
   
@@ -1245,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/data/use-dataframeloader/" class="md-nav__link">
+      <a href="../../how-to/data/use-dataframeloader/" class="md-nav__link">
         
   
   
@@ -1342,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/backtest/run-algorithm/" class="md-nav__link">
+      <a href="../../how-to/backtest/run-algorithm/" class="md-nav__link">
         
   
   
@@ -1370,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/backtest/simulation-params/" class="md-nav__link">
+      <a href="../../how-to/backtest/simulation-params/" class="md-nav__link">
         
   
   
@@ -1398,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/backtest/set-commission/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-commission/" class="md-nav__link">
         
   
   
@@ -1426,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/backtest/set-slippage/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-slippage/" class="md-nav__link">
         
   
   
@@ -1454,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/backtest/set-trading-controls/" class="md-nav__link">
+      <a href="../../how-to/backtest/set-trading-controls/" class="md-nav__link">
         
   
   
@@ -1543,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
+      <a href="../../how-to/visualization/pyfolio-tearsheet/" class="md-nav__link">
         
   
   
@@ -1632,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
+      <a href="../../how-to/factor-analysis/alphalens-tearsheet/" class="md-nav__link">
         
   
   
@@ -1672,10 +1804,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1693,11 +1823,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1707,7 +1839,7 @@
   <span class="md-ellipsis">
     
   
-    API 參考
+    函數字典
   
 
     
@@ -1718,12 +1850,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    API 參考
+    函數字典
   
 
           </label>
@@ -1737,8 +1869,6 @@
   
     
     
-      
-        
       
         
       
@@ -1805,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/lifecycle-functions/" class="md-nav__link">
+      <a href="../../reference/zipline/lifecycle-functions/" class="md-nav__link">
         
   
   
@@ -1833,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/context/" class="md-nav__link">
+      <a href="../../reference/zipline/context/" class="md-nav__link">
         
   
   
@@ -1861,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/data-object/" class="md-nav__link">
+      <a href="../../reference/zipline/data-object/" class="md-nav__link">
         
   
   
@@ -1889,7 +2019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/universe/" class="md-nav__link">
+      <a href="../../reference/zipline/universe/" class="md-nav__link">
         
   
   
@@ -1917,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/scheduling-functions/" class="md-nav__link">
+      <a href="../../reference/zipline/scheduling-functions/" class="md-nav__link">
         
   
   
@@ -1945,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/orders/" class="md-nav__link">
+      <a href="../../reference/zipline/orders/" class="md-nav__link">
         
   
   
@@ -1973,7 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/assets/" class="md-nav__link">
+      <a href="../../reference/zipline/assets/" class="md-nav__link">
         
   
   
@@ -2001,42 +2131,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zipline/other-api/" class="md-nav__link">
+      <a href="../../reference/zipline/slippage/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    其他 API
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../zipline/stocks_cheat_sheet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    現貨速查表
+    滑價模型
   
 
     
@@ -2062,10 +2164,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2083,11 +2183,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -2108,7 +2210,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2126,7 +2228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../overview/" class="md-nav__link">
+      <a href="../../reference/pipeline/overview/" class="md-nav__link">
         
   
   
@@ -2154,7 +2256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../terms/" class="md-nav__link">
+      <a href="../../reference/pipeline/terms/" class="md-nav__link">
         
   
   
@@ -2182,7 +2284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../custom-factor/" class="md-nav__link">
+      <a href="../../reference/pipeline/custom-factor/" class="md-nav__link">
         
   
   
@@ -2210,7 +2312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../built-ins/" class="md-nav__link">
+      <a href="../../reference/pipeline/built-ins/" class="md-nav__link">
         
   
   
@@ -2235,16 +2337,10 @@
                 
   
   
-    
   
   
-  
     
     
-      
-        
-      
-        
       
         
       
@@ -2254,11 +2350,13 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_5" >
         
           
           <label class="md-nav__link" for="__nav_5_2_5" id="__nav_5_2_5_label" tabindex="0">
@@ -2279,7 +2377,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2294,198 +2392,17 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    概論
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    概論
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. DataSet 簡介
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-boundcolumn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. BoundColumn 概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 常見 DataSet 範例
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 常見 DataSet 範例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-equitypricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1. EquityPricing：股票價量數據
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.1. EquityPricing：股票價量數據">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#20" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        範例：獲取最新收盤價和 20 日成交量
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-tqdataset-tqaltdatasettej" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2. TQDataSet / TQAltDataSet：TEJ 財務與非財務數據
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.2. TQDataSet / TQAltDataSet：TEJ 財務與非財務數據">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        範例：獲取最新產業別和毛利率成長率
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 完整範例
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../equity-pricing/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/built-in/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    EquityPricing
+    內建資料集
   
 
     
@@ -2506,42 +2423,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tej-datasets/" class="md-nav__link">
+      <a href="../../reference/pipeline/datasets/custom-dataset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    TQDataSet / TQAltDataSet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../custom-dataset/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    自訂資料集
+    進階：自訂資料集
   
 
     
@@ -2631,14 +2520,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyfolio/api.md" class="md-nav__link">
+      <a href="../../reference/pyfolio/api/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    API 總覽
+    函數總覽
   
 
     
@@ -2720,14 +2609,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../alphalens/api/" class="md-nav__link">
+      <a href="../../reference/alphalens/api/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    API 總覽
+    函數總覽
   
 
     
@@ -2759,10 +2648,6 @@
     
       
         
-          
-        
-      
-        
       
         
       
@@ -2779,9 +2664,8 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../tejtoolapi/" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -2795,14 +2679,8 @@
   
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
@@ -2816,22 +2694,20 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-            
-              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../tejtoolapi/get-history-data/" class="md-nav__link">
+      <a href="../../reference/tejtoolapi/api-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    get_history_data
+    函數總覽
   
 
     
@@ -2852,14 +2728,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tejtoolapi/rest-api/" class="md-nav__link">
+      <a href="../../reference/tejtoolapi/get-history-data/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    REST API
+    get_history_data
   
 
     
@@ -2923,7 +2799,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../futures/" class="md-nav__link ">
+            <a href="../../futures/" class="md-nav__link ">
               
   
   
@@ -2967,7 +2843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../futures/first-futures-strategy/" class="md-nav__link">
+      <a href="../../futures/first-futures-strategy/" class="md-nav__link">
         
   
   
@@ -2995,7 +2871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../futures/futures-cheat-sheet/" class="md-nav__link">
+      <a href="../../futures/futures-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -3076,7 +2952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../futures/ingest-futures-pricing/" class="md-nav__link">
+      <a href="../../futures/ingest-futures-pricing/" class="md-nav__link">
         
   
   
@@ -3167,7 +3043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../futures/futures-commission-slippage/" class="md-nav__link">
+      <a href="../../futures/futures-commission-slippage/" class="md-nav__link">
         
   
   
@@ -3195,7 +3071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../futures/futures-rollover/" class="md-nav__link">
+      <a href="../../futures/futures-rollover/" class="md-nav__link">
         
   
   
@@ -3258,10 +3134,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-dataset" class="md-nav__link">
+  <a href="#1-initialize" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. DataSet 簡介
+        1. 初始化 (initialize)
       
     </span>
   </a>
@@ -3269,10 +3145,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-boundcolumn" class="md-nav__link">
+  <a href="#2-data-access" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. BoundColumn 概念
+        2. 數據獲取 (Data Access)
       
     </span>
   </a>
@@ -3280,83 +3156,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-dataset" class="md-nav__link">
+  <a href="#3-trading-orders" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 常見 DataSet 範例
+        3. 交易與訂單 (Trading &amp; Orders)
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="3. 常見 DataSet 範例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-equitypricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1. EquityPricing：股票價量數據
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.1. EquityPricing：股票價量數據">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#20" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        範例：獲取最新收盤價和 20 日成交量
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-tqdataset-tqaltdatasettej" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2. TQDataSet / TQAltDataSet：TEJ 財務與非財務數據
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.2. TQDataSet / TQAltDataSet：TEJ 財務與非財務數據">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        範例：獲取最新產業別和毛利率成長率
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4-portfolio-positions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 完整範例
+        4. 投資組合與部位 (Portfolio &amp; Positions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-execution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 執行與分析 (Execution &amp; Analysis)
       
     </span>
   </a>
@@ -3383,169 +3208,252 @@
   
 
 
-<h1 id="pipeline-dataset">Pipeline 資料集 (DataSet) 概覽<a class="headerlink" href="#pipeline-dataset" title="Permanent link">&para;</a></h1>
+<h1 id="zipline-api-cheat-sheet">Zipline 股票策略備忘錄 (API Cheat Sheet)<a class="headerlink" href="#zipline-api-cheat-sheet" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>本頁介紹 Zipline Pipeline 中資料集 (DataSets) 的核心概念，包括其作用、TQuant Lab 提供的內建資料集類型，以及如何在 Pipeline 中使用這些資料集來獲取原始數據。</p>
+<p>本頁提供 TQuant Lab 股票策略開發的 API 快速參考，包含初始化、數據獲取、交易下單、部位管理及回測執行等常用函數。</p>
 </div>
-<p>在 Zipline Pipeline 中，<code>DataSet</code> 扮演著數據來源的角色。它提供了一個結構化的介面，讓您可以便捷、安全地存取歷史市場數據、基本面數據或其他自定義數據。<code>DataSet</code> 的主要優勢在於它能確保數據經過清洗、對齊，並在 Pipeline 的計算過程中自動處理前視性偏差。</p>
+<p>這是一份專為 TQuant Lab 中進行**股票**策略回測設計的 API 快速參考備忘錄。</p>
 <hr />
-<h2 id="1-dataset">1. DataSet 簡介<a class="headerlink" href="#1-dataset" title="Permanent link">&para;</a></h2>
-<p><code>DataSet</code> 物件代表了一個特定的數據源，例如股票的每日價格 (<code>EquityPricing</code>) 或 TEJ 的財務數據。當您在 Pipeline 中使用 <code>Factor</code>、<code>Filter</code> 或 <code>Classifier</code> 時，它們通常會從這些 <code>DataSet</code> 中獲取原始輸入。</p>
+<h2 id="1-initialize">1. 初始化 (<code>initialize</code>)<a class="headerlink" href="#1-initialize" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>symbol(ticker_str)</code></td>
+<td style="text-align: left;">根據股票代碼取得 <code>Equity</code> 資產物件。</td>
+<td style="text-align: left;"><code>context.asset = symbol('2330')</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>set_benchmark(asset)</code></td>
+<td style="text-align: left;">設定回測的績效比較基準。</td>
+<td style="text-align: left;"><code>set_benchmark(symbol('IR0001'))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>set_commission(...)</code></td>
+<td style="text-align: left;">設定交易手續費模型。</td>
+<td style="text-align: left;"><code>set_commission(equities=commission.PerDollar(cost=0.001425))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>set_slippage(...)</code></td>
+<td style="text-align: left;">設定滑價模型。</td>
+<td style="text-align: left;"><code>set_slippage(equities=slippage.VolumeShareSlippage())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>schedule_function(...)</code></td>
+<td style="text-align: left;">註冊一個排程函數，在特定時間週期性執行。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.every_day())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date_rules.every_day()</code></td>
+<td style="text-align: left;">日期規則：每個交易日。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.every_day())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date_rules.week_start()</code></td>
+<td style="text-align: left;">日期規則：每週的第一個交易日。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.week_start())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date_rules.month_start()</code></td>
+<td style="text-align: left;">日期規則：每個月的第一個交易日。</td>
+<td style="text-align: left;"><code>schedule_function(my_func, date_rules.month_start())</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>time_rules.market_open()</code></td>
+<td style="text-align: left;">時間規則：每日開盤時。可加 <code>minutes</code> 或 <code>hours</code> 參數做偏移。</td>
+<td style="text-align: left;"><code>time_rules.market_open(minutes=30)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>time_rules.market_close()</code></td>
+<td style="text-align: left;">時間規則：每日收盤時。可加 <code>minutes</code> 或 <code>hours</code> 參數做偏移。</td>
+<td style="text-align: left;"><code>time_rules.market_close(minutes=15)</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="2-boundcolumn">2. BoundColumn 概念<a class="headerlink" href="#2-boundcolumn" title="Permanent link">&para;</a></h2>
-<p>當您透過 <code>DataSet.column_name</code> 方式（例如 <code>EquityPricing.close</code>）訪問 <code>DataSet</code> 中的特定欄位時，Zipline 會返回一個 <code>BoundColumn</code> 物件。這個 <code>BoundColumn</code> 物件是實際數據操作的介面。</p>
-<p><code>BoundColumn</code> 提供了多種方法來指定您想要從該欄位獲取哪些數據：</p>
-<ul>
-<li><code>.latest</code>: 獲取每個資產在每個交易日的最新值。<ul>
-<li>範例：<code>EquityPricing.close.latest</code> (獲取最新收盤價)。</li>
-</ul>
-</li>
-<li><code>.slice(window_length)</code>: 獲取每個資產在指定 <code>window_length</code> 內的歷史數據窗口。<ul>
-<li>範例：<code>EquityPricing.volume.slice(window_length=20)</code> (獲取過去 20 天的交易量數據)。</li>
-</ul>
-</li>
-</ul>
+<h2 id="2-data-access">2. 數據獲取 (Data Access)<a class="headerlink" href="#2-data-access" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>data.history(...)</code></td>
+<td style="text-align: left;">獲取歷史數據，回傳一個 <code>pandas.DataFrame</code>。</td>
+<td style="text-align: left;"><code>hist = data.history(asset, 'price', 50, '1d')</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>data.current(...)</code></td>
+<td style="text-align: left;">獲取指定資產的當前數據（價格、成交量等）。</td>
+<td style="text-align: left;"><code>price = data.current(asset, 'price')</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>data.can_trade(asset)</code></td>
+<td style="text-align: left;">檢查指定資產在當前時間點是否可交易。</td>
+<td style="text-align: left;"><code>if data.can_trade(my_asset): ...</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_datetime()</code></td>
+<td style="text-align: left;">取得目前回測的時間點 (UTC)。</td>
+<td style="text-align: left;"><code>current_time = get_datetime()</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="3-dataset">3. 常見 DataSet 範例<a class="headerlink" href="#3-dataset" title="Permanent link">&para;</a></h2>
-<p>Zipline (TQuant Lab) 提供了多個內建的 <code>DataSet</code> 以供使用：</p>
-<h3 id="31-equitypricing">3.1. EquityPricing：股票價量數據<a class="headerlink" href="#31-equitypricing" title="Permanent link">&para;</a></h3>
-<p><code>EquityPricing</code> 是最常用的 <code>DataSet</code> 之一，它提供了股票的標準價量數據。</p>
-<ul>
-<li><strong>導入</strong>: <code>from zipline.pipeline.data import EquityPricing</code></li>
-<li><strong>常見欄位</strong>:<ul>
-<li><code>open</code>: 開盤價</li>
-<li><code>high</code>: 最高價</li>
-<li><code>low</code>: 最低價</li>
-<li><code>close</code>: 收盤價</li>
-<li><code>volume</code>: 成交量</li>
-</ul>
-</li>
-</ul>
-<h4 id="20">範例：獲取最新收盤價和 20 日成交量<a class="headerlink" href="#20" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">EquityPricing</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.factors</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleMovingAverage</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">make_pipeline</span><span class="p">():</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">return</span> <span class="n">Pipeline</span><span class="p">(</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="s1">&#39;Latest_Close&#39;</span><span class="p">:</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">latest</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>            <span class="s1">&#39;Historical_Volume_20D&#39;</span><span class="p">:</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="s1">&#39;SMA_20D_Close&#39;</span><span class="p">:</span> <span class="n">SimpleMovingAverage</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">],</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="p">}</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="p">)</span>
-</span></code></pre></div>
-<h3 id="32-tqdataset-tqaltdatasettej">3.2. TQDataSet / TQAltDataSet：TEJ 財務與非財務數據<a class="headerlink" href="#32-tqdataset-tqaltdatasettej" title="Permanent link">&para;</a></h3>
-<p>TQuant Lab 為了整合 TEJ 資料庫的豐富數據，提供了 <code>TQDataSet</code> 和 <code>TQAltDataSet</code>。</p>
-<ul>
-<li><strong><code>TQDataSet</code></strong>: 主要用於財務相關的數據。</li>
-<li><strong><code>TQAltDataSet</code></strong>: 主要用於非財務相關的數據。</li>
-</ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>早期版本的 <code>zipline.pipeline.data.tejquant.TQDataSet</code> 已被棄用。現在請改用 <code>zipline.pipeline.data.TQFundamentals.TQDataSet</code> 和 <code>zipline.pipeline.data.TQFundamentals.TQAltDataSet</code>。</p>
-</div>
-<ul>
-<li><strong>導入</strong>: <code>from zipline.pipeline.data.TQFundamentals import TQDataSet, TQAltDataSet</code></li>
-<li><strong>常見欄位</strong>: 這些 <code>DataSet</code> 提供了 TEJ 資料庫中眾多的財務（例如 <code>Gross_Margin_Growth_Rate_A</code>）和非財務（例如 <code>Industry</code>）數據。具體可用欄位請參考相關文件或通過 <code>TQDataSet._column_names</code> 查詢。</li>
-</ul>
-<h4 id="_1">範例：獲取最新產業別和毛利率成長率<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.data.TQFundamentals</span><span class="w"> </span><span class="kn">import</span> <span class="n">TQDataSet</span><span class="p">,</span> <span class="n">TQAltDataSet</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">make_pipeline</span><span class="p">():</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">return</span> <span class="n">Pipeline</span><span class="p">(</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            <span class="s1">&#39;Industry&#39;</span><span class="p">:</span> <span class="n">TQAltDataSet</span><span class="o">.</span><span class="n">Industry</span><span class="o">.</span><span class="n">latest</span><span class="p">,</span> <span class="c1"># 獲取最新產業別</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>            <span class="s1">&#39;Gross_Margin_Growth_Rate&#39;</span><span class="p">:</span> <span class="n">TQDataSet</span><span class="o">.</span><span class="n">Gross_Margin_Growth_Rate_A</span><span class="o">.</span><span class="n">latest</span> <span class="c1"># 獲取最新毛利率成長率</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="p">}</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="p">)</span>
-</span></code></pre></div>
+<h2 id="3-trading-orders">3. 交易與訂單 (Trading &amp; Orders)<a class="headerlink" href="#3-trading-orders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>order(asset, amount)</code></td>
+<td style="text-align: left;">下一張市價單，買入/賣出指定 <code>amount</code> 的股數。正數為買，負數為賣。</td>
+<td style="text-align: left;"><code>order(symbol('2330'), 1000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_target(asset, amount)</code></td>
+<td style="text-align: left;">下單將資產部位調整至目標 <code>amount</code> 股數。</td>
+<td style="text-align: left;"><code>order_target(symbol('2330'), 5000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_target_percent(asset, pct)</code></td>
+<td style="text-align: left;">下單將資產部位調整至佔總投資組合價值的 <code>pct</code> 比例。</td>
+<td style="text-align: left;"><code>order_target_percent(symbol('2330'), 0.1)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_value(asset, value)</code></td>
+<td style="text-align: left;">下單買入/賣出價值 <code>value</code> 的股票。</td>
+<td style="text-align: left;"><code>order_value(symbol('2330'), 500000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>order_target_value(asset, value)</code></td>
+<td style="text-align: left;">下單將資產部位調整至目標價值 <code>value</code>。</td>
+<td style="text-align: left;"><code>order_target_value(symbol('2330'), 200000)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LimitOrder(price)</code></td>
+<td style="text-align: left;">限價單樣式，需與 <code>order()</code> 函數配合使用。</td>
+<td style="text-align: left;"><code>order(asset, 1000, style=LimitOrder(599.0))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StopOrder(price)</code></td>
+<td style="text-align: left;">停損單樣式（市價）。</td>
+<td style="text-align: left;"><code>order(asset, -1000, style=StopOrder(550.0))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StopLimitOrder(limit, stop)</code></td>
+<td style="text-align: left;">停損限價單樣式。</td>
+<td style="text-align: left;"><code>order(asset, -1000, style=StopLimitOrder(550, 551))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_order(order_id)</code></td>
+<td style="text-align: left;">透過訂單 ID 查詢訂單物件。<code>order()</code> 函數會回傳 ID。</td>
+<td style="text-align: left;"><code>my_order = get_order(order_id)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_open_orders()</code></td>
+<td style="text-align: left;">取得所有未成交的掛單。</td>
+<td style="text-align: left;"><code>open_orders = get_open_orders()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cancel_order(order_id)</code></td>
+<td style="text-align: left;">根據訂單 ID 取消一筆未成交的掛單。</td>
+<td style="text-align: left;"><code>cancel_order(my_order_id)</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="4">4. 完整範例<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>以下是一個完整的 Pipeline 範例，演示如何在一個 Pipeline 中結合 <code>EquityPricing</code> 和 <code>TQDataSet</code> 獲取多種數據。</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_algorithm</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.api</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">attach_pipeline</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">pipeline_output</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">set_benchmark</span><span class="p">,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">symbol</span><span class="p">,</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">order_target_percent</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">)</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.factors</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleMovingAverage</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">EquityPricing</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.data.TQFundamentals</span><span class="w"> </span><span class="kn">import</span> <span class="n">TQDataSet</span><span class="p">,</span> <span class="n">TQAltDataSet</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="kn">from</span><span class="w"> </span><span class="nn">zipline.pipeline.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">AverageDollarVolume</span> <span class="c1"># 篩選器範例</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># 1. 定義 Pipeline</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">make_my_pipeline</span><span class="p">():</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="c1"># 獲取最新收盤價</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">latest_close</span> <span class="o">=</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">latest</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="c1"># 計算 20 日簡單移動平均線</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">sma_20</span> <span class="o">=</span> <span class="n">SimpleMovingAverage</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">],</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="c1"># 獲取最新產業別</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="n">industry_sector</span> <span class="o">=</span> <span class="n">TQAltDataSet</span><span class="o">.</span><span class="n">Industry</span><span class="o">.</span><span class="n">latest</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="c1"># 獲取最新毛利率成長率</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="n">gross_margin_growth</span> <span class="o">=</span> <span class="n">TQDataSet</span><span class="o">.</span><span class="n">Gross_Margin_Growth_Rate_A</span><span class="o">.</span><span class="n">latest</span>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    <span class="c1"># 篩選器：過去 10 天平均日成交金額前 50 檔股票</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    <span class="n">high_volume_filter</span> <span class="o">=</span> <span class="n">AverageDollarVolume</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">top</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
-</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="k">return</span> <span class="n">Pipeline</span><span class="p">(</span>
-</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>        <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>            <span class="s1">&#39;Close_Price&#39;</span><span class="p">:</span> <span class="n">latest_close</span><span class="p">,</span>
-</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>            <span class="s1">&#39;SMA_20&#39;</span><span class="p">:</span> <span class="n">sma_20</span><span class="p">,</span>
-</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>            <span class="s1">&#39;Industry&#39;</span><span class="p">:</span> <span class="n">industry_sector</span><span class="p">,</span>
-</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>            <span class="s1">&#39;GM_Growth&#39;</span><span class="p">:</span> <span class="n">gross_margin_growth</span>
-</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>        <span class="p">},</span>
-</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>        <span class="n">screen</span><span class="o">=</span><span class="n">high_volume_filter</span> <span class="c1"># 篩選 Universe</span>
-</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    <span class="p">)</span>
-</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>
-</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="c1"># 2. Zipline 回測設置</span>
-</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>    <span class="n">set_benchmark</span><span class="p">(</span><span class="n">symbol</span><span class="p">(</span><span class="s1">&#39;IR0001&#39;</span><span class="p">))</span> <span class="c1"># 設定 Benchmark</span>
-</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    <span class="n">attach_pipeline</span><span class="p">(</span><span class="n">make_my_pipeline</span><span class="p">(),</span> <span class="s1">&#39;my_data_pipeline&#39;</span><span class="p">)</span> <span class="c1"># 附掛 Pipeline</span>
-</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>
-</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="k">def</span><span class="w"> </span><span class="nf">before_trading_start</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>    <span class="n">pipeline_results</span> <span class="o">=</span> <span class="n">pipeline_output</span><span class="p">(</span><span class="s1">&#39;my_data_pipeline&#39;</span><span class="p">)</span>
-</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>    <span class="n">context</span><span class="o">.</span><span class="n">my_universe</span> <span class="o">=</span> <span class="n">pipeline_results</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>    <span class="n">context</span><span class="o">.</span><span class="n">pipeline_data</span> <span class="o">=</span> <span class="n">pipeline_results</span>
-</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>
-</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">context</span><span class="o">.</span><span class="n">my_universe</span><span class="p">:</span>
-</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>        <span class="k">return</span>
-</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>
-</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>    <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">my_universe</span><span class="p">:</span>
-</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">can_trade</span><span class="p">(</span><span class="n">asset</span><span class="p">)</span> <span class="ow">and</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">pipeline_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
-</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>            <span class="n">close_price</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">pipeline_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">current_dt</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">asset</span><span class="p">),</span> <span class="s1">&#39;Close_Price&#39;</span><span class="p">]</span>
-</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>            <span class="n">sma_20</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">pipeline_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">current_dt</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">asset</span><span class="p">),</span> <span class="s1">&#39;SMA_20&#39;</span><span class="p">]</span>
-</span><span id="__span-2-58"><a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>            <span class="n">industry</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">pipeline_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">current_dt</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">asset</span><span class="p">),</span> <span class="s1">&#39;Industry&#39;</span><span class="p">]</span>
-</span><span id="__span-2-59"><a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>
-</span><span id="__span-2-60"><a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>            <span class="c1"># 示例邏輯：如果收盤價高於 SMA_20 且屬於「半導體業」，則買入</span>
-</span><span id="__span-2-61"><a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>            <span class="k">if</span> <span class="n">close_price</span> <span class="o">&gt;</span> <span class="n">sma_20</span> <span class="ow">and</span> <span class="n">industry</span> <span class="o">==</span> <span class="s1">&#39;半導體業&#39;</span><span class="p">:</span>
-</span><span id="__span-2-62"><a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>                <span class="n">order_target_percent</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">my_universe</span><span class="p">))</span>
-</span><span id="__span-2-63"><a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a>            <span class="c1"># 否則，如果持有該股票，則清倉</span>
-</span><span id="__span-2-64"><a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a>            <span class="k">elif</span> <span class="n">close_price</span> <span class="o">&lt;</span> <span class="n">sma_20</span> <span class="ow">and</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">positions</span><span class="p">:</span>
-</span><span id="__span-2-65"><a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a>                <span class="n">order_target_percent</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-</span><span id="__span-2-66"><a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a>
-</span><span id="__span-2-67"><a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a><span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
-</span><span id="__span-2-68"><a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;回測分析完成。&quot;</span><span class="p">)</span>
-</span><span id="__span-2-69"><a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>
-</span><span id="__span-2-70"><a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a><span class="c1"># 執行回測</span>
-</span><span id="__span-2-71"><a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a><span class="n">results</span> <span class="o">=</span> <span class="n">run_algorithm</span><span class="p">(</span>
-</span><span id="__span-2-72"><a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>    <span class="n">start</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
-</span><span id="__span-2-73"><a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>    <span class="n">end</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">),</span>
-</span><span id="__span-2-74"><a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>    <span class="n">initialize</span><span class="o">=</span><span class="n">initialize</span><span class="p">,</span>
-</span><span id="__span-2-75"><a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>    <span class="n">handle_data</span><span class="o">=</span><span class="n">handle_data</span><span class="p">,</span>
-</span><span id="__span-2-76"><a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a>    <span class="n">analyze</span><span class="o">=</span><span class="n">analyze</span><span class="p">,</span>
-</span><span id="__span-2-77"><a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a>    <span class="n">capital_base</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span>
-</span><span id="__span-2-78"><a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a>    <span class="n">bundle</span><span class="o">=</span><span class="s1">&#39;tquant&#39;</span><span class="p">,</span>
-</span><span id="__span-2-79"><a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a>    <span class="n">before_trading_start</span><span class="o">=</span><span class="n">before_trading_start</span>
-</span><span id="__span-2-80"><a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a><span class="p">)</span>
-</span></code></pre></div>
+<h2 id="4-portfolio-positions">4. 投資組合與部位 (Portfolio &amp; Positions)<a class="headerlink" href="#4-portfolio-positions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.portfolio_value</code></td>
+<td style="text-align: left;">(屬性) 整個投資組合的總淨值。</td>
+<td style="text-align: left;"><code>net_worth = context.portfolio.portfolio_value</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.cash</code></td>
+<td style="text-align: left;">(屬性) 帳戶中的現金餘額。</td>
+<td style="text-align: left;"><code>cash_balance = context.portfolio.cash</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.positions</code></td>
+<td style="text-align: left;">(屬性) 一個字典，包含所有當前持有的部位。</td>
+<td style="text-align: left;"><code>for asset, pos in context.portfolio.positions.items(): ...</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context.portfolio.positions_value</code></td>
+<td style="text-align: left;">(屬性) 所有持倉的總市值。</td>
+<td style="text-align: left;"><code>total_pos_value = context.portfolio.positions_value</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>position.amount</code></td>
+<td style="text-align: left;">(屬性) 持有的股數。</td>
+<td style="text-align: left;"><code>shares = position.amount</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>position.cost_basis</code></td>
+<td style="text-align: left;">(屬性) 平均持有成本。</td>
+<td style="text-align: left;"><code>avg_cost = position.cost_basis</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>position.last_sale_price</code></td>
+<td style="text-align: left;">(屬性) 最新成交價格。</td>
+<td style="text-align: left;"><code>current_price = position.last_sale_price</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-execution-analysis">5. 執行與分析 (Execution &amp; Analysis)<a class="headerlink" href="#5-execution-analysis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">API 函數/屬性</th>
+<th style="text-align: left;">說明</th>
+<th style="text-align: left;">範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>run_algorithm(...)</code></td>
+<td style="text-align: left;"><strong>核心執行函數</strong>，啟動整個回測。</td>
+<td style="text-align: left;"><code>results = run_algorithm(...)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>record(**kwargs)</code></td>
+<td style="text-align: left;">在每個時間點記錄一個或多個變數，以便後續分析。</td>
+<td style="text-align: left;"><code>record(my_ma=ma_value, price=current_price)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>get_calendar(name)</code></td>
+<td style="text-align: left;">取得一個交易日曆物件。</td>
+<td style="text-align: left;"><code>trading_calendar=get_calendar('TEJ')</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3585,7 +3493,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳" >
         
           
-          <a href="../../built-ins/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 內建因子/濾網/分類器">
+          <a href="../quick-reference/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 常用功能速查">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3595,20 +3503,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                內建因子/濾網/分類器
+                常用功能速查
               </div>
             </div>
           </a>
         
         
           
-          <a href="../equity-pricing/" class="md-footer__link md-footer__link--next" aria-label="下一頁: EquityPricing">
+          <a href="../../concepts/workflow/" class="md-footer__link md-footer__link--next" aria-label="下一頁: TQuant Lab 分析流程">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                EquityPricing
+                TQuant Lab 分析流程
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3624,15 +3532,6 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
-    <div class="md-copyright__highlight">
-      Powered by 湯哥
-    </div>
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       
@@ -3687,14 +3586,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../assets/javascripts/mathjax.js"></script>
+        <script src="../../assets/javascripts/mathjax.js"></script>
       
-        <script src="../../../../assets/javascripts/theme.js"></script>
+        <script src="../../assets/javascripts/theme.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
