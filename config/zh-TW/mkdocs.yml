@@ -212,7 +212,7 @@ nav:
       - 函數總覽: reference/tejtoolapi/api-overview.md
       - get_history_data: reference/tejtoolapi/get-history-data.md
   - 期貨專區:
-    - 期貨總覽: futures/index.md
+    - 期貨總覽: futures/futures-index.md
     - 建立第一個期貨策略: futures/first-futures-strategy.md
     - 期貨速查表: futures/futures-cheat-sheet.md
     - 資料管理:
