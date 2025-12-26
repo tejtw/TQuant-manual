@@ -489,7 +489,7 @@ h4,
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
 }
 
-@media screen and (max-width: 60em) {
+@media screen and (max-width: 76.25em) {
   .md-header__shop-btn {
     display: none;
   }

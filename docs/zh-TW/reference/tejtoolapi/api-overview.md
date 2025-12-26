@@ -57,14 +57,6 @@ TEJ 提供免費試用及付費資料庫：
 
 <div class="grid cards" markdown>
 
--   :material-api:{ .lg .middle } **REST API**
-
-    ---
-
-    透過 HTTPS 直接存取 TEJ 資料庫，支援 JSON/XML 格式輸出
-
-    [:octicons-arrow-right-24: 查看文件](rest-api.md)
-
 -   :simple-python:{ .lg .middle } **TejToolAPI (Python)**
 
     ---

@@ -1,5 +1,5 @@
 # Project information
-site_name: "TQuant-manual"
+site_name: "TQuant Lab-使用說明"
 site_url: https://tejtw.github.io/TQuant-manual/
 site_author: TEJ
 site_description: >-
@@ -19,7 +19,7 @@ theme:
   name: material
   custom_dir: overrides
   logo: assets/images/logo.png
-  favicon: assets/images/favicon.ico
+  favicon: assets/images/logo_2.png
   language: zh-TW
 
   font:
@@ -61,6 +61,7 @@ theme:
 
 # Extra configuration
 extra:
+  generator: false
 #   alternate:
 #     - name: 中文
 #       link: https://kadin4134.github.io/mkdocs/
@@ -155,6 +156,7 @@ nav:
     - 環境建置: tutorials/setup.md
     - 你的第一個現貨策略: tutorials/first-spot-strategy.md
     - 常用功能速查: tutorials/quick-reference.md
+    - 現貨速查表: tutorials/stocks_cheat_sheet.md
   - 核心概念:
     - TQuant Lab 分析流程: concepts/workflow.md
     - Zipline:
@@ -184,7 +186,7 @@ nav:
       - 如何產生 Pyfolo 績效報表: how-to/visualization/pyfolio-tearsheet.md
     - 因子分析:
       - 如何執行 Alphalens 因子分析: how-to/factor-analysis/alphalens-tearsheet.md
-  - API 參考:
+  - 函數字典:
     - Zipline:
       - 生命週期函數: reference/zipline/lifecycle-functions.md
       - context 變數: reference/zipline/context.md
@@ -193,26 +195,22 @@ nav:
       - 排程函數: reference/zipline/scheduling-functions.md
       - 下單函數: reference/zipline/orders.md
       - 資產物件: reference/zipline/assets.md
-      - 其他 API: reference/zipline/other-api.md
-      - 現貨速查表: reference/zipline/stocks_cheat_sheet.md
+      - 滑價模型: reference/zipline/slippage.md
     - Pipeline:
       - 概論: reference/pipeline/overview.md
       - 計算元素 (Terms): reference/pipeline/terms.md
       - 自訂因子: reference/pipeline/custom-factor.md
       - 內建因子/濾網/分類器: reference/pipeline/built-ins.md
       - 資料集:
-        - 概論: reference/pipeline/datasets/overview.md
-        - EquityPricing: reference/pipeline/datasets/equity-pricing.md
-        - TQDataSet / TQAltDataSet: reference/pipeline/datasets/tej-datasets.md
-        - 自訂資料集: reference/pipeline/datasets/custom-dataset.md
+        - 內建資料集: reference/pipeline/datasets/built-in.md
+        - 進階：自訂資料集: reference/pipeline/datasets/custom-dataset.md
     - Pyfolo:
-      - API 總覽: reference/pyfolio/api.md
+      - 函數總覽: reference/pyfolio/api.md
     - Alphalens:
-      - API 總覽: reference/alphalens/api.md
+      - 函數總覽: reference/alphalens/api.md
     - TejToolAPI:
-      - 概述: reference/tejtoolapi/index.md
+      - 函數總覽: reference/tejtoolapi/api-overview.md
       - get_history_data: reference/tejtoolapi/get-history-data.md
-      - REST API: reference/tejtoolapi/rest-api.md
   - 期貨專區:
     - 期貨總覽: futures/index.md
     - 建立第一個期貨策略: futures/first-futures-strategy.md
@@ -239,5 +237,38 @@ nav:
 
 
 
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
 # Copyright string on footer
-copyright: Powered by 湯哥
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
