@@ -2,206 +2,206 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/alphalens-overview/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/calendars/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/performance-metrics/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/pipeline-overview/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/pyfolio-overview/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/workflow/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/concepts/zipline-engine/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/futures/first-futures-strategy/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/futures/futures-cheat-sheet/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/futures/futures-commission-slippage/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/futures/futures-index/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/futures/futures-rollover/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/futures/ingest-futures-pricing/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/installation/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/run-algorithm/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/set-commission/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/set-slippage/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/set-trading-controls/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/backtest/simulation-params/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/data/get-benchmark-roi/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/data/get-risk-free-rate/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/data/ingest-spot-pricing/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/data/ingest-tej-fundamental/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/data/use-dataframeloader/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/factor-analysis/alphalens-tearsheet/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/how-to/visualization/pyfolio-tearsheet/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/alphalens/api/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/built-ins/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/custom-factor/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/overview/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/terms/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/built-in/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pipeline/datasets/custom-dataset/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/pyfolio/api/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/tejtoolapi/api-overview/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/tejtoolapi/get-history-data/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/assets/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/context/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/data-object/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/lifecycle-functions/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/orders/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/scheduling-functions/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/slippage/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/reference/zipline/universe/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/tutorials/first-spot-strategy/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/tutorials/getting-started/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/tutorials/quick-demo/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/tutorials/quick-reference/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/tutorials/setup/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>https://tejtw.github.io/TQuant-manual/tutorials/stocks_cheat_sheet/</loc>
-         <lastmod>2025-12-26</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
 </urlset>

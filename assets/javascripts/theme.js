@@ -159,8 +159,8 @@
 
   const ShopButton = {
     create() {
-      const header = document.querySelector('.md-header__inner');
-      if (!header || document.querySelector('.md-header__shop-btn')) return;
+      const sidebar = document.querySelector('.md-sidebar--primary .md-nav');
+      if (!sidebar || document.querySelector('.md-header__shop-btn')) return;
 
       const button = document.createElement('a');
       button.className = 'md-header__shop-btn';
@@ -174,7 +174,7 @@
         <span>訂閱TQuantlab</span>
       `;
 
-      header.appendChild(button);
+      sidebar.prepend(button);
     }
   };
 
@@ -186,22 +186,6 @@
     ShopButton.create();
     ThemeManager.createToggleButton();
     SidebarManager.init();
-
-    // Hide shop button when search is active
-    const searchToggle = document.querySelector('[data-md-toggle="search"]');
-    const shopButton = document.querySelector('.md-header__shop-btn');
-
-    if (searchToggle && shopButton) {
-      searchToggle.addEventListener('change', () => {
-        if (searchToggle.checked) {
-          shopButton.style.opacity = '0';
-          shopButton.style.pointerEvents = 'none';
-        } else {
-          shopButton.style.opacity = '1';
-          shopButton.style.pointerEvents = 'auto';
-        }
-      });
-    }
 
     // Support for MkDocs Material instant loading
     if (window.document$) {

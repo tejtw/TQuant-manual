@@ -453,46 +453,46 @@ h4,
   fill: #ffffff;
 }
 
-/* TQuantLab Button */
-.md-header__shop-btn {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+/* TQuantLab Button (Moved to Sidebar) */
+.md-sidebar--primary .md-header__shop-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.5rem;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  margin: 1rem 0.6rem 0.8rem;
   background: linear-gradient(135deg, #00d4aa 0%, #00b894 50%, #00cec9 100%);
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
-  letter-spacing: 0.15em;
-  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 212, 170, 0.2);
+  transition: transform var(--transition-fast) ease;
+  z-index: 10;
 }
 
-.md-header__shop-btn:hover {
-  transform: translateX(-50%) scale(1.05);
+.md-sidebar--primary .md-header__shop-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 212, 170, 0.4);
 }
 
-.md-header__shop-btn svg {
-  width: 1.1rem;
-  height: 1.1rem;
+[data-md-color-scheme="slate"] .md-sidebar--primary .md-header__shop-btn:hover {
+  box-shadow: 0 6px 15px rgba(118, 75, 162, 0.5);
+}
+
+.md-sidebar--primary .md-header__shop-btn svg {
+  width: 0.9rem;
+  height: 0.9rem;
   fill: currentColor;
 }
 
-[data-md-color-scheme="slate"] .md-header__shop-btn {
+[data-md-color-scheme="slate"] .md-sidebar--primary .md-header__shop-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-}
-
-@media screen and (max-width: 76.25em) {
-  .md-header__shop-btn {
-    display: none;
-  }
+  box-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
 }
 
 /* Sidebar Toggle Buttons */
