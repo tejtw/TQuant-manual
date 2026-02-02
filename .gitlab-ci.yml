@@ -2,16 +2,13 @@ image: python:3.9-alpine
 
 pages:
   stage: deploy
-  # 🔥 新增這裡：指名要用有 "tejapi" 標籤的機器人
   tags:
-    - tejapi
-    
+    - windows-runner  # 請改成你剛剛在網頁上設定的 Tag
   script:
-    - pip install mkdocs-material
-    - mkdocs build -f config/zh-TW/mkdocs.yml -d public
+    - pip install mkdocs-material  # 確保你的電腦有裝這個
+    - mkdocs build -d public
   artifacts:
     paths:
       - public
   only:
     - main
-    - feature/ci-setup 
