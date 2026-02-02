@@ -14,5 +14,6 @@ pages:
     paths:
       - public
   
-  only:
-    - main
+only:
+  - main
+  - feature/ci-setup  # 👈 新增這行：把你的分支加進白名單
