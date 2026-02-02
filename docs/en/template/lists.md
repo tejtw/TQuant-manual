@@ -11,7 +11,3 @@ For more details, please refer to the official documentation:[Lists Reference](h
     * Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.
     * Nam vulputate tincidunt fringilla.
     * Nullam dignissim ultrices urna non auctor.
-
-
-
-

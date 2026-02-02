@@ -1,3 +1,28 @@
+/* ==========================================================================
+   TQuant Lab - English Extra Stylesheet
+   ========================================================================== */
+
+/* Tabs background color */
 .md-header .md-tabs {
-    background-color: rgb(51, 51, 51);
+  background-color: rgb(51, 51, 51);
+}
+
+/* Light theme text - use data-md-color-scheme for MkDocs Material */
+[data-md-color-scheme="default"] {
+  --md-default-fg-color: #000000;
+  --md-text-color: #000000;
+}
+
+[data-md-color-scheme="default"] .md-typeset a:not(.md-nav__link) {
+  color: #0066cc;
+}
+
+/* Dark theme text */
+[data-md-color-scheme="slate"] {
+  --md-default-fg-color: #ffffff;
+  --md-text-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-nav__link) {
+  color: #64b5f6;
 }

@@ -1,14 +1,14 @@
 # Project information - en
-site_name: 'MkDocs Demo'
-site_url: http://127.0.0.1:8001/en/       # link should be like http://<account_name>.github.io/<repository_name>/en/
+site_name: 'TQuant Lab-Manual'
+site_url: https://tejtw.github.io/TQuant-manual/en/       # link should be like http://<account_name>.github.io/<repository_name>/en/
 site_author: TEJ
 site_description: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas et ipsum sit amet pretium.
   Quisque sed ipsum sed lorem.
 
 # Repository
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: tejtw/TQuant-manual
+repo_url: https://github.com/tejtw/TQuant-manual
 
 # Basic configuration
 docs_dir: '../../docs/en/'
@@ -19,7 +19,7 @@ theme:
   name: material
   custom_dir: overrides
   logo: assets/images/demo-logo.svg
-  favicon: assets/images/favicon.ico
+  favicon: assets/images/logo_2.png
   language: en
 
   font:
@@ -60,6 +60,7 @@ theme:
 
 # Extra configuration
 extra:
+  generator: false
   alternate:
     - name: 中文
       link: https://kadin4134.github.io/mkdocs/
@@ -150,5 +151,6 @@ nav:
       - Lists: template/lists.md
       - Tooltips: template/tooltips.md
 
+
+
 # Copyright string on footer
-copyright: Copyright &copy; 2025 - MkDocs

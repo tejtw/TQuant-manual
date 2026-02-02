@@ -1,0 +1,17 @@
+image: python:3.9-alpine
+
+pages:
+  stage: deploy
+  # 🔥 新增這裡：指名要用有 "tejapi" 標籤的機器人
+  tags:
+    - tejapi
+    
+  script:
+    - pip install mkdocs-material
+    - mkdocs build -f config/zh-TW/mkdocs.yml -d public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - feature/ci-setup 

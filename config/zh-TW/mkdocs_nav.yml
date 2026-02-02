@@ -1,0 +1,68 @@
+nav:
+  - 首頁: index.md
+  - 教學:
+    - 新手必讀: tutorials/getting-started.md
+    - 10分鐘體驗: tutorials/quick-demo.md
+    - 環境建置: tutorials/setup.md
+    - 你的第一個現貨策略: tutorials/first-spot-strategy.md
+    - 你的第一個期貨策略: tutorials/first-futures-strategy.md
+    - 常用功能速查: tutorials/quick-reference.md
+  - 核心概念:
+    - TQuant Lab 分析流程: concepts/workflow.md
+    - Zipline:
+      - Zipline 引擎核心機制: concepts/zipline-engine.md
+      - Pipeline 投資訊號生成: concepts/pipeline-overview.md
+      - 交易日曆: concepts/calendars.md
+    - Pyfolo:
+      - Pyfolo 績效分析概論: concepts/pyfolio-overview.md
+      - 績效指標與回測分析: concepts/performance-metrics.md
+    - Alphalens:
+      - Alphalens 因子分析概論: concepts/alphalens-overview.md
+  - 操作指南:
+    - 安裝: how-to/installation.md
+    - 資料管理:
+      - 如何 Ingest 股票價量資料: how-to/data/ingest-spot-pricing.md
+      - 如何 Ingest 期貨價量資料: how-to/data/ingest-futures-pricing.md
+      - 如何 Ingest TEJ 財務/非財務資料: how-to/data/ingest-tej-fundamental.md
+      - 如何取得 Benchmark 報酬率: how-to/data/get-benchmark-roi.md
+      - 如何取得無風險利率: how-to/data/get-risk-free-rate.md
+      - Pipeline DataFrameLoader: how-to/data/use-dataframeloader.md
+    - 回測:
+      - 如何執行一個基本的回測: how-to/backtest/run-algorithm.md
+      - 如何設定手續費模型: how-to/backtest/set-commission.md
+      - 如何設定滑價模型: how-to/backtest/set-slippage.md
+      - 如何設定交易限制: how-to/backtest/set-trading-controls.md
+      - 回測模擬參數: how-to/backtest/simulation-params.md
+    - 視覺化:
+      - 如何產生 Pyfolo 績效報表: how-to/visualization/pyfolio-tearsheet.md
+    - 因子分析:
+      - 如何執行 Alphalens 因子分析: how-to/factor-analysis/alphalens-tearsheet.md
+  - API 參考:
+    - Zipline:
+      - 生命週期函數: reference/zipline/lifecycle-functions.md
+      - context 變數: reference/zipline/context.md
+      - 股票池 (Universe): reference/zipline/universe.md
+      - 排程函數: reference/zipline/scheduling-functions.md
+      - 下單函數: reference/zipline/orders.md
+      - 資產物件: reference/zipline/assets.md
+      - 資料物件: reference/zipline/data-object.md
+      - 其他 API 參考: reference/zipline/other-api.md
+    - Pipeline:
+      - 概論: reference/pipeline/overview.md
+      - 計算元素 (Terms): reference/pipeline/terms.md
+      - 自訂因子: reference/pipeline/custom-factor.md
+      - 內建因子/濾網/分類器: reference/pipeline/built-ins.md
+      - 資料集:
+        - 概論: reference/pipeline/datasets/overview.md
+        - EquityPricing: reference/pipeline/datasets/equity-pricing.md
+        - TQDataSet / TQAltDataSet: reference/pipeline/datasets/tej-datasets.md
+        - 自訂資料集: reference/pipeline/datasets/custom-dataset.md
+    - Pyfolo:
+      - API 總覽: reference/pyfolio/api.md
+    - Alphalens:
+      - API 總覽: reference/alphalens/api.md
+    - TejToolAPI:
+      - API 認證: reference/tejtoolapi/api-authentication.md
+      - Python API 總覽: reference/tejtoolapi/python-api.md
+      - REST API 總覽: reference/tejtoolapi/rest-api.md
+      - get_history_data: reference/tejtoolapi/get-history-data.md

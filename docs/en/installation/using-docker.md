@@ -39,7 +39,7 @@ docker volume create data
 docker run -v data:/app -p 8888:8888 --name tquant tej87681088/tquant
 ```
 
-The above commands are used to download and run the `tquant` container and create a `volume` to share data.
+The above commands are used to download and run the tquant container and create a `volume` to share data.
 
 First, download the latest image via `docker pull`
 , then use `docker volume create` to create a storage space called `data`, and finally run the container via `docker run` to mount the volume to `/app` and map the local port 8888 to the container's internal port 8888 for accessing services.
@@ -89,12 +89,12 @@ If you need to update the `tquant` Docker container to the latest version, you c
     These steps will stop and delete the existing container, but since `volume` is used, the data will be retained locally and not lost.
 
 
-1. Stop and delete existing **tquant** containers.
+1. Stop and delete existing tquant containers.
 ```sh
 docker stop tquant  
 docker rm tquant
 ```
-2. Download the latest **tquant** image file.
+2. Download the latest tquant image file.
 ```sh
 docker pull tej87681088/tquant:latest  
 ```

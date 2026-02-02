@@ -1,12 +1,30 @@
 {% extends "base.html" %}
 
-{% block announce %}
- <!-- Add announcement here, including arbitrary HTML -->
- 如需最新更新，請關注 <strong>@squidfunk</strong> 在
-  <a rel="me" href="https://github.com/tejtw/TQuant-Lab">
-    <span class="twemoji">
-      {% include ".icons/fontawesome/brands/github.svg" %}
-    </span>
-    <strong>GitHub</strong>
-  </a>
+{% block header %}
+  <script>
+    /**
+     * Theme Preloader
+     * 
+     * Immediately applies the saved theme from localStorage before page render
+     * to prevent flash of wrong theme (FOUT - Flash of Unstyled Theme).
+     * 
+     * This must run synchronously in the header before any content is rendered.
+     */
+    (function() {
+      var savedTheme = localStorage.getItem('data-md-color-scheme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-md-color-scheme', savedTheme);
+      }
+    })();
+  </script>
+  {{ super() }}
 {% endblock %}
+
+{# ============================================================================
+   TQuant Lab - Main Template Override
+   
+   This template extends MkDocs Material's base template with custom features:
+   - Theme preloading script (above)
+   - Custom JavaScript: assets/javascripts/theme.js
+   - Custom CSS: assets/stylesheets/extra.css
+   ============================================================================ #}
