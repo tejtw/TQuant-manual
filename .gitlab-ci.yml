@@ -14,4 +14,4 @@ pages:
       - public
   only:
     - main
-    - feature/ci-setup
+    - feature/ci-setup 
