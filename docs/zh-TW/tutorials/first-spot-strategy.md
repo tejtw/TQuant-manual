@@ -3,6 +3,8 @@
 !!! info
     在 TQuant Lab 以 KD 指標完成從資料、回測到績效的最小可行策略（MVP）。
 
+    [**🚀 點此前往 GitHub 下載本範例 Jupyter Notebook， 跟著教學一起操作吧!**](https://github.com/tejtw/TQuant-Lab/blob/main/lecture/%E7%AC%AC%E4%B8%80%E5%80%8B%E7%8F%BE%E8%B2%A8%E7%AD%96%E7%95%A5.ipynb){ .md-button .md-button}
+
 <div class="grid cards" markdown>
 
 -   #### 1. 簡介：KD 指標與交易策略
@@ -175,6 +177,7 @@ def handle_data(context, data):
 
 ```python
 from zipline import run_algorithm
+from zipline.utils.calendar_utils import get_calendar #日曆抓取工具
 
 start_date = pd.Timestamp(start, tz='utc')
 end_date = pd.Timestamp(end, tz='utc')
@@ -187,7 +190,7 @@ results = run_algorithm(
     handle_data=handle_data,
     data_frequency='daily',
     bundle='tquant',
-    trading_calendar=bundle.trading_calendar
+    trading_calendar=get_calendar('TEJ') #指定台灣日歷
 )
 ```
 

@@ -33,12 +33,20 @@ graph TD
     LoopDay -- 無交易日 --> Analyze(analyze函數); 
     Analyze --> End[回測結束];
 
-    style Start fill:#f9f,stroke:#333,stroke-width:2px
-    style End fill:#f9f,stroke:#333,stroke-width:2px
-    style Initialize fill:#bbf,stroke:#333,stroke-width:2px
-    style BeforeTradingStart fill:#bbf,stroke:#333,stroke-width:2px
-    style HandleData fill:#bbf,stroke:#333,stroke-width:2px
-    style Analyze fill:#bbf,stroke:#333,stroke-width:2px
+    %% --- 樣式定義區 (改為邊框風格) ---
+    %% 開始與結束節點 (使用較亮的青色邊框，增加深色模式對比度)
+    style Start fill:none,stroke:#26a69a,stroke-width:2px,color:inherit
+    style End fill:none,stroke:#26a69a,stroke-width:2px,color:inherit
+    
+    %% 核心函數節點 (使用較亮的藍色邊框)
+    style Initialize fill:none,stroke:#42a5f5,stroke-width:2px,color:inherit
+    style BeforeTradingStart fill:none,stroke:#42a5f5,stroke-width:2px,color:inherit
+    style HandleData fill:none,stroke:#42a5f5,stroke-width:2px,color:inherit
+    style Analyze fill:none,stroke:#42a5f5,stroke-width:2px,color:inherit
+
+    %% 決策節點 (維持預設，或加上一個中性灰邊框)
+    style LoopDay fill:none,stroke:#90a4ae,stroke-width:2px,stroke-dasharray: 5 5,color:inherit
+    style EndDay fill:none,stroke:#90a4ae,stroke-width:2px,stroke-dasharray: 5 5,color:inherit
 ```
 
 ---
@@ -135,6 +143,7 @@ Zipline 提供了直觀的 API 來執行交易和管理投資組合：
 
 *   **下單函數** ：
     *   `order(asset, amount)`：以市價單形式買入或賣出指定數量的資產。
+    *  `order(asset, amount, style=LimitOrder(limit_price))`：限價單 (Limit Order)，指定價格成交。
     *   `order_target_percent(asset, percent)`：調整指定資產的持倉比例至目標百分比。Zipline 會自動計算需要買賣的數量。
     *   `order_target_value(asset, value)`：調整指定資產的持倉價值至目標金額。
 
