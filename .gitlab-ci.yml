@@ -4,16 +4,10 @@ pages:
   stage: deploy
   script:
     - pip install mkdocs-material
-    # 如果你有用到其他插件 (例如 git-revision-date)，請把下面這行的註解拿掉並修改
-    # - pip install mkdocs-git-revision-date-localized-plugin
-    
-    # 🔥 關鍵指令：指定你的設定檔路徑 (-f)，並強制輸出到 public 資料夾 (-d)
     - mkdocs build -f config/zh-TW/mkdocs.yml -d public
-  
   artifacts:
     paths:
       - public
-  
-only:
-  - main
-  - feature/ci-setup  # 👈 新增這行：把你的分支加進白名單
+  only:
+    - main
+    - feature/ci-setup
