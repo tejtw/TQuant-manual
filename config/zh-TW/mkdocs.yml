@@ -234,10 +234,16 @@ nav:
       - 架構原理 + 適用場景: blocks/technicals/index.md
       - 技術指標選股架構 - Code 模板: blocks/technicals/template.md
       - 案例 1：MACD 交易策略: blocks/technicals/case-macd.md
-      # - 案例 2：均線交叉策略: blocks/technical/case -moving-average.md
-      # - 案例 3：布林通道策略: blocks/technical/case-bollinger-bands.md
-      # - 常見問題: blocks/technical/faq.md
-
+      - 案例 2：乖離率（BIAS）策略: blocks/techsnicals/case-bias.md
+      - 案例 3：布林通道策略: blocks/technicals/case-bollinger.md
+      - 常見問題: blocks/technicals/faq.md
+    - 架構 C：Pipeline 因子架構 (Pipeline Factor Framework):
+      - 架構原理 + 適用場景: blocks/pipeline/index.md
+      - Pipeline 因子架構 - Code 模板: blocks/pipeline/template.md
+      - 案例 1：動能因子策略: blocks/pipeline/case-momentum.md
+      - 案例 2：跟隨大戶策略: blocks/pipeline/case-institution.md
+      - 案例 3：CounterTrend 逆勢策略: blocks/pipeline/case-countertrend.md
+      - 常見問題: blocks/pipeline/faq.md
 
 
 
