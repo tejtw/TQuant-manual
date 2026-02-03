@@ -164,17 +164,11 @@ end_date = '2023-12-31'
 # ====================================
 # 取得台灣 50 成分股
 # ====================================
+from zipline.sources.TEJ_Api_Data import get_universe
+
 print("正在取得台灣 50 成分股...")
 
-tw50 = tejapi.get(
-    'TWN/EWNPRCSTD',
-    coid='IX0001',
-    mdate={'gte': start_date, 'lte': end_date},
-    opts={'columns': ['coid', 'mdate', 'coid_new']},
-    paginate=True
-)
-
-tw50_list = list(set(tw50['coid_new'].tolist()))
+tw50_list = get_universe(start_date,end_date, idx_id='IX0002')
 print(f"台灣 50 成分股數量: {len(tw50_list)}")
 
 # 設定環境變數
@@ -207,44 +201,44 @@ from scipy import stats
 class ExpandedMomentum(CustomFactor):
     """
     Expanded Momentum: 年化斜率 × R²
-    
+
     計算過去 252 天的線性回歸：
     - 斜率：趨勢強度
     - R²：趨勢穩定性
     """
     window_length = 252
     inputs = [EquityPricing.close]
-    
+
     def compute(self, today, assets, out, close):
         # 準備時間序列 (0, 1, 2, ..., 251)
         x = np.arange(self.window_length)
-        
+
         # 初始化輸出陣列
         slopes = np.zeros(len(assets))
         r_squared = np.zeros(len(assets))
-        
+
         # 對每檔股票計算線性回歸
         for i in range(len(assets)):
             y = close[:, i]
-            
+
             # 跳過有 NaN 的股票
             if np.isnan(y).any():
                 slopes[i] = np.nan
                 r_squared[i] = np.nan
                 continue
-            
+
             # 線性回歸
             slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
-            
+
             # 年化斜率
             slopes[i] = slope * 252
-            
+
             # R²
             r_squared[i] = r_value ** 2
-        
+
         # 動量分數 = 年化斜率 × R²
         momentum_score = slopes * r_squared
-        
+
         out[:] = momentum_score
 
 
@@ -254,14 +248,14 @@ class AnnualizedVolatility(CustomFactor):
     """
     window_length = 252
     inputs = [EquityPricing.close]
-    
+
     def compute(self, today, assets, out, close):
         # 計算日報酬率
         daily_returns = np.diff(close, axis=0) / close[:-1]
-        
+
         # 年化波動率 = 日波動率 × √252
         volatility = np.nanstd(daily_returns, axis=0) * np.sqrt(252)
-        
+
         out[:] = volatility
 
 
@@ -274,22 +268,22 @@ from zipline.pipeline.filters import StaticAssets
 def make_pipeline():
     """
     建立 Pipeline
-    
+
     流程：
     1. 計算動量分數
     2. 計算波動率
     3. 篩選：動量分數 > 0
     """
     # 定義股票池（台灣 50）
-    universe = StaticAssets(symbols(tw50_list))
-    
+    universe = StaticAssets(symbols(*tw50_list))
+
     # 計算因子
     momentum = ExpandedMomentum(mask=universe)
     volatility = AnnualizedVolatility(mask=universe)
-    
+
     # 篩選：只要正動量
     screen = (momentum > 0) & universe
-    
+
     return Pipeline(
         columns={
             'momentum': momentum,
@@ -306,7 +300,7 @@ from zipline.api import (
     attach_pipeline, pipeline_output,
     order_target_percent, set_commission, set_slippage,
     record, schedule_function, date_rules, time_rules,
-    symbol, symbols
+    symbol, symbols, set_benchmark
 )
 from zipline.finance import commission, slippage
 
@@ -317,10 +311,11 @@ def initialize(context):
     # 交易成本
     set_commission(commission.PerShare(cost=0.001425, min_trade_cost=20))
     set_slippage(slippage.VolumeShareSlippage(volume_limit=0.025, price_impact=0.1))
-    
+    set_benchmark(symbol('IR0001'))  # 大盤作為基準
+
     # 附加 Pipeline
     attach_pipeline(make_pipeline(), 'momentum_pipe')
-    
+
     # 每月第一個交易日調倉
     schedule_function(
         rebalance,
@@ -335,13 +330,13 @@ def before_trading_start(context, data):
     """
     # 取得 Pipeline 結果
     output = pipeline_output('momentum_pipe')
-    
+
     # 儲存完整 output（用於計算權重）
     context.output = output
-    
+
     # 選股：所有通過篩選的股票
     context.stocks = output.index.tolist()
-    
+
     log.info(f"選股數量: {len(context.stocks)}")
 
 
@@ -352,19 +347,19 @@ def rebalance(context, data):
     if len(context.stocks) == 0:
         log.warn("無股票通過篩選")
         return
-    
+
     # ========================================
     # 計算反波動率權重
     # ========================================
     volatility_values = context.output.loc[context.stocks, 'volatility']
-    
+
     # 反波動率
     inv_vol = 1 / volatility_values
-    
+
     # 標準化為權重
     total_inv_vol = inv_vol.sum()
     target_weights = inv_vol / total_inv_vol
-    
+
     # ========================================
     # 賣出不在清單的股票
     # ========================================
@@ -372,7 +367,7 @@ def rebalance(context, data):
         if stock not in context.stocks:
             order_target_percent(stock, 0)
             log.info(f"賣出: {stock.symbol}")
-    
+
     # ========================================
     # 買入目標股票
     # ========================================
@@ -380,7 +375,7 @@ def rebalance(context, data):
         weight = target_weights[stock]
         if data.can_trade(stock):
             order_target_percent(stock, weight)
-    
+
     # ========================================
     # 記錄資訊
     # ========================================
@@ -395,9 +390,9 @@ def analyze(context, perf):
     績效分析
     """
     import matplotlib.pyplot as plt
-    
+
     fig = plt.figure(figsize=(16, 10))
-    
+
     # 圖 1: 投資組合價值
     ax1 = fig.add_subplot(311)
     perf['portfolio_value'].plot(ax=ax1, linewidth=2)
@@ -405,22 +400,22 @@ def analyze(context, perf):
     ax1.set_title('Expanded Momentum Strategy - Portfolio Performance', 
                   fontsize=14, fontweight='bold')
     ax1.grid(True, alpha=0.3)
-    
+
     # 圖 2: 累積報酬 vs 基準
     ax2 = fig.add_subplot(312)
-    
+
     cumulative_returns = (1 + perf['returns']).cumprod() - 1
     benchmark_returns = (1 + perf['benchmark_return']).cumprod() - 1
-    
+
     cumulative_returns.plot(ax=ax2, label='Strategy', linewidth=2, color='#2E86AB')
     benchmark_returns.plot(ax=ax2, label='Taiwan 50', linewidth=2, alpha=0.7, color='#A23B72')
-    
+
     ax2.set_ylabel('Cumulative Returns', fontsize=12)
     ax2.set_title('Strategy vs Taiwan 50 Index', fontsize=14, fontweight='bold')
     ax2.legend(loc='upper left', fontsize=11)
     ax2.grid(True, alpha=0.3)
     ax2.axhline(0, color='black', linewidth=0.8, linestyle='--', alpha=0.5)
-    
+
     # 圖 3: 持倉數量
     ax3 = fig.add_subplot(313)
     perf['num_positions'].plot(ax=ax3, linewidth=2, color='#F18F01')
@@ -428,7 +423,7 @@ def analyze(context, perf):
     ax3.set_xlabel('Date', fontsize=12)
     ax3.set_title('Position Count Over Time', fontsize=14, fontweight='bold')
     ax3.grid(True, alpha=0.3)
-    
+
     plt.tight_layout()
     plt.show()
 
@@ -478,21 +473,21 @@ print(f"\n詳細結果已儲存至: momentum_results.csv")
 try:
     import pyfolio as pf
     from pyfolio.utils import extract_rets_pos_txn_from_zipline
-    
+
     print("\n" + "="*60)
     print("Pyfolio 績效分析")
     print("="*60)
-    
+
     returns, positions, transactions = extract_rets_pos_txn_from_zipline(results)
     benchmark_rets = results.benchmark_return
-    
+
     pf.tears.create_full_tear_sheet(
         returns=returns,
         positions=positions,
         transactions=transactions,
         benchmark_rets=benchmark_rets
     )
-    
+
 except ImportError:
     print("\n未安裝 pyfolio，略過詳細分析")
     print("若需完整報告，請執行: pip install pyfolio")

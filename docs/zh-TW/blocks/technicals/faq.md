@@ -1011,6 +1011,6 @@ for stock in stocks:
 
 1. 檢查 [template.md](template.md) 的註解
 2. 參考三個 case study 的實作
-3. 回到 [overview.md](../overview.md) 確認是否選對架構
+3. 回到 [overview.md](../Frameworks_Overview.md) 確認是否選對架構
 
 **👉 準備好了？** 前往 [template.md](template.md) 開始開發你的策略！

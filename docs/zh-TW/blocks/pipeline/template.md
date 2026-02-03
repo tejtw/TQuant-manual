@@ -55,8 +55,8 @@ end_date = '2023-12-31'
 
 # 🔧 自定義：股票池
 # 方法 1: 台灣 50 成分股
-tw50 = tejapi.get('TWN/EWNPRCSTD', coid='IX0001', mdate={'gte': start_date, 'lte': end_date}, opts={'columns': ['coid', 'mdate', 'coid_new']}, paginate=True)
-tw50_list = list(set(tw50['coid_new'].tolist()))
+tw50_list = get_universe(start_date,end_date, idx_id='IX0002')
+print(f"台灣 50 成分股數量: {len(tw50_list)}")
 
 # 方法 2: 上市 + 上櫃
 from zipline.sources.TEJ_Api_Data import get_universe
