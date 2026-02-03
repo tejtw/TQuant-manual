@@ -106,7 +106,7 @@ os.environ['TEJAPI_KEY'] = tej_key
 # ====================================
 # 參數設定
 # ====================================
-start_date = '2010-01-01'
+start_date = '2015-01-01'
 end_date = '2025-05-27'
 back_start = '2015-01-01'  # 實際回測起始日
 rebalance_freq = 20        # 調倉頻率（天）
@@ -135,8 +135,8 @@ columns = [
     'Industry',   # 產業別
     'roi',        # 投資報酬率
     'mktcap',     # 市值
-    'r405',       # 營業利益成長率
-    'r403',       # 淨利成長率
+    'r403',       # 營業利益成長率
+    'r405',       # 淨利成長率
     'per',        # 本益比
     'r105',       # 毛利率
     'fld005'      # 董監持股比率
@@ -177,7 +177,7 @@ print(f"數據筆數: {len(data_use):,}")
 def compute_stock(date, data):
     """
     小型成長股選股函數
-    
+
     Returns:
     --------
     tickers : list
@@ -189,16 +189,16 @@ def compute_stock(date, data):
 
     # 條件 1: 小型股（市值 ≤ 平均 × 30%）
     set_1 = set(df[df['Market_Cap_Dollars'] <= df['avg_mkt'] * 0.3]['coid'])
-    
+
     # 條件 2: 高成長（淨利成長 ≥ 15%）
     set_2 = set(df[df['Net_Income_Growth_Rate_Q'] >= 15]['coid'])
-    
+
     # 條件 3: 毛利率 ≥ 產業平均
     set_3 = set(df[df['Gross_Margin_Rate_percent_TTM'] >= df['ind_gross_margin_mean']]['coid'])
-    
+
     # 條件 4: 董監持股 > 市場平均
     set_4 = set(df[df['Director_and_Supervisor_Holdings_Percentage'] > df['avg_ds_ratio']]['coid'])
-    
+
     # 條件 5: PEG < 1.0
     set_5 = set(df[df['PEG'] < 1.0]['coid'])
 
@@ -210,7 +210,7 @@ def compute_stock(date, data):
 
     filtered_df = df[df['coid'].isin(passed)]
     top_df = filtered_df.sort_values(by='PEG').head(top_n)
-    
+
     tickers = list(top_df['coid'])
     sets = [len(set_1), len(set_2), len(set_3), len(set_4), len(set_5)]
 
@@ -292,7 +292,7 @@ print('結束匯入回測資料')
 # ====================================
 from zipline.api import (
     set_slippage, set_commission, set_benchmark,
-    symbol, record, order, order_target, order_value
+    symbol, record, order, order_target, order_value, order_target_percent
 )
 from zipline.finance import commission, slippage
 from zipline import run_algorithm
@@ -317,18 +317,18 @@ def handle_data(context, data):
         # 賣出不在新名單的股票
         for i in context.last_tickers:
             if i not in context.order_tickers:
-                order_target(symbol(i), 0)
+                order_target_percent(symbol(i), 0)
 
         # 買入新名單的股票（等權重）
         for i in context.order_tickers:
-            order_target(symbol(i), 1.0 / len(context.order_tickers))
+            order_target_percent(symbol(i), 1.0 / len(context.order_tickers))
             context.dic[i] = data.current(symbol(i), 'price')
 
         record(p=context.dic)
         context.dic = {}
 
         print(f"下單日期：{data.current_dt.date()}, 擇股股票數量：{len(context.order_tickers)}, Leverage: {context.account.leverage}")
-        
+
         context.last_tickers = context.order_tickers.copy()
         context.state = False
 
@@ -341,12 +341,12 @@ def handle_data(context, data):
 
     record(tickers=context.order_tickers)
     record(Leverage=context.account.leverage)
-    
+
     # 槓桿監控：超過 1.2 時調降部位
     if context.account.leverage > 1.2:
         print(f'{data.current_dt.date()}: Over Leverage, Leverage: {context.account.leverage}')
         for i in context.order_tickers:
-            order_target(symbol(i), 1 / len(context.order_tickers))
+            order_target_percent(symbol(i), 1 / len(context.order_tickers))
 
     context.i += 1
 
@@ -355,7 +355,7 @@ def analyze(context, perf):
     plt.style.use('ggplot')
 
     fig1, axes1 = plt.subplots(nrows=3, ncols=1, figsize=(18, 15), sharex=False)
-    
+
     # 策略 vs 大盤
     axes1[0].plot(perf.index, perf['algorithm_period_return'], label='Strategy')
     axes1[0].plot(merged['mdate'], (merged['TSE_norm'] / merged['TSE_norm'].iloc[0]) - 1, label='Benchmark [TSE]')
@@ -392,6 +392,22 @@ results = run_algorithm(
     capital_base=1e5
 )
 
+
+# ====================================
+# Pyfolio 績效分析
+# ====================================
+import pyfolio as pf
+from pyfolio.utils import extract_rets_pos_txn_from_zipline
+
+returns, positions, transactions = extract_rets_pos_txn_from_zipline(results)
+benchmark_rets = results.benchmark_return
+
+pf.tears.create_full_tear_sheet(
+    returns=returns,
+    positions=positions,
+    transactions=transactions,
+    benchmark_rets=benchmark_rets
+)
 print("回測完成！")
 ```
 

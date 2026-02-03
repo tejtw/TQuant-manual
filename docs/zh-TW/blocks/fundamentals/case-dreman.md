@@ -158,6 +158,28 @@ if len(selected_tickers) == 0:
 
 ---
 
+## 🔑 執行前準備：環境變數設定
+
+本範例使用 `python-dotenv` 套件來管理敏感資訊（如 API Key），避免將金鑰直接寫死在程式碼中，以確保資訊安全。
+
+### 1. 安裝套件
+若您尚未安裝，請在notebook執行：
+```python
+!pip install python-dotenv
+```
+### 2. 建立設定檔
+請在專案的根目錄下建立一個名為 `.env` 的檔案（注意開頭有點），並填入您的 TEJ API 資訊：
+```python
+# .env 檔案內容(注意等號旁不能有空格)
+TEJAPI_KEY=你的_TEJ_API_KEY
+TEJAPI_BASE=http://api.tej.com.tw
+```
+
+### 3. 程式讀取機制
+程式碼中的 `load_dotenv()` 會自動尋找並讀取 `.env` 檔案，將其內容載入為環境變數，接著透過 `os.getenv` 取得使用。
+
+---
+
 ## 💻 完整程式碼
 ```python
 # ====================================

@@ -81,7 +81,7 @@ plt.rcParams['font.family'] = 'Arial'
 # ====================================
 # TEJ API 設定
 # ====================================
-tej_key = 'your_key'
+tej_key = '請輸入API'
 tejapi.ApiConfig.api_key = tej_key
 os.environ['TEJAPI_BASE'] = "https://api.tej.com.tw"
 os.environ['TEJAPI_KEY'] = tej_key
@@ -110,11 +110,10 @@ columns = [
     '本益比',        # P/E Ratio
     '收盤價',        # Close Price
     '流動比率',      # Current Ratio
-    '股東權益總計',  # Total Equity
+    '股東權益總額',  # Total Equity
     '負債總額',      # Total Liabilities
     '營收成長率',    # Revenue Growth Rate
     'eps',           # EPS
-    'mt_div',        # 月成交量
     '現金股利率'     # Cash Dividend Yield
 ]
 
@@ -127,7 +126,8 @@ data__ = TejToolAPI.get_history_data(
     ticker=pool,
     fin_type='A',  # 累計年報資料
     columns=columns,
-    transfer_to_chinese=True
+    transfer_to_chinese=True,
+    include_self_acc="Y"
 )
 
 print(f"數據筆數: {len(data__):,}")
@@ -178,7 +178,7 @@ def compute_stock(date, data):
     set_2 = set(df[df['流動比率_A'] > df['產業平均流動比率']]['股票代碼'])
 
     # 條件 3: 負債佔股東權益小於 20%
-    df['負債佔股東權益'] = df['負債總額_A'] / df['股東權益總計_A']
+    df['負債佔股東權益'] = df['負債總額_A'] / df['股東權益總額_A']
     set_3 = set(df[df['負債佔股東權益'] < 0.2]['股票代碼'])
 
     # 條件 4: 現金股利率大於產業平均值
@@ -226,7 +226,7 @@ def initialize(context):
         tax=0.003
     ))
     set_benchmark(symbol('IR0001'))
-    
+
     context.i = 0
     context.state = False
     context.order_tickers = []
@@ -242,18 +242,18 @@ def handle_data(context, data):
         for i in context.last_tickers:
             if i not in context.order_tickers:
                 order_target_percent(symbol(i), 0)
-        
+
         # 買入新名單的股票（等權重）
         for i in context.order_tickers:
             order_target_percent(symbol(i), 1 / len(context.order_tickers))
             curr = data.current(symbol(i), 'price')
             record(price=curr, days=context.i)
-        
+
         context.last_tickers = context.order_tickers
 
     context.state = False
     backtest_date = data.current_dt.date()
-    
+
     # 查看回測時間是否符合指定日期
     for idx, j in enumerate(modified_day):
         if backtest_date == j:
@@ -266,22 +266,22 @@ def handle_data(context, data):
 def analyze(context, perf):
     """績效分析函數"""
     fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(14, 10))
-    
+
     # 投資組合價值
     axes[0].plot(perf['portfolio_value'], label='Portfolio Value')
     axes[0].set_title('Portfolio Value')
     axes[0].legend()
-    
+
     # 累積報酬
     cumulative_returns = (1 + perf['returns']).cumprod() - 1
     axes[1].plot(perf.index, cumulative_returns, label='Portfolio')
     axes[1].plot(perf.index, perf['benchmark_period_return'], label='Benchmark')
     axes[1].set_title('Cumulative Returns: Portfolio vs Benchmark')
     axes[1].legend()
-    
+
     plt.tight_layout()
     plt.show()
-    
+
     perf.to_csv("perf_multifactor.csv")
 
 # ====================================
@@ -321,18 +321,6 @@ pf.tears.create_full_tear_sheet(
 ---
 
 ## 📊 回測結果分析
-
-### 關鍵績效指標（示例）
-
-假設回測結果如下（實際數字需執行後取得）：
-
-| 指標 | 策略 | 大盤 (IR0001) |
-| :--- | ---: | ---: |
-| **年化報酬率** | 12.5% | 8.3% |
-| **最大回撤** | -18.2% | -15.7% |
-| **夏普比率** | 1.15 | 0.85 |
-| **勝率** | 65% | - |
-| **總交易次數** | 16 | - |
 
 ### 策略特性
 

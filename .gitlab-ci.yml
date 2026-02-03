@@ -5,8 +5,9 @@ pages:
   tags:
     - windows-runner  # 請改成你剛剛在網頁上設定的 Tag
   script:
-    - pip install mkdocs-material  # 確保你的電腦有裝這個
-    - mkdocs build -d public
+    - pip install mkdocs-material
+    - cd config/zh-TW             # <--- 1. 先走進去兩層資料夾
+    - mkdocs build -d ../../public # <--- 2. 關鍵！往上兩層把網站蓋回根目錄的 public
   artifacts:
     paths:
       - public
