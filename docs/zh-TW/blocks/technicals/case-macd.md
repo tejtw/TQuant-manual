@@ -122,11 +122,16 @@ if (dif[-2] > macd[-2]) and (dif[-1] < macd[-1]) and \
 ---
 
 ## 💻 完整程式碼
+
+開始前若尚未下載talib記得獨立一個cell執行以下程式碼
+```python
+!pip install TA-Lib
+```
+
 ```python
 # ====================================
 # MACD 交易策略 - 完整實作
 # ====================================
-
 import os
 import pandas as pd
 import numpy as np
@@ -151,32 +156,45 @@ os.environ['mdate'] = f'{start_date} {end_date}'
 os.environ['ticker'] = ticker
 
 # ====================================
-# 匯入股價資料
+# 執行資料匯入 (Ingest)
 # ====================================
-# 在 Jupyter 中執行：
-# !zipline ingest -b tquant
+from zipline.data.run_ingest import simple_ingest
+
+print(f"開始匯入資料：{ticker_list}")
+print(f"期間：{start_date} ~ {end_date}")
+
+simple_ingest(
+    name='tquant',               # Bundle 名稱
+    tickers=ticker,              # 股票清單 (必須是 List)
+    start_date=start_date.replace('-', ''), # 格式通常建議 YYYYMMDD
+    end_date=end_date.replace('-', '')
+)
+
+print("資料匯入完成！")
 
 # ====================================
 # 策略函數定義
 # ====================================
 from zipline.api import (
     set_slippage, set_commission, symbol,
-    record, order_target
+    record, order_target, order_value, set_benchmark
 )
 from zipline.finance import commission, slippage
 
 def initialize(context):
     """
     初始化函數
-    
+
     設定：
     1. 交易成本
     2. 策略變數
+    3. 基準指數
     """
     # 交易成本設定
     context.set_commission(commission.PerDollar(cost=0.001425))
     context.set_slippage(slippage.VolumeShareSlippage())
-    
+    context.set_benchmark(symbol('ticker'))
+
     # 策略變數
     context.sym = symbol(ticker)
     context.i = 0
@@ -185,7 +203,7 @@ def initialize(context):
 def handle_data(context, data):
     """
     每日執行函數
-    
+
     流程：
     1. 抓取過去 35 天 K 線（26+9）
     2. 計算 MACD 指標
@@ -201,49 +219,49 @@ def handle_data(context, data):
         35,  # MACD(12,26,9) 需要 26+9=35 天
         '1d'
     )
-    
+
     # 檢查資料完整性
     if trailing_window.isnull().values.any():
         return
-    
+
     # ========================================
     # Step 2: 計算 MACD 指標
     # ========================================
     # 快線 EMA(12)
     short_ema = talib.EMA(trailing_window.values, timeperiod=12)
-    
+
     # 慢線 EMA(26)
     long_ema = talib.EMA(trailing_window.values, timeperiod=26)
-    
+
     # DIF = 快線 - 慢線
     dif = short_ema - long_ema
-    
+
     # MACD = DIF 的 9 日 EMA
     MACD = talib.EMA(dif, timeperiod=9)
-    
+
     # 柱狀圖 = DIF - MACD
     bar = dif - MACD
-    
+
     # ========================================
     # Step 3: 訊號判斷
     # ========================================
     buy = False
     sell = False
-    
+
     # 買入訊號：黃金交叉
     if (dif[-2] < MACD[-2]) and (dif[-1] > MACD[-1]) and \
        (bar[-2] < 0) and (bar[-1] > 0):
-        
+
         if not context.invested:
             buy = True
-    
+
     # 賣出訊號：死亡交叉
     elif (dif[-2] > MACD[-2]) and (dif[-1] < MACD[-1]) and \
          (bar[-2] > 0) and (bar[-1] < 0):
-        
+
         if context.invested:
             sell = True
-    
+
     # ========================================
     # Step 4: 執行交易
     # ========================================
@@ -252,13 +270,13 @@ def handle_data(context, data):
         context.invested = True
         print(f"[{data.current_dt.date()}] 黃金交叉 - 買入")
         print(f"  DIF: {dif[-1]:.2f}, MACD: {MACD[-1]:.2f}, BAR: {bar[-1]:.2f}")
-    
+
     elif sell:
         order_target(context.sym, 0)
         context.invested = False
         print(f"[{data.current_dt.date()}] 死亡交叉 - 賣出")
         print(f"  DIF: {dif[-1]:.2f}, MACD: {MACD[-1]:.2f}, BAR: {bar[-1]:.2f}")
-    
+
     # ========================================
     # Step 5: 記錄變數
     # ========================================
@@ -270,7 +288,7 @@ def handle_data(context, data):
         buy=buy,
         sell=sell
     )
-    
+
     context.i += 1
 
 def analyze(context, results):
@@ -278,9 +296,9 @@ def analyze(context, results):
     績效分析與視覺化
     """
     import matplotlib.pyplot as plt
-    
+
     fig = plt.figure(figsize=(18, 12))
-    
+
     # ========================================
     # 上圖：投資組合價值
     # ========================================
@@ -289,13 +307,13 @@ def analyze(context, results):
     ax1.set_ylabel('Portfolio Value (TWD)', fontsize=12)
     ax1.set_title('MACD Strategy - Portfolio Performance', fontsize=14, fontweight='bold')
     ax1.grid(True, alpha=0.3)
-    
+
     # ========================================
     # 中圖：股價 + 買賣點
     # ========================================
     ax2 = fig.add_subplot(312)
     results['TSMC'].plot(ax=ax2, label='Price', linewidth=2, color='black')
-    
+
     # 標記買入點
     buy_signals = results[results['buy'] == True]
     ax2.plot(
@@ -308,7 +326,7 @@ def analyze(context, results):
         markeredgewidth=2,
         markeredgecolor='darkgreen'
     )
-    
+
     # 標記賣出點
     sell_signals = results[results['sell'] == True]
     ax2.plot(
@@ -321,21 +339,21 @@ def analyze(context, results):
         markeredgewidth=2,
         markeredgecolor='darkred'
     )
-    
+
     ax2.set_ylabel('Price (TWD)', fontsize=12)
     ax2.set_title('Price Chart with Trade Signals', fontsize=14, fontweight='bold')
     ax2.legend(loc='upper left', fontsize=11)
     ax2.grid(True, alpha=0.3)
-    
+
     # ========================================
     # 下圖：MACD 指標 + 柱狀圖
     # ========================================
     ax3 = fig.add_subplot(313)
-    
+
     # 繪製 DIF 與 MACD 線
     results['dif'].plot(ax=ax3, label='DIF', linewidth=2, color='blue')
     results['MACD'].plot(ax=ax3, label='MACD', linewidth=2, color='red')
-    
+
     # 繪製買入點（在 MACD 線上）
     ax3.plot(
         buy_signals.index,
@@ -346,7 +364,7 @@ def analyze(context, results):
         markeredgewidth=2,
         markeredgecolor='darkgreen'
     )
-    
+
     # 繪製賣出點（在 MACD 線上）
     ax3.plot(
         sell_signals.index,
@@ -357,7 +375,7 @@ def analyze(context, results):
         markeredgewidth=2,
         markeredgecolor='darkred'
     )
-    
+
     # 繪製柱狀圖（雙軸）
     ax3_twin = ax3.twinx()
     colors = ["red" if i > 0 else "green" for i in results['bar']]
@@ -369,21 +387,21 @@ def analyze(context, results):
         width=0.8,
         label='MACD Histogram'
     )
-    
+
     # 設定 Y 軸標籤
     ax3.set_ylabel('MACD / DIF', fontsize=12)
     ax3_twin.set_ylabel('Histogram', fontsize=12)
     ax3.set_xlabel('Date', fontsize=12)
     ax3.set_title('MACD Indicator', fontsize=14, fontweight='bold')
-    
+
     # 合併圖例
     lines1, labels1 = ax3.get_legend_handles_labels()
     lines2, labels2 = ax3_twin.get_legend_handles_labels()
     ax3.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=11)
-    
+
     ax3.grid(True, alpha=0.3)
     ax3.axhline(0, color='black', linewidth=1, linestyle='--', alpha=0.5)
-    
+
     plt.tight_layout()
     plt.show()
 
@@ -416,13 +434,13 @@ print("\n回測完成！")
 try:
     import pyfolio as pf
     from pyfolio.utils import extract_rets_pos_txn_from_zipline
-    
+
     returns, positions, transactions = extract_rets_pos_txn_from_zipline(results)
     benchmark_rets = results.benchmark_return
 
     print("------ 大盤績效指標 ------")
     pf.show_perf_stats(benchmark_rets)
-    
+
     print("------ 策略績效 ------")
     pf.tears.create_full_tear_sheet(
         returns=returns,
@@ -430,7 +448,7 @@ try:
         transactions=transactions,
         benchmark_rets=benchmark_rets
     )
-    
+
 except ImportError:
     print("未安裝 pyfolio，略過詳細分析")
     print("若需完整報告，請執行: pip install pyfolio")

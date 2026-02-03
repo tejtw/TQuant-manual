@@ -16,7 +16,7 @@
 > **"Prices tend to revert to the mean."**  
 > 價格傾向於回歸均值。
 
-當股價過度偏離均線時，市場會產生**修正力量**，將價格拉回均線附近。這種「均值回歸」特性是乖離率策略的基礎。
+當股價過度偏離均線時，市場會產生 **修正力量* ，將價格拉回均線附近。這種「均值回歸」特性是乖離率策略的基礎。
 
 ### 策略特色
 
@@ -121,12 +121,12 @@ if condition2:
 # ====================================
 # 乖離率策略 - 完整實作
 # ====================================
-
 import os
 import pandas as pd
 import numpy as np
 import tejapi
 import matplotlib.pyplot as plt
+
 
 # ====================================
 # TEJ API 設定
@@ -146,10 +146,21 @@ os.environ['mdate'] = f'{start_date} {end_date}'
 os.environ['ticker'] = ticker
 
 # ====================================
-# 匯入股價資料
+# 執行資料匯入 (Ingest)
 # ====================================
-# 在 Jupyter 中執行：
-# !zipline ingest -b tquant
+from zipline.data.run_ingest import simple_ingest
+
+print(f"開始匯入資料：{ticker_list}")
+print(f"期間：{start_date} ~ {end_date}")
+
+simple_ingest(
+    name='tquant',               # Bundle 名稱
+    tickers=ticker,         # 股票清單 (必須是 List)
+    start_date=start_date.replace('-', ''), # 格式通常建議 YYYYMMDD
+    end_date=end_date.replace('-', '')
+)
+
+print("資料匯入完成！")
 
 # ====================================
 # Pipeline 定義（計算乖離率與高低點）
@@ -171,7 +182,7 @@ class NdaysMinLow(CustomFactor):
 def make_pipeline():
     """
     建立 Pipeline
-    
+
     輸出：
     - ema: 7 日指數移動平均
     - highesthigh: 過去 7 日最高價
@@ -184,22 +195,22 @@ def make_pipeline():
         window_length=7,
         decay_rate=1/7
     )
-    
+
     # 過去 7 日最高價（window_length=8 因為要排除今日）
     high = NdaysMaxHigh(
         inputs=[EquityPricing.close],
         window_length=8
     )
-    
+
     # 過去 7 日最低價
     low = NdaysMinLow(
         inputs=[EquityPricing.close],
         window_length=8
     )
-    
+
     # 當日收盤價
     close = EquityPricing.close.latest
-    
+
     return Pipeline(
         columns={
             'ema': ema,
@@ -226,17 +237,17 @@ def initialize(context):
     # 交易成本設定
     set_slippage(slippage.VolumeShareSlippage())
     set_commission(commission.PerShare(cost=0.001425))
-    
+
     # 設定基準
     set_benchmark(symbol(ticker))
-    
+
     # 附加 Pipeline
     attach_pipeline(make_pipeline(), 'mystrategy')
 
 def handle_data(context, data):
     """
     每日執行函數
-    
+
     流程：
     1. 從 Pipeline 取得計算好的指標
     2. 計算乖離率
@@ -247,7 +258,7 @@ def handle_data(context, data):
     # Step 1: 取得 Pipeline 輸出
     # ========================================
     pipe = pipeline_output('mystrategy')
-    
+
     # ========================================
     # Step 2: 遍歷每檔股票（本例只有一檔）
     # ========================================
@@ -257,22 +268,22 @@ def handle_data(context, data):
         highesthigh = pipe.loc[stock, 'highesthigh']
         lowestlow = pipe.loc[stock, 'lowestlow']
         close = pipe.loc[stock, 'latest']
-        
+
         # 計算乖離率
         bias = close - ema
-        
+
         # 取得當前持倉
         residual_position = context.portfolio.positions[stock].amount
-        
+
         # ========================================
         # Step 3: 訊號判斷
         # ========================================
         # 買入條件：跌破 7 日低點 + 負乖離
         condition1 = (close < lowestlow) and (bias < 0)
-        
+
         # 賣出條件：突破 7 日高點 + 正乖離 + 有持倉
         condition2 = (close > highesthigh) and (bias > 0) and (residual_position > 0)
-        
+
         # ========================================
         # Step 4: 記錄變數（用於分析）
         # ========================================
@@ -285,7 +296,7 @@ def handle_data(context, data):
             highesthigh=highesthigh,
             lowestlow=lowestlow
         )
-        
+
         # ========================================
         # Step 5: 執行交易
         # ========================================
@@ -295,7 +306,7 @@ def handle_data(context, data):
             print(f"[{data.current_dt.date()}] 買入訊號")
             print(f"  價格: {close:.2f}, EMA: {ema:.2f}, 乖離: {bias:.2f}")
             print(f"  7日低點: {lowestlow:.2f}")
-        
+
         elif condition2:
             # 賣出訊號
             order_target(stock, 0)
@@ -308,9 +319,9 @@ def analyze(context, perf):
     績效分析與視覺化
     """
     import matplotlib.pyplot as plt
-    
+
     fig = plt.figure(figsize=(18, 10))
-    
+
     # ========================================
     # 上圖：投資組合價值
     # ========================================
@@ -319,24 +330,24 @@ def analyze(context, perf):
     ax1.set_ylabel("Portfolio Value (TWD)", fontsize=12)
     ax1.set_title("BIAS Strategy - Portfolio Performance", fontsize=14, fontweight='bold')
     ax1.grid(True, alpha=0.3)
-    
+
     # ========================================
     # 下圖：價格 + 指標 + 買賣點
     # ========================================
     ax2 = fig.add_subplot(212)
-    
+
     # 繪製價格
     perf['price'].plot(ax=ax2, label='Price', linewidth=2, color='black')
-    
+
     # 繪製 7 日 EMA
     perf['ema'].plot(ax=ax2, label='7-day EMA', linewidth=1.5, color='blue', alpha=0.7)
-    
+
     # 繪製 7 日高低點
     perf['highesthigh'].plot(ax=ax2, label='7-day High', linewidth=1, color='red', alpha=0.5, linestyle='--')
     perf['lowestlow'].plot(ax=ax2, label='7-day Low', linewidth=1, color='green', alpha=0.5, linestyle='--')
-    
+
     # 標記買入點
-    buy_signals = perf[perf['con2'] == True]  # 注意：con2 是買入訊號
+    buy_signals = perf[perf['con1'] == True]  # 注意：con2 是買入訊號
     ax2.plot(
         buy_signals.index,
         buy_signals['price'],
@@ -347,9 +358,9 @@ def analyze(context, perf):
         markeredgewidth=2,
         markeredgecolor='darkgreen'
     )
-    
+
     # 標記賣出點
-    sell_signals = perf[perf['con1'] == True]  # 注意：con1 是賣出訊號
+    sell_signals = perf[perf['con2'] == True]  # 注意：con1 是賣出訊號
     ax2.plot(
         sell_signals.index,
         sell_signals['price'],
@@ -360,13 +371,13 @@ def analyze(context, perf):
         markeredgewidth=2,
         markeredgecolor='darkred'
     )
-    
+
     ax2.set_ylabel("Price (TWD)", fontsize=12)
     ax2.set_xlabel("Date", fontsize=12)
     ax2.set_title("Price Chart with BIAS Signals", fontsize=14, fontweight='bold')
     ax2.legend(loc='upper left', fontsize=10)
     ax2.grid(True, alpha=0.3)
-    
+
     plt.tight_layout()
     plt.show()
 
@@ -387,42 +398,38 @@ results = run_algorithm(
     initialize=initialize,
     bundle='tquant',
     analyze=analyze,
-    capital_base=1e4,
+    capital_base=1e7,
     handle_data=handle_data
 )
 
 print("\n回測完成！")
 
 # ====================================
-# 績效統計
+# Pyfolio 績效分析
 # ====================================
-print("\n========== 績效摘要 ==========")
+try:
+    import pyfolio as pf
+    from pyfolio.utils import extract_rets_pos_txn_from_zipline
 
-initial_value = 1e4
-final_value = results['portfolio_value'].iloc[-1]
-total_return = (final_value / initial_value - 1) * 100
-buy_hold_return = results['benchmark_period_return'].iloc[-1] * 100
+    returns, positions, transactions = extract_rets_pos_txn_from_zipline(results)
+    benchmark_rets = results.benchmark_return
 
-print(f"初始資金: {initial_value:,.0f} 元")
-print(f"最終資金: {final_value:,.0f} 元")
-print(f"策略總報酬: {total_return:.2f}%")
-print(f"買入持有報酬: {buy_hold_return:.2f}%")
-print(f"超額報酬: {(total_return - buy_hold_return):.2f}%")
+    print("------ 大盤績效指標 ------")
+    pf.show_perf_stats(benchmark_rets)
 
-# 風險指標
-max_drawdown = results['max_drawdown'].min() * 100
-print(f"\n最大回撤: {max_drawdown:.2f}%")
+    print("------ 策略績效 ------")
+    pf.tears.create_full_tear_sheet(
+        returns=returns,
+        positions=positions,
+        transactions=transactions,
+        benchmark_rets=benchmark_rets
+    )
 
-# 交易統計
-buy_count = results['con2'].sum()  # con2 是買入訊號
-sell_count = results['con1'].sum()  # con1 是賣出訊號
-
-print(f"\n買入次數: {buy_count}")
-print(f"賣出次數: {sell_count}")
-
-# 儲存結果
-results.to_csv(f'bias_results_{ticker}.csv')
-print(f"\n詳細結果已儲存至: bias_results_{ticker}.csv")
+except ImportError:
+    print("未安裝 pyfolio，略過詳細分析")
+    print("若需完整報告，請執行: pip install pyfolio")
+except Exception as e:
+    print(f"Pyfolio 分析錯誤: {e}")
 ```
 
 ---

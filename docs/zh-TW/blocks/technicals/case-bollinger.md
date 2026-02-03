@@ -145,7 +145,6 @@ if (curr_price >= upper) and (stock_position > 0):
 # ====================================
 # 布林通道策略 - 完整實作
 # ====================================
-
 import os
 import pandas as pd
 import numpy as np
@@ -161,7 +160,7 @@ os.environ['TEJAPI_KEY'] = 'your_key'
 # ====================================
 # 參數設定
 # ====================================
-start_date = '2021-04-01'
+start_date = '2015-04-01'
 end_date = '2022-12-31'
 ticker = '2409'  # 友達
 
@@ -172,8 +171,17 @@ os.environ['ticker'] = ticker
 # ====================================
 # 匯入股價資料
 # ====================================
-# 在 Jupyter 中執行：
-# !zipline ingest -b tquant
+from zipline.data.run_ingest import simple_ingest
+
+print(f"開始匯入資料：{ticker}")
+print(f"期間：{start_date} ~ {end_date}")
+
+simple_ingest(
+    name='tquant',               # Bundle 名稱
+    tickers=ticker,              # 股票清單 (必須是 List)
+    start_date=start_date.replace('-', ''), # 格式通常建議 YYYYMMDD
+    end_date=end_date.replace('-', '')
+)
 
 # ====================================
 # Pipeline 定義（計算布林通道）
@@ -185,7 +193,7 @@ from zipline.pipeline.factors import BollingerBands
 def make_pipeline():
     """
     建立 Pipeline
-    
+
     輸出：
     - upper: 布林通道上軌
     - middle: 布林通道中軌
@@ -198,10 +206,10 @@ def make_pipeline():
         window_length=20,
         k=2
     )
-    
+
     upper, middle, lower = perf.upper, perf.middle, perf.lower
     curr_price = EquityPricing.close.latest
-    
+
     return Pipeline(
         columns={
             'upper': upper,
@@ -227,21 +235,21 @@ def initialize(context):
     """
     # 記錄上次買入訊號價格
     context.last_signal_price = 0
-    
+
     # 交易成本設定
     set_slippage(slippage.VolumeShareSlippage())
     set_commission(commission.PerShare(cost=0.001425))
-    
+
     # 設定基準
     set_benchmark(symbol(ticker))
-    
+
     # 附加 Pipeline
     attach_pipeline(make_pipeline(), 'mystrategy')
 
 def handle_data(context, data):
     """
     每日執行函數
-    
+
     流程：
     1. 從 Pipeline 取得布林通道值
     2. 判斷進出場訊號
@@ -251,7 +259,7 @@ def handle_data(context, data):
     # Step 1: 取得 Pipeline 輸出
     # ========================================
     out_dir = pipeline_output('mystrategy')
-    
+
     # ========================================
     # Step 2: 遍歷每檔股票（本例只有一檔）
     # ========================================
@@ -261,14 +269,14 @@ def handle_data(context, data):
         middle = out_dir.loc[stock, 'middle']
         lower = out_dir.loc[stock, 'lower']
         curr_price = out_dir.loc[stock, 'curr_price']
-        
+
         # 取得當前狀態
         cash_position = context.portfolio.cash
         stock_position = context.portfolio.positions[stock].amount
-        
+
         # 初始化訊號
         buy, sell = False, False
-        
+
         # ========================================
         # Step 3: 記錄變數
         # ========================================
@@ -279,7 +287,7 @@ def handle_data(context, data):
             buy=buy,
             sell=sell
         )
-        
+
         # ========================================
         # Step 4: 交易邏輯
         # ========================================
@@ -292,7 +300,7 @@ def handle_data(context, data):
                 record(buy=buy)
                 print(f"[{data.current_dt.date()}] 首次買入")
                 print(f"  價格: {curr_price:.2f}, 下軌: {lower:.2f}")
-        
+
         elif stock_position > 0:
             # 情境 2：加碼買入
             if (curr_price <= lower) and \
@@ -304,7 +312,7 @@ def handle_data(context, data):
                 record(buy=buy)
                 print(f"[{data.current_dt.date()}] 加碼買入")
                 print(f"  價格: {curr_price:.2f}, 上次買入: {context.last_signal_price:.2f}")
-            
+
             # 情境 3：賣出
             elif (curr_price >= upper):
                 order_target(stock, 0)
@@ -319,9 +327,9 @@ def analyze(context, perf):
     績效分析與視覺化
     """
     import matplotlib.pyplot as plt
-    
+
     fig = plt.figure(figsize=(18, 10))
-    
+
     # ========================================
     # 上圖：投資組合價值
     # ========================================
@@ -331,21 +339,21 @@ def analyze(context, perf):
     ax1.set_title("Bollinger Bands Strategy - Portfolio Performance", 
                   fontsize=14, fontweight='bold')
     ax1.grid(True, alpha=0.3)
-    
+
     # ========================================
     # 下圖：價格 + 布林通道 + 買賣點
     # ========================================
     ax2 = fig.add_subplot(212)
-    
+
     # 繪製價格
     perf['price'].plot(ax=ax2, label='Price', linewidth=2, color='black')
-    
+
     # 繪製布林通道
     perf['upper'].plot(ax=ax2, label='Upper Band', linewidth=1.5, 
                        color='red', alpha=0.7, linestyle='--')
     perf['lower'].plot(ax=ax2, label='Lower Band', linewidth=1.5, 
                        color='green', alpha=0.7, linestyle='--')
-    
+
     # 標記買入點
     buy_signals = perf[perf['buy'] == True]
     ax2.plot(
@@ -358,7 +366,7 @@ def analyze(context, perf):
         markeredgewidth=2,
         markeredgecolor='darkgreen'
     )
-    
+
     # 標記賣出點
     sell_signals = perf[perf['sell'] == True]
     ax2.plot(
@@ -371,13 +379,13 @@ def analyze(context, perf):
         markeredgewidth=2,
         markeredgecolor='darkred'
     )
-    
+
     ax2.set_ylabel("Price (TWD)", fontsize=12)
     ax2.set_xlabel("Date", fontsize=12)
     ax2.set_title("Price Chart with Bollinger Bands", fontsize=14, fontweight='bold')
     ax2.legend(loc='upper left', fontsize=10)
     ax2.grid(True, alpha=0.3)
-    
+
     plt.tight_layout()
     plt.show()
 
@@ -393,7 +401,7 @@ print(f"期間：{start_date} ~ {end_date}")
 print("="*60)
 
 results = run_algorithm(
-    start=pd.Timestamp('2021-06-01', tz='UTC'),
+    start=pd.Timestamp('2015-06-01', tz='UTC'),
     end=pd.Timestamp('2022-12-31', tz='UTC'),
     initialize=initialize,
     bundle='tquant',
@@ -437,15 +445,15 @@ print(f"\n詳細結果已儲存至: bollinger_results_{ticker}.csv")
 try:
     import pyfolio as pf
     from pyfolio.utils import extract_rets_pos_txn_from_zipline
-    
+
     print("\n" + "="*60)
     print("Pyfolio 績效分析")
     print("="*60)
-    
+
     # 提取報酬、持倉、交易數據
     returns, positions, transactions = extract_rets_pos_txn_from_zipline(results)
     benchmark_rets = results.benchmark_return
-    
+
     # 生成完整績效報告
     pf.tears.create_full_tear_sheet(
         returns=returns,
@@ -453,7 +461,7 @@ try:
         transactions=transactions,
         benchmark_rets=benchmark_rets
     )
-    
+
 except ImportError:
     print("\n未安裝 pyfolio，略過詳細分析")
     print("若需完整報告，請執行: pip install pyfolio")

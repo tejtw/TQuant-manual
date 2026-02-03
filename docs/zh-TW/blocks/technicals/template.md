@@ -53,6 +53,19 @@ os.environ['ticker'] = ticker
 # ====================================
 # 執行此指令（在 Jupyter 中用 ! 開頭）
 # !zipline ingest -b tquant
+
+# 或是使用 simple_ingest 函數匯入資料
+from zipline.data.run_ingest import simple_ingest
+
+print(f"開始匯入資料：{ticker}")
+print(f"期間：{start_date} ~ {end_date}")
+
+simple_ingest(
+    name='tquant',               # Bundle 名稱
+    tickers=ticker,              # 股票清單 (必須是 List)
+    start_date=start_date.replace('-', ''), # 格式通常建議 YYYYMMDD
+    end_date=end_date.replace('-', '')
+)
 ```
 
 ---
