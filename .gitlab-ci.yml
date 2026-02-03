@@ -1,13 +1,11 @@
-image: python:3.9-alpine
-
 pages:
   stage: deploy
   tags:
-    - windows-runner  # 請改成你剛剛在網頁上設定的 Tag
+    - windows-runner
   script:
     - pip install mkdocs-material
-    - cd config/zh-TW             # <--- 1. 先走進去兩層資料夾
-    - mkdocs build -d ../../public # <--- 2. 關鍵！往上兩層把網站蓋回根目錄的 public
+    - cd config/zh-TW
+    - mkdocs build -d ../../public
   artifacts:
     paths:
       - public
