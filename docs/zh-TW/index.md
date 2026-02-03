@@ -20,6 +20,7 @@ TQuant Lab 具備三大核心優勢：
 -   [**核心概念**](concepts/workflow.md)：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。
 -   [**操作指南**](how-to/installation.md)：提供詳細的安裝、資料管理與回測設定教學。
 -   [**API 參考**](reference/zipline/lifecycle-functions.md)：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。
+-   [**策略積木專區**](blocks/Strategy_Blocks_Intro.md)：我們為您所設計的三大策略模板與精選範例，協助您快速開發屬於您專屬的策略!
 
 ---
 
