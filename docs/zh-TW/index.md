@@ -16,7 +16,7 @@ TQuant Lab 具備三大核心優勢：
 以下是 TQuant Lab 手冊的主要章節，點擊可快速前往：
 
 -   [**首頁**](index.md)：平台概覽與最新資訊。
--   [**教學**](tutorials/getting-started.md)：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。
+-   [**新手上路**](tutorials/getting-started.md)：從入門到實戰，逐步引導您學習 TQuant Lab 的使用方法。
 -   [**核心概念**](concepts/workflow.md)：深入理解 Zipline 引擎、Pipeline、交易日曆等關鍵理論。
 -   [**操作指南**](how-to/installation.md)：提供詳細的安裝、資料管理與回測設定教學。
 -   [**API 參考**](reference/zipline/lifecycle-functions.md)：查閱所有 Zipline、Pipeline、Pyfolio 等核心 API 的詳細文件。

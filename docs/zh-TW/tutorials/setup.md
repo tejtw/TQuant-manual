@@ -114,7 +114,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     docker logs --tail 50 <CONTAINER_ID>
     ```
 
-### 1.5 更新 tquant Docker 容器
+### 1.5 更新 TQuant Docker 容器
 
 為確保您使用的 `tquant` 環境是最新版本，請定期更新您的 Docker 容器。這些步驟會停止並刪除現有容器，但由於資料儲存在 `volume` 中，您的資料將不會遺失。
 
