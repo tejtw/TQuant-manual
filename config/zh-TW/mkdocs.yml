@@ -150,7 +150,7 @@ plugins:
 # Page tree
 nav:
   - 首頁: index.md
-  - 教學:
+  - 新手上路:
     - 新手必讀: tutorials/getting-started.md
     - 環境建置: tutorials/setup.md
     - 10分鐘體驗: tutorials/quick-demo.md
@@ -244,6 +244,8 @@ nav:
       - 案例 2：跟隨大戶策略: blocks/pipeline/case-institution.md
       - 案例 3：CounterTrend 逆勢策略: blocks/pipeline/case-countertrend.md
       - 常見問題: blocks/pipeline/faq.md
+  - 版本記錄:
+    - 版本更新記錄: release-notes.md
 
 
 

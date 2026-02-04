@@ -24,6 +24,26 @@ TQuant Lab 具備三大核心優勢：
 
 ---
 
+## 教學影片
+
+我們提供不同深度的影音教學資源，協助您快速上手：
+
+-   **[TEJ 官方 YouTube 頻道｜TQuant Lab 實戰系列 (免費)](https://www.youtube.com/watch?v=mLXH2butSZo&list=PL46YWum6BnEpw0-lhsniUEFMj7Vp76XMx)**
+    -   收錄超過 20 支詳細的功能操作影片，適合喜歡自行探索細節的使用者。內容涵蓋：
+        1.  **系統入門**：平台安裝、環境建置與 Data Collection 資料載入教學。
+        2.  **交易細節設定**：深入解說下單方式、滑價 (Slippage)、手續費 (Commission) 及交易限制設定。
+        3.  **Pipeline 因子研究**：從內建因子介紹到客製化因子 (Custom Factor) 開發，包含濾網 (Filter) 與遮罩 (Mask) 的進階應用。
+        4.  **績效分析**：回測結果視覺化與 Pyfolio 績效指標解讀。
+
+-   **[TEJ 知識金融學院｜TQuant Lab 量化投資實戰 (進階課程)](https://elearning.tejwin.com/courses/tquantlab)**
+    -   由淺入深、系統化拆解量化交易架構，總時長超過 2 小時的完整實戰課程。內容包含：
+        1.  **環境部署 (Environment)**：利用 Docker 技術快速部署跨平台量化實驗室，省去繁瑣設定。
+        2.  **數據管理 (Data)**：掌握 TEJ 獨家資料庫串接技巧，涵蓋價量、財報、月營收與法人籌碼等高含金量數據。
+        3.  **核心元件 (Core Components)**：深入解析 Zipline 框架，包含滑價與手續費設定、Pipeline 因子建構及濾器應用，讓回測更貼近真實市場。
+        4.  **策略實戰 (Strategy)**：手把手帶您實作「技術面黃金交叉」與「基本面價值選股」兩大經典策略，完整體驗從邏輯撰寫到回測驗證的全流程。
+
+---
+
 ## 相關連結
 
 - [TQuant Lab｜一站式量化研究，打造專屬於你的投資研究金鑰](https://tquant.tejwin.com/)  
