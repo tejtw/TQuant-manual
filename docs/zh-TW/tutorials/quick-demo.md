@@ -3,6 +3,8 @@
 !!! info
     本頁提供 Zipline 回測策略的 10 分鐘快速體驗指南，包括環境設定、資料載入、策略函式說明、執行回測與分析結果，幫助您快速上手 TQuant Lab。
 
+    [**🚀 點此前往 GitHub 下載本範例 Jupyter Notebook， 跟著教學一起操作吧!**](https://github.com/tejtw/TQuant-Lab/blob/main/lecture/10%E5%88%86%E9%90%98%E9%AB%94%E9%A9%97.ipynb){ .md-button .md-button}
+
 本指南將帶您透過一個簡單的「買進持有」策略，快速體驗 TQuant Lab 的核心回測功能。您將了解如何設定環境、載入資料、定義交易策略，並執行回測與分析結果。
 
 ---
@@ -28,6 +30,11 @@
     ```bash
     !zipline ingest -b tquant
     ```
+
+    !!! tip "小知識：為什麼指令前面有個驚嘆號 (!)"
+        在 Jupyter Notebook 中，開頭的 `!` (Bang) 代表這是一行 **系統指令 (Shell Command)**，而不是 Python 程式碼。
+        
+        因為 `zipline ingest` 本質上是一個安裝在電腦裡的執行檔 (CLI 工具)，加上 `!` 讓我們可以直接在 Notebook 儲存格裡呼叫它，省去切換到黑底白字終端機的麻煩。
 
 ---
 
@@ -63,13 +70,12 @@ Zipline 策略主要由四個核心函式構成：`initialize`、`handle_data`�
     from zipline.api import order, record, symbol
 
     def handle_data(context, data):
-        context.day += 1
-        if not context.has_ordered:
-            # 在第一個交易日買入 1000 股台積電
-            order(symbol("2330"), 1000)
-            context.has_ordered = True
+        context.day += 1 #記錄這是回測第幾天
+        if not context.has_ordered: #確保不會重複下單
+            order(symbol("2330"), 1000) #買入1000股台積電
+            context.has_ordered = True #指示系統已經下單
 
-        # 記錄交易日、是否已下單及台積電收盤價
+        # 紀錄交易日、是否已經下單以及台積電收盤價
         record(
             trade_days = context.day,
             has_ordered = context.has_ordered,
@@ -98,20 +104,22 @@ Zipline 策略主要由四個核心函式構成：`initialize`、`handle_data`�
 
 ### 2.4. run_algorithm
 
-*   **功能** ： **啟動** Zipline 回測引擎，整合上述函式並執行策略。
-*   **參數** ：
-    *   `start`, `end`: 回測的起始與結束日期。
-    *   `initialize`, `handle_data`, `analyze`: 傳入上述定義的函式。
-    *   `capital_base`: 初始投資金額。
-    *   `bundle`: 使用的資料 bundle 名稱。
-*   **範例** ：執行從 2018 年底到 2023 年中的回測。
+* **功能** ： **啟動** Zipline 回測引擎，整合上述函式並執行策略。
+* **參數** ：
+    * `start`, `end`: 回測的起始與結束日期。
+    * `initialize`, `handle_data`, `analyze`: 傳入上述定義的函式。
+    * `capital_base`: 初始投資金額。
+    * `bundle`: 使用的資料 bundle 名稱。
+    * `trading_calendar`: **(重要)** 指定交易行事曆，台股回測請務必使用 `get_calendar('TEJ')`。
+* **範例** ：執行從 2020 年中到 2025 年底的回測。
 
     ```python
+    from zipline.utils.calendar_utils import get_calendar # 引入行事曆工具
     from zipline import run_algorithm
     import pandas as pd
 
-    start_date = pd.Timestamp('2018-12-30', tz='utc')
-    end_date = pd.Timestamp('2023-05-26', tz='utc')
+    start_date = pd.Timestamp('2020-06-30', tz='utc')
+    end_date = pd.Timestamp('2025-12-31', tz='utc')
 
     results = run_algorithm(
         start=start_date,
@@ -121,7 +129,8 @@ Zipline 策略主要由四個核心函式構成：`initialize`、`handle_data`�
         handle_data=handle_data,
         analyze=analyze,
         data_frequency='daily',
-        bundle='tquant'
+        bundle='tquant',
+        trading_calendar=get_calendar('TEJ') # 指定使用 TEJ 台股行事曆
     )
     ```
 

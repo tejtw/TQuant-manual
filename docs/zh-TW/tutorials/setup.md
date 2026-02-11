@@ -67,6 +67,29 @@
 http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 ```
 
+### 1.3.1 進階：使用 VS Code 連線開發 (推薦)
+
+雖然 Jupyter Notebook 很方便，但使用 VS Code 可以獲得更強大的程式碼補全與除錯功能。透過 **Dev Containers** 擴充套件，您可以直接連線到 Docker 容器內部進行開發。
+
+**步驟說明：**
+
+1.  **安裝擴充套件**：
+    打開 VS Code，安裝微軟官方的 **[Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)** 擴充套件。
+
+2.  **啟動容器**：
+    確保您的 `tquant` 容器已經處於執行狀態 (Running)。
+
+3.  **連線至容器**：
+    * 點擊 VS Code 左下角的綠色按鈕 (或是按 `F1` 開啟命令列)。
+    * 輸入並選擇 **`Dev Containers: Attach to Running Container...`**。
+    * 選擇 `/tquant` 容器。
+
+4.  **開啟工作目錄**：
+    連線成功後，VS Code 會開一個新視窗。點擊 **Open Folder**，輸入 `/app` 並按下確定。現在，您就像是在本機一樣編輯容器內的檔案了！
+
+!!! tip "效率提升"
+    在 VS Code 容器環境中，您依然可以安裝自己習慣的 Python 擴充套件 (如 Pylance)，這將大幅提升撰寫策略的流暢度。
+
 ### 1.4 操作已關閉的容器 (Container)
 
 若您需要操作之前創建但已關閉的容器，請依照以下步驟：
@@ -91,7 +114,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     docker logs --tail 50 <CONTAINER_ID>
     ```
 
-### 1.5 更新 tquant Docker 容器
+### 1.5 更新 TQuant Docker 容器
 
 為確保您使用的 `tquant` 環境是最新版本，請定期更新您的 Docker 容器。這些步驟會停止並刪除現有容器，但由於資料儲存在 `volume` 中，您的資料將不會遺失。
 
@@ -114,6 +137,35 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     ```bash
     docker run -v data:/app -p 8888:8888 --name tquant tej87681088/tquant
     ```
+
+### 1.6 Docker 常見問題排除 (Troubleshooting)
+
+如果您在啟動或使用容器時遇到問題，請參考以下解決方案：
+
+??? failure "問題 1：Error response from daemon: driver failed programming external connectivity..."
+    **原因**：這通常表示您設定的 Port (8888) 已經被其他應用程式佔用了。
+    
+    **解決方法**：
+    請修改啟動指令中的 Port 映射，將冒號前的數字改為其他未被使用的 Port (例如 8889)：
+    ```bash
+    docker run -v data:/app -p 8889:8888 --name tquant tej87681088/tquant
+    ```
+    啟動後，您的 Jupyter Notebook 網址將變為 `http://127.0.0.1:8889/...`。
+
+??? failure "問題 2：回測執行到一半，核心 (Kernel) 自動重啟或崩潰"
+    **原因**：Zipline 進行回測時需要較大的記憶體，若 Docker 分配的記憶體不足 (預設通常為 2GB)，就會導致崩潰。
+    
+    **解決方法** (針對 Windows/Mac Docker Desktop)：
+    1. 開啟 Docker Desktop 的 **Settings** (齒輪圖示)。
+    2. 前往 **Resources** > **Advanced** (或 Memory)。
+    3. 將 **Memory limit** 拉高至 4GB 或 8GB 以上。
+    4. 點擊 **Apply & Restart**。
+
+??? failure "問題 3：Windows 用戶無法掛載 Volume 或權限錯誤"
+    **原因**：Windows 檔案系統權限有時會阻止容器寫入資料。
+    
+    **解決方法**：
+    建議在 Powershell 中執行指令，並確保您有管理員權限。若問題持續，請嘗試重新安裝 Docker Desktop 並確保勾選 "Use WSL 2 based engine"。
 
 ## 2. 透過 Anaconda Prompt 一鍵安裝 zipline-tej ( **推薦** )
 

@@ -55,7 +55,7 @@ Pipeline 需要從一個定義好的資料集中獲取原始數據。TQuant Lab 
 *   `TWEquityPricing`：提供台灣市場的股票價量資料，包括開、高、低、收、量 (`open`, `high`, `low`, `close`, `volume`)。
 *   `TQDataSet` / `TQAltDataSet`：提供由 TEJ 整理的財務、非財務數據，例如 `Market_Cap_Dollars` (市值)、`PER` (本益比) 等。
 
-> 詳見：[資料集 (概論)](../reference/pipeline/datasets/overview.md)
+> 詳見：[資料集 (概論)](../reference/pipeline/overview.md)
 
 ---
 

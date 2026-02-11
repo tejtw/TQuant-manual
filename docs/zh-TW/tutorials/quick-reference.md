@@ -124,6 +124,13 @@ cash = context.portfolio.cash
 shares = int(cash / price)
 order(symbol('2330'), shares)
 ```
+### 如何調整至目標權重？ (推薦)
+
+自動計算需要買賣的股數，將該股票調整至總資產的 10%。
+
+```python
+order_target_percent(symbol('2330'), 0.10)
+```
 
 詳見：[下單函數](../reference/zipline/orders.md)
 
@@ -277,8 +284,8 @@ def analyze(context, perf):
     print(f"Return: {perf['algorithm_period_return'][-1]:.2%}")
 
 run_algorithm(
-    start=datetime(2022, 1, 1),
-    end=datetime(2023, 1, 1),
+    start=pd.Timestamp('2022-01-01', tz='utc'),
+    end=pd.Timestamp('2023-01-01', tz='utc'),
     initialize=initialize,
     handle_data=handle_data,
     analyze=analyze,

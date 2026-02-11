@@ -1,0 +1,13 @@
+pages:
+  stage: deploy
+  tags:
+    - windows-runner
+  script:
+    - pip install mkdocs-material
+    - cd config/zh-TW
+    - mkdocs build -d ../../public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
