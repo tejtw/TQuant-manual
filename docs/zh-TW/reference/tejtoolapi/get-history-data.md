@@ -36,6 +36,7 @@ TejToolAPI.get_history_data(ticker, columns, transfer_to_chinese=False, start=No
 | `end` | pd.Timestamp or str | 資料結束時間 (選用) |
 | `fin_type` | iterable[str] | 決定財務資料型態：A (累積)、F (單季)、TTM (移動四季) |
 | `include_self_acc` | str | Y: 投資用財務包含自結和董事會決議數；N: 僅投資用財務 |
+| `npartitions` | int | 代表取得資料時已n家公司為一組單位，ex: 取得100家資料時設定 npartitions = 50 ,則會分成 ceil(100/50) = 2 次 分別抓取後再合併 |
 
 ---
 
