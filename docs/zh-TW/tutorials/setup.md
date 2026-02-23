@@ -167,7 +167,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     **解決方法**：
     建議在 Powershell 中執行指令，並確保您有管理員權限。若問題持續，請嘗試重新安裝 Docker Desktop 並確保勾選 "Use WSL 2 based engine"。
 
-## 2. 透過 Anaconda Prompt 一鍵安裝 zipline-tej ( **推薦** )
+<!-- ## 2. 透過 Anaconda Prompt 一鍵安裝 zipline-tej ( **推薦** )
 
 此方式適用於已安裝 Anaconda 的使用者，可透過預設的環境配置文件快速設定好運行環境。
 
@@ -204,13 +204,13 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     ```
 
     !!! note "為什麼建議使用虛擬環境？"
-        使用虛擬環境可以為不同的專案建立獨立的 Python 運行環境，有效避免不同專案間的套件衝突問題。
+        使用虛擬環境可以為不同的專案建立獨立的 Python 運行環境，有效避免不同專案間的套件衝突問題。 -->
 
-## 3. 直接透過 pip install 安裝 zipline-tej (可能會有未預期的錯誤)
+## 2. 直接透過 pip install 安裝 zipline-tej (可能會有未預期的錯誤)
 
 此方法較不推薦，因為可能會有未預期的套件相依性問題，需自行除錯。
 
-### 3.1 於本機端安裝 zipline-tej
+### 2.1 於本機端安裝 zipline-tej
 
 建議在獨立的虛擬環境中進行安裝：
 
@@ -244,19 +244,19 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 
 2.  **安裝套件** ：
 
-    #### 3.1.1 使用 pip 安裝
+    #### 2.1.1 使用 pip 安裝
 
     ```bash
     pip install zipline-tej notebook
     ```
 
-    #### 3.1.2 使用 conda 安裝 (針對 Jupyter 核心)
+    #### 2.1.2 使用 conda 安裝 (針對 Jupyter 核心)
 
     ```bash
     conda install -c conda-forge nb_conda_kernels
     ```
 
-### 3.2 於 Google Colab 使用 zipline-tej
+### 2.2 於 Google Colab 使用 zipline-tej
 
 若在 Google Colab 環境下使用，可直接執行以下指令安裝：
 
@@ -283,9 +283,9 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     matplotlib.rc('font', family='Arial Unicode MS')
     ```
 
-## 4. 檢查與更新 TQuant Lab
+## 3. 檢查與更新 TQuant Lab
 
-### 4.1 檢查版本
+### 3.1 檢查版本
 
 安裝完成後，您可以使用以下指令檢查 `zipline-tej` 的當前版本：
 
@@ -293,7 +293,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 !pip show zipline-tej
 ```
 
-### 4.2 更新至最新版本
+### 3.2 更新至最新版本
 
 為確保您使用的是最新功能與修復，請執行以下指令更新 `zipline-tej`：
 
