@@ -167,48 +167,7 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
     **解決方法**：
     建議在 Powershell 中執行指令，並確保您有管理員權限。若問題持續，請嘗試重新安裝 Docker Desktop 並確保勾選 "Use WSL 2 based engine"。
 
-<!-- ## 2. 透過 Anaconda Prompt 一鍵安裝 zipline-tej ( **推薦** )
-
-此方式適用於已安裝 Anaconda 的使用者，可透過預設的環境配置文件快速設定好運行環境。
-
-1.  **下載環境配置文件** ：
-    根據您的作業系統下載對應的 `yml` 檔案：
-    *   [Windows (zipline-tej.yml)](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/tejtw/zipline-tej/blob/main/zipline-tej.yml) ([Raw 連結](https://raw.githubusercontent.com/tejtw/zipline-tej/main/zipline-tej.yml))
-    *   [Mac (zipline-tej_mac.yml)](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/tejtw/zipline-tej/blob/main/zipline-tej_mac.yml) ([Raw 連結](https://raw.githubusercontent.com/tejtw/zipline-tej/main/zipline-tej_mac.yml))
-
-2.  **建立並啟動虛擬環境** ：
-    開啟 **Anaconda Prompt** ，將下載好的 `yml` 檔案放置於任一目錄後，執行以下指令：
-
-    ```bat
-    # Windows 使用者
-    # 將 zipline-tej.yml 檔案所在的目錄替換到 <C:\Users\username\Downloads>
-    cd <C:\Users\username\Downloads>
-
-    # 透過 yml 檔安裝所需套件並創建虛擬環境
-    conda env create -f zipline-tej.yml
-
-    # 啟動虛擬環境
-    conda activate zipline-tej
-    ```
-
-    ```bash
-    # Mac 使用者
-    # 將 zipline-tej_mac.yml 檔案所在的目錄替換到 /Users/username/Downloads
-    cd /Users/username/Downloads
-
-    # 透過 yml 檔安裝所需套件並創建虛擬環境
-    conda env create -f zipline-tej_mac.yml
-
-    # 啟動虛擬環境
-    conda activate zipline-tej
-    ```
-
-    !!! note "為什麼建議使用虛擬環境？"
-        使用虛擬環境可以為不同的專案建立獨立的 Python 運行環境，有效避免不同專案間的套件衝突問題。 -->
-
-## 2. 直接透過 pip install 安裝 zipline-tej (可能會有未預期的錯誤)
-
-此方法較不推薦，因為可能會有未預期的套件相依性問題，需自行除錯。
+## 2. 直接透過 pip install 安裝 zipline-tej
 
 ### 2.1 於本機端安裝 zipline-tej
 
@@ -232,15 +191,18 @@ http://127.0.0.1:8888/tree?token=XXXXXXXXXXXXXXXX
 
         ```bat
         # 創建虛擬環境
-        python -m venv venv
+        python -m venv .venv
 
         # 啟動虛擬環境 (Windows)
-        venv\Scripts\activate.bat
+        .venv\Scripts\activate.bat
         ```
         ```bash
         # 或 (macOS/Linux)
-        source venv/bin/activate
+        source .venv/bin/activate
         ```
+        
+    !!! note "為什麼建議使用虛擬環境？"
+        使用虛擬環境可以為不同的專案建立獨立的 Python 運行環境，有效避免不同專案間的套件衝突問題。
 
 2.  **安裝套件** ：
 
